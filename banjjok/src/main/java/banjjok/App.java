@@ -1,4 +1,4 @@
-package testSpringBoot;
+package banjjok;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan("testSpringBoot")	// 자동으로 객체조립기 생성
-@MapperScan(basePackages = "testSpringBoot.mapper")
+@ComponentScan("banjjok")	// 자동으로 객체조립기 생성
+@MapperScan(basePackages = "banjjok.mapper")
 public class App {
 
 	public static void main(String[] args) {
