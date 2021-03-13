@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"
-%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>main</title>
+<title>login.jsp</title>
 <link href="static/css/baseCSS.css" rel="stylesheet" type="text/css" />
 <link href="static/css/topMenu.css" rel="stylesheet" type="text/css" />
 <link href="static/css/footer.css" rel="stylesheet" type="text/css" />
@@ -21,42 +20,9 @@
 				style="background-image: url('static/images/soulMate_logo.png');"
 			></a>
 		</div>
-		<!-- 나비(메뉴선택 바)  -->
-		<div class="navigationWrap">
-			<ul class="navigationArea">
-				<li><a href="login">Log In</a></li>
-				<li><a href="#">Sign In</a></li>
-			</ul>
-		</div>
 	</header>
 	<!-- top 끝 -->
-	<!-- 이미지 -->
-	<div class="imgBannerWrap">
-		<!-- 호텔, 유치원, 살롱 대표이미지 -->
-		<a href="#" class="imgSlide"
-			style="background-image: url('static/images/banjjog1.jpg');"
-		>
-			<p class="textArea">SoulMate's Forest</p>
-			<p class="textArea-field">Hotel</p>
-		</a>
-		<a href="#" class="imgSlide"
-			style="background-image: url('static/images/banjjog2.jpg');"
-		>
-			<p class="textArea">SoulMate's Forest</p>
-			<p class="textArea-field">Kinder Garden</p>
-		</a>
-		<a href="#" class="imgSlide"
-			style="background-image: url('static/images/banjjog3.jpg');"
-		>
-			<p class="textArea">SoulMate's Forest</p>
-			<p class="textArea-field">Salon</p>
-		</a>
-		<!-- 이미지 슬라이드 버튼 -->
-		<div class="imageSlider">
-			<a class="prev" onclick="button_click(-1);">&#10094</a>
-			<a class="next" onclick="button_click(1);">&#10095</a>
-		</div>
-	</div>d
+로그인
 
 	<!-- Featured -->
 	<div id="featured">
@@ -67,7 +33,7 @@
 				<p>Curabitur sit amet nulla. Nam in massa. Sed vel tellus.
 					Curabitur sem urna, consequat vel, suscipit in, mattis placerat,
 					nulla. Sed ac leo.</p>
-				<a href="hotel" class="button button-style1">Go to Hotel</a>
+				<a href="#" class="button button-style1">Go to Hotel</a>
 			</section>
 			<section class="4u">
 				<span class="pennant"><span class="fa fa-kinder fa-2x"></span></span>
@@ -95,42 +61,6 @@
 		Rights reserved. </footer>
 <!-- 	<script src="js/script.js"></script> -->
 	<!-- foot 끝 -->
-	<script type="text/javascript">
-	var currSlide = 1;
-	showSlide(currSlide);
-
-	function button_click(num) {
-	  // 버튼 클릭
-	  showSlide((currSlide += num));
-	}
-
-	function showSlide(num) {
-	  // 이미지 변경
-	  const slides = document.querySelectorAll(".imgSlide");
-	  if(num < 1) {
-	    currSlide = 1;
-	  }
-	  if(num > slides.length) {
-	    currSlide = slides.length;
-	  }
-	  for(var i=0; i < slides.length ; i++) {
-	    slides[i].style.display = "none";
-	  } 
-	  slides[currSlide - 1].style.display = "block";
-	}
-
-	// top
-	function showMenu(service){
-	  const field = service.parentNode.querySelector(".drop-menu");
-	  // console.log(field);
-	  if(field.style.display != "block"){
-	    field.style.display = "block";
-	  } else {
-	    field.style.display = "none";
-	  }
-	  
-	}
-	</script>
 </body>
-</body>
+	
 </html>
