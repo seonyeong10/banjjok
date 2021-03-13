@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="banjjok.mapper.DesnMapper">
+<sql id="baseColumn">
+	DESN_ID, DESN_PW, DESN_NAME, DESN_IMG, DESN_PH, DESN_OFF, DESN_ENTER, DESN_REG, DESN_LEAVE, DESN_USE
+</sql>
+<sql id="selectColumn">
+	DESN_ID desnId, DESN_PW desnpw, DESN_NAME desnname, DESN_IMG desnimg, DESN_PH desnph, DESN_OFF desnoff, DESN_ENTER desnenter, DESN_REG DESNREG, DESN_LEAVE DESNLEAVE, DESN_USE DESNUSE
+</sql>
+<insert id="insertEmp" parameterType="banjjok.domain.DesnDTO">
+	insert into designer (<include refid="baseColumn" />)
+	values(#{desnId}, #{desnPw}, #{desnName}, #{desnImg}, #{desnPh}, #{desnOff}, #{desnEnter}, SYSDATE, null, #{desnUse})
+</insert>
+<select id="getDesnList" parameterType="banjjok.domain.DesnDTO" resultType="banjjok.domain.DesnDTO">
+	select *
+	from (
+		select ROWNUM RN, <include refid="selectColumn" />
+		from (
+			select <include refid="baseColumn" />
+			from designer
+			<trim prefix="where" prefixOverrides="AND | OR">
+				<if test="desnId != null">
+					desn_id = #{desnId}
+				</if>
+				and desn_use in(1, 2, 3)
+			</trim>
+		)
+	)
+</select>
+</mapper>

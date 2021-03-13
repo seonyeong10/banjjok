@@ -82,7 +82,7 @@
 				<p>Curabitur sit amet nulla. Nam in massa. Sed vel tellus.
 					Curabitur sem urna, consequat vel, suscipit in, mattis placerat,
 					nulla. Sed ac leo.</p>
-				<a href="salonInfo.html" class="button button-style1">Go to
+				<a href="/salon" class="button button-style1">Go to
 					Salon</a>
 			</section>
 
