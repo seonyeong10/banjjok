@@ -124,7 +124,7 @@ body, html {
       <h5>Soda</h5>
       <p class="w3-text-grey">Coke, Sprite, Fanta, etc. 2.50</p>
     </div>  
-    <img src="/w3images/coffeehouse2.jpg" style="width:100%;max-width:1000px;margin-top:32px;">
+    <img src="static/images/hotel1.jpg" style="width:100%;max-width:1000px;margin-top:32px;">
   </div>
 </div>
 
