@@ -57,7 +57,7 @@
 		<!-- 하단 나비 -->
 		<div id="bottomWrapper">
 			<ul>
-				<li><a href="#">Sign In</a></li>
+				<li><a href="signUp">Sign Up</a></li>
 				<li><a href="#">Find ID</a></li>
 				<li><a href="#">Find Password</a></li>
 			</ul>

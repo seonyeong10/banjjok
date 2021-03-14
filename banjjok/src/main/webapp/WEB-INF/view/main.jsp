@@ -27,7 +27,7 @@
 			<ul class="navigationArea">
 				<c:if test="${empty authInfo }">
 					<li><a href="login">Log In</a></li>
-					<li><a href="#">Sign In</a></li>
+					<li><a href="signUp">Sign Up</a></li>
 				</c:if>
 				<c:if test="${!empty authInfo }">
 					<li>${authInfo.userId }님 환영합니다.</li>
