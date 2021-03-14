@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
+Built-By: kjs63
+Build-Jdk: 15.0.1
 Implementation-Title: testSpringBoot Maven Webapp
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: 김선영
 Implementation-Vendor-Id: sp4
-Build-Jdk: 1.8.0_261
 Implementation-URL: http://www.example.com
 Created-By: Maven Integration for Eclipse
 
