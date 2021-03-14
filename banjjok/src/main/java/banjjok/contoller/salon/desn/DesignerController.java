@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import banjjok.command.DesnCommand;
+import banjjok.service.salon.DesnListService;
 import banjjok.service.salon.desn.DesnRegistService;
 
 @Controller
@@ -19,10 +20,13 @@ import banjjok.service.salon.desn.DesnRegistService;
 public class DesignerController {
 	@Autowired
 	DesnRegistService desnRegistService;
+	@Autowired
+	DesnListService desnListService;
 	@ModelAttribute
 	public DesnCommand setDesnCommand() {
 		return new DesnCommand();
 	}
+	
 	@RequestMapping(value = "regist", method = RequestMethod.GET)
 	public String desnRegist() {
 		return "salon/designer/desnForm";
@@ -35,5 +39,10 @@ public class DesignerController {
 		Integer cnt = desnRegistService.registDesn(desnCommand, model, session);
 		if(cnt == null) return "salon/designer/desnForm";
 		return "redirect:/salon";
+	}
+	@RequestMapping(value = "myPage", method = RequestMethod.GET)
+	public String myPage(Model model) {
+//		desnListService.desnList(model);
+		return "salon/myPage";
 	}
 }

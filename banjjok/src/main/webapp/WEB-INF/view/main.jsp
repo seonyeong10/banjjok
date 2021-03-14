@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
 %>
+<%@ include file="include/include.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,8 +25,14 @@
 		<!-- 나비(메뉴선택 바)  -->
 		<div class="navigationWrap">
 			<ul class="navigationArea">
-				<li><a href="login">Log In</a></li>
-				<li><a href="#">Sign In</a></li>
+				<c:if test="${empty authInfo }">
+					<li><a href="login">Log In</a></li>
+					<li><a href="#">Sign In</a></li>
+				</c:if>
+				<c:if test="${!empty authInfo }">
+					<li>${authInfo.userId }님 환영합니다.</li>
+					<li><a href="/main/logout">Log Out</a></li>
+				</c:if>
 			</ul>
 		</div>
 	</header>

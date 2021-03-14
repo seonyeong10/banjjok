@@ -8,33 +8,12 @@
 <meta charset="UTF-8">
 <title>salonMain</title>
 <link href="static/css/baseCSS.css" rel="stylesheet" type="text/css" />
-<link href="static/css/topMenu.css" rel="stylesheet" type="text/css" />
 <link href="static/css/footer.css" rel="stylesheet" type="text/css" />
 <link href="static/css/salonInfo.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
 </head>
 <body>
-	<!-- top -->
-	<header>
-		<!-- 로고  -->
-		<div class="logoArea">
-			<a href="main" class="logoImage"
-				style="background-image: url('static/images/soulMate_logo.png');"
-			></a>
-		</div>
-		<!-- 나비(메뉴선택 바)  -->
-		<div class="navigationWrap">
-			<ul class="navigationArea">
-				<li><a href="#">Resevation</a></li>
-				<li><a href="#">Designer</a></li>
-				<li><a href="#">Review</a></li>
-				<li><a href="#">My Page</a></li>
-				<li><a href="staffForm.html">Add menu</a></li>
-				<li><a href="#">Log out</a></li>
-			</ul>
-		</div>
-	</header>
-	<!-- top 끝 -->
+	<%@ include file="../include/top.jsp" %>
 	<div class="contentWrap">
 		<!-- Content -->
 		<div class="content">

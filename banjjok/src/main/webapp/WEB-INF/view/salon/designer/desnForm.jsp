@@ -7,33 +7,13 @@
 <meta charset="UTF-8">
 <title>desnForm</title>
 <link href="../static/css/baseCSS.css" rel="stylesheet" type="text/css" />
-<link href="../static/css/topMenu.css" rel="stylesheet" type="text/css" />
 <link href="../static/css/footer.css" rel="stylesheet" type="text/css" />
 <link href="../static/css/memberForm.css" rel="stylesheet"
 	type="text/css"
 />
 </head>
 <body>
-	<!-- top -->
-	<header>
-		<!-- 로고  -->
-		<div class="logoArea">
-			<a href="main" class="logoImage"
-				style="background-image: url('../static/images/soulMate_logo.png');"
-			></a>
-		</div>
-		<!-- 나비(메뉴선택 바)  -->
-		<div class="navigationWrap">
-			<ul class="navigationArea">
-				<li><a href="#">Resevation</a></li>
-				<li><a href="#">Designer</a></li>
-				<li><a href="#">Review</a></li>
-				<li><a href="#">My Page</a></li>
-				<li><a href="#">Add menu</a></li>
-				<li><a href="#">Log out</a></li>
-			</ul>
-		</div>
-	</header>
+	<%@ include file="../../include/top.jsp" %>
 	<div class="member-regist-wrap">
 		<div class="title">
 			<h2>직원등록</h2>
