@@ -40,7 +40,7 @@
 	<!-- 이미지 -->
 	<div class="imgBannerWrap">
 		<!-- 호텔, 유치원, 살롱 대표이미지 -->
-		<a href="#" class="imgSlide"
+		<a href="hotel" class="imgSlide"
 			style="background-image: url('static/images/banjjog1.jpg');"
 		>
 			<p class="textArea">SoulMate's Forest</p>
