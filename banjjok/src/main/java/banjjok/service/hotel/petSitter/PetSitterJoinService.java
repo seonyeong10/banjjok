@@ -21,14 +21,13 @@ import banjjok.mapper.PetSitterMapper;
 
 @Service
 @Component
-@Transactional
 public class PetSitterJoinService {
 	@Autowired
 	PasswordEncoder passwordEncoder;
 	@Autowired
 	PetSitterMapper petSitterMapper;
 	
-	public Integer insertSitter(PetSitterCommand petSitterCommand, Model model, HttpSession session) {
+	public Integer insertSitter(PetSitterCommand petSitterCommand, Model model, HttpSession session) throws Exception{
 		if(!petSitterCommand.isEqualPw()) {
 			model.addAttribute("pwErr", "비밀번호가 일치하지 않습니다.");
 			return null;
@@ -58,25 +57,22 @@ public class PetSitterJoinService {
 					e.printStackTrace();
 				}
 			} else {
-//				model.addAttribute("noImg", "이미지를 첨부해주세요.");
+				model.addAttribute("noImg", "이미지를 첨부해주세요.");
 			}
 			petSitterDTO.setSitterImg(sitterImg);
 		}
 		
+		petSitterDTO.setSitterPh(petSitterCommand.getSitterPh());
 		petSitterDTO.setSitterOff(petSitterCommand.getSitterOff());
-		Timestamp sitterReg = Timestamp.valueOf(petSitterCommand.getSitterReg());
-		petSitterDTO.setSitterReg(sitterReg);
+//		Timestamp sitterReg = Timestamp.valueOf(petSitterCommand.getSitterReg());
+//		petSitterDTO.setSitterReg(sitterReg);
 		Timestamp sitterEnter = Timestamp.valueOf(petSitterCommand.getSitterEnter());
 		petSitterDTO.setSitterEnter(sitterEnter);
-		try {
-			cnt = petSitterMapper.insertSitter(petSitterDTO);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		cnt = petSitterMapper.insertSitter(petSitterDTO);
+		System.out.println("dto2 : " + petSitterDTO.getSitterId());
 		if(cnt == null) {
 			// 인서트 안됨
-			model.addAttribute("duplicate_sitterId", "사용중인 아이디입니다.");
+			model.addAttribute("duplicateId", "사용중인 아이디입니다.");
 		}
 		return cnt;
 	}

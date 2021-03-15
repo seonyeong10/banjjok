@@ -12,25 +12,32 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import banjjok.command.PetSitterCommand;
 import banjjok.service.hotel.petSitter.PetSitterJoinService;
+import banjjok.service.hotel.petSitter.PetSitterListService;
 
 @Controller
-
 @RequestMapping("hotel")
 public class PetSitterController {
 	@Autowired
 	PetSitterJoinService petSitterJoinService;
+	@Autowired
+	PetSitterListService petSitterListService;
 	
 	@RequestMapping("registSitter")
 	public String registSitter() {
 		return "hotel/petSitter/petSitterForm";
 	}
 	@RequestMapping(value = "sitterJoin", method = RequestMethod.POST)
-	public String sitterJoin(@Validated PetSitterCommand sitterCommand, BindingResult result, Model model, HttpSession session) {
+	public String sitterJoin(@Validated PetSitterCommand sitterCommand, BindingResult result, Model model, HttpSession session) throws Exception {
 		Integer cnt = petSitterJoinService.insertSitter(sitterCommand, model, session);
 		if(result.hasErrors() || cnt == null) {
 			return "hotel/petSitter/petSitterForm";
 		}
-		return "redirect:/";
+		return "redirect:/hotel";
+	}
+	@RequestMapping("sitterList")
+	public String sitterList(Model model, HttpSession session) throws Exception {
+		petSitterListService.sitterList(model, session);
+		return "hotel/petSitter/petSitterList";
 	}
 }
 

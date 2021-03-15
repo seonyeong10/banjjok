@@ -12,8 +12,8 @@
 <!-- top -->
 	<header>
 		<!-- 로고  -->
-		<div class="logoArea">
-			<a href="<c:url value='/'/>" class="logoImage"
+		<div class="logoAreaH">
+			<a href="<c:url value='/'/>" class="logoImageH"
 				style="background-image: url('../static/images/soulMate_logo.png');"
 			></a>
 		</div>
@@ -21,7 +21,7 @@
 		<div class="navigationWrap">
 			<ul class="navigationArea">
 				<li><a href="#">Booking</a></li>
-				<li><a href="#">Pet Sitter</a></li>
+				<li><a href="/hotel/sitterList">Pet Sitter</a></li>
 				<li><a href="#">Review</a></li>
 				<li><a href="#">Log out</a></li>
 			</ul>

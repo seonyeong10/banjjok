@@ -124,7 +124,7 @@ select {
 
 
 /* 에러메세지 */
-
+span {color: red;}
 .error_next_box {
     margin-top: 9px;
     font-size: 12px;

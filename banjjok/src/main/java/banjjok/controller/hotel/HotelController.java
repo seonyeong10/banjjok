@@ -16,13 +16,17 @@ import banjjok.command.LoginCommand;
 public class HotelController {
 	@RequestMapping(value = "hotel", method = RequestMethod.GET)
 	public String hotel(@Validated LoginCommand loginCommand, BindingResult result, HttpSession session, Model model) throws Exception {
-		//로그인 안 했다면 로그인 페이지로
-		if(result.hasErrors()) {
-			return "redirect:login";
-		}
-		
+//		//로그인 안 했다면 로그인 페이지로
+//		if(result.hasErrors()) {
+//			return "redirect:login";
+//		}else {
 		//로그인 했다면 호텔메인으로
 		return "/hotel/hotelMain";
+//		}
+	}
+	@RequestMapping(value="sitterInfo", method = RequestMethod.GET)
+	public String sitterInfo() {
+		return "";
 	}
 }
 
