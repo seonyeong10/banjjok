@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="banjjok.mapper.PetSitterMapper">
+<sql id="baseColumn">
+	SITTER_ID, SITTER_PW, SITTER_NAME, SITTER_IMG, SITTER_PH, SITTER_OFF, 
+	SITTER_ENTER, SITTER_REG, SITTER_LEAVE, SITTER_USE
+</sql>
+<insert id="PetSitterMapper" parameterType="banjjok.domain.PetSitterDTO">
+	insert into pet_sitter (<include refid="baseColumn" />)
+	values #{sitterId},#{sitterPw},#{sitterName},#{sitterImg},#{sitterPh},#{sitterOff},#{sitterEnter},#{sitterReg},null,null
+</insert>
+</mapper>

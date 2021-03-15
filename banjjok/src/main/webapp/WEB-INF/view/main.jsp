@@ -63,7 +63,7 @@
 			<a class="prev" onclick="button_click(-1);">&#10094</a>
 			<a class="next" onclick="button_click(1);">&#10095</a>
 		</div>
-	</div>d
+	</div>
 
 	<!-- Featured -->
 	<div id="featured">
