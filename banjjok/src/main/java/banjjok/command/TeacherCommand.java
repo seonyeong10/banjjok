@@ -24,7 +24,7 @@ public class TeacherCommand {
 	String tEmail;
 	@NotEmpty(message = "Enter the Entrada")
 	String tJoin;
-	@NotEmpty(message = "Collect the Teacher Photo")
+	
 	MultipartFile tPhoto;
 	@NotEmpty(message = "Allocate the Teacher's position")
 	String cCode;

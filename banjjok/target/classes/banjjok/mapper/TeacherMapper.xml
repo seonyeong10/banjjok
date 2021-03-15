@@ -6,5 +6,9 @@
 <sql id="base">
 	T_ID, C_CODE, T_NAME, T_PW, T_PHOTO, T_PH, T_STATE, T_EMAIL, SHOP_CODE, T_JOIN, T_REGIST, T_RESIGN, T_NIC
 </sql>
-
+<insert id="teacherInsert" parameterType="banjjok.domain.TeacherDTO">
+	insert into teacher (<include refid="base" />) 
+	values(#{tId}, #{cCode}, #{tName}, #{tPw}, #{tPhoto}, #{tPh}, 
+			#{tState}, #{tEmail}, #{shopCode}, #{tJoin}, sysdate, null, null)
+</insert>
 </mapper>
