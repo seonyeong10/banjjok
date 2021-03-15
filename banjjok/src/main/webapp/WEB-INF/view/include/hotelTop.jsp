@@ -20,17 +20,10 @@
 		<!-- 나비(메뉴선택 바)  -->
 		<div class="navigationWrap">
 			<ul class="navigationArea">
-				<li><a href="#">Resevation</a></li>
-				<li><a href="#">Designer</a></li>
+				<li><a href="#">Booking</a></li>
+				<li><a href="#">Pet Sitter</a></li>
 				<li><a href="#">Review</a></li>
-				<li><a href="<c:url value='/salon/myPage'/>">My Page(디자이너)</a></li>
-				<li><a href="<c:url value='/service/addService'/>">Add menu</a></li>
-				<c:if test="${empty authInfo }">
-				<li><a href="<c:url value='/login'/>">Log In</a></li>
-				</c:if>
-				<c:if test="${!empty authInfo }">
-				<li><a href="/main/logout">Log out</a></li>
-				</c:if>
+				<li><a href="#">Log out</a></li>
 			</ul>
 		</div>
 	</header>

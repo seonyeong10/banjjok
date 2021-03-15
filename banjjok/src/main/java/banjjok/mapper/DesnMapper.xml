@@ -28,4 +28,13 @@
 		)
 	)
 </select>
+<update id="updateDesn" parameterType="banjjok.domain.DesnDTO" >
+	update designer
+	set desn_name = #{desnName}, desn_img = #{desnImg}
+	where desn_id = #{desnId}
+</update>
+<delete id="deleteDesn" parameterType="banjjok.domain.DesnDTO" >
+	delete from designer
+	where desn_id = #{desnId}
+</delete>
 </mapper>
