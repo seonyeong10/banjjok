@@ -7,11 +7,6 @@
 <meta charset="UTF-8">
 <title>kinderGartenMain</title>
 
-<link href="static/css/baseCSS.css" rel="stylesheet" type="text/css" />
-<link href="static/css/topMenu.css" rel="stylesheet" type="text/css" />
-<link href="static/css/footer.css" rel="stylesheet" type="text/css" />
-<link href="https://user.fontawesome.com/releases/v5.15.2.css/all.css" rel="stylesheet" />
-
 <style>
 .mainmenu {
 	display : flex;
@@ -44,7 +39,7 @@ div.mm{
 <!-- content -->
 <div class="content">
 	<div class="ct" id="about">
-		<h6 class="about title">About Kindergarten</h6>
+		<div class="about title"><h6 class="about title">About Kindergarten</h6></div>
 		<div class="about content">
 			Our half forest kindergarten is the place where dogs live in groups for the first time away from their guardians. 
 			Through this, your pet can see, touch, feel, and experience many things. 
@@ -54,7 +49,8 @@ div.mm{
 		</div>
 	</div>
 	<div class="ct" id="program">
-		
+		<div class="program title"><h6 class="program title">Our Program</h6></div>
+		<div></div>
 	</div>
 	<div class="ct" id="teacher"></div>
 	<div class="ct" id="reservation"></div>
