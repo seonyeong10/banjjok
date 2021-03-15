@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="banjjok.mapper.TeacherMapper" >
+
+<sql id="base">
+	T_ID, C_CODE, T_NAME, T_PW, T_PHOTO, T_PH, T_STATE, T_EMAIL, SHOP_CODE, T_JOIN, T_REGIST, T_RESIGN, T_NIC
+</sql>
+
+</mapper>
