@@ -48,7 +48,7 @@
      </div>
 <!-- 회원가입 폼 끝 -->
 	<!-- foot -->
-		<footer> SoulMate's Forest 02.125.7979 Copyright &copy All Rights reserved. </footer>
+		<footer> SoulMate's Forest 02.125.7979 Copyright & copy All Rights reserved. </footer>
 <!-- 	<script src="js/script.js"></script> -->
 	<!-- foot 끝 -->
 </body>
