@@ -12,4 +12,6 @@ import banjjok.domain.DesnDTO;
 public interface DesnMapper {
 	public Integer insertEmp(DesnDTO dto) throws Exception;
 	public List<DesnDTO> getDesnList(DesnDTO dto) throws Exception;
+	public Integer updateDesn(DesnDTO dto) throws Exception;
+	public Integer deleteDesn(DesnDTO dto) throws Exception;
 }

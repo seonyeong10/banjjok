@@ -92,7 +92,8 @@
 				</div>
 				<div class="mem-element">
 					<p class="element-name">정기 휴무일</p>
-					<span class="element-value"> <select name="desnOff">
+					<span class="element-value">
+						<select name="desnOff">
 							<option>휴무일을 선택하세요.</option>
 							<option value="0">매주 일요일</option>
 							<option value="1">매주 월요일</option>

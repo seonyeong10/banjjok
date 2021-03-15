@@ -51,17 +51,17 @@
 							<li><a href="designerInfo.html">
 									<img src="/static/salon/designer/upload/0fedce04b2f447c58ed07fc5ef97aa62.jpg" alt="face" />
 								</a>
-								<p>정바름 원장</p></li>
+								<p>aaaa 원장</p></li>
 							<li><img src="#" alt="face" />
-								<p>정바름 원장</p></li>
+								<p>bbbb 원장</p></li>
 							<li><img src="#" alt="face" />
-								<p>정바름 원장</p></li>
+								<p>cccc 원장</p></li>
 							<li><img src="#" alt="face" />
-								<p>정바름 원장</p></li>
+								<p>dddd 원장</p></li>
 							<li><img src="#" alt="face" />
-								<p>정바름 원장</p></li>
+								<p>eeee 원장</p></li>
 							<li><img src="#" alt="face" />
-								<p>정바름 원장</p></li>
+								<p>ffff 원장</p></li>
 							<li class="add-designer-button">
 								<!-- 디자이너 등록버튼 -->
 								<a href="/salon/regist"><span class="fa fa-user-plus fa-3x"></span></a>

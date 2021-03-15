@@ -10,9 +10,14 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import banjjok.command.DesnCommand;
 import banjjok.service.salon.DesnListService;
+import banjjok.service.salon.ImgDelService;
+import banjjok.service.salon.desn.DesnDelService;
+import banjjok.service.salon.desn.DesnInfoService;
+import banjjok.service.salon.desn.DesnModifyService;
 import banjjok.service.salon.desn.DesnRegistService;
 
 @Controller
@@ -21,7 +26,13 @@ public class DesignerController {
 	@Autowired
 	DesnRegistService desnRegistService;
 	@Autowired
-	DesnListService desnListService;
+	DesnInfoService desnInfoService;
+	@Autowired
+	DesnModifyService desnModifyService;
+	@Autowired
+	ImgDelService imgDelService;
+	@Autowired
+	DesnDelService desnDelService;
 	@ModelAttribute
 	public DesnCommand setDesnCommand() {
 		return new DesnCommand();
@@ -40,9 +51,24 @@ public class DesignerController {
 		if(cnt == null) return "salon/designer/desnForm";
 		return "redirect:/salon";
 	}
-	@RequestMapping(value = "myPage", method = RequestMethod.GET)
-	public String myPage(Model model) {
-//		desnListService.desnList(model);
+	@RequestMapping(value = "myPage", method = RequestMethod.GET)  
+	public String myPage(Model model, HttpSession session) throws Exception {
+		desnInfoService.getInfo(model, session);
 		return "salon/myPage";
+	}
+	@RequestMapping(value = "desnModify", method = RequestMethod.POST)
+	public String modifyForm(@Validated DesnCommand desnCommand, BindingResult result, Model model, HttpSession session) throws Exception {
+		String location = desnModifyService.desnModify(desnCommand, model, session);
+		return location;
+	}
+	@RequestMapping(value = "imgDel", method = RequestMethod.POST)
+	public String imgDelete(@RequestParam(value = "imgFile") String imgFile, Model model, HttpSession session) {
+		imgDelService.imgDel(imgFile, model, session);
+		return "salon/imgDel";
+	}
+	@RequestMapping(value = "desnDel", method = RequestMethod.POST)
+	public String desnDel(DesnCommand desnCommand, HttpSession session) throws Exception {
+		String location = desnDelService.desnDelete(desnCommand, session);
+		return location;
 	}
 }

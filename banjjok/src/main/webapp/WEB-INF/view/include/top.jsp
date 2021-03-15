@@ -24,8 +24,13 @@
 				<li><a href="#">Designer</a></li>
 				<li><a href="#">Review</a></li>
 				<li><a href="<c:url value='/salon/myPage'/>">My Page(디자이너)</a></li>
-				<li><a href="#">Add menu</a></li>
-				<li><a href="#">Log out</a></li>
+				<li><a href="<c:url value='/service/addService'/>">Add menu</a></li>
+				<c:if test="${empty authInfo }">
+				<li><a href="<c:url value='/login'/>">Log In</a></li>
+				</c:if>
+				<c:if test="${!empty authInfo }">
+				<li><a href="/main/logout">Log out</a></li>
+				</c:if>
 			</ul>
 		</div>
 	</header>
