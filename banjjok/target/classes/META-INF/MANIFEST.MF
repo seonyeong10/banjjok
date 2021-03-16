@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
+Built-By: kjs63
+Build-Jdk: 15.0.1
 Implementation-Title: banjjok Maven Webapp
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: ezen
 Implementation-Vendor-Id: sp4
-Build-Jdk: 1.8.0_241
 Implementation-URL: http://www.example.com
 Created-By: Maven Integration for Eclipse
 

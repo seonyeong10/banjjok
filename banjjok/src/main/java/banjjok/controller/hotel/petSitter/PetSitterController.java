@@ -7,10 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import banjjok.command.PetSitterCommand;
+import banjjok.service.hotel.petSitter.PetSitterInfoService;
 import banjjok.service.hotel.petSitter.PetSitterJoinService;
 import banjjok.service.hotel.petSitter.PetSitterListService;
 
@@ -21,6 +23,8 @@ public class PetSitterController {
 	PetSitterJoinService petSitterJoinService;
 	@Autowired
 	PetSitterListService petSitterListService;
+	@Autowired
+	PetSitterInfoService petSitterInfoService;
 	
 	@RequestMapping("registSitter")
 	public String registSitter() {
@@ -39,8 +43,9 @@ public class PetSitterController {
 		petSitterListService.sitterList(model);
 		return "hotel/petSitter/petSitterList";
 	}
-	@RequestMapping(value = "sitterInfo", method = RequestMethod.GET)
-	public String sitterInfo(Model model) {
+	@RequestMapping(value = "sitterInfo/{sitterId}", method = RequestMethod.GET)
+	public String sitterInfo(@PathVariable(value="sitterId")String sitterId, Model model) throws Exception {
+		petSitterInfoService.sitterInfo(sitterId, model);
 		return "hotel/petSitter/petSitterInfo";
 	}
 }
