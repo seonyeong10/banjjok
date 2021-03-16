@@ -35,9 +35,13 @@ public class PetSitterController {
 		return "redirect:/hotel";
 	}
 	@RequestMapping("sitterList")
-	public String sitterList(Model model, HttpSession session) throws Exception {
-		petSitterListService.sitterList(model, session);
+	public String sitterList(Model model) throws Exception {
+		petSitterListService.sitterList(model);
 		return "hotel/petSitter/petSitterList";
+	}
+	@RequestMapping(value = "sitterInfo", method = RequestMethod.GET)
+	public String sitterInfo(Model model) {
+		return "hotel/petSitter/petSitterInfo";
 	}
 }
 

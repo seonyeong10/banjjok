@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@charset "UTF-8";
 /* 레이아웃 틀 */
 html {
     height: 100%;
@@ -154,15 +155,15 @@ span {color: red;}
     cursor: pointer;
     color: #fff;
 /*     background-color: #08a600; */
-	background: linear-gradient(125deg,#04B486,#DA81F5,#FFBF00);
-	cursor:pointer;
-  	transition: 0.4s;
-  	position:relative;
-  	font-weight: bold;
-	border:none;
-	cursor:pointer;
-	transition: 0.4s;
-	display:inline;
+   background: linear-gradient(125deg,#04B486,#DA81F5,#FFBF00);
+   cursor:pointer;
+     transition: 0.4s;
+     position:relative;
+     font-weight: bold;
+   border:none;
+   cursor:pointer;
+   transition: 0.4s;
+   display:inline;
     font-size: 20px;
     font-family: Dotum,'돋움',Helvetica,sans-serif;
 }
