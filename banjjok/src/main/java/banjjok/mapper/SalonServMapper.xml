@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="banjjok.mapper.SalonServMapper">
+<sql id="baseColumn">
+	SERVICE_CODE, SERVICE_CATEG, SERVICE_NAME, SERVICE_FEE, SERVICE_OPT, SERVICE_TIME, SERVICE_DESC, SERVICE_TARGET 
+</sql>
+<sql id="listColumn">
+	SERVICE_CODE SERVICECODE, SERVICE_CATEG SERVICECATEG, SERVICE_NAME SERVICENAME, SERVICE_FEE SERVICEFEE, SERVICE_OPT SERVICEOPT, SERVICE_TIME SERVICETIME, SERVICE_DESC SERVICEDESC, SERVICE_TARGET SERVICETARGET 
+</sql>
+<select id="getCode" resultType="string">
+	select lpad(SUBSTR(nvl(max(service_code),1)+1,7),3,'0') from service_salon
+</select>
+<insert id="insertMenu" parameterType="banjjok.domain.SalonServDTO">
+	insert into service_salon(<include refid="baseColumn" />)
+	values(#{serviceCode}, #{serviceCateg}, #{serviceName}, #{serviceFee}, #{serviceOpt}, #{serviceTime}, #{serviceDesc}, #{serviceTarget})
+</insert>
+<select id="getServiceList" parameterType="string" resultType="banjjok.domain.SalonServDTO">
+   select <include refid="listColumn" />
+   from service_salon
+   <where>
+   	<if test="value != null">
+   		service_code = #{value}
+   	</if>
+   </where>
+   order by service_categ
+</select>
+<update id="modifyMenu" parameterType="banjjok.domain.SalonServDTO">
+	update service_salon
+	set SERVICE_NAME = #{serviceName}, SERVICE_FEE = #{serviceFee}, SERVICE_TARGET = #{serviceTarget}, SERVICE_OPT = #{serviceOpt}, SERVICE_DESC = #{serviceDesc}
+	where SERVICE_CODE = #{serviceCode}
+</update>
+<delete id="delete" parameterType="string">
+	delete from service_salon
+	where service_code = #{serviceCode}
+</delete>
+</mapper>
