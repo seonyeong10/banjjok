@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="banjjok.mapper.ClassMapper" >
+
+<sql id="base">
+	C_CODE, C_COLOR, C_COUNT, C_PHOTO, C_CONTENT, C_WEIGHT, P_CODE
+</sql>
+<sql id="base1">
+	C_CODE CCODE, C_COLOR CCOLOR, C_COUNT CCOUNT, C_PHOTO CPHOTO, 
+	C_CONTENT CCONTENT, C_WEIGHT CWEIGHT, P_CODE PCODE
+</sql>
+
+<insert id="classInsert" parameterType="banjjok.domain.ClassDTO">
+	insert into class (<include refid="base" />)
+	values(#{cCode}, #{cColor}, #{cCount}, #{cPhoto}, #{cContent}, #{cWeight}, #{pCode})
+</insert>
+<select id="classListup" parameterType="banjjok.domain.ClassDTO" 
+		resultType="banjjok.domain.ClassDTO">
+	select *
+	from ( 
+		select rownum rn, <include refid="base1" />
+		from (
+			select <include refid="base" />
+			from class
+			<trim prefix="where" prefixOverrides="AND | OR">
+				<if test="cCode != null">
+					c_code = #{cCode}
+				</if>
+				<if test="pCode != null">
+					and p_code = #{pCode}
+				</if>
+			</trim>
+			order by c_code desc
+				
+	))
+</select>
+
+</mapper>
