@@ -44,8 +44,8 @@ public class PetSitterController {
 		return "hotel/petSitter/petSitterList";
 	}
 	@RequestMapping(value = "sitterInfo/{sitterId}", method = RequestMethod.GET)
-	public String sitterInfo(@PathVariable(value="sitterId")String sitterId, Model model) throws Exception {
-		petSitterInfoService.sitterInfo(sitterId, model);
+	public String sitterInfo(HttpSession session, Model model) throws Exception {
+		petSitterInfoService.sitterInfo(session, model);
 		return "hotel/petSitter/petSitterInfo";
 	}
 }

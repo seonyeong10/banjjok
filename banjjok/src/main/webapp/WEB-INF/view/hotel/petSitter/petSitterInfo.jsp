@@ -22,7 +22,7 @@
 <div class="w3-content w3-margin-top" style="max-width:1400px;">
 
   <!-- The Grid -->
-<!--   <div class="w3-row-padding"> -->
+  <div class="w3-row-padding">
   
     <!-- Left Column -->
     <div class="w3-third">

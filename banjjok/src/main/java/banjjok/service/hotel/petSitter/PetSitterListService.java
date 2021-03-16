@@ -23,7 +23,7 @@ public class PetSitterListService {
 		PetSitterDTO dto = new PetSitterDTO();
 		List<PetSitterDTO> list = petSitterMapper.getSitterList(dto);
 		model.addAttribute("lists", list);
-		model.addAttribute("list", list.get(0));
+//		model.addAttribute("list", list.get(0));
 		
 	}
 	

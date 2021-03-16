@@ -55,7 +55,7 @@
 				<c:forEach items="${lists }" var="list" varStatus="cnt">
 					<li>
 						<c:set value="${fn:split(list.sitterImg,'`') }" var="img" />
-						<a href="sitterInfo/${list.sitterId}"><img src="/hotel/petSitter/upload/${img[1] }" width="250" height="300" alt="돌보미이미지" />
+						<a href="sitterInfo/sitterId=${list.sitterId}"><img src="/hotel/petSitter/upload/${img[1] }" width="250" height="300" alt="돌보미이미지" />
 							<p> ${cnt.index + 1}번 돌보미 [ ${list.sitterName }  ]</p><!-- 추후에 글씨 가운데 -->
 						</a>
 					</li>
