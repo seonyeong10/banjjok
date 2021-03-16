@@ -18,33 +18,7 @@ import banjjok.service.kinder.teacher.TeacherEnrollService;
 @Controller
 public class KinderController {
 	
-	@Autowired
-	TeacherEnrollService teacherEnrollService;
 	
-	@ModelAttribute
-	TeacherCommand setTeacherCommand() {
-		return new TeacherCommand();
-	}
-	
-	@RequestMapping(value = "kinder", method = RequestMethod.GET)
-	public String kinder() throws Exception {
-		return "/kinder/kinderMain"; 
-	}
-	
-	@RequestMapping(value = "enrollment", method = RequestMethod.GET)
-	public String erollment() throws Exception{
-		return "/kinder/enrollment";
-	}
-	
-	@RequestMapping(value = "enrollmentOk", method = RequestMethod.POST)
-	public String enrollmentOk(
-			@Validated TeacherCommand teacherCommand, BindingResult result, Model model, HttpSession session) throws Exception{
-			Integer resultdata = teacherEnrollService.insertTeacher(teacherCommand, model, session);
-			if (result.hasErrors()) {
-				return "/kinder/enrollment";
-			}
-		return "/kinder/enrollmentOk";
-	}
 	
 	@RequestMapping(value = "teacherMypage", method = RequestMethod.GET)
 	public String teacherMypage() throws Exception{
