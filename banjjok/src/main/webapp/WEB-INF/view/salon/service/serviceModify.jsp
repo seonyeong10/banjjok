@@ -41,7 +41,13 @@
 				<div class="mem-element">
 					<p class="element-name">카테고리</p>
 					<span class="element-value">
-						${dto.serviceCateg }
+						<c:choose>
+		              		<c:when test="${dto.serviceCateg == 'ba' }">목욕</c:when>
+		              		<c:when test="${dto.serviceCateg == 'pa' }">부분미용</c:when>
+		              		<c:when test="${dto.serviceCateg == 'al' }">전체미용</c:when>
+		              		<c:when test="${dto.serviceCateg == 'sp' }">스포팅</c:when>
+		              		<c:when test="${dto.serviceCateg == 'st' }">스타일컷</c:when>
+		              	</c:choose>
 					</span>
 				</div>
 				<div class="mem-element">
