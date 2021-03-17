@@ -1,3 +1,7 @@
+/* h2 */
+h2{font-size:30px}
+h2{color:#fff; font-family:"맑은고딕";font-weight:400;margin:10px 0}
+
 /* w3-row-padding */ /* .w3-container */
 .w3-container:after,.w3-container:before,.w3-panel:after,.w3-panel:before,.w3-row:after,.w3-row:before,.w3-row-padding:after,.w3-row-padding:before,
 .w3-cell-row:before,.w3-cell-row:after,.w3-clear:after,.w3-clear:before,.w3-bar:before,.w3-bar:after{content:"";display:table;clear:both}
@@ -50,8 +54,7 @@ w3-large{font-size:18px!important}
 .w3-text-teal,.w3-hover-text-teal:hover{color:#009688!important}
 
 /* fa */
-fa{display:inline-block;font:normal normal normal 14px/1 FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.fa-lg{font-size:1.33333333em;line-height:.75em;vertical-align:-15%}
-
+.fa{display:inline-block;font:normal normal normal 14px/1 FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.fa-lg{font-size:1.33333333em;line-height:.75em;vertical-align:-15%}
 /* fa-fw */
 .fa-fw{width:1.28571429em;text-align:center}
 
@@ -66,3 +69,9 @@ fa-home:before{content:"\f015"}
 
 /* .fa-phone */
 .fa-phone:before{content:"\f095"}
+
+.fa-home{
+	content:"\f015"; 
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}

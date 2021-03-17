@@ -15,6 +15,7 @@ import banjjok.command.PetSitterCommand;
 import banjjok.service.hotel.petSitter.PetSitterInfoService;
 import banjjok.service.hotel.petSitter.PetSitterJoinService;
 import banjjok.service.hotel.petSitter.PetSitterListService;
+import banjjok.service.hotel.petSitter.PetSitterModifyService;
 
 @Controller
 @RequestMapping("hotel")
@@ -25,6 +26,8 @@ public class PetSitterController {
 	PetSitterListService petSitterListService;
 	@Autowired
 	PetSitterInfoService petSitterInfoService;
+	@Autowired
+	PetSitterModifyService petSitterModifyService;
 	
 	@RequestMapping("registSitter")
 	public String registSitter() {
@@ -44,9 +47,14 @@ public class PetSitterController {
 		return "hotel/petSitter/petSitterList";
 	}
 	@RequestMapping(value = "sitterInfo/{sitterId}", method = RequestMethod.GET)
-	public String sitterInfo(HttpSession session, Model model) throws Exception {
-		petSitterInfoService.sitterInfo(session, model);
+	public String sitterInfo(@PathVariable(value="sitterId")String sitterId, Model model, PetSitterCommand petSitterCommand) throws Exception {
+		petSitterInfoService.sitterInfo(sitterId, model, petSitterCommand);
 		return "hotel/petSitter/petSitterInfo";
 	}
+//	@RequestMapping("sitterModify")
+//	public String sitterModify(@Validated PetSitterCommand sitterCommand, BindingResult result, Model model, HttpSession session) throws Exception {
+////		petSitterModifyService.sitterModify(sitterCommand, model, session);
+//		return "redirect:sitterInfo";
+//	}
 }
 

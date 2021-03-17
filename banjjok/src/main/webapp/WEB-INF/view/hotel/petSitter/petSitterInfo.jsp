@@ -6,96 +6,133 @@
 <head>
 <meta charset="UTF-8">
 <title>돌보미 상세정보(petSitterInfo.jsp)</title>
-<link href="../static/css/baseCSS.css" rel="stylesheet" type="text/css" />
-<link href="../static/css/footer.css" rel="stylesheet" type="text/css" />
-<!-- <link href="../static/css/memberForm.css" rel="stylesheet"	type="text/css" /> -->
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="/static/css/baseCSS.css" rel="stylesheet" type="text/css" />
+<link href="/static/css/footer.css" rel="stylesheet" type="text/css" />
+<link href="/static/css/memberForm.css" rel="stylesheet"
+	type="text/css" />
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="<c:url value='/js/jquery.form.js'/>"></script>
+<style type="text/css">
+table td {
+	text-align: center;
+}
+</style>
 </head>
 <body>
-	<div id="header">
-		<%@ include file="../../include/hotelTop.jsp" %>
+	<%@ include file="../../include/hotelTop.jsp"%>
+	<div class="member-regist-wrap">
+		<div class="title">
+			<h2>돌보미 정보수정</h2>
+		</div>
+		<form:form action="/hotel/sitterModify" method="post" name="frm"
+ 			onsubmit="return frmSend();" modelAttribute="petSitterCommand" 
+			enctype="multipart/form-data">
+			<table border="1">
+				<tr>
+					<td>구분</td>
+					<td>돌보미</td>
+				</tr>
+				<tr>
+					<td>아이디</td>
+					<td>
+						${list.sitterId } <input type="hidden" name="sitterId"
+							value="${list.sitterId }" />
+					</td>
+				</tr>
+				<tr>
+					<td>비밀번호</td>
+					<td>
+						<input type="password" name="sitterPw" id="sitterPw" />
+						<div>
+							<form:errors path="sitterPw" />
+							<p>${pwErr }</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>사진</td>
+					<td>
+					
+					
+						<c:set value="${fn:split(list.sitterImg,'`') }" var="i" />
+						<input type="file" name="sitterImg" style="display:none;" /> <!-- 파일 업로드창은 안보이게 -->
+						<img src="/hotel/petSitter/upload/${i[1] }" alt="돌보미 사진" border="0" 
+							style="width: 100px; height: 100px" onclick="document.all.sitterImg.click();"/>
+<!-- 							사진 새로 등록시 새로 등록한 사진 보이게 하기 -->
+						<button type="button" onclick="imgDel('${i[1]}', this);"
+							id="delBtn">삭제</button>
+					</td>
+				</tr>
+				<tr>
+					<td>이름</td>
+					<td>
+						<form:input path="sitterName" value="${list.sitterName }" />
+					</td>
+				</tr>
+				<tr>
+					<td>휴대폰</td>
+					<td>
+						<form:input path="sitterPh" value="${list.sitterPh }" />
+					</td>
+				</tr>
+				<tr>
+					<td>휴무일</td>
+					<td>
+						<c:if test="${list.sitterOff == '월' }">
+									매주 월요일
+								</c:if>
+									<c:if test="${list.sitterOff == '화' }">
+									매주 화요일
+								</c:if>
+									<c:if test="${list.sitterOff == '수' }">
+									매주 수요일
+								</c:if>
+									<c:if test="${list.sitterOff == '목' }">
+									매주 목요일
+								</c:if>
+									<c:if test="${list.sitterOff == '금' }">
+									매주 금요일
+								</c:if>
+									<c:if test="${list.sitterOff == '토' }">
+									매주 토요일
+								</c:if>
+									<c:if test="${list.sitterOff == '일' }">
+									매주 일요일
+								</c:if> <hr />
+						<select id="sitterOff" name="sitterOff" class="sel">
+                        	<option>수정할 휴무일</option>
+                            <option value="월">매주 월요일</option>
+                            <option value="화">매주 화요일</option>
+                            <option value="수">매주 수요일</option>
+                            <option value="목">매주 목요일</option>
+                            <option value="금">매주 금요일</option>
+                            <option value="토">매주 토요일</option>
+                            <option value="일">매주 일요일</option>
+                       </select>
+<%-- 					<form:input path="sitterOff" value="${list.sitterOff }" /> --%>
+					</td>
+				</tr>
+				<tr>
+					<td>입사일</td>
+					<td>
+						<fmt:formatDate value="${list.sitterEnter }" type="date"
+							pattern="yyyy - MM - dd" />
+					</td>
+				</tr>
+			</table>
+			<div class="button-wrap">
+				<input type="button" value="이전" onclick="javascript:history.back();" />
+				<input type="submit" value="수정" /> <input type="button" value="탈퇴"
+					onclick="sitterDelete();" />
+			</div>
+		</form:form>
 	</div>
-	<!-- content -->
-		
-<div class="w3-light-grey">
-	<!-- Page Container -->
-<div class="w3-content w3-margin-top" style="max-width:1400px;">
 
-  <!-- The Grid -->
-  <div class="w3-row-padding">
-  
-    <!-- Left Column -->
-    <div class="w3-third">
-    
-      <div class="w3-white w3-text-grey w3-card-4">
-        <div class="w3-display-container">
-          <c:set value="${fn:split(list.sitterImg,'`') }" var="img" />
-		  <img src="/hotel/petSitter/upload/${img[1] }" style="width:100%" alt="돌보미이미지" />
-<!--           <img src="/w3images/avatar_hat.jpg" style="width:100%" alt="Avatar"> -->
-          <div class="w3-display-bottomleft w3-container w3-text-black">
-            <h2>${list.sitterName } </h2>
-          </div>
-        </div>
-        <div class="w3-container">
-          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i></p>
-          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i> PET SITTER </p>
-
-          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>${list.sitterId }@banjjok.com</p>
-          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>${list.sitterPh }</p>
-          <hr>
-
-<!--           <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p> -->
-<!--           <p>Adobe Photoshop</p> -->
-<!--           <div class="w3-light-grey w3-round-xlarge w3-small"> -->
-<!--             <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">90%</div> -->
-<!--           </div> -->
-<!--           <p>Photography</p> -->
-<!--           <div class="w3-light-grey w3-round-xlarge w3-small"> -->
-<!--             <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%"> -->
-<!--               <div class="w3-center w3-text-white">80%</div> -->
-<!--             </div> -->
-<!--           </div> -->
-<!--           <p>Illustrator</p> -->
-<!--           <div class="w3-light-grey w3-round-xlarge w3-small"> -->
-<!--             <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:75%">75%</div> -->
-<!--           </div> -->
-<!--           <p>Media</p> -->
-<!--           <div class="w3-light-grey w3-round-xlarge w3-small"> -->
-<!--             <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:50%">50%</div> -->
-<!--           </div> -->
-<!--           <br> -->
-
-<!--           <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p> -->
-<!--           <p>English</p> -->
-<!--           <div class="w3-light-grey w3-round-xlarge"> -->
-<!--             <div class="w3-round-xlarge w3-teal" style="height:24px;width:100%"></div> -->
-<!--           </div> -->
-<!--           <p>Spanish</p> -->
-<!--           <div class="w3-light-grey w3-round-xlarge"> -->
-<!--             <div class="w3-round-xlarge w3-teal" style="height:24px;width:55%"></div> -->
-<!--           </div> -->
-<!--           <p>German</p> -->
-<!--           <div class="w3-light-grey w3-round-xlarge"> -->
-<!--             <div class="w3-round-xlarge w3-teal" style="height:24px;width:25%"></div> -->
-<!--           </div> -->
-<!--           <br> -->
-<!--         </div> -->
-<!--       </div><br> -->
-
-    <!-- End Left Column -->
-    </div>
-    </div>
-    
-  <!-- End Grid -->
-<!--   </div> -->
-  
-  <!-- End Page Container -->
-</div>
-</div>
-	<!-- content 끝-->
 	<!-- foot -->
 	<footer> SoulMate's Forest 02.125.7979 Copyright &copy All
 		Rights reserved. </footer>
+	<!-- 	<script src="js/script.js"></script> -->
 	<!-- foot 끝 -->
+	<script src="/static/js/sitter.js"></script>
 </body>
 </html>
