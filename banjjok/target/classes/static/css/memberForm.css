@@ -39,6 +39,10 @@ form .element-value input[type="text"], #frm .element-value input[type="password
   /* height: 10px; */
 }
 
+.element-value input[type='checkbox'] {
+	margin-right: 10px;
+} 
+
 .element-value textarea {
   width: 100%;
   height: 100px;

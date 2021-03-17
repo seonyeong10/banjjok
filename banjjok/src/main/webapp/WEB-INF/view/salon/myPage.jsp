@@ -90,27 +90,19 @@ table td {
 				<tr>
 					<td>휴무일</td>
 					<td>
-						<c:if test="${list.desnOff == 0 }">
-						매주 일요일
-					</c:if>
-						<c:if test="${list.desnOff == 1 }">
-						매주 월요일
-					</c:if>
-						<c:if test="${list.desnOff == 2 }">
-						매주 화요일
-					</c:if>
-						<c:if test="${list.desnOff == 3 }">
-						매주 수요일
-					</c:if>
-						<c:if test="${list.desnOff == 4 }">
-						매주 목요일
-					</c:if>
-						<c:if test="${list.desnOff == 5 }">
-						매주 금요일
-					</c:if>
-						<c:if test="${list.desnOff == 6 }">
-						매주 토요일
-					</c:if>
+						매주
+						<c:forTokens items="${list.desnOff }" delims="," var="off">
+							<c:choose>
+								<c:when test="${off == 1 }">일요일</c:when>
+								<c:when test="${off == 2 }">월요일</c:when>
+								<c:when test="${off == 3 }">화요일</c:when>
+								<c:when test="${off == 4 }">수요일</c:when>
+								<c:when test="${off == 5 }">목요일</c:when>
+								<c:when test="${off == 6 }">금요일</c:when>
+								<c:when test="${off == 7 }">토요일</c:when>
+							</c:choose>
+							,
+						</c:forTokens>
 					</td>
 				</tr>
 				<tr>
