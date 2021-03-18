@@ -12,5 +12,7 @@ import banjjok.domain.PetSitterDTO;
 public interface PetSitterMapper {
 	public Integer insertSitter(PetSitterDTO petSitterDTO) throws Exception;
 	public List<PetSitterDTO> getSitterList(PetSitterDTO dto) throws Exception;
+	public Integer updateSitter(PetSitterDTO dto) throws Exception;
+	public Integer sitterDel(PetSitterDTO dto) throws Exception;
 
 }

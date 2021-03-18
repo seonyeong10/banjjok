@@ -21,6 +21,7 @@
 		<div class="navigationWrap">
 			<ul class="navigationArea">
 				<li><a href="#">Resevation</a></li>
+				<li><a href="<c:url value='/service/menu'/>">Menu</a></li>
 				<li><a href="#">Designer</a></li>
 				<li><a href="#">Review</a></li>
 				<li><a href="<c:url value='/salon/myPage'/>">My Page(디자이너)</a></li>

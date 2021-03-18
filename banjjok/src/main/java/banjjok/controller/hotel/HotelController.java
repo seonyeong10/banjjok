@@ -24,10 +24,6 @@ public class HotelController {
 		return "/hotel/hotelMain";
 //		}
 	}
-	@RequestMapping(value="sitterInfo", method = RequestMethod.GET)
-	public String sitterInfo() {
-		return "";
-	}
 }
 
 	

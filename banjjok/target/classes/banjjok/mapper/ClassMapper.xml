@@ -27,14 +27,13 @@
 				<if test="cCode != null">
 					c_code = #{cCode}
 				</if>
+				<if test="pCode != null">
+					and p_code = #{pCode}
+				</if>
 			</trim>
 			order by c_code desc
 				
 	))
 </select>
-<delete id="classDel" parameterType="banjjok.domain.ClassDTO">
-	delete from class
-	where c_Code = #{cCode}
-</delete>
 
 </mapper>

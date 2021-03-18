@@ -33,35 +33,35 @@
 				<span class="pennant-pet"><span class="fa fa-ruler fa-2x"></span>&nbsp;스타일 등록</span>
 			</a>
 		</div>
-		<form action="#" name="frm" id="frm">
+		<form:form action="serviceRegist" name="frm" id="frm" method="post" modelAttribute="salonServCommand">
 			<!-- 보호자 정보 -->
 			<div id="member-info">
 				<div class="mem-element">
 					<p class="element-name">서비스 코드</p>
-					<span class="element-value"><input type="text" name="serviceCode"
-						placeholder="서비스 코드(자동생성)" readonly="readonly" /></span>
-					<!-- <span class="button"><input type="button" value="중복확인"/></span> -->
+					<span class="element-value"><input type="text" name="serviceCode" placeholder="서비스 코드(자동생성)" readonly="readonly" value="${serviceCode }"/></span>
+					<span class="button"><input type="button" value="중복확인"/></span>
 				</div>
 				<div class="mem-element">
 					<p class="element-name">카테고리</p>
-					<span class="element-value"> <select name="serviceCateg">
+					<span class="element-value"> <form:select path="serviceCateg">
 							<option>카테고리를 선택하세요.</option>
-							<option value="cut">스타일컷</option>
-							<option value="cleanic">클리닉</option>
-							<option value="color">염색</option>
-					</select>
+							<form:option value="ba">목욕</form:option>
+							<form:option value="pa">부분미용</form:option>
+							<form:option value="al">전체미용</form:option>
+							<form:option value="sp">스포팅</form:option>
+							<form:option value="st">스타일컷</form:option>
+					</form:select>
+					<div class="element-errors"><form:errors path="serviceCateg" /> </div>
 					</span>
 				</div>
 				<div class="mem-element">
 					<p class="element-name">서비스 이름</p>
-					<span class="element-value"><input type="text"
-						name="serviceName" placeholder="서비스의 이름을 입력하세요." /></span>
+					<span class="element-value"><form:input path="serviceName" placeholder="서비스의 이름을 입력하세요." /></span>
+					<div class="element-errors"><form:errors path="serviceName" /> </div>
 				</div>
 				<div class="mem-element">
 					<p class="element-name">기준가격(원)</p>
-					<span class="element-value"><input type="text"
-						name="serviceFee" placeholder="기준 가격을 입력하세요." /></span> <span
-						class="button"><input type="button" value="인증" /></span>
+					<span class="element-value"><form:input path="serviceFee" placeholder="기준 가격을 입력하세요." /></span>&nbsp;원
 				</div>
 				<div class="mem-element">
 					<p class="element-name">소요시간</p>
@@ -70,80 +70,37 @@
 							<option value="60">60분</option>
 					</select>
 					</span>
+					<div class="element-errors"><form:errors path="serviceTime" /> </div>
 				</div>
 				<div class="mem-element">
-					<p class="element-name">몸무게 추가(옵션)</p>
-					<span class="element-value"> <input type="text"
-						name="serviceOpt" placeholder="추가금액(원)" />
+					<p class="element-name">시술대상</p>
+					<span class="element-value"> 
+						<form:radiobutton path="serviceTarget" value="small" checked="checked"/> 소형견
+						<form:radiobutton path="serviceTarget" value="middle"/> 중형견
+						<form:radiobutton path="serviceTarget" value="big"/> 대형견
 					</span>
+					<div class="element-errors"><form:errors path="serviceTarget" /> </div>
+				</div>
+				<div class="mem-element">
+					<p class="element-name">몸무게 추가(기준 몸무게 : 4kg)</p>
+					<span class="element-value"> 
+						<form:input path="serviceOpt" placeholder="추가금액(원)" />&nbsp;원
+					</span>
+					<div class="element-errors"><form:errors path="serviceOpt" /> </div>
 				</div>
 				<div class="mem-element">
 					<p class="element-name">서비스 내용</p>
-					<span class="element-value"> <textarea name="serviceDesc"
-							placeholder="서비스의 내용을 입력하세요."></textarea>
+					<span class="element-value"> <form:textarea path="serviceDesc"
+							placeholder="서비스의 내용을 입력하세요."></form:textarea>
 					</span>
+					<div class="element-errors"><form:errors path="serviceDesc" /> </div>
 				</div>
 				<div class="button-wrap">
 					<input type="button" value="취소" onclick="cancle();" />
 					<input type="submit" value="등록" />
 				</div>
 			</div>
-		</form>
-		<form action="#" method="post">
-			<!-- 펫 정보 -->
-			<div id="pet-info">
-				<div class="mem-element">
-					<p class="element-name">펫 이름</p>
-					<span class="element-value"><input type="text"
-						name="petName" placeholder="펫 이름" /></span>
-				</div>
-				<div class="mem-element">
-					<p class="element-name">품종</p>
-					<span class="element-value"><input type="text" name="kind"
-						placeholder="품종" /></span>
-				</div>
-				<div class="mem-element">
-					<p class="element-name">몸무게</p>
-					<span class="element-value"><input type="text" name="weight"
-						placeholder="몸무게" /></span>
-				</div>
-				<div class="mem-element">
-					<p class="element-name">나이</p>
-					<span class="element-value"><input type="text" name="age"
-						placeholder="나이" /></span>
-				</div>
-				<div class="mem-element">
-					<p class="element-name">성별</p>
-					<span class="element-value"> <input type="radio"
-						name="gender" value="M" checked="checked" /> 남아 <input
-						type="radio" name="gender" value="F" /> 여아
-					</span>
-				</div>
-				<div class="mem-element">
-					<p class="element-name">중성화 여부</p>
-					<span class="element-value"><input type="radio"
-						name="isNeutral" value="Y" checked="checked" /> Y <input
-						type="radio" name="isNeutral" value="N" /> N</span>
-				</div>
-				<div class="mem-element">
-					<p class="element-name">전자칩 번호</p>
-					<span class="element-value"><input type="text"
-						name="microNum" placeholder="전자칩 번호" /></span>
-				</div>
-				<div class="mem-element">
-					<p class="element-name">성격이나 버릇</p>
-					<span class="element-value"> <textarea name="desc"
-							placeholder="성격이나 버릇"></textarea>
-					</span>
-				</div>
-				<div class="button-wrap">
-					<input type="button" value="이전"
-						onclick="javascript:history.back();" /> <input type="submit"
-						value="가입완료" /> <input type="button" value="취소"
-						onclick="cancle();" />
-				</div>
-			</div>
-		</form>
+		</form:form>
 	</div>
 	<!-- foot -->
 	<footer> SoulMate's Forest 02.125.7979 Copyright &copy All

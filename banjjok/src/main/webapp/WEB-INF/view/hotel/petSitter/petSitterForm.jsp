@@ -64,9 +64,10 @@
 <!-- 					<span class="image"> -->
 <!-- 						<img src="#" alt="돌보미 사진" /> -->
 <!-- 					</span> -->
-					<span class="box int_img">
-						<input type="file" name="sitterImg" class="int" />
+					<span class="box int_img filebox" >
+						<input type="file" id="sitterImg" name="sitterImg" class="int" />
 					</span>
+					
 					<span class="error_next_box">${noImg }</span>
 				</div>
 				
@@ -113,7 +114,7 @@
 
     </div> 
     <!-- wrapper 끝-->
-<!--     <script src="sitterForm.js"></script> -->
+<!--     <script src="sitter.js"></script> -->
 </div>
 </form>
 	<!-- foot -->

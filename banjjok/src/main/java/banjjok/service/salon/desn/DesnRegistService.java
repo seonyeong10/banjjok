@@ -43,7 +43,6 @@ public class DesnRegistService {
 		dto.setDesnEnter(desnEnter);
 		dto.setDesnUse(desnCommand.getDesnUse());	// 사용여부
 		
-//		String path = "/static/salon/designer/upload";
 		String path = "/WEB-INF/view/salon/designer/upload";
 		String filePath = session.getServletContext().getRealPath(path);
 		System.out.println(filePath);
@@ -67,6 +66,7 @@ public class DesnRegistService {
 			}
 			dto.setDesnImg(desnImg);
 		}
+		
 		cnt = desnMapper.insertEmp(dto);
 		return cnt;
 	}

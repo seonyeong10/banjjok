@@ -18,7 +18,8 @@
 		<div class="title">
 			<h2>직원등록</h2>
 		</div>
-		<form:form action="empRegistAct" name="frm" id="frm" enctype="multipart/form-data" modelAttribute="desnCommand" method="post">
+		<form:form action="empRegistAct" name="frm" id="frm" enctype="multipart/form-data" modelAttribute="desnCommand" 
+		method="post" onsubmit="return offCheck();">
 			<!-- 보호자 정보 -->
 			<div id="member-info">
 				<div class="mem-element">
@@ -93,16 +94,23 @@
 				<div class="mem-element">
 					<p class="element-name">정기 휴무일</p>
 					<span class="element-value">
-						<select name="desnOff">
-							<option>휴무일을 선택하세요.</option>
-							<option value="0">매주 일요일</option>
-							<option value="1">매주 월요일</option>
-							<option value="2">매주 화요일</option>
-							<option value="3">매주 수요일</option>
-							<option value="4">매주 목요일</option>
-							<option value="5">매주 금요일</option>
-							<option value="6">매주 토요일</option>
-						</select>
+<!-- 						<select name="desnOff"> -->
+<!-- 							<option>휴무일을 선택하세요.</option> -->
+<!-- 							<option value="1">매주 일요일</option> -->
+<!-- 							<option value="2">매주 월요일</option> -->
+<!-- 							<option value="3">매주 화요일</option> -->
+<!-- 							<option value="4">매주 수요일</option> -->
+<!-- 							<option value="5">매주 목요일</option> -->
+<!-- 							<option value="6">매주 금요일</option> -->
+<!-- 							<option value="7">매주 토요일</option> -->
+<!-- 						</select> -->
+							<input type="checkbox" value="1" name="desnOff" />매주 일요일
+							<input type="checkbox" value="2" name="desnOff" />매주 월요일
+							<input type="checkbox" value="3" name="desnOff" />매주 화요일
+							<input type="checkbox" value="4" name="desnOff" />매주 수요일 <br />
+							<input type="checkbox" value="5" name="desnOff" />매주 목요일
+							<input type="checkbox" value="6" name="desnOff" />매주 금요일
+							<input type="checkbox" value="7" name="desnOff" />매주 토요일
 					</span>
 				</div>
 				<div class="mem-element">
@@ -123,10 +131,19 @@
 	<!-- foot -->
 	<footer> SoulMate's Forest 02.125.7979 Copyright &copy All
 		Rights reserved. </footer>
-	<script src="js/script.js"></script>
+<!-- 	<script src="js/script.js"></script> -->
 	<!-- foot 끝 -->
-	<script>
-		
+	<script type="text/javascript">
+		function offCheck(){
+			const query = 'input[name="desnOff"]:checked';
+			const selected = document.querySelectorAll(query);
+			const count = selected.length;
+			console.log(count);
+			if(count != 2) {
+				alert('휴무일을 2개 선택해주세요.');
+				return false;
+			}
+		}
 	</script>
 </body>
 </html>

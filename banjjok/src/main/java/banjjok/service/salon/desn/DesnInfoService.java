@@ -19,6 +19,8 @@ public class DesnInfoService {
 	public void getInfo(Model model, HttpSession session) throws Exception {
 		DesnDTO dto = new DesnDTO();
 		AuthInfo authInfo = (AuthInfo) session.getAttribute("authInfo");
+		String desnId = authInfo.getUserId();
+		dto.setDesnId(desnId);
 		List<DesnDTO> list = desnMapper.getDesnList(dto);
 		model.addAttribute("list", list.get(0));
 		
