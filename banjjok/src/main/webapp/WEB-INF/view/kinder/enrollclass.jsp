@@ -100,7 +100,7 @@
 					<td colspan="2">
 						<input type="submit" value="SUBMIT" />
 						<input type="reset" value="RESET" />
-						<input type="button" value="BACK" onclick="javascript:location.href='../class'" />
+						<input type="button" value="BACK" onclick="javascript:location.href='../classList'" />
 					</td>
 				</tr>
 			</table>

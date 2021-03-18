@@ -21,8 +21,11 @@ public class ClassListService {
 		
 		// make list 
 		ClassDTO dto = new ClassDTO();
+
 		List<ClassDTO> lists = classMapper.classListup(dto);
 		
 		model.addAttribute("lists", lists);
+		
+//		System.out.println(lists.get(0).getcCode());
 	}
 }

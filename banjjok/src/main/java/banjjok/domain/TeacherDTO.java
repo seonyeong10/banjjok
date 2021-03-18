@@ -16,6 +16,9 @@ public class TeacherDTO {
 	Timestamp tRegist;
 	Timestamp tResign;
 	String tNic;
+	
+	
+	
 	public String gettId() {
 		return tId;
 	}
