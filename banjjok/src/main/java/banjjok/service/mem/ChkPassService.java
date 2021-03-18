@@ -28,10 +28,9 @@ public class ChkPassService {
 		dto = memberMapper.getUserList(dto).get(0);
 		
 		if(passwordEncoder.matches(memPw, dto.getMemPw())) {
-			System.out.println("일치");
+			model.addAttribute("mem", dto);
 			path = "member/memModify";
 		} else {
-			System.out.println("불일치");
 			model.addAttribute("pwErr", "비밀번호가 일치하지 않습니다.");
 			path = "member/checkPw";
 		}

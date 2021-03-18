@@ -49,23 +49,27 @@
 				</tr>
 				<tr>
 					<td>이름</td>
-					<td><input type="text" name="memName"/></td>
+					<td><input type="text" name="memName" value="${mem.memName }"/></td>
 				</tr>
 				<tr>
 					<td>연락처</td>
-					<td>연락처</td>
+					<td>${mem.memMobile }</td>
 				</tr>
 				<tr>
 					<td>이메일</td>
-					<td><input type="text" name="memEmail"/></td>
+					<td><input type="text" name="memEmail" value="${mem.memEmail }"/></td>
 				</tr>
 				<tr>
 					<td>가입일</td>
-					<td>가입일</td>
+					<td>
+						<fmt:formatDate value="${mem.registDt }" type="date" pattern="yyyy-MM-dd"/> 
+					</td>
 				</tr>
 				<tr>
 					<td>닉네임</td>
-					<td><input type="text" name="nickName"/></td>
+					<td>
+						<input type="text" name="nickName" value="<c:if test="${mem.nicName != null }">${mem.nicName }</c:if>"/>
+					</td>
 				</tr>
 				<tr>
 					<td colspan="2">
