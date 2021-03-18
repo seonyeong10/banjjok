@@ -22,16 +22,16 @@
 					<th>CURRENT PUPPY</th>
 				</tr>
 				
-			<c:forEach items="${lists }" var="dto" varStatus="a">
+			<c:forEach items="${lists }" var="dto">
 				<tr> 
-					<td><a href="classDetail/${dto.cCode }">${dto.cCode }</a></td>
+					<td><a href="classDetail?cCode=${dto.cCode }">${dto.cCode }</a></td>
 					<td>${dto.cWeight }</td>
 					<td>${dto.cCount }</td>
 				</tr>
 			</c:forEach>
 				
 				<tr>
-					<td colspan="2">
+					<td colspan="3">
 						<input type="button" value="ENROLL" onclick="javascript:location.href='../enrollclass'" />
 						<input type="button" value="BACK" onclick="javascript:location.href='../administration'" />
 					</td>

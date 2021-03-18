@@ -10,7 +10,8 @@
 <body>
 	<div class="wrapper">
 		<div class="content">
-			<form:form action="enrollmentOk" method="post" name="frm" modelAttribute="teacherCommand" enctype="multipart/form-data">
+			<form:form action="enrollmentOk" method="post" name="frm" 
+						modelAttribute="teacherCommand" enctype="multipart/form-data">
 			<table style="width:100px;" class="table">
 				<caption>ENROLLMENT</caption>
 				<tr>
@@ -93,7 +94,7 @@
 					<td colspan="2">
 						<input type="submit" value="SUBMIT" />
 						<input type="reset" value="RESET" />
-						<input type="button" value="BACK" onclick="javascript:location.href='../kinder'" />
+						<input type="button" value="BACK" onclick="javascript:location.href='../enrollList'" />
 					</td>
 				</tr>
 			</table>
