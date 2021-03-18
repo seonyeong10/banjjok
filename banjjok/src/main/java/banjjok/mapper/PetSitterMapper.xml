@@ -28,4 +28,13 @@
 		)
 	)
 </select>
+<update id="updateSitter" parameterType="banjjok.domain.PetSitterDTO">
+	update pet_sitter 
+	set SITTER_NAME=#{sitterName}, SITTER_IMG=#{sitterImg}, SITTER_PH=#{sitterPh}, SITTER_OFF=#{sitterOff}
+	where SITTER_ID = #{sitterId}
+</update>
+<delete id="sitterDel" parameterType="banjjok.domain.PetSitterDTO">
+	delete from pet_sitter
+	where SITTER_ID = #{sitterId};
+</delete>
 </mapper>

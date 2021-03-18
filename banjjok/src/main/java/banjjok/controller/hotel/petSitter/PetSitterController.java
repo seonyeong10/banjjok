@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import banjjok.command.PetSitterCommand;
+import banjjok.service.hotel.petSitter.PetSitterDelService;
 import banjjok.service.hotel.petSitter.PetSitterInfoService;
 import banjjok.service.hotel.petSitter.PetSitterJoinService;
 import banjjok.service.hotel.petSitter.PetSitterListService;
@@ -28,6 +29,8 @@ public class PetSitterController {
 	PetSitterInfoService petSitterInfoService;
 	@Autowired
 	PetSitterModifyService petSitterModifyService;
+	@Autowired
+	PetSitterDelService petSitterDelService;
 	
 	@RequestMapping("registSitter")
 	public String registSitter() {
@@ -51,10 +54,16 @@ public class PetSitterController {
 		petSitterInfoService.sitterInfo(sitterId, model, petSitterCommand);
 		return "hotel/petSitter/petSitterInfo";
 	}
-//	@RequestMapping("sitterModify")
-//	public String sitterModify(@Validated PetSitterCommand sitterCommand, BindingResult result, Model model, HttpSession session) throws Exception {
-////		petSitterModifyService.sitterModify(sitterCommand, model, session);
-//		return "redirect:sitterInfo";
-//	}
+	@RequestMapping(value = "sitterModify", method = RequestMethod.POST)
+	public String sitterModify(@Validated PetSitterCommand sitterCommand, BindingResult result, Model model, HttpSession session) throws Exception {
+		String location = petSitterModifyService.sitterModify(sitterCommand, model, session);
+//		return "redirect:sitterList";
+		return location;
+	}
+	@RequestMapping(value = "sitterDel", method = RequestMethod.POST)
+	public String sitterDel(PetSitterCommand sitterCommand,Model model, HttpSession session) throws Exception {
+		petSitterDelService.sitterDel(sitterCommand, model, session);
+		return "redirect:sitterList";
+	}
+	
 }
-

@@ -16,7 +16,7 @@
 	<div id="header">
 		<%@ include file="../../include/hotelTop.jsp" %>
 	</div>
-	
+	<a href="/hotel/registSitter">돌보미 등록</a><hr />
     <c:forEach items="${lists }" var="list" varStatus="cnt">
     <a href="sitterInfo/${list.sitterId}">
 	  <!-- The Grid -->
@@ -50,7 +50,6 @@
 	</a>
 	</c:forEach>
 	
-	<a href="/hotel/registSitter">돌보미 등록</a>
 	<!-- foot -->
 		<footer> SoulMate's Forest 02.125.7979 Copyright &copy All Rights reserved. </footer>
 	<!-- foot 끝 -->

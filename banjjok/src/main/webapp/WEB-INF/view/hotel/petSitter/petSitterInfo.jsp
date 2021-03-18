@@ -45,7 +45,7 @@ table td {
 						<input type="password" name="sitterPw" id="sitterPw" />
 						<div>
 							<form:errors path="sitterPw" />
-							<p>${pwErr }</p>
+							<p>${PwErr }</p>
 						</div>
 					</td>
 				</tr>
@@ -58,9 +58,9 @@ table td {
 						<input type="file" name="sitterImg" style="display:none;" /> <!-- 파일 업로드창은 안보이게 -->
 						<img src="/hotel/petSitter/upload/${i[1] }" alt="돌보미 사진" border="0" 
 							style="width: 100px; height: 100px" onclick="document.all.sitterImg.click();"/>
-<!-- 							사진 새로 등록시 새로 등록한 사진 보이게 하기 -->
-						<button type="button" onclick="imgDel('${i[1]}', this);"
-							id="delBtn">삭제</button>
+<!-- 							사진 새로 등록시 새로 등록한 사진 보이게 하는거 아직 안 넣음 -->
+<%-- 						<button type="button" onclick="imgDel('${i[1]}', this);" --%>
+<!-- 							id="delBtn">삭제</button> -->
 					</td>
 				</tr>
 				<tr>
@@ -122,8 +122,8 @@ table td {
 			</table>
 			<div class="button-wrap">
 				<input type="button" value="이전" onclick="javascript:history.back();" />
-				<input type="submit" value="수정" /> <input type="button" value="탈퇴"
-					onclick="sitterDelete();" />
+				<input type="submit" value="수정" />
+				<input type="button" value="탈퇴" onclick="sitterDelete();" />
 			</div>
 		</form:form>
 	</div>
@@ -136,3 +136,4 @@ table td {
 	<script src="/static/js/sitter.js"></script>
 </body>
 </html>
+
