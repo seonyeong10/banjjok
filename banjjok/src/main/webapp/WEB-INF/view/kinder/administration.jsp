@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Administraion</title>
+<title>Administration</title>
 </head>
 <body>
 	<div class="wrapper">
@@ -14,7 +14,7 @@
 		<div class="content">
 			<table style="width:500px;" class="table">
 				<tr><td><h2 class="table title">ADMINISTRAION MENU</h2></td></tr>
-				<tr><th><a href="enrollment">EMPLOYEE ENROLLMENT</a></th></tr>	
+				<tr><th><a href="enrollList">EMPLOYEE ENROLLMENT</a></th></tr>	
 				<tr><th><a href="classList">CLASS MANAGEMENT</a></th></tr>			
 				<tr><th><a href="program">PROGRAM MANAGEMENT</a></th></tr>			
 				<tr><th><a href="review">REVIEW MANAGEMENT</a></th></tr>			

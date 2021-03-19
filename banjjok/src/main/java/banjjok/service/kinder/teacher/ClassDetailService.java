@@ -10,22 +10,21 @@ import org.springframework.ui.Model;
 import banjjok.domain.ClassDTO;
 import banjjok.mapper.ClassMapper;
 
+
 @Service
 @Component
-public class ClassListService {
+public class ClassDetailService {
 	
-		@Autowired
-		ClassMapper classMapper;
-	
-	public void classList(Model model) throws Exception{
-		
-		// make list 
-		ClassDTO dto = new ClassDTO();
+	@Autowired
+	ClassMapper classMapper;
 
+	public void classDetail(String cCode, Model model) throws Exception {
+		ClassDTO dto = new ClassDTO();
+		dto.setcCode(cCode);
 		List<ClassDTO> lists = classMapper.classListup(dto);
 		
 		model.addAttribute("lists", lists);
 		
-//		System.out.println(lists.get(0).getcCode());
 	}
+
 }

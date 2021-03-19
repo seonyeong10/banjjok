@@ -9,7 +9,7 @@
 	union 
 	select mem_id, mem_pw, mem_name
 	from member
-	where mem_id = #{userId}
+	where mem_id = #{userId} and mem_use = 1
 	union
 	select sitter_id, sitter_pw, sitter_name
 	from PET_SITTER

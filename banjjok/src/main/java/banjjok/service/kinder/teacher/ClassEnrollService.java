@@ -1,5 +1,6 @@
 package banjjok.service.kinder.teacher;
 
+import java.io.File;
 import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
@@ -49,6 +50,10 @@ public class ClassEnrollService {
 		String originalFilExtension = original.substring(original.lastIndexOf("."));
 		store = UUID.randomUUID().toString().replace("-", "") + originalFilExtension;
 		classPhoto = original + "`" + store;
+		
+		// 사진 저장
+		File file = new File(photopath + "/" + store);
+		mf.transferTo(file);
 		
 		dto.setcPhoto(classPhoto);
 		

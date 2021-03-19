@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="banjjok.mapper.MyPetMapper">
+<sql id="petColumn">
+	PET_ID, MEM_ID, PET_NAME, KIND, WEIGHT, AGE, GENDER, IS_NEUTRAL, MICRO_NUM, PET_DESC
+</sql>
+<insert id="insertMyPet" parameterType="banjjok.domain.MyPetDTO">
+	insert into my_pet (<include refid="petColumn" />)
+	values(pet_seq.nextval, #{memId}, #{petName}, #{kind}, #{weight}, #{age}, #{gender}, #{isNeutral}, #{microNum}, #{petDesc})
+</insert>
+</mapper>

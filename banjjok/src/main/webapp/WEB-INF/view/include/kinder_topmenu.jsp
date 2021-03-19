@@ -13,7 +13,7 @@
 		<!-- ADMIN -->
 		<div class="topmenu1">
 			<div class="tm">
-				<a href="administraion">ADMINISTRAION</a>
+				<a href="administration">ADMINISTRATION</a>
 			</div>
 			<div class="tm">
 				<a href="teacherMypage">MYPAGE</a>

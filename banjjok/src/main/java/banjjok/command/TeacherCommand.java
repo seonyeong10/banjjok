@@ -36,8 +36,9 @@ public class TeacherCommand {
 	public boolean isTPwEqualToTPwCon() {
 		if(tPw.equals(tPwCon)) {
 			return true;
-		}
+		}else {
 		return false;
+		}
 	}
 	
 	public String gettPwCon() {
