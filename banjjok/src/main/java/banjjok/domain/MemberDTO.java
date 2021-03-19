@@ -1,5 +1,7 @@
 package banjjok.domain;
 
+import java.sql.Timestamp;
+
 public class MemberDTO {
 	// 회원
 	String memId;
@@ -7,8 +9,9 @@ public class MemberDTO {
 	String memMobile;
 	String memName;
 	String memEmail;
-	String registDt;
+	Timestamp registDt;
 	String nicName;
+	String memUse;
 
 	public String getMemId() {
 		return memId;
@@ -50,11 +53,11 @@ public class MemberDTO {
 		this.memEmail = memEmail;
 	}
 
-	public String getRegistDt() {
+	public Timestamp getRegistDt() {
 		return registDt;
 	}
 
-	public void setRegistDt(String registDt) {
+	public void setRegistDt(Timestamp registDt) {
 		this.registDt = registDt;
 	}
 
@@ -65,5 +68,15 @@ public class MemberDTO {
 	public void setNicName(String nicName) {
 		this.nicName = nicName;
 	}
+
+	public String getMemUse() {
+		return memUse;
+	}
+
+	public void setMemUse(String memUse) {
+		this.memUse = memUse;
+	}
+	
+	
 
 }

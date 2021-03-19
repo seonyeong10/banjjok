@@ -42,7 +42,9 @@
 			<!-- 회원정보 수정 -->
 			<h2>회원정보</h2>
 			<p>회원 정보를 수정하거나 탈퇴할 수 있습니다.</p>
-			<a href="<c:url value='/main/modifyMem'/>" class="modify" >수정</a> <a href="#">비밀번호 변경</a> <a href="#">회원 탈퇴</a>
+			<a href="<c:url value='/main/modifyMem'/>" class="modify" >수정</a>
+			<a href="#">비밀번호 변경</a>
+			<a onclick='return del("${authInfo.userId}");'>회원 탈퇴</a>
 		</div>
 		<div class="cartInfo">
 			<!-- 장바구니 -->
@@ -71,5 +73,13 @@
 	<!-- foot -->
 	<footer> SoulMate's Forest 02.125.7979 Copyright &copy All Rights reserved. </footer>
 	<!-- foot 끝 -->
+	<script type="text/javascript">
+		function del(userId){
+			if(confirm('정말 탈퇴하시겠습니까?')) {
+				location.href='/main/delMember?memId=' + userId;
+			}
+			return false;
+		}
+	</script>
 </body>
 </html>
