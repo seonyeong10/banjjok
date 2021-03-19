@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,17 +33,23 @@ public class PetSitterController {
 	@Autowired
 	PetSitterDelService petSitterDelService;
 	
+	@ModelAttribute
+	PetSitterCommand setPetSitterCommand() {
+		return new PetSitterCommand();
+	}
+	
 	@RequestMapping("registSitter")
 	public String registSitter() {
 		return "hotel/petSitter/petSitterForm";
 	}
 	@RequestMapping(value = "sitterJoin", method = RequestMethod.POST)
-	public String sitterJoin(@Validated PetSitterCommand sitterCommand, BindingResult result, Model model, HttpSession session) throws Exception {
-		Integer cnt = petSitterJoinService.insertSitter(sitterCommand, model, session);
-		if(result.hasErrors() || cnt == null) {
+	public String sitterJoin(@Validated PetSitterCommand petSitterCommand, BindingResult result, Model model, HttpSession session) throws Exception {
+		String cnt = petSitterJoinService.insertSitter(petSitterCommand, model, session);
+		if(result.hasErrors() || cnt == null) { //오류
 			return "hotel/petSitter/petSitterForm";
-		}
-		return "redirect:/hotel";
+		} 
+//		return "redirect:/hotel/sitterList";
+		return cnt;
 	}
 	@RequestMapping("sitterList")
 	public String sitterList(Model model) throws Exception {

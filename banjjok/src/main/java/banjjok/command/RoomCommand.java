@@ -9,6 +9,7 @@ public class RoomCommand {
 	String RoomCode;
 	String RoomName;
 	MultipartFile RoomImg;
+	MultipartFile[] RoomImg_mapVer;
 	Integer RoomPrice;
 	String RoomDesc;
 	public String getRoomCode() {
@@ -29,6 +30,16 @@ public class RoomCommand {
 	public void setRoomImg(MultipartFile roomImg) {
 		RoomImg = roomImg;
 	}
+	
+	
+	
+	public MultipartFile[] getRoomImg_mapVer() {
+		return RoomImg_mapVer;
+	}
+	public void setRoomImg_mapVer(MultipartFile[] roomImg_mapVer) {
+		RoomImg_mapVer = roomImg_mapVer;
+	}
+	
 	public Integer getRoomPrice() {
 		return RoomPrice;
 	}
