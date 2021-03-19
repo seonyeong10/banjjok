@@ -14,7 +14,7 @@ import banjjok.service.salon.serv.SalonServModifyService;
 import banjjok.service.salon.serv.ServListService;
 
 @Controller
-@RequestMapping(value = "service")
+@RequestMapping(value = "/salon/menu")
 public class SalonServModifyController {
 	@Autowired
 	SalonServInfoService salonServInfoService;
@@ -28,6 +28,6 @@ public class SalonServModifyController {
 	@RequestMapping(value = "menuModifyAct", method = RequestMethod.POST)
 	public String menuModifyAct(SalonServCommand salonServCommand) throws Exception {
 		salonServModifyService.modifyMenu(salonServCommand);
-		return "redirect:/service/menuInfo?serviceCode=" + salonServCommand.getServiceCode();
+		return "redirect:/salon/menu/menuInfo?serviceCode=" + salonServCommand.getServiceCode();
 	}
 }

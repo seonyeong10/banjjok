@@ -6,9 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>서비스 리스트</title>
-<link href="../static/css/baseCSS.css" rel="stylesheet" type="text/css" />
-<link href="../static/css/footer.css" rel="stylesheet" type="text/css" />
-<link href="../static/css/salonMenuList.css" rel="stylesheet" type="text/css" />
+<link href="../../static/css/baseCSS.css" rel="stylesheet" type="text/css" />
+<link href="../../static/css/footer.css" rel="stylesheet" type="text/css" />
+<link href="../../static/css/salonMenuList.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
 </head>
 <body>
@@ -31,7 +31,7 @@
           <c:forEach items="${list }" var="list" varStatus="i">
           	<c:if test="${list.serviceCateg == 'ba' }">
           	<li>
-	            <a href="<c:url value='/service/menuInfo?serviceCode=${list.serviceCode }'/>">${list.serviceName }</a>
+	            <a href="<c:url value='/salon/menu/menuInfo?serviceCode=${list.serviceCode }'/>">${list.serviceName }</a>
 	            <span>${list.serviceFee }</span>
           	</li> 
           	</c:if>         
@@ -49,7 +49,7 @@
           <c:forEach items="${list }" var="list" varStatus="i">
           	<c:if test="${list.serviceCateg == 'pa' }">
           	<li>
-	            <a href="<c:url value='/service/menuInfo?serviceCode=${list.serviceCode }'/>">${list.serviceName }</a>
+	            <a href="<c:url value='/salon/menu/menuInfo?serviceCode=${list.serviceCode }'/>">${list.serviceName }</a>
 	            <span>${list.serviceFee }</span>
           	</li> 
           	</c:if>         
@@ -63,7 +63,7 @@
           <c:forEach items="${list }" var="list" varStatus="i">
           	<c:if test="${list.serviceCateg == 'al' }">
           	<li>
-	            <a href="<c:url value='/service/menuInfo?serviceCode=${list.serviceCode }'/>">${list.serviceName }</a>
+	            <a href="<c:url value='/salon/menu/menuInfo?serviceCode=${list.serviceCode }'/>">${list.serviceName }</a>
 	            <span>${list.serviceFee }</span>
           	</li> 
           	</c:if>         
@@ -77,7 +77,7 @@
           <c:forEach items="${list }" var="list" varStatus="i">
           	<c:if test="${list.serviceCateg == 'sp' }">
           	<li>
-	            <a href="<c:url value='/service/menuInfo?serviceCode=${list.serviceCode }'/>">${list.serviceName }</a>
+	            <a href="<c:url value='/salon/menu/menuInfo?serviceCode=${list.serviceCode }'/>">${list.serviceName }</a>
 	            <span>${list.serviceFee }</span>
           	</li> 
           	</c:if>         
@@ -91,7 +91,7 @@
           <c:forEach items="${list }" var="list" varStatus="i">
           	<c:if test="${list.serviceCateg == 'st' }">
           	<li>
-	            <a href="<c:url value='/service/menuInfo?serviceCode=${list.serviceCode }'/>">${list.serviceName }</a>
+	            <a href="<c:url value='/salon/menu/menuInfo?serviceCode=${list.serviceCode }'/>">${list.serviceName }</a>
 	            <span>${list.serviceFee }</span>
           	</li> 
           	</c:if>         

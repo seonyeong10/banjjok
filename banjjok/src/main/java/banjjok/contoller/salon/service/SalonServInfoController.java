@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import banjjok.service.salon.serv.SalonServInfoService;
 
 @Controller
-@RequestMapping(value = "service")
+@RequestMapping(value = "/salon/menu")
 public class SalonServInfoController {
 	@Autowired
 	SalonServInfoService salonServInfoService;

@@ -6,9 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>서비스 등록</title>
-<link href="../static/css/baseCSS.css" rel="stylesheet" type="text/css" />
-<link href="../static/css/footer.css" rel="stylesheet" type="text/css" />
-<link href="../static/css/memberForm.css" rel="stylesheet"
+<link href="<c:url value='/static/css/baseCSS.css'/>" rel="stylesheet" type="text/css" />
+<link href="<c:url value='/static/css/footer.css'/>" rel="stylesheet" type="text/css" />
+<link href="<c:url value='/static/css/memberForm.css'/>" rel="stylesheet"
 	type="text/css" />
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
@@ -33,7 +33,7 @@
 				<span class="pennant-pet"><span class="fa fa-ruler fa-2x"></span>&nbsp;스타일 등록</span>
 			</a>
 		</div>
-		<form:form action="serviceRegist" name="frm" id="frm" method="post" modelAttribute="salonServCommand">
+		<form:form action="menuRegist" name="frm" id="frm" method="post" modelAttribute="salonServCommand">
 			<!-- 보호자 정보 -->
 			<div id="member-info">
 				<div class="mem-element">

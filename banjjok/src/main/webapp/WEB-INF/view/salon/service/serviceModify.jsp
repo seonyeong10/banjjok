@@ -6,9 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>serviceModify</title>
-<link href="../../static/css/baseCSS.css" rel="stylesheet" type="text/css" />
-<link href="../../static/css/footer.css" rel="stylesheet" type="text/css" />
-<link href="../../static/css/memberForm.css" rel="stylesheet" type="text/css" />
+<link href="<c:url value='/static/css/baseCSS.css'/>" rel="stylesheet" type="text/css" />
+<link href="<c:url value='/static/css/footer.css'/>" rel="stylesheet" type="text/css" />
+<link href="<c:url value='/static/css/memberForm.css'/>" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
 </head>
 <body>

@@ -14,7 +14,7 @@ import banjjok.service.salon.serv.ServCodeService;
 import banjjok.service.salon.serv.ServRegistService;
 
 @Controller
-@RequestMapping(value = "service")
+@RequestMapping(value = "/salon/menu")
 public class SalonServiceController {
 	@ModelAttribute
 	SalonServCommand setSalonServCommand() {
@@ -25,15 +25,15 @@ public class SalonServiceController {
 	@Autowired
 	ServRegistService servRegistService;
 	
-	@RequestMapping(value = "addService", method = RequestMethod.GET)
+	@RequestMapping(value = "addMenu", method = RequestMethod.GET)
 	public String regist(Model model) throws Exception {
 		servCodeService.getCode(model);
 		return "salon/service/serviceForm";
 	}
-	@RequestMapping(value = "serviceRegist", method = RequestMethod.POST)
+	@RequestMapping(value = "menuRegist", method = RequestMethod.POST)
 	public String registAct(@Validated SalonServCommand salonServCommand, BindingResult result, Model model) throws Exception {
 		if(result.hasErrors()) {
-			return "redirect:/salon/addService";
+			return "redirect:/salon/menu/addMenu";
 		}
 		String path = servRegistService.addService(salonServCommand, model);
 		return path;
