@@ -1,5 +1,6 @@
 package banjjok.service.kinder.teacher;
 
+import java.io.File;
 import java.sql.Timestamp;
 import java.util.UUID;
 
@@ -27,14 +28,25 @@ public class TeacherEnrollService {
 	
 	public Integer insertTeacher(TeacherCommand teacherCommand, Model model, HttpSession session) throws Exception{
 		
+//		System.out.println(teacherCommand.getShopCode());
+//		System.out.println(teacherCommand.gettId());
+//		System.out.println(teacherCommand.gettPw());
+//		System.out.println(teacherCommand.gettName());
+//		System.out.println(teacherCommand.gettPh());
+//		System.out.println(teacherCommand.gettEmail());
+//		System.out.println(teacherCommand.gettJoin());
+//		System.out.println(teacherCommand.getcCode());
+//		System.out.println(teacherCommand.getTDuty());
+		
 		//pwcon 
+		
 		if(!teacherCommand.isTPwEqualToTPwCon()) {
 			model.addAttribute("valid_tPwCon", "Not Correct the Password");
-			return null;
+			return -1 ;
 		}
 		
 		//setting
-		Integer resultdata = null;
+		
 		TeacherDTO dto = new TeacherDTO();
 		
 		dto.setShopCode(teacherCommand.getShopCode());
@@ -45,7 +57,21 @@ public class TeacherEnrollService {
 		dto.settEmail(teacherCommand.gettEmail());
 		dto.settJoin(teacherCommand.gettJoin());
 		dto.setcCode(teacherCommand.getcCode());
-		dto.settState(teacherCommand.gettState());
+		dto.setTDuty(teacherCommand.getTDuty());
+		
+		if(teacherCommand.gettState().equals("RETIREE")) {
+			dto.settState("0");
+		}else if(teacherCommand.gettState().equals("INCUMBENT")) {
+			dto.settState("1");
+		}else if(teacherCommand.gettState().equals("MATERNITY LEAVE")) {
+			dto.settState("2");
+		}else if(teacherCommand.gettState().equals("PATERNITY LEAVE")) {
+			dto.settState("3");
+		}else {
+			//에러 메세지
+			model.addAttribute("err","This is not correct Data in this area. Please check again.");
+			return -1;
+		}
 		
 		// photo file
 		String teacherPhoto = "";
@@ -60,10 +86,18 @@ public class TeacherEnrollService {
 		store = UUID.randomUUID().toString().replace("-", "") + originalFileExtension;
 		teacherPhoto = original + "`" + store;
 		
+		// 사진 저장
+		File file = new File(photopath + "/" + store);
+		mf.transferTo(file);
+		
 		dto.settPhoto(teacherPhoto);
 		
-		teacherMapper.teacherInsert(dto);
 		
-		return resultdata;
+		
+		
+		// 리턴값 사용
+//		resultdata = teacherMapper.teacherInsert(dto);
+//		return resultdata;
+		return teacherMapper.teacherInsert(dto);
 	}
 }

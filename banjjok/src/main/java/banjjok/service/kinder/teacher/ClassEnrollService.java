@@ -28,15 +28,18 @@ public class ClassEnrollService {
 			Model model, HttpSession session) throws Exception{
 		
 		// setting
-		Integer resultdata = null;
+		
 		ClassDTO dto = new ClassDTO();
 		
-		dto.setcCode(classCommand.getcCode());
+		
 		dto.setcColor(classCommand.getcColor());
 		dto.setcContent(classCommand.getcContent());
 		dto.setcCount(classCommand.getcCount());
 		dto.setcWeight(classCommand.getcWeight());
 		dto.setpCode(classCommand.getpCode());
+		dto.setcCode(classCommand.getcCode());
+		dto.setcWeight(classCommand.getcWeight());
+		dto.setcName(classCommand.getcName());
 		
 		// photo file
 		String classPhoto = "";
@@ -57,8 +60,6 @@ public class ClassEnrollService {
 		
 		dto.setcPhoto(classPhoto);
 		
-		classMapper.classInsert(dto);
-	
-		return resultdata;
+		return classMapper.classInsert(dto);
 	}
 }
