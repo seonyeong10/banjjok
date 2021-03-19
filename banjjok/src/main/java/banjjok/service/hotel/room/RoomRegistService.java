@@ -14,6 +14,7 @@ public class RoomRegistService {
 
 	public void roomRegistOk(RoomCommand roomCommand, HttpSession session) {
 		// 객실 저장
+		
 	}
 	
 }
