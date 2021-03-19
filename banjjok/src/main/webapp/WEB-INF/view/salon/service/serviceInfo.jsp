@@ -6,9 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>serviceInfo</title>
-<link href="../static/css/baseCSS.css" rel="stylesheet" type="text/css" />
-<link href="../static/css/footer.css" rel="stylesheet" type="text/css" />
-<link href="../static/css/menuDetail.css" rel="stylesheet" type="text/css" />
+<link href="../../static/css/baseCSS.css" rel="stylesheet" type="text/css" />
+<link href="../../static/css/footer.css" rel="stylesheet" type="text/css" />
+<link href="../../static/css/menuDetail.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
 </head>
 <body>
@@ -61,7 +61,7 @@
       <!-- 예약 -->
       <div class="reserve-button-area">
         <a href="#" class="reserve-button">예약하기</a>
-        <a href="<c:url value='/service/menuModify?serviceCode=${dto.serviceCode }'/>" class="modify-button">수정하기</a>
+        <a href="<c:url value='/salon/menu/menuModify?serviceCode=${dto.serviceCode }'/>" class="modify-button">수정하기</a>
         <a href="" class="modify-button" onclick="menuDel();">삭제하기</a>
       </div>
     </div>
@@ -72,7 +72,7 @@
     <script type="text/javascript">
     	function menuDel(){
     		if(confirm('서비스를 삭제하시겠습니까?')) {
-    			location.href = "<c:url value='/service/menuDelete?serviceCode=${dto.serviceCode }'/>";
+    			location.href = "<c:url value='/salon/menu/menuDelete?serviceCode=${dto.serviceCode }'/>";
     		}
     	}
     </script>

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import banjjok.service.salon.serv.ServListService;
 
 @Controller
-@RequestMapping(value = "service")
+@RequestMapping(value = "salon")
 public class SalonServListController {
 	@Autowired
 	ServListService servListService;

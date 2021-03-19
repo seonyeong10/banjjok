@@ -15,7 +15,7 @@ import banjjok.service.salon.serv.SalonServModifyService;
 import banjjok.service.salon.serv.ServListService;
 
 @Controller
-@RequestMapping(value = "service")
+@RequestMapping(value = "/salon/menu")
 public class SalonServDelController {
 	@Autowired
 	SalonServDelService salonServDelService;
