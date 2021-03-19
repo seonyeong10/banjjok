@@ -127,8 +127,8 @@ select {
 /* 에러메세지 */
 span {color: red;}
 .error_next_box {
-    margin-top: 9px;
-    font-size: 12px;
+/*     margin-top: 9px; */
+    font-size: 16px;
     color: red;    
 /*     display: none; */
 }

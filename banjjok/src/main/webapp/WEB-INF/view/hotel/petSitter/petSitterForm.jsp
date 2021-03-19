@@ -56,7 +56,7 @@
                    <span class="box int_name">
                        <input type="text" id="sitterName" name="sitterName" class="int" maxlength="20">
                    </span>
-                   <span class="error_next_box"><form:errors path="sitterPw"/></span>
+                   <span class="error_next_box"><form:errors path="sitterName"/></span>
                </div>
                
                <!-- PHOTO -->
@@ -69,6 +69,7 @@
 						<input type="file" id="sitterImg" name="sitterImg" class="int" />
 					</span>
 					
+					<span class="error_next_box"></span>
 					<span class="error_next_box">${noImg }</span>
 				</div>
 				
@@ -96,7 +97,7 @@
                             <option value="일">일</option>
                        </select>
                    </span>
-                   <span class="error_next_box"></span>    
+                   <span class="error_next_box"><form:errors path="sitterOff"/></span>    
                </div>
                <!-- REGISTRATION -->
                <div>
