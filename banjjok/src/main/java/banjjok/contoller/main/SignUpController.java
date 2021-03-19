@@ -8,8 +8,10 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import banjjok.command.SignUpCommand;
+import banjjok.service.CheckIdService;
 import banjjok.service.mem.RegistService;
 
 @Controller
@@ -20,6 +22,8 @@ public class SignUpController {
 	}
 	@Autowired
 	RegistService registService; 
+	@Autowired
+	CheckIdService checkIdService;
 	
 	@RequestMapping(value = "signUp", method = RequestMethod.GET)
 	public String signUp() {
@@ -35,6 +39,12 @@ public class SignUpController {
 //		}
 //		return "redirect:/signUp";
 //	}
+	@RequestMapping(value = "checkId", method = RequestMethod.POST)
+	public String checkId(@RequestParam(value = "userId") String userId, Model model) throws Exception {
+		// 아이디 중복검사
+		checkIdService.isDuplicate(userId, model);
+		return "salon/imgDel";
+	}
 	@RequestMapping(value = "registMem", method = RequestMethod.POST)
 	public String registMem(@Validated SignUpCommand signUpCommand, BindingResult result, Model model) throws Exception {
 		if(result.hasErrors()) {

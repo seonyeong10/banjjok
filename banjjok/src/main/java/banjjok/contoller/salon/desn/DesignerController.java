@@ -47,9 +47,9 @@ public class DesignerController {
 		if(result.hasErrors()) {
 			return "salon/designer/desnForm";
 		}
-		Integer cnt = desnRegistService.registDesn(desnCommand, model, session);
-		if(cnt == null) return "salon/designer/desnForm";
-		return "redirect:/salon";
+		String path = desnRegistService.registDesn(desnCommand, model, session);
+//		if(cnt == null) return "salon/designer/desnForm";
+		return path;
 	}
 	@RequestMapping(value = "myPage", method = RequestMethod.GET)  
 	public String myPage(Model model, HttpSession session) throws Exception {

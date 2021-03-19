@@ -55,9 +55,11 @@
         <div id="member-info">
           <div class="mem-element">
             <p class="element-name">아이디</p>
-            <span class="element-value"><form:input path="memId" placeholder="아이디"/></span>
-            <span class="button"><input type="button" value="중복확인"/></span>
+            <span class="element-value"><form:input path="memId" placeholder="아이디"/><input type="hidden" name="duplicate" /></span>
+            <span class="button"><input type="button" value="중복확인" onclick="isDuplicate();" name="idBtn"/></span>
             <div class="element-errors"><form:errors path="memId"/> </div>
+            <div class="element-errors"><form:errors path="duplicate"/> </div>
+            <div class="element-errors">${noUseId } </div>
           </div>
           <div class="mem-element">
             <p class="element-name">비밀번호</p>
@@ -156,72 +158,10 @@
     </div>
 	<!-- foot -->
 		<footer> SoulMate's Forest 02.125.7979 Copyright & copy All Rights reserved. </footer>
-<!-- 	<script src="js/script.js"></script> -->
+	<script src="static/js/signUp.js"></script>
 	<!-- foot 끝 -->
 	<script type="text/javascript">
-	function block(){
-		alert('중성화 하지 않은 반려동물은 등록할 수 없습니다.');
-		document.getElementById('noNeutral').checked = false;
-	}
-	function complete(){
-// 		alert('회원가입이 완료되었습니다.\n로그인 후 이용해 주세요.');
-	}
-	function prevPage(){
-		 document.getElementById('member-info').style.display='block';
-		 document.getElementById('pet-info').style.display='none';
-		 document.getElementsByClassName('pennant-pet')[0].style.color='#333';
-		 document.getElementsByClassName('pennant')[0].style.color='#e1e1e1';
-	}
-	function nextPage() {
-// 		frm.action="checkMem";
-// 		frm.submit();
-// 		  var memData = {
-// 				  "memId" : $("input[name='memId']").val()
-// 				  ,"memPwCon" : $("input[name='memPwCon']").val()
-// 				  ,"memMobile" : $("input[name='memMobile']").val()
-// 				  ,"memMobile" : $("input[name='memMobile']").val()
-// 				  ,"memEmail" : $("input[name='memEmail']").val()
-// 				  ,"nicName" : $("input[name='nicName']").val()
-// 		  }
-// 		  checkMem = {
-// 				  type : "post"
-// 				  ,url : "checkMem"
-// 				  ,dataType : "text"
-// 				  ,data : memData
-// 				  ,success : function(isErr){
-// 					  console.log(isErr);
-// 					  if(!isErr){
-// 						  $('#member-info').hide();
-// 						  $('#pet-info').show();
-// 						  $('.pennant-pet').css('color', '#333');
-// 						  $('.pennant').css('color','#e1e1e1');
-// 					  }
-// 				  }
-// 				  ,error : function(){
-// 					  alert('에러');
-// 					  return;
-// 				  }
-				  
-// 		  };
-// 		  $.ajax(checkMem);
-		  document.getElementById('member-info').style.display='none';
-		  document.getElementById('pet-info').style.display='block';
-		  document.getElementsByClassName('pennant-pet')[0].style.color='#e1e1e1';
-		  document.getElementsByClassName('pennant')[0].style.color='#333';
-		}
-
-		function cancle() {
-		  if(confirm('입력한 데이터는 저장되지 않습니다. \n 취소하시겠습니까?')) {
-		    location.href='index.html';
-		  }
-		}
-
-		function init() {
-		  document.getElementById('pet-info').style.display='none';
-		  document.getElementsByClassName('pennant-pet')[0].style.color='#e1e1e1';
-		}
-
-		init();
+	
 	</script>
 </body>
 </html>

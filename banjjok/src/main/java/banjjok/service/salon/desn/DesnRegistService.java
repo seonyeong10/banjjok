@@ -26,12 +26,15 @@ public class DesnRegistService {
 	@Autowired
 	DesnMapper desnMapper;
 
-	public Integer registDesn(DesnCommand desnCommand, Model model, HttpSession session) throws Exception {
+	public String registDesn(DesnCommand desnCommand, Model model, HttpSession session) throws Exception {
 		if(!desnCommand.isEqualPw()) {
 			model.addAttribute("pwErr", "비밀번호가 일치하지 않습니다.");
-			return null;
+			return "salon/designer/desnForm";
 		}
-		Integer cnt = null;
+		if(desnCommand.getDesnImg().isEmpty()) {
+			model.addAttribute("noImg", "이미지를 첨부해주세요.");
+			return "salon/designer/desnForm";
+		}
 		// dto 저장
 		DesnDTO dto = new DesnDTO();
 		dto.setDesnId(desnCommand.getDesnId());	//아이디
@@ -45,10 +48,9 @@ public class DesnRegistService {
 		
 		String path = "/WEB-INF/view/salon/designer/upload";
 		String filePath = session.getServletContext().getRealPath(path);
-		System.out.println(filePath);
 		String desnImg = "";
 		String storeFileNames = "";
-		if(desnCommand.getDesnImg() != null) {
+//		if(desnCommand.getDesnImg() != null) {
 			MultipartFile mf = desnCommand.getDesnImg();
 			String original = mf.getOriginalFilename();
 			if(!original.equals("")) {
@@ -61,14 +63,15 @@ public class DesnRegistService {
 				} catch (IllegalStateException | IOException e) {
 					e.printStackTrace();
 				}
-			} else {
-				model.addAttribute("noImg", "이미지를 첨부해주세요.");
 			}
 			dto.setDesnImg(desnImg);
-		}
+//		}  else {
+//			System.out.println("실행");
+//			
+//		}
 		
-		cnt = desnMapper.insertEmp(dto);
-		return cnt;
+//		Integer cnt = desnMapper.insertEmp(dto);
+		return "redirect:/salon";
 	}
 
 	

@@ -28,6 +28,8 @@ public class SignUpCommand {
 	@NotEmpty(message = "성함을 입력하세요.")
 	String memName;
 	String nicName;
+	@NotEmpty(message = "아이디 중복검사를 해주세요.")
+	String duplicate;	// 아이디 중복검사 확인
 
 	// 펫 정보
 	@NotEmpty(message = "펫 이름을 입력하세요.")
@@ -103,6 +105,14 @@ public class SignUpCommand {
 
 	public void setNicName(String nicName) {
 		this.nicName = nicName;
+	}
+	
+	public String getDuplicate() {
+		return duplicate;
+	}
+
+	public void setDuplicate(String duplicate) {
+		this.duplicate = duplicate;
 	}
 
 	public String getPetName() {

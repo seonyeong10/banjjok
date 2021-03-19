@@ -26,7 +26,12 @@ public class RegistService {
 		String path = "";
 		if(!signUpCommand.isEqualPw()) {
 			model.addAttribute("notEqual", "비밀번호가 일치하지 않습니다.");
-			path = "login/signUpForm";
+			return "login/signUpForm";
+		}
+		if(!signUpCommand.getDuplicate().equals("false")) {
+			// 아이디가 중복되었다면
+			model.addAttribute("noUseId", "사용할 수 없는 아이디입니다.");
+			return "login/signUpForm";
 		}
 		// 문자인증 확인?
 		// dto 저장

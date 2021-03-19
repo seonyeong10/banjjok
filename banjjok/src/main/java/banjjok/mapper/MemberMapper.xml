@@ -10,8 +10,7 @@
 </sql>
 <insert id="insertMem" parameterType="banjjok.domain.MemberDTO">
 	insert into member (<include refid="memColumn" />)
-	values(#{memId}, #{memPw}, #{memMobile}, #{memName}, #{memEmail}, sysdate, #{nicName}
-	)
+	values(#{memId}, #{memPw}, #{memMobile}, #{memName}, #{memEmail}, sysdate, #{nicName}, 1)
 </insert>
 <select id="getUserList" parameterType="banjjok.domain.MemberDTO" resultType="banjjok.domain.MemberDTO">
 	select *
