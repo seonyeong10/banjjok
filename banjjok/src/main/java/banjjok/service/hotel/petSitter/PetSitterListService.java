@@ -21,6 +21,7 @@ public class PetSitterListService {
 	
 	public void sitterList(Model model) throws Exception {
 		PetSitterDTO dto = new PetSitterDTO();
+//		dto.setSitterUse("1");
 		List<PetSitterDTO> list = petSitterMapper.getSitterList(dto);
 		model.addAttribute("lists", list);
 //		model.addAttribute("list", list.get(0));

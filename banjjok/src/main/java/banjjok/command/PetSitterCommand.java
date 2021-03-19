@@ -35,14 +35,24 @@ public class PetSitterCommand {
 	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
 	LocalDateTime sitterReg;
 	
-	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-	LocalDateTime sitterEnter;
+	@NotNull(message = "입사일을 입력하세요.")
+	String sitterEnter;
+	
+	String sitterUse;
 	
 	public boolean isEqualPw() {
 		if (sitterPw.equals(sitterPwCon)) {
 			return true;
 		} else {
 			return false;
+		}
+	}
+	
+	public boolean isEmptyImg() {
+		if(sitterImg.isEmpty()) {
+			return false;
+		}else {
+			return true;
 		}
 	}
 
@@ -110,12 +120,20 @@ public class PetSitterCommand {
 		this.sitterReg = sitterReg;
 	}
 
-	public LocalDateTime getSitterEnter() {
+	public String getSitterEnter() {
 		return sitterEnter;
 	}
 
-	public void setSitterEnter(LocalDateTime sitterEnter) {
+	public void setSitterEnter(String sitterEnter) {
 		this.sitterEnter = sitterEnter;
+	}
+
+	public String getSitterUse() {
+		return sitterUse;
+	}
+
+	public void setSitterUse(String sitterUse) {
+		this.sitterUse = sitterUse;
 	}
 	
 }

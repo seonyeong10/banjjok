@@ -24,7 +24,10 @@
 					<tr>
 						<td>${dto.shopCode }</td>
 						<td><a href="enrollDetail?tId=${dto.tId }">${dto.tName }</a></td>
-						<td>${dto.cCode }</td>
+						<td>
+<%-- 							<c:if test="${dto.cCode eq  }"></c:if> --%>
+							${dto.cCode }
+						</td>
 						<td>${dto.tState }</td>
 					</tr>
 				</c:forEach>

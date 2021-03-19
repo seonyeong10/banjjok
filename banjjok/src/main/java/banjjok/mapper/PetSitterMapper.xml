@@ -23,18 +23,25 @@
 				<if test="sitterId != null">
 					SITTER_ID = #{sitterId}
 				</if>
+				and SITTER_USE = '1' 
 			</trim>
 			order by SITTER_ENTER DESC
 		)
 	)
+	
 </select>
 <update id="updateSitter" parameterType="banjjok.domain.PetSitterDTO">
 	update pet_sitter 
 	set SITTER_NAME=#{sitterName}, SITTER_IMG=#{sitterImg}, SITTER_PH=#{sitterPh}, SITTER_OFF=#{sitterOff}
 	where SITTER_ID = #{sitterId}
 </update>
-<delete id="sitterDel" parameterType="banjjok.domain.PetSitterDTO">
-	delete from pet_sitter
-	where SITTER_ID = #{sitterId};
-</delete>
+<!-- <delete id="sitterDel" parameterType="banjjok.domain.PetSitterDTO"> -->
+<!-- 	delete from pet_sitter -->
+<!-- 	where SITTER_ID = #{sitterId} -->
+<!-- </delete> -->
+<update id="sitterDel" parameterType="banjjok.domain.PetSitterDTO">
+	update pet_sitter 
+	set SITTER_USE = '2'
+	where SITTER_ID = #{sitterId}
+</update>
 </mapper>

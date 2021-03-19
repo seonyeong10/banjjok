@@ -19,6 +19,7 @@ import banjjok.service.kinder.teacher.ClassDelService;
 import banjjok.service.kinder.teacher.ClassDetailService;
 import banjjok.service.kinder.teacher.ClassEnrollService;
 import banjjok.service.kinder.teacher.ClassListService;
+import banjjok.service.kinder.teacher.EnrollDetailService;
 import banjjok.service.kinder.teacher.EnrollListService;
 import banjjok.service.kinder.teacher.TeacherEnrollService;
 
@@ -38,8 +39,8 @@ public class AdminController {
 	EnrollListService enrollListService;
 	@Autowired
 	TeacherEnrollService teacherEnrollService;
-//	@Autowired
-//	EnrollDetailService enrollDetailService;
+	@Autowired
+	EnrollDetailService enrollDetailService;
 	
 	
 	@Autowired
@@ -83,14 +84,29 @@ public class AdminController {
 			if (result.hasErrors()) {
 				return "/kinder/enrollment";
 			}
-		return "redirect:/enrollList";
+//			System.out.println(resultdata);
+			// 사망연산자
+			return resultdata < 0  ? "/kinder/enrollment" : "redirect:/enrollList" ;
+			
+//			if(resultdata > 0) {
+//				return "redirect:/enrollList";
+//			}else{
+//				return "/kinder/enrollment";
+//			}
+			
+//			System.out.println("t/f ? " + teacherCommand.gettState() == null);
+//			System.out.println("상태 : " + teacherCommand.gettState());
+//			if(teacherCommand.gettState() == null) {
+//				return "/kinder/enrollment";
+//			}
+//			return "redirect:/enrollList";
 	}
 	
 	@RequestMapping(value = "enrollDetail", method =RequestMethod.GET)
 	public String enrollDetail(
 			@RequestParam(value="tId")String tId,
 			Model model) throws Exception{
-//		enrollDetailService.enrollDetail(tId, model);
+		enrollDetailService.enrollDetail(tId, model);
 		return "/kinder/enrollDetail";
 	}
 	
@@ -132,7 +148,7 @@ public class AdminController {
 		if(result.hasErrors()) {
 			return "/kinder/enrollclass";
 		}
-		return "redirect:/classList";
+		return resultdata < 0  ? "/kinder/enrollclass" : "redirect:/classList" ;
 	}
 	
 	

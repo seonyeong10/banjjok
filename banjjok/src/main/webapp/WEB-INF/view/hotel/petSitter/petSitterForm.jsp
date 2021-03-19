@@ -12,7 +12,7 @@
 />
 </head>
 <body>
-<form action="/hotel/sitterJoin" method="post" name="regFrm" enctype="multipart/form-data" modelAttribute="petSitterCommand">
+<form:form action="/hotel/sitterJoin" method="post" name="regFrm" enctype="multipart/form-data" modelAttribute="petSitterCommand">
 <div id="header">
 	<%@ include file="../../include/hotelTop.jsp" %>
 	<div id="wrapper">
@@ -21,11 +21,12 @@
 			<div>
 				<h3><label for="sitterId">아이디</label></h3>
 				<span class="box int_id">
-					<input type="text" id="sitterId" name="sitterId" class="int" maxlength="20">
+<!-- 					<input type="text" id="sitterId" name="sitterId" class="int" maxlength="20"> -->
+					<form:input id="sitterId" path="sitterId" class="int" maxlength="20" />
 					<span class="step_url">@banjjok.com</span>
 				</span>
 				<span class="error_next_box" ><form:errors path="sitterId"/></span>
-				<span class="error_next_box" >${duplicateId}<span>
+<%-- 				<span class="error_next_box" >${duplicateId}</span> --%>
 			</div>
 			 <!-- PW -->
                <div>
@@ -116,7 +117,7 @@
     <!-- wrapper 끝-->
 <!--     <script src="sitter.js"></script> -->
 </div>
-</form>
+</form:form>
 	<!-- foot -->
 		<footer> SoulMate's Forest 02.125.7979 Copyright &copy All Rights reserved. </footer>
 	<!-- foot 끝 -->

@@ -9,7 +9,7 @@ public class PetSitterDTO {
 	String sitterImg;
 	String sitterPh;
 	String sitterOff;
-	Timestamp sitterEnter;
+	String sitterEnter;
 	Timestamp sitterReg;
 	Timestamp sitterLeave;
 	String sitterUse;
@@ -50,10 +50,11 @@ public class PetSitterDTO {
 	public void setSitterOff(String sitterOff) {
 		this.sitterOff = sitterOff;
 	}
-	public Timestamp getSitterEnter() {
+	
+	public String getSitterEnter() {
 		return sitterEnter;
 	}
-	public void setSitterEnter(Timestamp sitterEnter) {
+	public void setSitterEnter(String sitterEnter) {
 		this.sitterEnter = sitterEnter;
 	}
 	public Timestamp getSitterReg() {

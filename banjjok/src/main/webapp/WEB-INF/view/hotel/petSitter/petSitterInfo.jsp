@@ -27,6 +27,7 @@ table td {
 		<form:form action="/hotel/sitterModify" method="post" name="frm"
  			onsubmit="return frmSend();" modelAttribute="petSitterCommand" 
 			enctype="multipart/form-data">
+			<input type="hidden" name="sitterUse" value="${list.sitterUse }">
 			<table border="1">
 				<tr>
 					<td>구분</td>

@@ -3,40 +3,40 @@ package banjjok.domain;
 import org.springframework.web.multipart.MultipartFile;
 
 public class RoomDTO {
-	String RoomCode;
-	String RoomName;
-	MultipartFile RoomImg;
-	Integer RoomPrice;
-	String RoomDesc;
+	String roomCode;
+	String roomName;
+	String roomImg;
+	Integer roomPrice;
+	String roomDesc;
 	public String getRoomCode() {
-		return RoomCode;
+		return roomCode;
 	}
 	public void setRoomCode(String roomCode) {
-		RoomCode = roomCode;
+		this.roomCode = roomCode;
 	}
 	public String getRoomName() {
-		return RoomName;
+		return roomName;
 	}
 	public void setRoomName(String roomName) {
-		RoomName = roomName;
+		this.roomName = roomName;
 	}
-	public MultipartFile getRoomImg() {
-		return RoomImg;
+	public String getRoomImg() {
+		return roomImg;
 	}
-	public void setRoomImg(MultipartFile roomImg) {
-		RoomImg = roomImg;
+	public void setRoomImg(String roomImg) {
+		this.roomImg = roomImg;
 	}
 	public Integer getRoomPrice() {
-		return RoomPrice;
+		return roomPrice;
 	}
 	public void setRoomPrice(Integer roomPrice) {
-		RoomPrice = roomPrice;
+		this.roomPrice = roomPrice;
 	}
 	public String getRoomDesc() {
-		return RoomDesc;
+		return roomDesc;
 	}
 	public void setRoomDesc(String roomDesc) {
-		RoomDesc = roomDesc;
+		this.roomDesc = roomDesc;
 	}
 	
 	

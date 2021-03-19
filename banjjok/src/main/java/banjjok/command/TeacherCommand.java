@@ -30,6 +30,8 @@ public class TeacherCommand {
 	String cCode;
 	@NotEmpty(message = "Enter the Present Statement")
 	String tState;
+	@NotEmpty(message = "Enter the Duty Day")
+	String tDuty;
 	
 	
 	//pwcon
@@ -41,6 +43,14 @@ public class TeacherCommand {
 		}
 	}
 	
+	public String getTDuty() {
+		return tDuty;
+	}
+
+	public void setTDuty(String tDuty) {
+		this.tDuty = tDuty;
+	}
+
 	public String gettPwCon() {
 		return tPwCon;
 	}
