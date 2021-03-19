@@ -40,6 +40,9 @@
 					<td style="width:70%;">
 						<form:password path="tPwCon" id="tPwCon" />
 						<form:errors path="tPwCon"/>
+						<div>
+							${valid_tPwCon }
+						</div>
 					</td>
 				</tr>
 				<tr>
@@ -66,12 +69,19 @@
 				<tr>
 					<th style="width:30%;">ENTRADA</th>
 					<td style="width:70%;">
-						<form:input path="tJoin" id="tJoin" />
+						<input type="date" name="tJoin" />
 						<form:errors path="tJoin" />
 					</td>
 				</tr>
 				<tr>
-					<th style="width:30%;">PHOTO</th>
+					<th style="width:30%;">DUTY DAY</th>
+					<td style="width:70%;">
+						<form:input path="tDuty" id="tDuty" />
+						<form:errors path="tDuty" />
+					</td>
+				</tr>
+				<tr>
+					<th style="width:30%;">TEACHER PHOTO</th>
 					<td style="width:70%;">
 						<input type="file" name="tPhoto" multiple="multiple" />
 					</td>
@@ -88,6 +98,9 @@
 					<td style="width:70%;">
 						<form:input path="tState" id="tState" />
 						<form:errors path="tState" />
+						<div>
+							${err }
+						</div>
 					</td>
 				</tr>
 				<tr>

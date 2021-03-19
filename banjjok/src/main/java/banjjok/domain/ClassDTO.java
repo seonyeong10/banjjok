@@ -8,7 +8,16 @@ public class ClassDTO {
 	String cContent;
 	String cWeight;
 	String pCode;
+	String cName;
 	
+	
+	
+	public String getcName() {
+		return cName;
+	}
+	public void setcName(String cName) {
+		this.cName = cName;
+	}
 	public String getcCode() {
 		return cCode;
 	}

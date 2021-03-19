@@ -18,8 +18,16 @@ public class ClassCommand {
 	MultipartFile cPhoto;
 	@NotEmpty(message = "Enter the Class Info")
 	String cContent;
+	@NotEmpty(message = "Enter the Class Name")
+	String cName;
 	
 	
+	public String getcName() {
+		return cName;
+	}
+	public void setcName(String cName) {
+		this.cName = cName;
+	}
 	public String getpCode() {
 		return pCode;
 	}

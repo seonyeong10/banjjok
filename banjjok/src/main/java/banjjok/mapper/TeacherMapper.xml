@@ -4,18 +4,18 @@
 <mapper namespace="banjjok.mapper.TeacherMapper" >
 
 <sql id="base">
-	T_ID, C_CODE, T_NAME, T_PW, T_PHOTO, T_PH, T_STATE, T_EMAIL, SHOP_CODE, T_JOIN, T_REGIST, T_RESIGN, T_NIC
+	T_ID, C_CODE, T_NAME, T_PW, T_PHOTO, T_PH, T_STATE, T_EMAIL, SHOP_CODE, T_JOIN, T_REGIST, T_RESIGN, T_NIC, T_DUTY
 </sql>
 <sql id="base1">
 	T_ID TID, C_CODE CCODE, T_NAME TNAME, T_PW TPW, T_PHOTO TPHOTO, T_PH TPH, 
 	T_STATE TSTATE, T_EMAIL TEMAIL, SHOP_CODE SHOPCODE, T_JOIN TJOIN, T_REGIST TREGIST, 
-	T_RESIGN TRESIGN, T_NIC TNIC
+	T_RESIGN TRESIGN, T_NIC TNIC, T_DUTY TDUTY
 </sql>
 
 <insert id="teacherInsert" parameterType="banjjok.domain.TeacherDTO" >
 	insert into teacher (<include refid="base" />) 
 	values(#{tId}, #{cCode}, #{tName}, #{tPw}, #{tPhoto}, #{tPh}, 
-			#{tState}, #{tEmail}, #{shopCode}, #{tJoin}, sysdate, null, null)
+			#{tState}, #{tEmail}, #{shopCode}, #{tJoin}, sysdate, null, null, #{tDuty})
 </insert>
 
 <select id="enrollListup" parameterType="banjjok.domain.TeacherDTO" 

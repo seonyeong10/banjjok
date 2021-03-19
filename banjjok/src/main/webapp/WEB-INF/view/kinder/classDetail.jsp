@@ -70,16 +70,7 @@
 				<tr>
 					<th>CLASS COLOR CODE</th>
 					<td colspan="2">
-						<c:if test="${lists.get(0).cColor eq 'CCCCCC' }">GRAY</c:if>
-						<c:if test="${lists.get(0).cColor eq 'FF0000' }">RED</c:if>
-						<c:if test="${lists.get(0).cColor eq 'FF3300' }">ORANGE</c:if>
-						<c:if test="${lists.get(0).cColor eq 'FF0066' }">PINK</c:if>
-						<c:if test="${lists.get(0).cColor eq 'FFCC00' }">YELLOW</c:if>
-						<c:if test="${lists.get(0).cColor eq '00CC66' }">GREEN</c:if>
-						<c:if test="${lists.get(0).cColor eq '66CCFF' }">LIGHT BLUE</c:if>
-						<c:if test="${lists.get(0).cColor eq '3333FF' }">BLUE</c:if>
-						<c:if test="${lists.get(0).cColor eq '000066' }">NAVY</c:if>
-						<c:if test="${lists.get(0).cColor eq '9966FF' }">PURPLE</c:if>
+						${lists.get(0).cColor}
 					</td>
 				</tr>
 				<tr>
@@ -93,7 +84,7 @@
 					<th>CLASS INFO</th>
 					<td>
 						<c:set value="${fn:split(lists.get(0).cPhoto,'`') }" var="i" />
-						<img src="/kinder/upload/${i[1] }" alt="" style="width: 150px; height: 200px">
+						<img src="/kinder/upload/${i[1] }" alt="class photo" style="width: 150px; height: 200px">
 					</td>
 					<td>
 						${lists.get(0).cContent }

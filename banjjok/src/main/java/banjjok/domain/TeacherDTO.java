@@ -16,9 +16,15 @@ public class TeacherDTO {
 	Timestamp tRegist;
 	Timestamp tResign;
 	String tNic;
+	String tDuty;
 	
 	
-	
+	public String getTDuty() {
+		return tDuty;
+	}
+	public void setTDuty(String tDuty) {
+		this.tDuty = tDuty;
+	}
 	public String gettId() {
 		return tId;
 	}
