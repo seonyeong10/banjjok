@@ -13,7 +13,7 @@ public class DesnDTO {
 	Timestamp desnEnter;
 	Timestamp desnReg;
 	Timestamp desnLeave;
-	String desnUse;
+	String desnUse;	// 1 원장, 2 수석디자이너, 3 디자이너, 4 퇴사자
 
 	public String getDesnId() {
 		return desnId;

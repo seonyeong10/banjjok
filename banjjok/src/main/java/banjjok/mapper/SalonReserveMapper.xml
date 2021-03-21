@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="banjjok.mapper.SalonReserveMapper">
+<sql id="column">
+	RESERV_CODE, PET_ID, MEM_ID, SERVICE_CODE,DESN_ID, RESERV_DATE, RESERV_TIME, RESERV_DESC
+</sql>
+<insert id="insertRes" parameterType="banjjok.domain.SalonReserveDTO">
+	insert into reserve_salon (<include refid="column" />)
+	values(pet_seq.nextval, null, #{memId}, #{serviceCode}, #{desnId}, #{reservDate}, #{reservTime}, #{reservDesc})
+</insert>
+</mapper>

@@ -25,6 +25,7 @@
 				</if>
 				and desn_use in(1, 2, 3)
 			</trim>
+			order by desn_use
 		)
 	)
 </select>
