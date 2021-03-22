@@ -1,8 +1,11 @@
  package banjjok.controller.hotel.room;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,6 +14,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import banjjok.command.RoomCommand;
 import banjjok.service.hotel.room.RoomDetailService;
 import banjjok.service.hotel.room.RoomListService;
+import banjjok.service.hotel.room.RoomModiService;
 import banjjok.service.hotel.room.RoomRegistService;
 import banjjok.service.hotel.room.RoomRegistService_mapVer;
 
@@ -25,6 +29,13 @@ public class RoomController {
 	RoomRegistService_mapVer roomRegistService_mapVer;
 	@Autowired
 	RoomDetailService roomDetailService;
+	@Autowired
+	RoomModiService roomModiService;
+	
+	@ModelAttribute
+	public RoomCommand setRoomCommand() {
+		return new RoomCommand();
+	}
 	
 	@RequestMapping("roomList")
 	public String roomList( Model model) throws Exception{
@@ -50,6 +61,11 @@ public class RoomController {
 	public String roomDetail(@PathVariable(value="roomName")String roomName, Model model) throws Exception {
 		roomDetailService.getRoomDetail(roomName, model);
 		return "hotel/room/roomDetail";
+	}
+	@RequestMapping(value="roomModi", method=RequestMethod.GET)
+	public String roomModi(RoomCommand roomCommand, Model model, HttpSession session) throws Exception {
+		roomModiService.roomModify(roomCommand, model, session);
+		return "hotel/room/roomModify";
 	}
 
 }

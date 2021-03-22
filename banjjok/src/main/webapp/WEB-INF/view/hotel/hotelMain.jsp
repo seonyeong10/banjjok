@@ -7,11 +7,29 @@
 <head>
 <meta charset="UTF-8">
 <title>hotelMain.jsp</title>
-<link href="static/css/baseCSS.css" rel="stylesheet" type="text/css" />
-<!-- <link href="static/css/topMenu.css" rel="stylesheet" type="text/css" /> -->
+<!-- <link href="static/css/baseCSS.css" rel="stylesheet" type="text/css" /> -->
 <link href="static/css/footer.css" rel="stylesheet" type="text/css" />
 <!-- <link href="static/css/index.css" rel="stylesheet" type="text/css" /> -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<style type="text/css">
+	.w-display-container{position:relative}
+	.w-display-container:hover 
+	.w-display-hover{display:block}
+	.w-display-container:hover span.w-display-hover{display:inline-block}
+	.w-content,.w-auto{margin-left:auto;margin-right:auto}.w-content{max-width:980px}.w-auto{max-width:1140px}
+	.w-wide{letter-spacing:4px}
+	.w-image{max-width:100%;height:auto}img{vertical-align:middle}
+	.w-display-middle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%)}
+	.w-margin-top{margin-top:16px!important}
+	.w-padding-32{padding-top:32px!important;padding-bottom:32px!important}
+	.w-padding-16{padding-top:16px!important;padding-bottom:16px!important}
+	.w-centered tr th,.w-centered tr td{text-align:center}
+	.w-container:after,.w-container:before {content:"";display:table;clear:both}
+	.w-container,.w3-panel{padding:0.01em 16px}
+	
+</style>
 </head>
 <body>
 	<!-- top -->
@@ -19,6 +37,143 @@
 		<%@include file="../include/hotelTop.jsp" %>
 	</div>
 	<!-- top 끝 -->
+	<!-- Header -->
+	<header class="w-display-container w-content w-wide" style="max-width:1500;" id="home">
+	  <img class="w-image" src="/static/images/banjjog1.jpg" alt="hotel" width="1500" height="800">
+	  <div class="w-display-middle w-margin-top w-center">
+	    <h1 class="w3-xxlarge w3-text-white">
+	    	<span class="w3-padding w3-black w3-opacity-min"><b>SM</b></span>
+	    	<span class="w3-hide-small w3-text-light-grey">Forest of BAN JJOK</span>
+	    </h1>
+	  </div>
+	</header>
+	
+	<!-- Page content -->
+	<div class="w-content w-padding" style="max-width:1564px">
+	
+	  <!-- Project Section -->
+	  <div class="w-container w-padding-32" id="projects">
+	    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Projects</h3>
+	  </div>
+	
+	  <div class="w3-row-padding">
+	    <div class="w3-col l3 m6 w3-margin-bottom">
+	      <div class="w-display-container">
+	        <div class="w3-display-topleft w3-black w3-padding">Summer House</div>
+	        <img src="/w3images/house5.jpg" alt="House" style="width:100%">
+	      </div>
+	    </div>
+	    <div class="w3-col l3 m6 w3-margin-bottom">
+	      <div class="w3-display-container">
+	        <div class="w3-display-topleft w3-black w3-padding">Brick House</div>
+	        <img src="/w3images/house2.jpg" alt="House" style="width:100%">
+	      </div>
+	    </div>
+	    <div class="w3-col l3 m6 w3-margin-bottom">
+	      <div class="w3-display-container">
+	        <div class="w3-display-topleft w3-black w3-padding">Renovated</div>
+	        <img src="/w3images/house3.jpg" alt="House" style="width:100%">
+	      </div>
+	    </div>
+	    <div class="w3-col l3 m6 w3-margin-bottom">
+	      <div class="w3-display-container">
+	        <div class="w3-display-topleft w3-black w3-padding">Barn House</div>
+	        <img src="/w3images/house4.jpg" alt="House" style="width:100%">
+	      </div>
+	    </div>
+	  </div>
+	
+	  <div class="w3-row-padding">
+	    <div class="w3-col l3 m6 w3-margin-bottom">
+	      <div class="w3-display-container">
+	        <div class="w3-display-topleft w3-black w3-padding">Summer House</div>
+	        <img src="/w3images/house2.jpg" alt="House" style="width:99%">
+	      </div>
+	    </div>
+	    <div class="w3-col l3 m6 w3-margin-bottom">
+	      <div class="w3-display-container">
+	        <div class="w3-display-topleft w3-black w3-padding">Brick House</div>
+	        <img src="/w3images/house5.jpg" alt="House" style="width:99%">
+	      </div>
+	    </div>
+	    <div class="w3-col l3 m6 w3-margin-bottom">
+	      <div class="w3-display-container">
+	        <div class="w3-display-topleft w3-black w3-padding">Renovated</div>
+	        <img src="/w3images/house4.jpg" alt="House" style="width:99%">
+	      </div>
+	    </div>
+	    <div class="w3-col l3 m6 w3-margin-bottom">
+	      <div class="w3-display-container">
+	        <div class="w3-display-topleft w3-black w3-padding">Barn House</div>
+	        <img src="/w3images/house3.jpg" alt="House" style="width:99%">
+	      </div>
+	    </div>
+	  </div>
+	
+	  <!-- About Section -->
+	  <div class="w3-container w3-padding-32" id="about">
+	    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">About</h3>
+	    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint
+	      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+	      laboris nisi ut aliquip ex ea commodo consequat.
+	    </p>
+	  </div>
+	
+<!-- 	돌보미를 불러오자 -->
+	  <div class="w3-row-padding w3-grayscale">
+	    <div class="w3-col l3 m6 w3-margin-bottom">
+	      <img src="/w3images/team2.jpg" alt="John" style="width:100%">
+	      <h3>John Doe</h3>
+	      <p class="w3-opacity">CEO & Founder</p>
+	      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+	      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
+	    </div>
+	    <div class="w3-col l3 m6 w3-margin-bottom">
+	      <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
+	      <h3>Jane Doe</h3>
+	      <p class="w3-opacity">Architect</p>
+	      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+	      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
+	    </div>
+	    <div class="w3-col l3 m6 w3-margin-bottom">
+	      <img src="/w3images/team3.jpg" alt="Mike" style="width:100%">
+	      <h3>Mike Ross</h3>
+	      <p class="w3-opacity">Architect</p>
+	      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+	      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
+	    </div>
+	    <div class="w3-col l3 m6 w3-margin-bottom">
+	      <img src="/w3images/team4.jpg" alt="Dan" style="width:100%">
+	      <h3>Dan Star</h3>
+	      <p class="w3-opacity">Architect</p>
+	      <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+	      <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
+	    </div>
+	  </div>
+	
+	  <!-- Contact Section -->
+	  <div class="w3-container w3-padding-32" id="contact">
+	    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Contact</h3>
+	    <p>Lets get in touch and talk about your next project.</p>
+	    <form action="/action_page.php" target="_blank">
+	      <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+	      <input class="w3-input w3-section w3-border" type="text" placeholder="Email" required name="Email">
+	      <input class="w3-input w3-section w3-border" type="text" placeholder="Subject" required name="Subject">
+	      <input class="w3-input w3-section w3-border" type="text" placeholder="Comment" required name="Comment">
+	      <button class="w3-button w3-black w3-section" type="submit">
+	        <i class="fa fa-paper-plane"></i> SEND MESSAGE
+	      </button>
+	    </form>
+	  </div>
+	  
+	<!-- Image of location/map -->
+	<div class="w3-container">
+	  <img src="/w3images/map.jpg" class="w3-image" style="width:100%">
+	</div>
+	
+	<!-- End page content -->
+	</div>
+	
 	<!-- foot -->
 		<footer> SoulMate's Forest 02.125.7979 Copyright &copy All Rights reserved. </footer>
 	<!-- foot 끝 -->

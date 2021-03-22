@@ -10,6 +10,7 @@
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 <link href="/static/css/baseCSS.css" rel="stylesheet" type="text/css" />
 <link href="/static/css/footer.css" rel="stylesheet" type="text/css" />
+<link href="/static/css/memberForm.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -17,7 +18,6 @@
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 .mySlides {display: none}
  .w3-hover-green:hover{color:#fff!important;background-color:#000!important}
-
 </style>
 <body class="w3-border-left w3-border-right">
 	<%@ include file="../../include/hotelTop.jsp"%>
@@ -90,20 +90,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 			        
 			  </div>
 			  <c:forEach items="${list }" var="room">
-				<c:forTokens items="${room.roomImg }" delims="`" var="img" end="3"> 
+				<c:forTokens items="${room.roomImg }" delims="`" var="img" end="3" varStatus="status"> 
 			  <div class="w3-row-padding w3-section">
 			    <div class="w3-col s3">
-			      <img class="demo w3-opacity w3-hover-opacity-off" src="/hotel/room/upload/${img }" style="width:60px;height:40px;cursor:pointer" onclick="currentDiv(1)" title="Living room">
+			      <img class="demo w3-opacity w3-hover-opacity-off" src="/hotel/room/upload/${img }" style="width:300px;height:100px;cursor:pointer;display:inline-block;" onclick="currentDiv(${status.count})" title="${room.roomName}">
 			    </div>
-<!-- 			    <div class="w3-col s3"> -->
-<!-- 			      <img class="demo w3-opacity w3-hover-opacity-off" src="/w3images/diningroom.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(2)" title="Dining room"> -->
-<!-- 			    </div> -->
-<!-- 			    <div class="w3-col s3"> -->
-<!-- 			      <img class="demo w3-opacity w3-hover-opacity-off" src="/w3images/bedroom.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(3)" title="Bedroom"> -->
-<!-- 			    </div> -->
-<!-- 			    <div class="w3-col s3"> -->
-<!-- 			      <img class="demo w3-opacity w3-hover-opacity-off" src="/w3images/livingroom2.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(4)" title="Second Living Room"> -->
-<!-- 			    </div> -->
 			  </div>
 			  </c:forTokens>
 			</c:forEach>	
@@ -123,31 +114,34 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 	    </div>
 	    <hr>
 	    
-	    <h4><strong>Amenities</strong></h4>
+	    <h4><strong>Hotel Description</strong></h4>
 	    <div class="w3-row w3-large">
-	      <div class="w3-col s6">
-	        <p><i class="fa fa-fw fa-shower"></i> Shower</p>
-	        <p><i class="fa fa-fw fa-wifi"></i> WiFi</p>
-	        <p><i class="fa fa-fw fa-tv"></i> TV</p>
-	      </div>
-	      <div class="w3-col s6">
-	        <p><i class="fa fa-fw fa-cutlery"></i> Kitchen</p>
-	        <p><i class="fa fa-fw fa-thermometer"></i> Heating</p>
-	        <p><i class="fa fa-fw fa-wheelchair"></i> Accessible</p>
-	      </div>
+	    ${list.get(0).roomDesc }
+<!-- 	      <div class="w3-col s6"> -->
+<!-- 	        <p><i class="fa fa-fw fa-shower"></i> Shower</p> -->
+<!-- 	        <p><i class="fa fa-fw fa-wifi"></i> WiFi</p> -->
+<!-- 	        <p><i class="fa fa-fw fa-tv"></i> TV</p> -->
+<!-- 	      </div> -->
+<!-- 	      <div class="w3-col s6"> -->
+<!-- 	        <p><i class="fa fa-fw fa-cutlery"></i> Kitchen</p> -->
+<!-- 	        <p><i class="fa fa-fw fa-thermometer"></i> Heating</p> -->
+<!-- 	        <p><i class="fa fa-fw fa-wheelchair"></i> Accessible</p> -->
+<!-- 	      </div> -->
 	    </div>
 	    <hr>
 	    <h4><strong>Extra Info</strong></h4>
 	    <p>Our apartment is really clean and we like to keep it that way. Enjoy the lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 	    <p>We accept: <i class="fa fa-credit-card w3-large"></i> <i class="fa fa-cc-mastercard w3-large"></i> <i class="fa fa-cc-amex w3-large"></i> <i class="fa fa-cc-cc-visa w3-large"></i><i class="fa fa-cc-paypal w3-large"></i></p>
-	    
-	    
-<!-- 	    <h4><strong>Rules</strong></h4> -->
-<!-- 	    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> -->
-<!-- 	    <p>Subscribe to receive updates on available dates and special offers.</p> -->
-<!-- 	    <p><button class="w3-button w3-green w3-third" onclick="document.getElementById('subscribe').style.display='block'">Subscribe</button></p> -->
 	  </div>
-	  <hr>
+	  <hr />
+	  <!-- 관리자 모드 -->
+	  	<div class="button-wrap">
+			<input type="button" value="취소" onclick="cancle();" />
+			<input type="submit" value="수정" onclick="javascript:location.href='../roomModi?roomName=${list.get(0).roomName }'";/>
+		</div>
+	  <hr /><br />
+	  
+	  <!-- 관리자 모드 끝 -->
 	 	<!-- foot -->
 		<footer> SoulMate's Forest 02.125.7979 Copyright &copy All Rights reserved. </footer>
 		<!-- 	<script src="js/script.js"></script> -->

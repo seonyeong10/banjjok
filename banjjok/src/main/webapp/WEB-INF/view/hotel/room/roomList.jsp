@@ -75,26 +75,26 @@
       </div>
     </div>
    
-<!--     <div class="w3-third w3-margin-bottom"> -->
-<!--       <img src="/w3images/room_double.jpg" alt="Norway" style="width:100%"> -->
-<!--       <div class="w3-container w3-white"> -->
-<!--         <h3>Double Room</h3> -->
-<!--         <h6 class="w3-opacity">From $149</h6> -->
-<!--         <p>Queen-size bed</p> -->
-<!--         <p>25m<sup>2</sup></p> -->
-<!--         <p class="w3-large"><i class="fa fa-bath"></i> <i class="fa fa-phone"></i> <i class="fa fa-wifi"></i> <i class="fa fa-tv"></i></p> -->
-<!--         <button class="w3-button w3-block w3-black w3-margin-bottom">Choose Room</button> -->
-<!--       </div> -->
-<!--     </div> -->
-<!--     <div class="w3-third w3-margin-bottom"> -->
-<!--       <img src="/w3images/room_deluxe.jpg" alt="Norway" style="width:100%"> -->
-<!--       <div class="w3-container w3-white"> -->
-<!--         <h3>Deluxe Room</h3> -->
-<!--         <h6 class="w3-opacity">From $199</h6> -->
-<!--         <p>King-size bed</p> -->
-<!--         <p>40m<sup>2</sup></p> -->
-<!--         <p class="w3-large"><i class="fa fa-bath"></i> <i class="fa fa-phone"></i> <i class="fa fa-wifi"></i> <i class="fa fa-tv"></i> <i class="fa fa-glass"></i> <i class="fa fa-cutlery"></i></p> -->
-<!--         <button class="w3-button w3-block w3-black w3-margin-bottom">Choose Room</button> -->
+    <div class="w3-third w3-margin-bottom">
+      <img src="/w3images/room_double.jpg" alt="Norway" style="width:100%">
+      <div class="w3-container w3-white">
+        <h3>Double Room</h3>
+        <h6 class="w3-opacity">From $149</h6>
+        <p>Queen-size bed</p>
+        <p>25m<sup>2</sup></p>
+        <p class="w3-large"><i class="fa fa-bath"></i> <i class="fa fa-phone"></i> <i class="fa fa-wifi"></i> <i class="fa fa-tv"></i></p>
+        <button class="w3-button w3-block w3-black w3-margin-bottom">Choose Room</button>
+      </div>
+    </div>
+    <div class="w3-third w3-margin-bottom">
+      <img src="/w3images/room_deluxe.jpg" alt="Norway" style="width:100%">
+      <div class="w3-container w3-white">
+        <h3>Deluxe Room</h3>
+        <h6 class="w3-opacity">From $199</h6>
+        <p>King-size bed</p>
+        <p>40m<sup>2</sup></p>
+        <p class="w3-large"><i class="fa fa-bath"></i> <i class="fa fa-phone"></i> <i class="fa fa-wifi"></i> <i class="fa fa-tv"></i> <i class="fa fa-glass"></i> <i class="fa fa-cutlery"></i></p>
+        <button class="w3-button w3-block w3-black w3-margin-bottom">Choose Room</button>
 <!--       </div> -->
 <!--     </div> -->
   
@@ -106,7 +106,6 @@
       <h6>Our hotel is one of a kind. It is truely amazing. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</h6>
     <p>We accept: <i class="fa fa-credit-card w3-large"></i> <i class="fa fa-cc-mastercard w3-large"></i> <i class="fa fa-cc-amex w3-large"></i> <i class="fa fa-cc-cc-visa w3-large"></i><i class="fa fa-cc-paypal w3-large"></i></p>
     </div>
-    <div class="w3-col l8 12">
      
 <!-- End page content -->
 </div>
