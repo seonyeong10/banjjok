@@ -46,6 +46,7 @@ public class SignUpCommand {
 	@NotEmpty(message = "전자칩번호를 입력하세요.")
 	String microNum;
 	String petDesc;
+	String petRep;
 	
 	public boolean isEqualPw() {
 		return memPw.equals(memPwCon) ? true : false;
@@ -177,6 +178,14 @@ public class SignUpCommand {
 
 	public void setPetDesc(String petDesc) {
 		this.petDesc = petDesc;
+	}
+
+	public String getPetRep() {
+		return petRep;
+	}
+
+	public void setPetRep(String petRep) {
+		this.petRep = petRep;
 	}
 
 }

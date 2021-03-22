@@ -11,6 +11,11 @@ public class SalonReserveDTO {
 	Date reservDate;
 	String reservTime;
 	String reservDesc;
+	String serviceName;
+	String serviceFee;
+	String desnName;
+	String petName;
+	String memName;
 
 	public String getReservCode() {
 		return reservCode;
@@ -75,5 +80,46 @@ public class SalonReserveDTO {
 	public void setReservDesc(String reservDesc) {
 		this.reservDesc = reservDesc;
 	}
+
+	public String getServiceName() {
+		return serviceName;
+	}
+
+	public void setServiceName(String serviceName) {
+		this.serviceName = serviceName;
+	}
+
+	public String getServiceFee() {
+		return serviceFee;
+	}
+
+	public void setServiceFee(String serviceFee) {
+		this.serviceFee = serviceFee;
+	}
+
+	public String getDesnName() {
+		return desnName;
+	}
+
+	public void setDesnName(String desnName) {
+		this.desnName = desnName;
+	}
+
+	public String getPetName() {
+		return petName;
+	}
+
+	public void setPetName(String petName) {
+		this.petName = petName;
+	}
+
+	public String getMemName() {
+		return memName;
+	}
+
+	public void setMemName(String memName) {
+		this.memName = memName;
+	}
+	
 
 }

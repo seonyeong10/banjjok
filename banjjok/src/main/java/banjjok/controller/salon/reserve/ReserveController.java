@@ -27,8 +27,8 @@ public class ReserveController {
 	}
 	@RequestMapping(value = "menu/reserve", method = RequestMethod.GET)
 	public String reserve(@RequestParam(value = "serviceCode") String serviceCode, SalonReserveCommand salonReserveCommand,
-			Model model) throws Exception {
-		reserveFormService.show(serviceCode,salonReserveCommand, model);
+			Model model, HttpSession session) throws Exception {
+		reserveFormService.show(serviceCode,salonReserveCommand, model, session);
 		return "salon/reserve/reserveForm";
 	}
 //	@RequestMapping(value = "menu/desnStatus", method = RequestMethod.POST)
