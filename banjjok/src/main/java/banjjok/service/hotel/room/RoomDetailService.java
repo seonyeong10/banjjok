@@ -12,17 +12,22 @@ import banjjok.mapper.RoomMapper;
 
 @Service
 @Component
-public class RoomListService {
+public class RoomDetailService {
 	@Autowired
 	RoomMapper roomMapper;
 	
-	public void getRoomList(Model model) throws Exception {
-		// 객실 리스트 받아오기
+	public void getRoomDetail(String roomName, Model model) throws Exception {
 		RoomDTO dto = new RoomDTO();
+		dto.setRoomName(roomName);
 		List<RoomDTO> list = roomMapper.getRoomList(dto);
-		model.addAttribute("lists", list);
-		
+		System.out.println("코드 : " + dto.getRoomCode());
+		System.out.println("이름 : " + dto.getRoomName());
+		System.out.println("이미지 : " + dto.getRoomImg());
+		System.out.println("가격 : " + dto.getRoomPrice());
+		System.out.println("내용 : " + dto.getRoomDesc());
+		model.addAttribute("list", list);
 		
 	}
-	
+
+
 }

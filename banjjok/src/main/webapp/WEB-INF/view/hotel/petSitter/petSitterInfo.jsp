@@ -115,9 +115,10 @@ table td {
 				</tr>
 				<tr>
 					<td>입사일</td>
-					<td>
-						<fmt:formatDate value="${list.sitterEnter }" type="date"
-							pattern="yyyy - MM - dd" />
+					<td>	
+						<form:input path="sitterEnter" value="${list.sitterEnter }"/>
+<%-- 						<fmt:formatDate value="${list.sitterEnter }" type="date" --%>
+<%-- 							pattern="yyyy - MM - dd" /> --%>
 					</td>
 				</tr>
 			</table>

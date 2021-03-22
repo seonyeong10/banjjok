@@ -1,14 +1,15 @@
-package banjjok.controller.hotel.room;
-
-import javax.servlet.http.HttpSession;
+ package banjjok.controller.hotel.room;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import banjjok.command.RoomCommand;
+import banjjok.service.hotel.room.RoomDetailService;
 import banjjok.service.hotel.room.RoomListService;
 import banjjok.service.hotel.room.RoomRegistService;
 import banjjok.service.hotel.room.RoomRegistService_mapVer;
@@ -22,6 +23,8 @@ public class RoomController {
 	RoomListService roomListService;
 	@Autowired
 	RoomRegistService_mapVer roomRegistService_mapVer;
+	@Autowired
+	RoomDetailService roomDetailService;
 	
 	@RequestMapping("roomList")
 	public String roomList( Model model) throws Exception{
@@ -43,5 +46,10 @@ public class RoomController {
 //		roomRegistService_mapVer.roomRegistOk(roomCommand, session);
 //		return "redirect:/hotel/roomList";
 //	}
+	@RequestMapping(value="roomDetail/{roomName}", method=RequestMethod.GET)
+	public String roomDetail(@PathVariable(value="roomName")String roomName, Model model) throws Exception {
+		roomDetailService.getRoomDetail(roomName, model);
+		return "hotel/room/roomDetail";
+	}
 
 }

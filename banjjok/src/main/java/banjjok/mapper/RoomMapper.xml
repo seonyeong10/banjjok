@@ -17,13 +17,21 @@
 	from( select ROWNUM RN, <include refid="baseColumn2" /> 
 		from ( select <include refid="baseColumn" />
 				from ROOM
-				<trim prefix="where" prefixOverrides="AND | OR">
+			<trim prefix="where" prefixOverrides="AND | OR">
 				<if test="roomCode != null">
 					ROOM_CODE = #{roomCode}
+				</if>
+				<if test="roomName != null">
+					and ROOM_NAME = #{roomName}
 				</if>
 			</trim>
 			order by ROOM_CODE DESC
 			)
 		)
 </select>
+<!-- <select id="roomOneSel" parameterType="banjjok.domain.RoomDTO" resultType="banjjok.domain.RoomDTO"> -->
+<!-- 	select <include refid="baseColumn2" /> -->
+<!-- 	from ROOM -->
+<!-- 	where room_code=#{roomCode} -->
+<!-- </select> -->
 </mapper>

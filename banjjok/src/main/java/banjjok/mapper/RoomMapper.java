@@ -14,5 +14,7 @@ public interface RoomMapper {
 
 	public Integer insertRoom(RoomDTO dto) throws Exception;
 
-	public List<PetSitterDTO> getRoomList(RoomDTO dto) throws Exception;
+	public List<RoomDTO> getRoomList(RoomDTO dto) throws Exception;
+
+//	public String roomOneSel(RoomDTO dto) throws Exception;
 }
