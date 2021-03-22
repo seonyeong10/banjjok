@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import banjjok.command.SalonPayCommand;
 import banjjok.command.SalonReserveCommand;
+import banjjok.service.salon.reserve.PayService;
 import banjjok.service.salon.reserve.ReserveFormService;
 import banjjok.service.salon.reserve.ReserveService;
 
@@ -21,6 +23,8 @@ public class ReserveController {
 	ReserveFormService reserveFormService;
 	@Autowired
 	ReserveService reserveService;
+	@Autowired
+	PayService payService;
 	@ModelAttribute
 	SalonReserveCommand setsalonReserveCommand() {
 		return new SalonReserveCommand();
@@ -42,4 +46,10 @@ public class ReserveController {
 		reserveService.reserve(salonReserveCommand, model, session);
 		return "salon/reserve/menuOrder";
 	}
+	@RequestMapping(value = "menu/payment", method = RequestMethod.POST)
+	public String order(SalonPayCommand salonPayCommand) throws Exception {
+		payService.pay(salonPayCommand);
+		return "salon/reserve/orderFin";
+	}
+	
 }

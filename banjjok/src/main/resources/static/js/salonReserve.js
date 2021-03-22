@@ -5,11 +5,19 @@ var now = new Date();
 var nowDate = now.getDate();
 var nowDayOfWeek = now.getDay();
 
+function getPetName(petName) {
+	document.getElementsByName('petName')[0].value = petName;
+}
+
 function send(){
+	if(document.getElementsByName('petName')[0].value.trim() == "") {
+		alert('펫을 선택해주세요.');
+		return false;
+	} 
 	if(document.getElementsByName('desnId')[0].value.trim() == "") {
 		alert('시간을 선택해주세요.');
 		return false;
-	}
+	} 
 }
 
 function getId(desnId, desnName){

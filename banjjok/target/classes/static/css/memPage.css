@@ -5,6 +5,7 @@ input:focus {
 }
 .content {
 	text-align: center;
+	margin-bottom: 100px;
 }
 
 /*내용 */

@@ -5,20 +5,20 @@ public class SalonReserveCommand {
 	String memId;
 	String serviceCode;
 	String desnId;
-//	String reservDate;
+	String reservDate;
 	String year;
 	String month;
 	String date;
 	String reservTime;
 	String reservDesc;
 	String reservCode;
-	
+
 	String serviceName;
 	String serviceFee;
 	String desnName;
 	String petName;
 	String memName;
-	
+
 	public String getPetId() {
 		return petId;
 	}
@@ -138,6 +138,13 @@ public class SalonReserveCommand {
 	public void setMemName(String memName) {
 		this.memName = memName;
 	}
-	
+
+	public String getReservDate() {
+		return reservDate;
+	}
+
+	public void setReservDate(String reservDate) {
+		this.reservDate = reservDate;
+	}
 
 }

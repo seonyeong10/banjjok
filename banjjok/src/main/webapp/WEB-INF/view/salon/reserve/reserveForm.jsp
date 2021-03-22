@@ -41,11 +41,13 @@
 			<div class="selectedServiceArea">
 				<!-- 펫 선택 -->
 				<div class="select-title">펫 선택</div>
+				<input type="hidden" name="petName"/>
 <!-- 				<ul> -->
 <!-- 						<li> -->
 					<c:forEach items="${petList }" var="pet">
 							<label class="box-radio-input">
-							<input type="radio" name="petId" value="${pet.petId }" <c:if test="${pet.petRep eq '1' }">checked</c:if>/><span>${pet.petName }</span>
+								<input type="radio" name="petId" value="${pet.petId }" onclick="getPetName('${pet.petName}');"/>
+								<span>${pet.petName }</span>
 							</label>
 					</c:forEach>
 <!-- 						</li> -->

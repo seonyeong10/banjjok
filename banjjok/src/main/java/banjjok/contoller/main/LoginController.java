@@ -38,7 +38,6 @@ public class LoginController {
 	}
 	@RequestMapping(value = "/main/logout", method = RequestMethod.GET)
 	public String logout(HttpSession session) {
-		System.out.println("로그아웃");
 		session.invalidate();
 		return "redirect:/";
 	}

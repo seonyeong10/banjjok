@@ -14,7 +14,6 @@ import org.springframework.ui.Model;
 import banjjok.command.SalonReserveCommand;
 import banjjok.domain.AuthInfo;
 import banjjok.domain.SalonReserveDTO;
-import banjjok.domain.SalonresInfoDTO;
 import banjjok.mapper.SalonReserveMapper;
 
 @Component
@@ -25,7 +24,7 @@ public class ReserveService {
 
 	public void reserve(SalonReserveCommand salonReserveCommand, Model model, HttpSession session) throws Exception {
 		SalonReserveDTO dto = new SalonReserveDTO();
-//		String reservCode = salonReserveMapper.getCode();	// 예약코드
+		String reservCode = salonReserveMapper.getCode();	// 예약코드
 		AuthInfo authInfo = (AuthInfo)session.getAttribute("authInfo");
 		String memId = authInfo.getUserId();
 		
@@ -45,17 +44,15 @@ public class ReserveService {
 		dto.setReservTime(salonReserveCommand.getReservTime());
 		dto.setServiceCode(salonReserveCommand.getServiceCode());
 		dto.setPetId(salonReserveCommand.getPetId());
-//		dto.setReservCode(reservCode);
+		dto.setReservCode(reservCode);
 		dto.setDesnName(salonReserveCommand.getDesnName());
 		dto.setMemName(authInfo.getUserName());
 		dto.setServiceName(salonReserveCommand.getServiceName());
 		dto.setServiceFee(salonReserveCommand.getServiceFee());
-		
-//		salonReserveMapper.insertRes(dto);
+		dto.setPetName(salonReserveCommand.getPetName());
+		salonReserveMapper.insertRes(dto);
 		
 		// 예약코드로 정보 불러오기
-//		SalonresInfoDTO infoDTO = new SalonresInfoDTO();
-//		infoDTO = salonReserveMapper.getInfo(dto);
 		model.addAttribute("info", dto);
 	}
 
