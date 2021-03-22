@@ -20,11 +20,6 @@ public class RoomDetailService {
 		RoomDTO dto = new RoomDTO();
 		dto.setRoomName(roomName);
 		List<RoomDTO> list = roomMapper.getRoomList(dto);
-		System.out.println("코드 : " + dto.getRoomCode());
-		System.out.println("이름 : " + dto.getRoomName());
-		System.out.println("이미지 : " + dto.getRoomImg());
-		System.out.println("가격 : " + dto.getRoomPrice());
-		System.out.println("내용 : " + dto.getRoomDesc());
 		model.addAttribute("list", list);
 		
 	}

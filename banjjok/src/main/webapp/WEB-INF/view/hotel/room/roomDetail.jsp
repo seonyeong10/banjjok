@@ -28,7 +28,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 	    <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-transparent w3-display-topright"></i>
 	    <h3>Booking</h3>
 	    <c:forEach items="${list }" var="room">
-	   		<h3>${room.roomPrice }원</h3>
+	   		<h3><fmt:formatNumber value="${room.roomPrice }" pattern="#,###" />원</h3>
 	    	<h6>per night</h6>
 	   	</c:forEach>
 	    <hr>
@@ -45,7 +45,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 	    </form>
 	  </div>
 	  <div class="w3-bar-block">
-	    <a href="#apartment" class="w3-bar-item w3-button w3-padding-16"><i class="fa fa-building"></i> Apartment</a>
+	    <a href="#hotel" class="w3-bar-item w3-button w3-padding-16"><i class="fa fa-building"></i> Hotel</a>
 	    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-16" onclick="document.getElementById('subscribe').style.display='block'"><i class="fa fa-rss"></i> Subscribe</a>
 	    <a href="#contact" class="w3-bar-item w3-button w3-padding-16"><i class="fa fa-envelope"></i> Contact</a>
 	  </div>
@@ -72,29 +72,41 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 			<c:forEach items="${list }" var="room">
 				<c:forTokens items="${room.roomImg }" delims="`" var="img"> 
 			    <div class="w3-display-container mySlides">
-			    <img src="/hotel/room/upload/${img }" alt="roomImg" />
+			    <img src="/hotel/room/upload/${img }" alt="roomImg" style="width:600px;height:400px;margin-bottom:-6px;"/>
 <!-- 			    <img src="/w3images/livingroom.jpg" style="width:100%;margin-bottom:-6px"> -->
 			      <div class="w3-display-bottomleft w3-container w3-black">
 			        <p>${room.roomName}</p>
 			      </div>
 			    </div>
 			    </c:forTokens>
-			</c:forEach>	    
+			</c:forEach>
+			
+			    <div class="w3-display-container mySlides">
+			    <img src="/hotel/room/upload/${img }" alt="roomImg">
+			      <div class="w3-display-bottomleft w3-container w3-black">
+			        <p>${room.roomName}</p>
+			      </div>
+			    </div>
+			        
 			  </div>
+			  <c:forEach items="${list }" var="room">
+				<c:forTokens items="${room.roomImg }" delims="`" var="img" end="3"> 
 			  <div class="w3-row-padding w3-section">
 			    <div class="w3-col s3">
-			      <img class="demo w3-opacity w3-hover-opacity-off" src="/w3images/livingroom.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(1)" title="Living room">
+			      <img class="demo w3-opacity w3-hover-opacity-off" src="/hotel/room/upload/${img }" style="width:60px;height:40px;cursor:pointer" onclick="currentDiv(1)" title="Living room">
 			    </div>
-			    <div class="w3-col s3">
-			      <img class="demo w3-opacity w3-hover-opacity-off" src="/w3images/diningroom.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(2)" title="Dining room">
-			    </div>
-			    <div class="w3-col s3">
-			      <img class="demo w3-opacity w3-hover-opacity-off" src="/w3images/bedroom.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(3)" title="Bedroom">
-			    </div>
-			    <div class="w3-col s3">
-			      <img class="demo w3-opacity w3-hover-opacity-off" src="/w3images/livingroom2.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(4)" title="Second Living Room">
-			    </div>
+<!-- 			    <div class="w3-col s3"> -->
+<!-- 			      <img class="demo w3-opacity w3-hover-opacity-off" src="/w3images/diningroom.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(2)" title="Dining room"> -->
+<!-- 			    </div> -->
+<!-- 			    <div class="w3-col s3"> -->
+<!-- 			      <img class="demo w3-opacity w3-hover-opacity-off" src="/w3images/bedroom.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(3)" title="Bedroom"> -->
+<!-- 			    </div> -->
+<!-- 			    <div class="w3-col s3"> -->
+<!-- 			      <img class="demo w3-opacity w3-hover-opacity-off" src="/w3images/livingroom2.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(4)" title="Second Living Room"> -->
+<!-- 			    </div> -->
 			  </div>
+			  </c:forTokens>
+			</c:forEach>	
 		
 	  <div class="w3-container">
 	    <h4><strong>The space</strong></h4>
