@@ -35,5 +35,9 @@
 				
 	))
 </select>
+<delete id="classDel" parameterType="banjjok.domain.ClassDTO">
+	delete from class
+	where c_code = #{cCode}
+</delete>
 
 </mapper>

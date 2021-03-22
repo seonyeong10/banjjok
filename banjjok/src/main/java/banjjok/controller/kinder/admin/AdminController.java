@@ -19,8 +19,11 @@ import banjjok.service.kinder.teacher.ClassDelService;
 import banjjok.service.kinder.teacher.ClassDetailService;
 import banjjok.service.kinder.teacher.ClassEnrollService;
 import banjjok.service.kinder.teacher.ClassListService;
+import banjjok.service.kinder.teacher.EnrollDelService;
 import banjjok.service.kinder.teacher.EnrollDetailService;
 import banjjok.service.kinder.teacher.EnrollListService;
+import banjjok.service.kinder.teacher.EnrollModifyOkService;
+import banjjok.service.kinder.teacher.EnrollModifyService;
 import banjjok.service.kinder.teacher.TeacherEnrollService;
 
 @Controller 
@@ -41,6 +44,12 @@ public class AdminController {
 	TeacherEnrollService teacherEnrollService;
 	@Autowired
 	EnrollDetailService enrollDetailService;
+	@Autowired
+	EnrollModifyService enrollModifyService;
+	@Autowired
+	EnrollModifyOkService enrollModifyOkService;
+	@Autowired
+	EnrollDelService enrollDelService;
 	
 	
 	@Autowired
@@ -54,12 +63,12 @@ public class AdminController {
 	
 	@RequestMapping(value = "kinder", method = RequestMethod.GET)
 	public String kinder() throws Exception {
-		return "/kinder/kinderMain"; 
+		return "kinder/kinderMain"; 
 	}
 	
 	@RequestMapping(value = "administration", method = RequestMethod.GET)
 	public String administraion() throws Exception{
-		return "/kinder/administration";
+		return "kinder/admin/administration";
 	}
 	
 	
@@ -68,12 +77,12 @@ public class AdminController {
 	@RequestMapping(value = "enrollList", method = RequestMethod.GET)
 	public String enrollList(Model model) throws Exception {
 		enrollListService.enrollList(model);
-		return "/kinder/enrollList";
+		return "kinder/admin/enrollList";
 	}
 	
 	@RequestMapping(value = "enrollment", method = RequestMethod.GET)
 	public String erollment(TeacherCommand teacherCommand) throws Exception{
-		return "/kinder/enrollment";
+		return "kinder/admin/enrollment";
 	}
 	
 	@RequestMapping(value = "enrollmentOk", method = RequestMethod.POST)
@@ -82,11 +91,11 @@ public class AdminController {
 				Model model, HttpSession session) throws Exception{
 			Integer resultdata = teacherEnrollService.insertTeacher(teacherCommand, model, session);
 			if (result.hasErrors()) {
-				return "/kinder/enrollment";
+				return "kinder/admin/enrollment";
 			}
 //			System.out.println(resultdata);
 			// 사망연산자
-			return resultdata < 0  ? "/kinder/enrollment" : "redirect:/enrollList" ;
+			return resultdata < 0  ? "kinder/admin/enrollment" : "redirect:/enrollList" ;
 			
 //			if(resultdata > 0) {
 //				return "redirect:/enrollList";
@@ -107,7 +116,30 @@ public class AdminController {
 			@RequestParam(value="tId")String tId,
 			Model model) throws Exception{
 		enrollDetailService.enrollDetail(tId, model);
-		return "/kinder/enrollDetail";
+		return "kinder/admin/enrollDetail";
+	}
+	
+	@RequestMapping(value="enrollModify", method =RequestMethod.GET)
+	public String enrollModify(TeacherCommand teacherCommand, Model model) throws Exception {
+		enrollModifyService.enrollModify(teacherCommand, model);
+		return "kinder/admin/enrollModify";
+	}
+	
+	@RequestMapping(value="enrollModifyOk", method=RequestMethod.POST)
+	public String enrollModifyOk(
+			@Validated TeacherCommand teacherCommand, BindingResult result) throws Exception{
+		enrollModifyOkService.enrollModifyOk(teacherCommand);
+		/*if (result.hasErrors()) {
+			return "kinder/admin/enrollModify";
+		}*/
+		return "redirect:/enrollList";
+	}
+	
+	@RequestMapping(value="enrollDel", method =RequestMethod.GET)
+	public String enrollDel(
+			@RequestParam(value="tId")String tId) throws Exception{
+		enrollDelService.enrollDel(tId);
+		return "redirect:/enrollList";
 	}
 	
 	
@@ -117,7 +149,7 @@ public class AdminController {
 	@RequestMapping(value = "classList", method = RequestMethod.GET)
 	public String kinderclass(Model model) throws Exception{
 		classListService.classList(model);
-		return "/kinder/classList";
+		return "kinder/admin/classList";
 	}
 	
 	@RequestMapping(value = "classDetail", method = RequestMethod.GET)
@@ -125,7 +157,7 @@ public class AdminController {
 			@RequestParam(value="cCode") String cCode,
 			Model model) throws Exception {
 		classDetailService.classDetail(cCode, model);
-		return "/kinder/classDetail";
+		return "kinder/admin/classDetail";
 	}
 	
 	@RequestMapping(value = "classDel", method = RequestMethod.GET)
@@ -137,7 +169,7 @@ public class AdminController {
 	
 	@RequestMapping(value = "enrollclass", method = RequestMethod.GET)
 	public String enrollclass() throws Exception{
-		return "/kinder/enrollclass";
+		return "kinder/admin/enrollclass";
 	}
 	
 	@RequestMapping(value = "enrollclassOk", method = RequestMethod.POST)
@@ -146,9 +178,9 @@ public class AdminController {
 				Model model, HttpSession session) throws Exception{
 		Integer resultdata = classEnrollService.insertClass(classCommand, result, model, session);
 		if(result.hasErrors()) {
-			return "/kinder/enrollclass";
+			return "kinder/admin/enrollclass";
 		}
-		return resultdata < 0  ? "/kinder/enrollclass" : "redirect:/classList" ;
+		return resultdata < 0  ? "kinder/admin/enrollclass" : "redirect:/classList" ;
 	}
 	
 	

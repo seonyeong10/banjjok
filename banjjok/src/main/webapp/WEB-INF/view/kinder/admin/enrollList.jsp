@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ include file="../include/include.jsp"%>
+    <%@ include file="../../include/include.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +11,7 @@
 	<div class="wrapper">
 		<div class="content">
 			
-			<table style="width:500px;" class="table">
+			<table style="width:800px;" class="table">
 				<tr><th colspan="4">EMPLOYEE ENROLLMENT LIST</th></tr>
 				<tr>
 					<th>SHOP CODE</th>
@@ -22,13 +22,25 @@
 				
 				<c:forEach items="${lists }" var="dto">
 					<tr>
-						<td>${dto.shopCode }</td>
+						<td>
+							<c:if test="${dto.shopCode eq '1592-0001' }">Seoul</c:if>
+							<c:if test="${dto.shopCode eq '1592-0002' }">Deagu</c:if>
+							<c:if test="${dto.shopCode eq '1592-0003' }">Deajeon</c:if>
+							<c:if test="${dto.shopCode eq '1592-0004' }">Busan</c:if>
+							<c:if test="${dto.shopCode eq '1592-0005' }">Gwangju</c:if>
+						</td>
 						<td><a href="enrollDetail?tId=${dto.tId }">${dto.tName }</a></td>
 						<td>
-<%-- 							<c:if test="${dto.cCode eq  }"></c:if> --%>
 							${dto.cCode }
 						</td>
-						<td>${dto.tState }</td>
+						<td>
+							<c:if test="${dto.tState eq '0' }">RETIREE</c:if>
+							<c:if test="${dto.tState eq '1' }">INCUMBENT</c:if>
+							<!-- FOR FEMAIL -->
+							<c:if test="${dto.tState eq '2' }">MATERNITY LEAVE</c:if> 
+							<!-- FOR MAIL -->
+							<c:if test="${dto.tState eq '3' }">PATERNITY LEAVE</c:if>
+						</td>
 					</tr>
 				</c:forEach>
 				

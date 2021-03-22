@@ -18,11 +18,11 @@ public class TeacherDTO {
 	String tNic;
 	String tDuty;
 	
-	
-	public String getTDuty() {
+
+	public String gettDuty() {
 		return tDuty;
 	}
-	public void setTDuty(String tDuty) {
+	public void settDuty(String tDuty) {
 		this.tDuty = tDuty;
 	}
 	public String gettId() {
