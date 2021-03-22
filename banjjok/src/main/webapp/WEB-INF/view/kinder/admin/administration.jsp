@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../include/include.jsp"%>
+<%@ include file="../../include/include.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div class="wrapper">
-		<%@ include file="../include/kinder_topmenu.jsp"%>
+		<%@ include file="../../include/kinder_topmenu.jsp"%>
 		
 		<div class="content">
 			<table style="width:500px;" class="table">

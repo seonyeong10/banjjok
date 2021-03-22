@@ -1,19 +1,19 @@
-package banjjok.domain;
+package banjjok.command;
 
-public class MyPetDTO {
-	// 펫
+import javax.validation.constraints.NotNull;
+
+public class PetCommand {
 	String petId;
-	String memId;
+	@NotNull(message = "펫 이름을 입력해주세요.")
 	String petName;
-	String kind;
 	Long weight;
 	Long age;
 	String gender;
-	String isNeutral;
 	String microNum;
 	String petDesc;
-	String petRep;	// 대표펫 여부(0: 일반 펫, 1: 대표펫)
-
+	String kind;
+	String isNeutral;
+	
 	public String getPetId() {
 		return petId;
 	}
@@ -22,28 +22,12 @@ public class MyPetDTO {
 		this.petId = petId;
 	}
 
-	public String getMemId() {
-		return memId;
-	}
-
-	public void setMemId(String memId) {
-		this.memId = memId;
-	}
-
 	public String getPetName() {
 		return petName;
 	}
 
 	public void setPetName(String petName) {
 		this.petName = petName;
-	}
-
-	public String getKind() {
-		return kind;
-	}
-
-	public void setKind(String kind) {
-		this.kind = kind;
 	}
 
 	public Long getWeight() {
@@ -70,14 +54,6 @@ public class MyPetDTO {
 		this.gender = gender;
 	}
 
-	public String getIsNeutral() {
-		return isNeutral;
-	}
-
-	public void setIsNeutral(String isNeutral) {
-		this.isNeutral = isNeutral;
-	}
-
 	public String getMicroNum() {
 		return microNum;
 	}
@@ -94,13 +70,22 @@ public class MyPetDTO {
 		this.petDesc = petDesc;
 	}
 
-	public String getPetRep() {
-		return petRep;
+	public String getKind() {
+		return kind;
 	}
 
-	public void setPetRep(String petRep) {
-		this.petRep = petRep;
+	public void setKind(String kind) {
+		this.kind = kind;
 	}
+
+	public String getIsNeutral() {
+		return isNeutral;
+	}
+
+	public void setIsNeutral(String isNeutral) {
+		this.isNeutral = isNeutral;
+	}
+	
 	
 
 }

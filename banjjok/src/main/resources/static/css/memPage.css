@@ -9,14 +9,14 @@ input:focus {
 
 /*내용 */
 .contentSelectWrap {
-/* 	width: 1140px; */
+	width: 1140px;
 	display:inline-block;
 	margin: 0 auto;
 	padding-top: 10px;
 }
 
 .contentSelectWrap div {
-	width: 500px;
+	width: 450px;
 	height: 300px;
 	/*display : inline-flex;*/
 	border: 1px solid #e1e1e1;
@@ -50,8 +50,11 @@ div p {
 }
 
 .modify {
-	background-color: #abc;
-	border-color: #abc;
+	background-color: #80BA8E;
+	border: #80BA8E;
+	border-color: #80BA8E;
+	color: #fff;
+	font-weight: 700;
 }
 
 .bthArea {

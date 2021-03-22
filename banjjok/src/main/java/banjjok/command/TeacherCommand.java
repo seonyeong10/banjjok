@@ -3,6 +3,7 @@ package banjjok.command;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -20,6 +21,7 @@ public class TeacherCommand {
 	String tName;
 	@NotEmpty(message = "Enter the Phone Number")
 	String tPh;
+	@Email
 	@NotEmpty(message = "Enter the Email Address")
 	String tEmail;
 	@NotEmpty(message = "Enter the Entrada")
@@ -43,13 +45,19 @@ public class TeacherCommand {
 		}
 	}
 	
-	public String getTDuty() {
+	
+
+	public String gettDuty() {
 		return tDuty;
 	}
 
-	public void setTDuty(String tDuty) {
+
+
+	public void settDuty(String tDuty) {
 		this.tDuty = tDuty;
 	}
+
+
 
 	public String gettPwCon() {
 		return tPwCon;

@@ -5,14 +5,23 @@ var now = new Date();
 var nowDate = now.getDate();
 var nowDayOfWeek = now.getDay();
 
-function getId(desnId){
+function send(){
+	if(document.getElementsByName('desnId')[0].value.trim() == "") {
+		alert('시간을 선택해주세요.');
+		return false;
+	}
+}
+
+function getId(desnId, desnName){
 	document.getElementsByName('desnId')[0].value = desnId;
+	document.getElementsByName('desnName')[0].value = desnName;
 }
 
 
 function init(){
 //	console.log(now.getFullYear());
 //	console.log(now.getMonth()+1);
+//	document.getElementsByName('petId')[0].checked = 'checked';
 }
 
 function changeDate(serviceCode, month, date, btn) {
@@ -37,6 +46,7 @@ function changeDate(serviceCode, month, date, btn) {
 	};
 	$.ajax(changeDate);
 }
+
 
 init();
 

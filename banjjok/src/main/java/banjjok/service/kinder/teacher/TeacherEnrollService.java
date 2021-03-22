@@ -33,10 +33,11 @@ public class TeacherEnrollService {
 //		System.out.println(teacherCommand.gettPw());
 //		System.out.println(teacherCommand.gettName());
 //		System.out.println(teacherCommand.gettPh());
+//		System.out.println(teacherCommand.gettState());
 //		System.out.println(teacherCommand.gettEmail());
 //		System.out.println(teacherCommand.gettJoin());
 //		System.out.println(teacherCommand.getcCode());
-//		System.out.println(teacherCommand.getTDuty());
+//		System.out.println(teacherCommand.gettDuty());
 		
 		//pwcon 
 		
@@ -54,24 +55,12 @@ public class TeacherEnrollService {
 		dto.settPw(passwordEncoder.encode(teacherCommand.gettPw()));
 		dto.settName(teacherCommand.gettName());
 		dto.settPh(teacherCommand.gettPh());
+		dto.settState(teacherCommand.gettState());
 		dto.settEmail(teacherCommand.gettEmail());
 		dto.settJoin(teacherCommand.gettJoin());
 		dto.setcCode(teacherCommand.getcCode());
-		dto.setTDuty(teacherCommand.getTDuty());
+		dto.settDuty(teacherCommand.gettDuty());
 		
-		if(teacherCommand.gettState().equals("RETIREE")) {
-			dto.settState("0");
-		}else if(teacherCommand.gettState().equals("INCUMBENT")) {
-			dto.settState("1");
-		}else if(teacherCommand.gettState().equals("MATERNITY LEAVE")) {
-			dto.settState("2");
-		}else if(teacherCommand.gettState().equals("PATERNITY LEAVE")) {
-			dto.settState("3");
-		}else {
-			//에러 메세지
-			model.addAttribute("err","This is not correct Data in this area. Please check again.");
-			return -1;
-		}
 		
 		// photo file
 		String teacherPhoto = "";

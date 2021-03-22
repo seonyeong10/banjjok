@@ -5,8 +5,16 @@
 <sql id="column">
 	RESERV_CODE, PET_ID, MEM_ID, SERVICE_CODE,DESN_ID, RESERV_DATE, RESERV_TIME, RESERV_DESC
 </sql>
+<select id="getCode" resultType="string">
+	select to_char(sysdate, 'YYMMDD') || lpad(reserve_salon_seq.NEXTVAL,3,0) from dual
+</select>
 <insert id="insertRes" parameterType="banjjok.domain.SalonReserveDTO">
 	insert into reserve_salon (<include refid="column" />)
-	values(pet_seq.nextval, null, #{memId}, #{serviceCode}, #{desnId}, #{reservDate}, #{reservTime}, #{reservDesc})
+	values(#{reservCode},#{petId}, #{memId}, #{serviceCode}, #{desnId}, #{reservDate}, #{reservTime}, #{reservDesc})
 </insert>
+<select id="getInfo" parameterType="banjjok.domain.SalonReserveDTO" resultType="banjjok.domain.SalonresInfoDTO">
+	select res.reserv_code reservcode, res.pet_id petid, pet_name petname, res.service_code servicecode, service_name servicename, res.desn_id desnid, desn_name desnname, reserv_date reservdate, reserv_time reservtime, reserv_desc reservdesc
+	from reserve_salon res, my_pet pet, service_salon ser, designer des
+	where res.pet_id = pet.pet_id and res.service_code = ser.service_code and res.desn_id = des.desn_id and res.reserv_code = '210322003'
+</select>
 </mapper>

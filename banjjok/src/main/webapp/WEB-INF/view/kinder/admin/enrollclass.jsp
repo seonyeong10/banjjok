@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ include file="../include/include.jsp"%>
+    <%@ include file="../../include/include.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -94,9 +94,9 @@
 							<option value="KINDERGARTEN SMALL-SIZED DOGS &lt; 1 class &gt;">KINDERGARTEN SMALL-SIZED DOGS &lt; 1 class &gt;</option>
 							<option value="KINDERGARTEN SMALL-SIZED DOGS &lt; 2 class &gt;">KINDERGARTEN SMALL-SIZED DOGS &lt; 2 class &gt;</option>
 							<option value="KINDERGARTEN SMALL-SIZED DOGS &lt; 3 class &gt;">KINDERGARTEN SMALL-SIZED DOGS &lt; 3 class &gt;</option>
-							<option value="KINDERGARTEN MIDINUM-SIZED DOGS &lt; 1 class &gt;">KINDERGARTEN MIDINUM-SIZED DOGS &lt; 1 class &gt;</option>
-							<option value="KINDERGARTEN MIDINUM-SIZED DOGS &lt; 2 class &gt;">KINDERGARTEN MIDINUM-SIZED DOGS &lt; 2 class &gt;</option>
-							<option value="KINDERGARTEN MIDINUM-SIZED DOGS &lt; 3 class &gt;">KINDERGARTEN MIDINUM-SIZED DOGS &lt; 3 class &gt;</option>
+							<option value="KINDERGARTEN MEDIUM-SIZED DOGS &lt; 1 class &gt;">KINDERGARTEN MEDIUM-SIZED DOGS &lt; 1 class &gt;</option>
+							<option value="KINDERGARTEN MEDIUM-SIZED DOGS &lt; 2 class &gt;">KINDERGARTEN MEDIUM-SIZED DOGS &lt; 2 class &gt;</option>
+							<option value="KINDERGARTEN MEDIUM-SIZED DOGS &lt; 3 class &gt;">KINDERGARTEN MEDIUM-SIZED DOGS &lt; 3 class &gt;</option>
 							<option value="KINDERGARTEN LARGE-SIZED DOGS &lt; 1 class &gt;">KINDERGARTEN LARGE-SIZED DOGS &lt; 1 class &gt;</option>
 							<option value="KINDERGARTEN LARGE-SIZED DOGS &lt; 2 class &gt;">KINDERGARTEN LARGE-SIZED DOGS &lt; 2 class &gt;</option>
 							<option value="KINDERGARTEN LARGE-SIZED DOGS &lt; 3 class &gt;">KINDERGARTEN LARGE-SIZED DOGS &lt; 3 class &gt;</option>
@@ -110,7 +110,7 @@
 						<select class="selection" name="cWeight">
 							<option value="0">NONE-SIZEED</option>
 							<option value="1">SMALL-SIZED</option>
-							<option value="2">MIDINUM-SIZED</option>
+							<option value="2">MEDIUM-SIZED</option>
 							<option value="3">LARGE-SIZED</option>
 						</select>
 					</td>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ include file="../include/include.jsp"%>
+    <%@ include file="../../include/include.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +17,7 @@
 					<h2>CLASS LIST</h2>
 				</div>
 				<tr>
-					<th>CLASS NAME</th>
+					<th>CLASS CODE</th>
 					<th>WEIGHT DIVISION</th>
 					<th>CURRENT PUPPY</th>
 				</tr>
@@ -25,8 +25,16 @@
 			<c:forEach items="${lists }" var="dto">
 				<tr> 
 					<td><a href="classDetail?cCode=${dto.cCode }">${dto.cCode }</a></td>
-					<td>${dto.cWeight }</td>
-					<td>${dto.cCount }</td>
+					<td>
+						<c:if test="${dto.cWeight eq '0' }">NOTHING</c:if>
+						<c:if test="${dto.cWeight eq '1' }">SMALL-SIZED</c:if>
+						<c:if test="${dto.cWeight eq '2' }">MEDIUM-SIZED</c:if>
+						<c:if test="${dto.cWeight eq '3' }">LARGE-SIZED</c:if>
+					</td>
+					<td>
+						<c:if test="${dto.cCount eq '3' }">3 DOGS</c:if>
+						<c:if test="${dto.cCount eq '8' }">8 DOGS</c:if>
+					</td>
 				</tr>
 			</c:forEach>
 				

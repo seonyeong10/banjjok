@@ -5,14 +5,19 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import banjjok.command.SalonReserveCommand;
+import banjjok.domain.AuthInfo;
 import banjjok.domain.DesnDTO;
+import banjjok.domain.MyPetDTO;
 import banjjok.domain.SalonServDTO;
 import banjjok.mapper.DesnMapper;
+import banjjok.mapper.MyPetMapper;
 import banjjok.mapper.SalonServMapper;
 
 @Service
@@ -21,12 +26,21 @@ public class ReserveFormService {
 	SalonServMapper salonServMapper;
 	@Autowired
 	DesnMapper desnMapper;
+	@Autowired
+	MyPetMapper petMapper;
 
-	public void show(String serviceCode, SalonReserveCommand salonReserveCommand, Model model) throws Exception {
+	public void show(String serviceCode, SalonReserveCommand salonReserveCommand, Model model, HttpSession session) throws Exception {
 		// 서비스 메뉴
 		SalonServDTO servDTO = new SalonServDTO();
 		servDTO = salonServMapper.getServiceList(serviceCode).get(0);
 		model.addAttribute("menu", servDTO);
+		
+		// 펫 정보
+		MyPetDTO petDTO = new MyPetDTO();
+		String memId = ((AuthInfo) session.getAttribute("authInfo")).getUserId();
+		petDTO.setMemId(memId);
+		List<MyPetDTO> petList = petMapper.getMyPet(petDTO);
+		model.addAttribute("petList", petList);
 
 		// 달력
 		Calendar cal = Calendar.getInstance();

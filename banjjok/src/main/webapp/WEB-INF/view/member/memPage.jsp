@@ -6,10 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>회원 마이페이지</title>
-<link href="../static/css/baseCSS.css" rel="stylesheet" type="text/css" />
-<link href="../static/css/topMenu.css" rel="stylesheet" type="text/css" />
-<link href="../static/css/footer.css" rel="stylesheet" type="text/css" />
-<link href="../static/css/memPage.css" rel="stylesheet" type="text/css" />
+<link href="<c:url value='/static/css/baseCSS.css'/>" rel="stylesheet" type="text/css" />
+<link href="<c:url value='/static/css/footer.css'/>" rel="stylesheet" type="text/css" />
+<link href="<c:url value='/static/css/topMenu.css' />" rel="stylesheet" type="text/css" />
+<link href="<c:url value='/static/css/memPage.css' />" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<!-- top -->
@@ -50,24 +50,22 @@
 			<!-- 장바구니 -->
 			<h2>마이펫</h2>
 			<p>등록된 나의 반려견 정보를 확인할 수 있습니다.</p>
-			<a href="#">장바구니</a>
+			<a href="<c:url value='/main/myPet'/>" class="modify">내 반쪽</a>
 		</div>
 		<div class="orderInfo">
 			<!-- 주문조회 -->
 			<h2>예약현황</h2>
 			<p>최근 주문한 상품을 조회할 수 있습니다.</p>
-			<a href="#">주문조회</a>
+			<a href="#">호텔</a>
+			<a href="#">유치원</a>
+			<a href="#">살롱</a>
 		</div>
-		<!-- 
-				<div class="deliveryInfo">
-					<!-- 배송지 정보 -->
-		<!-- 
-					<h2>배송지</h2>
-					<p>최근 사용한 배송지를 관리할 수 있습니다.</p>
-					<a href="#">조회</a>
-				</div>
-				-->
-	</div>
+		<div class="myInterestInfo">
+			<h2>나의 관심</h2>
+			<p>내가 관심등록한 상품을 확인할 수 있습니다.</p>
+			<a href="#">조회</a>
+		</div>
+		</div>
 	</div>
 	<!-- content 끝 -->
 	<!-- foot -->
