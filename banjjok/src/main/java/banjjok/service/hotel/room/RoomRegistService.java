@@ -6,9 +6,13 @@ import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -21,22 +25,28 @@ import banjjok.mapper.RoomMapper;
 public class RoomRegistService {
 	@Autowired
 	RoomMapper roomMapper;
+	@Autowired
+	PasswordEncoder passwordEncoder;
 	
-	public void roomRegistOk(RoomCommand roomCommand, MultipartHttpServletRequest mtfRequest) throws Exception {
+	public void roomRegistOk(RoomCommand roomCommand, Model model, MultipartHttpServletRequest mtfRequest, HttpSession session) throws Exception {
 		
 		RoomDTO dto = new RoomDTO();
+		String roomCode = roomMapper.createCode(); //코드 생성
+		
+		System.out.println("룸코드 : " + roomCode);
+		
 		// 객실 저장
-		dto.setRoomCode(roomCommand.getRoomCode());
+		dto.setRoomCode(roomCode); //코드저장
 		dto.setRoomName(roomCommand.getRoomName());
 		dto.setRoomPrice(roomCommand.getRoomPrice());
 		dto.setRoomDesc(roomCommand.getRoomDesc());
-		
+		dto.setRoomPw(passwordEncoder.encode(roomCommand.getRoomPw()));
 		
 		
 		// 이미지 파일 저장
-				String path = "WEB-INF/view/hotel/room/upload";
+				String path = "WEB-INF/view/hotel/room/upload/";
 				// "WEB-INF/view/hotel/room/upload"까지의 절대 경로 
-//				String filePath = session.getServletContext().getRealPath(path);
+				String filePath = session.getServletContext().getRealPath(path);
 //				System.out.println(filePath);
 				
 				///이미지 파일명을 저장하기 위한 변수
@@ -62,10 +72,11 @@ public class RoomRegistService {
 						// store파일 객체 생성
 //						File file = new File(filePath + "\\" + store);
 						
-						String saveFile = path + System.currentTimeMillis() + original;
+//						String saveFile = path + System.currentTimeMillis() + original;
 						
 						try {
-							mf.transferTo(new File(saveFile));
+//							mf.transferTo(new File(saveFile));
+							mf.transferTo(new File(filePath + "/" + store));
 						} catch (IllegalStateException | IOException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -77,7 +88,13 @@ public class RoomRegistService {
 				System.out.println(roomCommand.getRoomImg());
 				System.out.println(roomImg);
 				
-				roomMapper.insertRoom(dto);
+				System.out.println(dto.getRoomCode());
+				System.out.println(dto.getRoomName());
+				System.out.println(dto.getRoomPrice());
+				System.out.println(dto.getRoomDesc());
+				Integer code = null;
+				code = roomMapper.insertRoom(dto);
+//				model.addAttribute("roomCode", code);
 				
 	}
 	

@@ -16,5 +16,12 @@ public interface RoomMapper {
 
 	public List<RoomDTO> getRoomList(RoomDTO dto) throws Exception;
 
-//	public String roomOneSel(RoomDTO dto) throws Exception;
+	public Integer updateRoom(RoomDTO dto) throws Exception;
+
+	public Integer roomDel(RoomDTO dto) throws Exception;
+
+	public String createCode();
+
+//	public String createRoomCode(RoomDTO dto) throws Exception;
+
 }

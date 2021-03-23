@@ -10,7 +10,7 @@
 <!-- <link href="static/css/baseCSS.css" rel="stylesheet" type="text/css" /> -->
 <link href="static/css/footer.css" rel="stylesheet" type="text/css" />
 <!-- <link href="static/css/index.css" rel="stylesheet" type="text/css" /> -->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" /> -->
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <style type="text/css">
@@ -39,11 +39,11 @@
 	<!-- top 끝 -->
 	<!-- Header -->
 	<header class="w-display-container w-content w-wide" style="max-width:1500;" id="home">
-	  <img class="w-image" src="/static/images/banjjog1.jpg" alt="hotel" width="1500" height="800">
+<!-- 	  <img class="w-image" src="/static/images/banjjog1.jpg" alt="hotel" width="1500" height="800"> -->
 	  <div class="w-display-middle w-margin-top w-center">
 	    <h1 class="w3-xxlarge w3-text-white">
-	    	<span class="w3-padding w3-black w3-opacity-min"><b>SM</b></span>
-	    	<span class="w3-hide-small w3-text-light-grey">Forest of BAN JJOK</span>
+<!-- 	    	<span class="w3-padding w3-black w3-opacity-min"><b>SM</b></span> -->
+<!-- 	    	<span class="w3-hide-small w3-text-light-grey">Forest of BAN JJOK</span> -->
 	    </h1>
 	  </div>
 	</header>

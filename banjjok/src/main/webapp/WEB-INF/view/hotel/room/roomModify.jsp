@@ -56,7 +56,8 @@ table td {
 				<tr>
 					<td>객실 이름</td>
 					<td>
-						<form:input path="roomName" value="${list.roomName }" />
+						${list.roomName }
+						 <input type="hidden" name="roomName" value="${list.roomName }" />
 					</td>
 				</tr>
 <!-- 				<tr> -->
@@ -84,6 +85,13 @@ table td {
 						<form:input path="roomDesc" value="${list.roomDesc }"/>
 					</td>
 				</tr>
+				<tr>
+					<td>객실 비밀번호</td>
+					<td>	
+						<form:password path="roomPw"/><br />
+						${PwErr}
+					</td>
+				</tr>
 			</table>
 			<div class="button-wrap">
 				<input type="button" value="이전" onclick="javascript:history.back();" />
@@ -96,9 +104,8 @@ table td {
 	<!-- foot -->
 	<footer> SoulMate's Forest 02.125.7979 Copyright &copy All
 		Rights reserved. </footer>
-	<!-- 	<script src="js/script.js"></script> -->
 	<!-- foot 끝 -->
-	<script src="/static/js/sitter.js"></script>
+	<script src="/static/js/room.js"></script>
 
 </body>
 </html>

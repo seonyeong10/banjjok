@@ -3,14 +3,21 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="banjjok.mapper.RoomMapper">
 <sql id="baseColumn">
-	ROOM_CODE, ROOM_NAME, ROOM_IMG, ROOM_PRICE, ROOM_DESC
+	ROOM_CODE, ROOM_NAME, ROOM_IMG, ROOM_PRICE, ROOM_DESC, ROOM_PW, ROOM_USE
 </sql>
 <sql id="baseColumn2">
-	ROOM_CODE roomCode, ROOM_NAME roomName, ROOM_IMG roomImg, ROOM_PRICE roomPrice, ROOM_DESC roomDesc
+	ROOM_CODE roomCode, ROOM_NAME roomName, ROOM_IMG roomImg, ROOM_PRICE roomPrice, ROOM_DESC roomDesc, ROOM_PW roomPw, ROOM_USE roomUse
 </sql>
+<sql id="subQuery">
+	select  CONCAT(ROOM_NAME, LPAD(ROOM_SEQ.NEXTVAL, 3, 0)) from ROOM
+</sql>
+<select id="createCode" resultType="string">
+	select  to_char(sysdate,'YYMMDD') || LPAD(ROOM_SEQ.NEXTVAL, 3, 0) 
+	from DUAL
+</select>
 <insert id="insertRoom" parameterType="banjjok.domain.RoomDTO">
 	insert into ROOM ( <include refid="baseColumn" />  )
-	values( #{roomCode}, #{roomName}, #{roomImg}, #{roomPrice}, #{roomDesc} )
+	values( #{roomCode}, #{roomName}, #{roomImg}, #{roomPrice}, #{roomDesc}, #{roomPw}, '1' )
 </insert>
 <select id="getRoomList" parameterType="banjjok.domain.RoomDTO" resultType="banjjok.domain.RoomDTO">
 	select * 
@@ -24,14 +31,20 @@
 				<if test="roomName != null">
 					and ROOM_NAME = #{roomName}
 				</if>
+				and ROOM_USE = '1' 
 			</trim>
 			order by ROOM_CODE DESC
 			)
 		)
 </select>
-<!-- <select id="roomOneSel" parameterType="banjjok.domain.RoomDTO" resultType="banjjok.domain.RoomDTO"> -->
-<!-- 	select <include refid="baseColumn2" /> -->
-<!-- 	from ROOM -->
-<!-- 	where room_code=#{roomCode} -->
-<!-- </select> -->
+<update id="updateRoom" parameterType="banjjok.domain.RoomDTO" >
+	update ROOM
+	set ROOM_IMG = #{roomImg}, ROOM_PRICE = #{roomPrice}, ROOM_DESC = #{roomDesc}
+	where ROOM_NAME = #{roomName}
+</update>
+<update id="roomDel" parameterType="banjjok.domain.RoomDTO" >
+	update ROOM
+	set ROOM_USE = '2'
+	where ROOM_NAME = #{roomName}
+</update>
 </mapper>

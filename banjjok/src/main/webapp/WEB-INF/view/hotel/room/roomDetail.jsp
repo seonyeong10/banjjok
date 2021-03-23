@@ -98,8 +98,13 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 			  </div>
 			  </c:forTokens>
 			</c:forEach>	
-		
+		<hr />
 	  <div class="w3-container">
+	  	
+	    <div class="w3-row w3-large">
+	    	<h4><strong>Room Price</strong></h4>
+	  		<fmt:formatNumber value="${list.get(0).roomPrice }" pattern="#,###" />원
+	    </div><hr />
 	    <h4><strong>The space</strong></h4>
 	    <div class="w3-row w3-large">
 	      <div class="w3-col s6">
@@ -112,11 +117,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 	        <p><i class="fa fa-fw fa-clock-o"></i> Check Out: 12PM</p>
 	      </div>
 	    </div>
-	    <hr>
-	    
-	    <h4><strong>Hotel Description</strong></h4>
-	    <div class="w3-row w3-large">
-	    ${list.get(0).roomDesc }
+	    <hr />
+	    	
 <!-- 	      <div class="w3-col s6"> -->
 <!-- 	        <p><i class="fa fa-fw fa-shower"></i> Shower</p> -->
 <!-- 	        <p><i class="fa fa-fw fa-wifi"></i> WiFi</p> -->
@@ -127,6 +129,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 <!-- 	        <p><i class="fa fa-fw fa-thermometer"></i> Heating</p> -->
 <!-- 	        <p><i class="fa fa-fw fa-wheelchair"></i> Accessible</p> -->
 <!-- 	      </div> -->
+	    <h4><strong>Room Description</strong></h4>
+	    <div class="w3-row w3-large">
+	   		${list.get(0).roomDesc }
 	    </div>
 	    <hr>
 	    <h4><strong>Extra Info</strong></h4>

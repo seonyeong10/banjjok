@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>객실등록(roomRegist.jsp)</title>
 <link href="static/css/baseCSS.css" rel="stylesheet" type="text/css" />
-<!-- <link href="static/css/signUpForm.css" rel="stylesheet" type="text/css" /> -->
+<link href="static/css/signUpForm.css" rel="stylesheet" type="text/css" />
 <link href="static/css/topMenu.css" rel="stylesheet" type="text/css" />
 <link href="static/css/footer.css" rel="stylesheet" type="text/css" />
 <link href="static/css/memberForm.css" rel="stylesheet" type="text/css" />
@@ -29,9 +29,10 @@
         <div id="member-info">
           <div class="mem-element">
             <p class="element-name"><label for="roomCode">객실 코드</label></p>
-            <span class="element-value"><form:input path="roomCode" placeholder="Delux0001_자동생성할까..?"/></span>
-            <span class="button"><input type="button" value="중복확인"/></span>
-            <div class="element-errors"><form:errors path="roomCode"/> </div>
+<%--             <span class="element-value"><form:input path="roomCode" placeholder="Delux0001_자동생성할까..?"/></span> --%>
+<%--             <span class="element-value">${roomCode }</span> --%>
+<!--             <span class="button"><input type="button" value="중복확인"/></span> -->
+<%--             <div class="element-errors"><form:errors path="roomCode"/> </div> --%>
           </div>
           <div class="mem-element">
             <p class="element-name"><label for="roomName">객실 이름</label></p>
@@ -60,6 +61,11 @@
             <input type="button" value="이전" onclick="prevPage();"/>
             <input type="submit" value="가입완료"/>
             <input type="button" value="취소" onclick="cancle();"/>
+          </div>
+          <div class="mem-element">
+            <p class="element-name">비밀번호</p>
+            <span class="element-value"><form:password path="roomPw" /></span>
+            <div class="element-errors"><form:errors path="roomPw"/> </div>
           </div>
         </div>
       </form:form>

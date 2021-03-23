@@ -1,6 +1,29 @@
 /**
  * 
  */
+function frmSend(){
+	if(document.getElementById('roomPw').value.trim() =="" ){
+		alert('비밀번호를 입력하세요');
+		document.getElementById('roomPw').focus();
+		return false;
+		
+	}
+	
+}
+
+function roomDelete(){
+	if(confirm('객실을 삭제하시겠습니까?')){
+		//비밀번호
+		if (document.getElementById('roomPw').value.trim() == "") {
+			alert('비밀번호를 입력하세요.');
+			document.getElementById('roomPw').focus();
+			return false;
+		}
+		document.frm.action = "/hotel/roomDel";
+		frm.submit();
+	}
+}
+
 // Script to open and close sidebar when on tablets and phones
 function w3_open() {
   document.getElementById("mySidebar").style.display = "block";

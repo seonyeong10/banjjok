@@ -8,6 +8,9 @@ public class RoomDTO {
 	String roomImg;
 	Integer roomPrice;
 	String roomDesc;
+	String roomPw;
+	String roomUse;
+	
 	public String getRoomCode() {
 		return roomCode;
 	}
@@ -37,6 +40,18 @@ public class RoomDTO {
 	}
 	public void setRoomDesc(String roomDesc) {
 		this.roomDesc = roomDesc;
+	}
+	public String getRoomPw() {
+		return roomPw;
+	}
+	public void setRoomPw(String roomPw) {
+		this.roomPw = roomPw;
+	}
+	public String getRoomUse() {
+		return roomUse;
+	}
+	public void setRoomUse(String roomUse) {
+		this.roomUse = roomUse;
 	}
 	
 	

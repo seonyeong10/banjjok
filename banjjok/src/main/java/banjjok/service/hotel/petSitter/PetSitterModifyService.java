@@ -37,8 +37,8 @@ public class PetSitterModifyService {
 		// 파일
 		String path = "/WEB-INF/view/hotel/petSitter/upload"; // 파일 저장 경로
 		String filePath = session.getServletContext().getRealPath(path);
-		String originalFileNames = "";
-		String storeFileNames = ""; // 임의 지정
+//		String originalFileNames = "";
+//		String storeFileNames = ""; // 임의 지정
 		
 		
 		if(!passwordEncoder.matches(sitterCommand.getSitterPw(), dto.getSitterPw())) {
@@ -78,9 +78,6 @@ public class PetSitterModifyService {
 			
 		}
 		return location;
-		
-		
-		
 	}
 	
 }
