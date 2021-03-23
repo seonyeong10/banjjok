@@ -6,11 +6,37 @@
 <head>
 <meta charset="UTF-8">
 <title>Enrollment Modification</title>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+	function imageDel(imgfile, btn){
+		if(confirm('Are you really want to delete this photo?')) {
+			imageFile = {
+					type:"post",
+					url :"imageDel",
+					dataType:"text",
+					data:{"imgfile" : imgfile},
+					success:function(result){
+						if(result.trim()=="1"){
+							$('img').remove();
+						}else{
+							$(btn).val("DELETE");
+						}
+					},
+					error : function(){
+						alert('error');
+						return false;
+					}
+				};
+			$.ajax(imageFile);
+		}
+	}
+</script>
 </head>
 <body>
 <div class="wrapper">
 		<div class="content">
-		<form action="enrollModifyOk" method="post" name="frm">
+		<form action="enrollModifyOk" method="post" name="frm" 
+		 	enctype="multipart/form-data">
 		<input type="hidden" name="tId" value="${lists.tId }" />
 			<table style="width: 500px;" class="table">
 				<tr>
@@ -63,8 +89,15 @@
 				<tr>
 					<th>TEACHER PHOTO</th>
 					<td>
-						<c:set value="${fn:split(lists.tPhoto,'`') }" var="i" />
-						<img src="/kinder/upload/${i[1] }" alt="teacher photo" style="width:150px; height:200px" />
+					<c:set value="${fn:split(lists.tPhoto,'`') }" var="i" />
+					<img src="/kinder/upload/${i[1] }" alt="teacher photo" style="width:150px; height:200px" class="teacher-img"/>
+					<input type="button" value="DELETE" name="tPhoto" onclick="imageDel('${i[1]}', this );" />	
+					</td>
+				</tr>
+				<tr>
+					<th>TEACHER PHOTO MODIFICATION</th>
+					<td>
+						<input type="file" name="tPhoto" multiple="multiple" />
 					</td>
 				</tr>
 				<tr>

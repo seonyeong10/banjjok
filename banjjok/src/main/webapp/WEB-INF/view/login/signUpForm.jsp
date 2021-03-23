@@ -75,8 +75,16 @@
           <div class="mem-element">
             <p class="element-name">휴대폰 번호</p>
             <span class="element-value"><form:input path="memMobile" placeholder="휴대폰 번호"/></span>
-            <span class="button"><input type="button" value="인증"/></span>
+            <span class="button"><input type="button" value="인증" onclick="chkMobile();"/></span>
             <div class="element-errors"><form:errors path="memMobile"/> </div>
+          </div>
+          <div class="certificate">
+          <div class="mem-element">
+<!--             <p class="element-name">휴대폰 번호</p> -->
+            <span class="element-value"><input type="text" name="ctfNum" placeholder="인증번호를 입력하세요."/></span>
+            <span class="button"><input type="button" value="확인" onclick="chkNum();"/></span>
+            <div class="element-errors"></div>
+          </div>
           </div>
           <div class="mem-element">
             <p class="element-name">이름</p>

@@ -46,8 +46,8 @@
 				
 				<tr>
 					<td colspan="4">
-						<input type="button" value="ENROLL" onclick="javascript:location.href='../enrollment'" />
-						<input type="button" value="BACK" onclick="javascript:location.href='../administration'" />
+						<input type="button" value="ENROLL" onclick="javascript:location.href='enrollment'" />
+						<input type="button" value="BACK" onclick="javascript:location.href='administration'" />
 					</td>
 				</tr>
 				

@@ -27,4 +27,33 @@
 	insert into payment_salon(<include refid="payment" />)
 	values(#{reservCode},#{payMethod},#{totalFee})
 </insert>
+<select id="getList" parameterType="banjjok.domain.SalonReserveDTO" resultType="banjjok.domain.MemSalReserveDTO">
+	select res.reserv_code reservcode, res.reserv_date reservdate, service_name servicename, res.desn_id desnid, res.desn_name desnname, des.desn_use desnuse, pet_name petname
+		,mem.mem_id memId, mem.mem_name memname, mem_mobile memmobile, reserv_use reservuse, service_fee servicefee, pay_method paymethod, total_fee totalfee,
+		use_date usedate, cancle_date cancledate, res.reserv_desc reservDesc
+	from reserve_salon res, member mem, payment_salon pay, reserve_list_salon lis, designer des
+	where res.mem_id = mem.mem_id and res.reserv_code = pay.reserv_code 
+		and res.reserv_code = lis.reserv_code and res.desn_id = des.desn_id
+		<if test="memId != null">
+			and res.mem_id = #{memId}
+		</if>
+		<if test="reservCode != null">
+			and res.reserv_Code = #{reservCode}
+		</if>
+</select>
+<update id="updateRes" parameterType="banjjok.domain.SalonReserveDTO">
+	update reserve_salon
+	set reserv_date = #{reservDate}, reserv_desc = #{reservDesc}
+	where reserv_code = #{reservCode}
+</update>
+<update id="updateRes2" parameterType="banjjok.domain.SalonReserveDTO">
+	update reserve_list_salon
+	set reserv_date = #{reservDate}, reserv_desc = #{reservDesc}
+	where reserv_code = #{reservCode}
+</update>
+<update id="cancle" parameterType="banjjok.domain.SalonReserveDTO">
+	update reserve_list_salon
+	set reserv_use = '2', cancle_date = sysdate
+	where reserv_code = #{reservCode}
+</update>
 </mapper>

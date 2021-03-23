@@ -40,8 +40,8 @@
 				
 				<tr>
 					<td colspan="3">
-						<input type="button" value="ENROLL" onclick="javascript:location.href='../enrollclass'" />
-						<input type="button" value="BACK" onclick="javascript:location.href='../administration'" />
+						<input type="button" value="ENROLL" onclick="javascript:location.href='../kinder/enrollclass'" />
+						<input type="button" value="BACK" onclick="javascript:location.href='../kinder/administration'" />
 					</td>
 				</tr>
 			</table>

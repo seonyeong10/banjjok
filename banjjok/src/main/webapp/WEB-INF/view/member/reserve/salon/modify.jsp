@@ -1,22 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"
-%>
-<%@ include file="../../include/include.jsp"%>
+	pageEncoding="UTF-8"%>
+<%@ include file="../../../include/include.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>미용 예약</title>
+<title>예약변경</title>
 <link href="<c:url value='/static/css/baseCSS.css'/>" rel="stylesheet" type="text/css" />
 <link href="<c:url value='/static/css/footer.css'/>" rel="stylesheet" type="text/css" />
+<link href="<c:url value='/static/css/topMenu.css'/>" rel="stylesheet" type="text/css" />
 <link href="<c:url value='/static/css/reserveForm.css'/>" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="<c:url value='/js/jquery.form.js'/>"></script>
 </head>
 <body>
-<%@ include file="../../include/top.jsp"%>
-		<!-- Content -->
+	<!-- top -->
+	<header>
+		<!-- 로고  -->
+		<div class="logoArea">
+			<a href="/" class="logoImage"
+				style="background-image: url('<c:url value="/static/images/soulMate_logo.png" />');"></a>
+		</div>
+		<!-- 나비(메뉴선택 바)  -->
+		<div class="navigationWrap">
+			<ul class="navigationArea">
+				<c:if test="${empty authInfo }">
+					<li><a href="login">Log In</a></li>
+					<li><a href="signUp">Sign Up</a></li>
+				</c:if>
+				<c:if test="${!empty authInfo }">
+					<li>${authInfo.userId }님환영합니다.</li>
+					<li><a href="/main/myPage">마이페이지</a></li>
+					<li><a href="/main/logout">Log Out</a></li>
+				</c:if>
+			</ul>
+		</div>
+	</header>
+	<!-- top 끝 -->
+	<!-- Content -->
 		<div class="content">
 			<div class="titleWrap">
 				<div class="title">
@@ -26,15 +48,14 @@
 					<!-- <p>서비스 메뉴 등록</p> -->
 				</div>
 			</div>
-			<form action="reserveAct" method="post" name="frm" onsubmit="return send();">
+			<form action="resChangeAct" method="post" name="frm" >
+			<input type="hidden" name="reservCode" value="${dto.reservCode }"/>
 			<div class="reserve-wrap">
 			<div class="selectedServiceArea">
 				<!-- 예약 서비스 -->
-				<input type="hidden" name="serviceCode" value="${menu.serviceCode }"/>
-				<input type="hidden" name="serviceName" value="${menu.serviceName }"/>
 				<ul>
-					<li><span class="select-menu-name">메뉴</span>${menu.serviceName }</li>
-					<li><span class="select-menu-price">메뉴가격</span><fmt:formatNumber value="${menu.serviceFee }" pattern="#,###" /> </li>
+					<li><span class="select-menu-name">메뉴</span>${dto.serviceName }</li>
+					<li><span class="select-menu-price">메뉴가격</span><fmt:formatNumber value="${dto.serviceFee }" pattern="#,###" /> </li>
 				</ul>
 				<!-- 현재일로부터 14일간만 선택 가능 -->
 			</div> <!-- 서비스 끝 -->
@@ -42,16 +63,10 @@
 				<!-- 펫 선택 -->
 				<div class="select-title">펫 선택</div>
 				<input type="hidden" name="petName"/>
-<!-- 				<ul> -->
-<!-- 						<li> -->
-					<c:forEach items="${petList }" var="pet">
 							<label class="box-radio-input">
-								<input type="radio" name="petId" value="${pet.petId }" onclick="getPetName('${pet.petName}');"/>
-								<span>${pet.petName }</span>
+								<input type="radio" name="petId" checked readonly="readonly"/>
+								<span>${dto.petName }</span>
 							</label>
-					</c:forEach>
-<!-- 						</li> -->
-<!-- 				</ul> -->
 				<!-- 현재일로부터 14일간만 선택 가능 -->
 			</div> <!-- 펫 끝 -->
 			<div class="selectDateArea">
@@ -73,6 +88,7 @@
 					</ul>
 					<ul class="calendar-month">
 						<!-- 지난달 -->
+						<c:set var="stDate"><fmt:formatDate value="${dto.reservDate }" pattern="dd"/></c:set>
 						<c:forEach items="${pre }" var="pre">
 							<li ><a class="date none-current">${pre }</a></li>
 						</c:forEach>
@@ -81,19 +97,18 @@
 							<c:if test="${status.count % 7 eq 0 }">
 								<br />
 							</c:if>
-							<li >
-								<c:if test="${cur lt date }">
-									<a class="date none-current">${cur }</a>
-								</c:if>
-								<c:if test="${cur ge date }">
+							<c:if test="${cur lt date }">
+								<a class="date none-current">${cur }</a>
+							</c:if>
+							<c:if test="${cur ge date }">
+								<li >
 									<label class="date-current">
-									<input type="radio" name="date" value="${cur }"
-										<c:if test="${cur eq date }">checked</c:if> 
-										onclick="javajscript:location.href='/salon/menu/reserve?serviceCode=${menu.serviceCode }&month=${currMonth }&date=${cur }'"/>
+									<input type="radio" name="date" value="${cur }" <c:if test="${cur eq stDate }">checked</c:if> />
 									<span>${cur }</span>
+									<!-- 휴무인 디자이너 선택 불가능하게 하기 위한 변수(요일) -->
 									</label>
-								</c:if>
-							</li>
+								</li>
+							</c:if>
 						</c:forEach>
 						<!-- 다음달 -->
 						<c:forEach items="${next }" var="next">
@@ -103,12 +118,8 @@
 				</div>
 			</div> <!-- 캘린더 끝 -->
 			<div class="selectDesignerArea" id="reload-area">
-				<!-- 예약 서비스 -->
 				<div class="select-title">디자이너/시간 선택 </div>
-				<input type="hidden" name="desnId" />
-				<input type="hidden" name="desnName" />
 				<div class="designer-list">
-				<c:forEach items="${desn }" var="desn">
 					<div class="select-designer">
 						<c:set value="${fn:split(desn.desnImg,'`') }" var="img" />
 						<img class="designer-img" src="/salon/designer/upload/${img[1] }"/>
@@ -143,57 +154,53 @@
 						</c:if>
 						<c:if test="${offDay[0] ne dayOfWeek && offDay[1] ne dayOfWeek }">
 							<div class="time-area">
-								<c:set value=":00" var="minute"/>
 								<ul>
-<!-- 									<li> -->
-<!-- 										<label class="box-radio-input"> -->
-<%-- 											<input type="radio" name="reservTime" value="10:00" onclick="getId('${desn.desnId}', '${desn.desnName}');" /><span >10:00</span> --%>
-<!-- 										</label> -->
-<!-- 									</li> -->
+									<c:set value=":00" var="minute"/>
+									<c:set var="resTime"><fmt:formatDate value="${dto.reservDate }" pattern="HH"/></c:set>
 									<c:forEach begin="10" end="17" var="hour">
 											<li><label class="box-radio-input"> 
-												<input type="radio" name="reservTime" value="${hour }${minute}" <c:if test="${resTime eq hour }">checked</c:if> 
-												onclick="getId('${desn.desnId}', '${desn.desnName}');" /><span>${hour }${minute}</span>
+												<input type="radio" name="reservTime" value="${hour }${minute}" <c:if test="${resTime eq hour }">checked</c:if> /><span>${hour }${minute}</span>
 											</label></li>
 									</c:forEach>
+<!-- 									<li> -->
+<!-- 										<label class="box-radio-input"> -->
+<!-- 											<input type="radio" name="reservTime" value="10:00" /><span >10:00</span> -->
+<!-- 										</label> -->
+<!-- 									</li> -->
 								</ul>
 							</div>
 						</c:if>
 					</div>
-				</c:forEach>
 				</div>
-			</div> <!-- 디자이너 끝 -->
+			</div>
 			<!-- 요청사항 -->
 			<div class="selectedServiceArea">
 				<div class="select-title">요청사항</div>
-				<!-- 예약 서비스 -->
 				<div>
-					<textarea name="reservDesc"></textarea>
+					<textarea name="reservDesc">${dto.reservDesc }</textarea>
 				</div>
-				<!-- 현재일로부터 14일간만 선택 가능 -->
-			</div> <!-- 요청사항 끝 -->
+			</div>
+			<!-- 요청사항 끝 -->
 			</div>
 			<div class="btn-wrap">
 				<!-- 예약하기 -->
 				<div class="price-area">
 					<span>총 결제금액</span>
 					<span class="price">
-						<fmt:formatNumber value="${menu.serviceFee }" pattern="#,###" />원
-						<input type="hidden" name="serviceFee" value="${menu.serviceFee }"/>
+						<fmt:formatNumber value="${dto.serviceFee }" pattern="#,###" />원
+						<input type="hidden" name="serviceFee" value="${dro.serviceFee }"/>
 					</span>
 				</div>
 				<div class="btn-area">
-					<input type="submit" value="예약하기" />
+					<input type="submit" value="변경하기" />
 				</div>
 			</div>
 		</form>
 		</div>
 		<!-- Content 끝 -->
-
 		<!-- foot -->
-		<footer> SoulMate's Forest 02.125.7979 Copyright &copy All
-			Rights reserved. </footer>
-		<script src="../../static/js/salonReserve.js"></script>
-		<!-- foot 끝 -->
+	<footer> SoulMate's Forest 02.125.7979 Copyright &copy All
+		Rights reserved. </footer>
+	<!-- foot 끝 -->
 </body>
 </html>

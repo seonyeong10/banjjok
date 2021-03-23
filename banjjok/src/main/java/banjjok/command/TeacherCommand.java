@@ -51,13 +51,9 @@ public class TeacherCommand {
 		return tDuty;
 	}
 
-
-
 	public void settDuty(String tDuty) {
 		this.tDuty = tDuty;
 	}
-
-
 
 	public String gettPwCon() {
 		return tPwCon;
