@@ -116,7 +116,7 @@
 					<td colspan="2">
 						<input type="button" value="MODIFY" onclick="javascript:location.href='enrollModify?tId=${lists.tId}'" />
 						<input type="button" value="DELETE" onclick="return Del();" />
-						<input type="button" value="BACK" onclick="javascript:location.href='../enrollList'" />
+						<input type="button" value="BACK" onclick="javascript:location.href='enrollList'" />
 					</td>
 				</tr>
 			</table>

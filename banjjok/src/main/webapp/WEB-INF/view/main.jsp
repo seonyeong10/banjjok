@@ -82,7 +82,7 @@
 				<h3>Kinder Garden</h3>
 				<p>Donec ornare neque ac sem. Mauris aliquet. Aliquam sem leo,
 					vulputate sed, convallis at, ultricies quis, justo. Donec magna.</p>
-				<a href="kinder" class="button button-style1">Go to KinderGarden</a>
+				<a href="kinder/kinderMain" class="button button-style1">Go to KinderGarden</a>
 			</section>
 			<section class="4u">
 				<span class="pennant"><span class="fa fa-cut fa-2x"></span></span>

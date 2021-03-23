@@ -24,9 +24,11 @@ import banjjok.service.kinder.teacher.EnrollDetailService;
 import banjjok.service.kinder.teacher.EnrollListService;
 import banjjok.service.kinder.teacher.EnrollModifyOkService;
 import banjjok.service.kinder.teacher.EnrollModifyService;
+import banjjok.service.kinder.teacher.ImageDelService;
 import banjjok.service.kinder.teacher.TeacherEnrollService;
 
 @Controller 
+@RequestMapping(value="kinder")
 public class AdminController {
 	
 	@ModelAttribute
@@ -47,6 +49,8 @@ public class AdminController {
 	@Autowired
 	EnrollModifyService enrollModifyService;
 	@Autowired
+	ImageDelService imageDelService;
+	@Autowired
 	EnrollModifyOkService enrollModifyOkService;
 	@Autowired
 	EnrollDelService enrollDelService;
@@ -61,7 +65,7 @@ public class AdminController {
 	@Autowired
 	ClassDelService classDelService;
 	
-	@RequestMapping(value = "kinder", method = RequestMethod.GET)
+	@RequestMapping(value = "kinderMain", method = RequestMethod.GET)
 	public String kinder() throws Exception {
 		return "kinder/kinderMain"; 
 	}
@@ -95,7 +99,7 @@ public class AdminController {
 			}
 //			System.out.println(resultdata);
 			// 사망연산자
-			return resultdata < 0  ? "kinder/admin/enrollment" : "redirect:/enrollList" ;
+			return resultdata < 0  ? "kinder/admin/enrollment" : "redirect:/kinder/enrollList" ;
 			
 //			if(resultdata > 0) {
 //				return "redirect:/enrollList";
@@ -125,21 +129,28 @@ public class AdminController {
 		return "kinder/admin/enrollModify";
 	}
 	
+	@RequestMapping(value="imageDel", method=RequestMethod.POST)
+	public String imageDel(@RequestParam(value="imgfile")String imgfile, Model model,
+			HttpSession session){
+		imageDelService.imgDel(imgfile, model, session);
+		return "kinder/admin/imgDel";
+	}
+	
 	@RequestMapping(value="enrollModifyOk", method=RequestMethod.POST)
 	public String enrollModifyOk(
-			@Validated TeacherCommand teacherCommand, BindingResult result) throws Exception{
-		enrollModifyOkService.enrollModifyOk(teacherCommand);
+			@Validated TeacherCommand teacherCommand, BindingResult result, HttpSession session) throws Exception{
+		enrollModifyOkService.enrollModifyOk(teacherCommand, session);
 		/*if (result.hasErrors()) {
 			return "kinder/admin/enrollModify";
 		}*/
-		return "redirect:/enrollList";
+		return "redirect:/kinder/enrollDetail?tId="+teacherCommand.gettId();
 	}
 	
 	@RequestMapping(value="enrollDel", method =RequestMethod.GET)
 	public String enrollDel(
 			@RequestParam(value="tId")String tId) throws Exception{
 		enrollDelService.enrollDel(tId);
-		return "redirect:/enrollList";
+		return "redirect:/kinder/enrollList";
 	}
 	
 	
@@ -164,7 +175,7 @@ public class AdminController {
 	public String classDel(
 			@RequestParam(value="cCode") String cCode) throws Exception{
 		classDelService.classDel(cCode);
-		return "redirect:/classList";
+		return "redirect:/kinder/classList";
 	}
 	
 	@RequestMapping(value = "enrollclass", method = RequestMethod.GET)
@@ -180,9 +191,13 @@ public class AdminController {
 		if(result.hasErrors()) {
 			return "kinder/admin/enrollclass";
 		}
-		return resultdata < 0  ? "kinder/admin/enrollclass" : "redirect:/classList" ;
+		return resultdata < 0  ? "kinder/admin/enrollclass" : "redirect:/kinder/classList" ;
 	}
 	
 	
+	
+	// program
+	
+//	@RequestMapping(value = "program", method = RequestMethod.GET)
 	
 }

@@ -174,7 +174,7 @@
 					<td colspan="2">
 						<input type="submit" value="SUBMIT" />
 						<input type="reset" value="RESET" />
-						<input type="button" value="BACK" onclick="javascript:location.href='../enrollList'" />
+						<input type="button" value="BACK" onclick="javascript:location.href='enrollList'" />
 					</td>
 				</tr>
 			</table>
