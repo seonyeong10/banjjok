@@ -51,6 +51,10 @@ public class DesignerController {
 //		if(cnt == null) return "salon/designer/desnForm";
 		return path;
 	}
+	@RequestMapping(value = "preMyPage", method = RequestMethod.GET)  
+	public String preMyPage() throws Exception {
+		return "salon/preMyPage";
+	}
 	@RequestMapping(value = "myPage", method = RequestMethod.GET)  
 	public String myPage(Model model, HttpSession session) throws Exception {
 		desnInfoService.getInfo(model, session);

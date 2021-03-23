@@ -8,9 +8,7 @@
 <title>desnForm</title>
 <link href="../static/css/baseCSS.css" rel="stylesheet" type="text/css" />
 <link href="../static/css/footer.css" rel="stylesheet" type="text/css" />
-<link href="../static/css/memberForm.css" rel="stylesheet"
-	type="text/css"
-/>
+<link href="../static/css/memberForm.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<%@ include file="../../include/top.jsp" %>
