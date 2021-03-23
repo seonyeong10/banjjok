@@ -19,8 +19,8 @@ public class SendSMSService {
 			ranNum += String.valueOf(rd.nextInt(10));
 		}
 		
-//		SmsSend ss = new SmsSend();
-//		ss.smsSend(mobile, "인증번호는 [" + ranNum + "] 입니다.");
+		SmsSend ss = new SmsSend();
+		ss.smsSend(mobile, "인증번호는 [" + ranNum + "] 입니다.");
 		
 		if(session.getAttribute("smsNum") != null) {
 			session.removeAttribute("smsNum");
