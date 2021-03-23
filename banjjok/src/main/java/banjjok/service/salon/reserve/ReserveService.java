@@ -37,8 +37,9 @@ public class ReserveService {
 		} else {
 			month = salonReserveCommand.getMonth();
 		}
-		String date = salonReserveCommand.getYear() + "-" + month + "-" + salonReserveCommand.getDate();
-		java.sql.Date reservDate = java.sql.Date.valueOf(date);
+		String date = salonReserveCommand.getYear() + "-" + month + "-" + salonReserveCommand.getDate() + " " + salonReserveCommand.getReservTime() + ":00";
+//		java.sql.Date reservDate = java.sql.Date.valueOf(date);
+		Timestamp reservDate = Timestamp.valueOf(date);
 		dto.setReservDate(reservDate);
 		dto.setReservDesc(salonReserveCommand.getReservDesc());
 		dto.setReservTime(salonReserveCommand.getReservTime());

@@ -17,19 +17,19 @@
 		<!-- 로고  -->
 		<div class="logoArea">
 			<a href="/" class="logoImage"
-				style="background-image: url('../static/images/soulMate_logo.png');"></a>
+				style="background-image: url('<c:url value="/static/images/soulMate_logo.png"/>');"></a>
 		</div>
 		<!-- 나비(메뉴선택 바)  -->
 		<div class="navigationWrap">
 			<ul class="navigationArea">
 				<c:if test="${empty authInfo }">
 					<li><a href="<c:url value='/login'/>">Log In</a></li>
-					<li><a href="signUp">Sign Up</a></li>
+					<li><a href="<c:url value='/signUp' />">Sign Up</a></li>
 				</c:if>
 				<c:if test="${!empty authInfo }">
 					<li>${authInfo.userId }님환영합니다.</li>
-					<li><a href="/main/myPage">마이페이지</a></li>
-					<li><a href="/main/logout">Log Out</a></li>
+					<li><a href="<c:url value='/main/myPage'/>">마이페이지</a></li>
+					<li><a href="<c:url value='/main/logout'/>">Log Out</a></li>
 				</c:if>
 			</ul>
 		</div>
@@ -58,7 +58,7 @@
 			<p>최근 예약/결제한 서비스를 조회할 수 있습니다.</p>
 			<a href="#">호텔</a>
 			<a href="#">유치원</a>
-			<a href="#">살롱</a>
+			<a href="<c:url value='/main/reserve/salon'/>">살롱</a>
 		</div>
 		<div class="myInterestInfo">
 			<h2>나의 관심</h2>

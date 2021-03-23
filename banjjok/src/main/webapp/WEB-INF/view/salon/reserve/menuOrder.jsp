@@ -46,7 +46,7 @@
 					<li><span >담당</span>${info.desnName }</li>
 					<li><span >회원이름</span>${info.memName }</li>
 					<li><span >펫 이름</span>${info.petName }</li>
-					<li><span >시간/일자</span><fmt:formatDate value="${info.reservDate }" pattern="yyyy년 MM월 dd일"/> ${info.reservTime } </li>
+					<li><span >시간/일자</span><fmt:formatDate value="${info.reservDate }" pattern="yyyy년 MM월 dd일 a HH:mm"/>  </li>
 				</ul>
 			</div>
 			<div class="selectedServiceArea">

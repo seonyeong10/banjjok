@@ -1,6 +1,9 @@
 /**
  * 
  */
+function chkMobile(){
+	document.getElementsByClassName('certificate')[0].style.display = 'block';
+}
 function isDuplicate(){
 		var id = {
 				userId : $("input[name='memId']").val()	

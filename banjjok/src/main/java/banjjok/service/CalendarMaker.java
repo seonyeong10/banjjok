@@ -1,56 +1,37 @@
-package banjjok.service.salon.reserve;
+package banjjok.service;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import banjjok.command.SalonReserveCommand;
-import banjjok.domain.AuthInfo;
-import banjjok.domain.DesnDTO;
-import banjjok.domain.MyPetDTO;
-import banjjok.domain.SalonServDTO;
-import banjjok.mapper.DesnMapper;
-import banjjok.mapper.MyPetMapper;
-import banjjok.mapper.SalonServMapper;
 
-@Service
-public class ReserveFormService {
-	@Autowired
-	SalonServMapper salonServMapper;
-	@Autowired
-	DesnMapper desnMapper;
-	@Autowired
-	MyPetMapper petMapper;
+public class CalendarMaker {
 
-	public void show(String serviceCode, SalonReserveCommand salonReserveCommand, Model model, HttpSession session) throws Exception {
-		// 서비스 메뉴
-		SalonServDTO servDTO = new SalonServDTO();
-		servDTO = salonServMapper.getServiceList(serviceCode).get(0);
-		model.addAttribute("menu", servDTO);
-		
-		// 펫 정보
-		MyPetDTO petDTO = new MyPetDTO();
-		String memId = ((AuthInfo) session.getAttribute("authInfo")).getUserId();
-		petDTO.setMemId(memId);
-		List<MyPetDTO> petList = petMapper.getMyPet(petDTO);
-		model.addAttribute("petList", petList);
-
-		// 달력
+	public void create(SalonReserveCommand salonReserveCommand, Model model) {
 		Calendar cal = Calendar.getInstance();
 		
 		// 화면에 체크할 날짜, 디자이너 휴무 여부 확인
-		String selectMonth = salonReserveCommand.getMonth();
+//		String selectMonth = salonReserveCommand.getMonth();
+//		String selectMonth = null;
+//		String selectDate = null;
+//		if(salonReserveCommand.getMonth() != null) {
+//			selectMonth = salonReserveCommand.getMonth();
+//		}
+//		if(salonReserveCommand.getDate() != null) {
+//			selectDate = salonReserveCommand.getDate();
+//		} else {
+//			cal.set(Calendar.DATE, Integer.parseInt(selectDate));
+//		}
+//		if (selectDate != null) {
+//		}
+		
 		String selectDate = salonReserveCommand.getDate();
 		if (selectDate != null) {
 			cal.set(Calendar.DATE, Integer.parseInt(selectDate));
 		}
+		
 		model.addAttribute("year", cal.get(Calendar.YEAR));
 		model.addAttribute("date", cal.get(Calendar.DATE));
 		model.addAttribute("dayOfWeek", cal.get(Calendar.DAY_OF_WEEK));
@@ -84,12 +65,7 @@ public class ReserveFormService {
 		model.addAttribute("pre", preMonth);
 		model.addAttribute("cur", current);
 		model.addAttribute("next", nextMonth);
-
-		// 디자이너
-		DesnDTO desnDTO = new DesnDTO();
-		List<DesnDTO> desnList = desnMapper.getDesnList(desnDTO);
-		model.addAttribute("desn", desnList);
-
+		
 	}
-
+	
 }

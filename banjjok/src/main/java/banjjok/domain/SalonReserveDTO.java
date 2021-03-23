@@ -1,6 +1,6 @@
 package banjjok.domain;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class SalonReserveDTO {
 	String reservCode;
@@ -8,7 +8,7 @@ public class SalonReserveDTO {
 	String memId;
 	String serviceCode;
 	String desnId;
-	Date reservDate;
+	Timestamp reservDate;
 	String reservTime;
 	String reservDesc;
 	String serviceName;
@@ -57,11 +57,11 @@ public class SalonReserveDTO {
 		this.desnId = desnId;
 	}
 
-	public Date getReservDate() {
+	public Timestamp getReservDate() {
 		return reservDate;
 	}
 
-	public void setReservDate(Date reservDate) {
+	public void setReservDate(Timestamp reservDate) {
 		this.reservDate = reservDate;
 	}
 

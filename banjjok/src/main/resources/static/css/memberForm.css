@@ -147,3 +147,7 @@ form .element-value input[type="text"], #frm .element-value input[type="password
 .element-errors {
 	color: red;
 }
+
+.certificate {
+	display: none;
+}

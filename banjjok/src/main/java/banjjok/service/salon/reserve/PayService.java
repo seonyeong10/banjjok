@@ -1,10 +1,11 @@
 package banjjok.service.salon.reserve;
 
+import java.sql.Timestamp;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import banjjok.command.SalonPayCommand;
-import banjjok.command.SalonReserveCommand;
 import banjjok.domain.SalonPayDTO;
 import banjjok.domain.SalonReserveDTO;
 import banjjok.mapper.SalonReserveMapper;
@@ -18,8 +19,10 @@ public class PayService {
 		// 예약 리스트
 		SalonReserveDTO reserveDTO = new SalonReserveDTO();
 		reserveDTO.setReservCode(salonPayCommand.getReservCode());
-		java.sql.Date reservDate = java.sql.Date.valueOf(salonPayCommand.getReservDate());
-		reserveDTO.setReservDate(reservDate);
+//		String date = salonPayCommand.getReservDate() + " " + salonPayCommand.getReservTime() + ":00";
+//		java.sql.Date reservDate = java.sql.Date.valueOf(date);
+//		Timestamp reservDate = Timestamp.valueOf(date);
+		reserveDTO.setReservDate(Timestamp.valueOf(salonPayCommand.getReservDate()));
 		reserveDTO.setReservTime(salonPayCommand.getReservTime());
 		reserveDTO.setReservDesc(salonPayCommand.getReservDesc());
 		
