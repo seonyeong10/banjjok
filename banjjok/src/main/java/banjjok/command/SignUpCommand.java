@@ -48,6 +48,8 @@ public class SignUpCommand {
 	String petDesc;
 	String petRep;
 	
+	String isMChecked;	// 문자인증 여부
+	
 	public boolean isEqualPw() {
 		return memPw.equals(memPwCon) ? true : false;
 	}
@@ -187,5 +189,14 @@ public class SignUpCommand {
 	public void setPetRep(String petRep) {
 		this.petRep = petRep;
 	}
+
+	public String getIsMChecked() {
+		return isMChecked;
+	}
+
+	public void setIsMChecked(String isMChecked) {
+		this.isMChecked = isMChecked;
+	}
+	
 
 }

@@ -34,6 +34,10 @@ public class RegistService {
 			return "login/signUpForm";
 		}
 		// 문자인증 확인?
+		if(signUpCommand.getIsMChecked().equals("n")) {
+			model.addAttribute("notEqual", "인증번호가 다릅니다.");
+			return "login/signUpForm";
+		}
 		// dto 저장
 		MemberDTO dto = new MemberDTO();
 		dto.setMemEmail(signUpCommand.getMemEmail());
