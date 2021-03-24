@@ -53,7 +53,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 	
 	<!-- Top menu on small screens -->
 	<header class="w3-bar w3-top w3-hide-large  w3-xlarge">
-	  <span class="w3-bar-item">Booking</span>
+	  <span class="w3-bar-item">Booking </span>
 	  <a href="javascript:void(0)" class="w3-right w3-bar-item w3-button" onclick="w3_open()"><i class="fa fa-bars"></i></a>
 	</header>
 	
@@ -70,14 +70,25 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 	  <div class="w3-container" id="apartment">
 	    <h2 class="w3-text-green">The Forest of BANJJOK Hotel</h2>
 			<c:forEach items="${list }" var="room">
+				<div class="w3-row w3-large">
+	    			<h4><strong>Room Code</strong></h4>
+	  					${room.roomCode }
+	    		</div><hr />
+			
 				<c:forTokens items="${room.roomImg }" delims="`" var="img"> 
 			    <div class="w3-display-container mySlides">
 			    <img src="/hotel/room/upload/${img }" alt="roomImg" style="width:600px;height:400px;margin-bottom:-6px;"/>
 <!-- 			    <img src="/w3images/livingroom.jpg" style="width:100%;margin-bottom:-6px"> -->
 			      <div class="w3-display-bottomleft w3-container w3-black">
-			        <p>${room.roomName}</p>
+			        <p>
+				        <c:if test="${room.roomName == 'D'}"> DELUXE ROOM </c:if>
+						<c:if test="${room.roomName == 'DP'}"> DELUXE PREMIUM ROOM </c:if>
+						<c:if test="${room.roomName == 'V'}"> VIP ROOM </c:if>
+						<c:if test="${room.roomName == 'VV'}"> VVIP ROOM </c:if>
+						<input type="hidden" name="roomName" value="${room.roomName }" />
+			        </p>
 			      </div>
-			    </div>
+			    </div>	
 			    </c:forTokens>
 			</c:forEach>
 			

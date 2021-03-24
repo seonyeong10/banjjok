@@ -65,7 +65,13 @@
 				</c:forTokens>
 			
 		      <div class="w3-container w3-white">
-		        <h3>${room.roomName }</h3>
+		        <h3>${room.roomName	 }
+		        	<c:if test="${room.roomName == 'D'}"> DELUXE ROOM </c:if>
+					<c:if test="${room.roomName == 'DP'}"> DELUXE PREMIUM ROOM </c:if>
+					<c:if test="${room.roomName == 'V'}"> VIP ROOM </c:if>
+					<c:if test="${room.roomName == 'VV'}"> VVIP ROOM </c:if>
+					<input type="hidden" name="roomName" value="${room.roomName }" />
+		        </h3>
 		   </a>
 		        <h6 class="w3-opacity"><fmt:formatNumber value="${room.roomPrice }" pattern="#,###" />원</h6>
 <!-- 		        <p>Single bed</p> -->

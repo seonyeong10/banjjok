@@ -36,7 +36,7 @@ public class RoomRegistService {
 		System.out.println("룸코드 : " + roomCode);
 		
 		// 객실 저장
-		dto.setRoomCode(roomCode); //코드저장
+		dto.setRoomCode(roomCommand.getRoomName()+roomCode); //코드저장
 		dto.setRoomName(roomCommand.getRoomName());
 		dto.setRoomPrice(roomCommand.getRoomPrice());
 		dto.setRoomDesc(roomCommand.getRoomDesc());
@@ -44,7 +44,7 @@ public class RoomRegistService {
 		
 		
 		// 이미지 파일 저장
-				String path = "WEB-INF/view/hotel/room/upload/";
+				String path = "/WEB-INF/view/hotel/room/upload/";
 				// "WEB-INF/view/hotel/room/upload"까지의 절대 경로 
 				String filePath = session.getServletContext().getRealPath(path);
 //				System.out.println(filePath);
@@ -85,13 +85,13 @@ public class RoomRegistService {
 				}
 				// dto에 디비에 저장할 파일명 저장
 				dto.setRoomImg(roomImg);
-				System.out.println(roomCommand.getRoomImg());
-				System.out.println(roomImg);
-				
-				System.out.println(dto.getRoomCode());
-				System.out.println(dto.getRoomName());
-				System.out.println(dto.getRoomPrice());
-				System.out.println(dto.getRoomDesc());
+//				System.out.println(roomCommand.getRoomImg());
+//				System.out.println(roomImg);
+//				
+//				System.out.println(dto.getRoomCode());
+//				System.out.println(dto.getRoomName());
+//				System.out.println(dto.getRoomPrice());
+//				System.out.println(dto.getRoomDesc());
 				Integer code = null;
 				code = roomMapper.insertRoom(dto);
 //				model.addAttribute("roomCode", code);
