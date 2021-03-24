@@ -7,10 +7,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
-<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"> -->
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-<link href="/static/css/topMenu.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<link href="/static/css/hotelTop.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 	body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
  	.w3-green,.w3-hover-green:hover{color:#fff!important;background-color:#04B486!important} 
@@ -22,7 +24,7 @@
 </head>
 <body>
 <!-- top -->
-	<header>
+	<header class=nvH>
 		<!-- 로고  -->
 		<div class="logoAreaH">
 			<a href="<c:url value='/'/>" class="logoImageH"
@@ -32,7 +34,7 @@
 		<!-- 나비(메뉴선택 바)  -->
 <!-- 		<div class="navigationWrap"> -->
 <!-- 			<ul class="navigationArea"> -->
-<!-- 				<li><a href="#">Booking</a></li> -->
+<!-- 				<li><a href="#"><i class="green fa fa-bed w3-margin-right"></i>Booking</a></li> -->
 <!-- 				<li><a href="/hotel/roomList">Room</a></li> -->
 <!-- 				<li><a href="/hotel/sitterList">Pet Sitter</a></li> -->
 <!-- 				<li><a href="/hotel/reviewList">Review</a></li> -->
