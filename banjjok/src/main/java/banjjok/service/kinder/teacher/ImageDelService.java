@@ -14,28 +14,9 @@ import org.springframework.ui.Model;
 @Component
 public class ImageDelService {
 
-	public void imgDel(String imgfile, Model model, HttpSession session) {
-		List<String> list = (List<String>) session.getAttribute("imgList");
-		if(list == null) {
-			list = new ArrayList<String>();
-		}
-		
-		Integer num = 0;
-		boolean newFile = true;
-		for(int i=0; i<list.size(); i++) {
-			if(list.get(i).equals(imgfile)) {
-				list.remove(i);
-				newFile = false;
-				num = 0;
-			}
-		}
-		if(newFile) {
-			list.add(imgfile);
-			session.setAttribute("imgList", list);
-			num = 1;
-		}
-		model.addAttribute("val", num);
-		
+	public void imgDel(String imagefile, Model model, HttpSession session) {
+		session.setAttribute("imgList", imagefile);
+		model.addAttribute("val", 1);
 	}
 	
 }

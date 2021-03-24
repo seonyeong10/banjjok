@@ -27,44 +27,42 @@ public class EnrollModifyOkService {
 		TeacherDTO dto = new TeacherDTO();
 		dto.settId(teacherCommand.gettId());
 		
+		// img del
+		dto = (TeacherDTO)teacherMapper.enrollListup(dto).get(0);
+		String img = (String)session.getAttribute("imgList");
+		String photopath = session.getServletContext().getRealPath("/WEB-INF/view/kinder/upload");
+		
+		// 리스트가 널이 아니면 세션에 저장된 이미지가 있다는 것
+		// 세션에 저장된 정보 삭제
+		if(img != null) {
+			File file = new File(photopath + "/" + img);
+			if(file.exists()) file.delete();
+			session.removeAttribute("imagefile");
+		}else {
+			dto.settPhoto(dto.gettPhoto());
+		}
+
+		
 		dto.settPh(teacherCommand.gettPh());
 		dto.settEmail(teacherCommand.gettEmail());
 		dto.settDuty(teacherCommand.gettDuty());
 		dto.settState(teacherCommand.gettState());
 		
-		// img del
-		dto = (TeacherDTO)teacherMapper.enrollListup(dto).get(0);
-		List<String> list = (List<String>)session.getAttribute("imgList");
-		String filePath = session.getServletContext().getRealPath(
-				"WEB-INF/view/kinder/upload");
-		// 리스트가 널이 아니면 세션에 저장된 이미지가 있다는 것
-		// 세션에 저장된 정보 삭제
-		if(list != null) {
-			for(String img : list) {
-				dto.settPhoto(dto.gettPhoto().replace(img+"`",""));
-				File file = new File(filePath + "/" + img);
-				if(file.exists()) file.delete();
-			}
-			session.removeAttribute("imgfile");
-		}
-		// 널일때
-		String img = "";
-		if(dto.gettPhoto() != null) {
-			img = dto.gettPhoto();
-		}
-		
 		// 추가된 이미지가 있는지 확인
 		//                            mf는 idEmpty 로 공백확인
 		if(!teacherCommand.gettPhoto().isEmpty()) {
+				String teacherPhoto = "";
 				MultipartFile mf = teacherCommand.gettPhoto() ;
 				String original = mf.getOriginalFilename();
 				String Extension = original.substring(original.lastIndexOf("."));
 				String store = UUID.randomUUID().toString().replace("-", "")+Extension;
-				dto.settPhoto(img+store+"`");
+				teacherPhoto = original + "`" + store;
 				
 				// 저장
-				File file = new File(filePath + "/" +store);
+				File file = new File(photopath + "/" +store);
 				mf.transferTo(file);
+				
+				dto.settPhoto(teacherPhoto);
 			
 		}
 		

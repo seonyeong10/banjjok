@@ -65,14 +65,16 @@ public class AdminController {
 	@Autowired
 	ClassDelService classDelService;
 	
-	@RequestMapping(value = "kinderMain", method = RequestMethod.GET)
-	public String kinder() throws Exception {
-		return "kinder/kinderMain"; 
-	}
+	
 	
 	@RequestMapping(value = "administration", method = RequestMethod.GET)
 	public String administraion() throws Exception{
 		return "kinder/admin/administration";
+	}
+	
+	@RequestMapping(value = "teacherMypage", method = RequestMethod.GET)
+	public String teacherMypage() throws Exception{
+		return "/kinder/teacherMypage";
 	}
 	
 	
@@ -130,15 +132,15 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="imageDel", method=RequestMethod.POST)
-	public String imageDel(@RequestParam(value="imgfile")String imgfile, Model model,
+	public String imageDel(@RequestParam(value="imagefile")String imagefile, Model model,
 			HttpSession session){
-		imageDelService.imgDel(imgfile, model, session);
-		return "kinder/admin/imgDel";
+		imageDelService.imgDel(imagefile, model, session);
+		return "kinder/admin/imageDel";
 	}
 	
 	@RequestMapping(value="enrollModifyOk", method=RequestMethod.POST)
 	public String enrollModifyOk(
-			@Validated TeacherCommand teacherCommand, BindingResult result, HttpSession session) throws Exception{
+			TeacherCommand teacherCommand, HttpSession session) throws Exception{
 		enrollModifyOkService.enrollModifyOk(teacherCommand, session);
 		/*if (result.hasErrors()) {
 			return "kinder/admin/enrollModify";
@@ -198,6 +200,6 @@ public class AdminController {
 	
 	// program
 	
-//	@RequestMapping(value = "program", method = RequestMethod.GET)
-	
+//	@RequestMapping(value = "programList", method = RequestMethod.GET)
+//	public String 
 }

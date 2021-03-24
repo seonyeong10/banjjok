@@ -8,13 +8,13 @@
 <title>Enrollment Modification</title>
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
-	function imageDel(imgfile, btn){
+	function imageDel(imagefile, btn){
 		if(confirm('Are you really want to delete this photo?')) {
 			imageFile = {
 					type:"post",
 					url :"imageDel",
 					dataType:"text",
-					data:{"imgfile" : imgfile},
+					data:{"imagefile" : imagefile},
 					success:function(result){
 						if(result.trim()=="1"){
 							$('img').remove();
@@ -44,7 +44,7 @@
 				</tr>
 				<tr>
 					<th>SHOP CODE</th>
-					<td>${list.shopCode }</td>
+					<td>${lists.shopCode }</td>
 				</tr>
 				<tr>
 					<th>ID</th>
@@ -91,7 +91,7 @@
 					<td>
 					<c:set value="${fn:split(lists.tPhoto,'`') }" var="i" />
 					<img src="/kinder/upload/${i[1] }" alt="teacher photo" style="width:150px; height:200px" class="teacher-img"/>
-					<input type="button" value="DELETE" name="tPhoto" onclick="imageDel('${i[1]}', this );" />	
+					<input type="button" value="DELETE" name="tPhoto" onclick="imageDel('${i[1]}', this);" />	
 					</td>
 				</tr>
 				<tr>
