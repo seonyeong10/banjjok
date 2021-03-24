@@ -78,7 +78,8 @@
 						</c:forEach>
 						<!-- 이번달 -->
 						<c:forEach items="${cur }" var="cur" varStatus="status">
-							<c:if test="${status.count % 7 eq 0 }">
+							<c:set value="${status.count + pre.size() }" var="line"/>
+							<c:if test="${line % 7 eq 0 }">
 								<br />
 							</c:if>
 							<li >
@@ -87,9 +88,12 @@
 								</c:if>
 								<c:if test="${cur ge date }">
 									<label class="date-current">
+<%-- 									<input type="radio" name="date" value="${cur }" --%>
+<%-- 										<c:if test="${cur eq date }">checked</c:if>  --%>
+<%-- 										onclick="javajscript:location.href='/salon/menu/reserve?serviceCode=${menu.serviceCode }&month=${currMonth }&date=${cur }'"/> --%>
 									<input type="radio" name="date" value="${cur }"
 										<c:if test="${cur eq date }">checked</c:if> 
-										onclick="javajscript:location.href='/salon/menu/reserve?serviceCode=${menu.serviceCode }&month=${currMonth }&date=${cur }'"/>
+										onclick="loadDesn('${menu.serviceCode }', '${currMonth }', '${cur }');"/>
 									<span>${cur }</span>
 									</label>
 								</c:if>
@@ -102,11 +106,11 @@
 					</ul>
 				</div>
 			</div> <!-- 캘린더 끝 -->
+			<input type="hidden" name="desnId" />
+			<input type="hidden" name="desnName" />
 			<div class="selectDesignerArea" id="reload-area">
 				<!-- 예약 서비스 -->
 				<div class="select-title">디자이너/시간 선택 </div>
-				<input type="hidden" name="desnId" />
-				<input type="hidden" name="desnName" />
 				<div class="designer-list">
 				<c:forEach items="${desn }" var="desn">
 					<div class="select-designer">

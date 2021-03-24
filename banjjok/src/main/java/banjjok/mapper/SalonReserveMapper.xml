@@ -40,6 +40,13 @@
 		<if test="reservCode != null">
 			and res.reserv_Code = #{reservCode}
 		</if>
+		<if test="desnId != null">
+			and des.desn_id = #{desnId}
+		</if>
+		<if test="reservDate != null">
+			and res.reserv_date &gt;= #{reservDate} and res.reserv_date &lt; #{cancleDate}
+		</if>
+	order by res.reserv_date
 </select>
 <update id="updateRes" parameterType="banjjok.domain.SalonReserveDTO">
 	update reserve_salon
@@ -54,6 +61,11 @@
 <update id="cancle" parameterType="banjjok.domain.SalonReserveDTO">
 	update reserve_list_salon
 	set reserv_use = '2', cancle_date = sysdate
+	where reserv_code = #{reservCode}
+</update>
+<update id="updateStatus" parameterType="banjjok.domain.SalonReserveDTO">
+	update reserve_list_salon
+	set reserv_use = '1', use_date = sysdate
 	where reserv_code = #{reservCode}
 </update>
 </mapper>

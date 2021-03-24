@@ -32,27 +32,9 @@ function init(){
 //	document.getElementsByName('petId')[0].checked = 'checked';
 }
 
-function changeDate(serviceCode, month, date, btn) {
-	changeDate = {
-			type : "post"
-			,url : "desnStatus"
-//			,url : "reserve"
-			,dataType : "html"
-			,data : {
-				"serviceCode" : serviceCode
-				,"month" : month
-				,"date" : date
-			}
-			,success : function(data){
-//				$('#reload-area').load(location + '#reload-area');
-				$('#reload-area').html(data).find('#reload-area');
-//				alert('성공');
-			}
-			,errors : function(){
-				alert('에러');
-			}
-	};
-	$.ajax(changeDate);
+function loadDesn(serviceCode, month, date) {
+	$('#reload-area').load('loadDesn', {"serviceCode" : serviceCode, "month" : month, "date" : date});
+	console.log('실행? ' + month);
 }
 
 
