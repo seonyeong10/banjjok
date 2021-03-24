@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="banjjok.mapper.StyleMapper">
+<sql id="column">
+	STYLE_CODE ,DESN_ID, STYLE_CATEG, STYLE_NAME, STYLE_LENGTH, STYLE_CURLY, STYLE_DESC, STYLE_IMG, reg_date
+</sql>
+<sql id="select">
+	STYLE_CODE STYLECODE ,DESN_ID DESNID, STYLE_CATEG STYLECATEG, STYLE_NAME STYLENAME, STYLE_LENGTH STYLELENGTH, 
+	STYLE_CURLY STYLECURLY, STYLE_DESC STYLEDESC, STYLE_IMG STYLEIMG, reg_date regdate
+</sql>
+<select id="getCode" resultType="string">
+	select to_char(sysdate, 'YYMMDD') || lpad(styleBook_seq.NEXTVAL,3,0) from dual
+</select>
+<insert id="insert" parameterType="banjjok.domain.StyleDTO">
+	insert into stylebook (<include refid="column" />)
+	values(#{styleCode}, #{desnId}, #{styleCateg}, #{styleName}, #{styleLength}, #{styleCurly}, #{styleDesc}, #{styleImg}, sysdate)
+</insert>
+<select id="getStyle" parameterType="banjjok.domain.StyleDTO" resultType="banjjok.domain.StyleDTO">
+	select <include refid="select" />
+	from stylebook
+	where desn_id = #{desnId}
+	order by reg_date desc
+</select>
+</mapper>

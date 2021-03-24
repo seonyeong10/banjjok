@@ -38,9 +38,9 @@
 					<div class="desinerInfo">
 						<ul>
 							<c:forEach items="${list }" var="list">
-								<li>
+								<li >
 									<c:set value="${fn:split(list.desnImg,'`') }" var="i" />
-									<a href=""><img src="/salon/designer/upload/${i[1] }" alt="face" /></a>
+									<a onclick="getInfo('${list.desnId}');"><img src="/salon/designer/upload/${i[1] }" alt="face" /></a>
 									<p>${list.desnName } 
 										<c:if test="${list.desnUse.equals('1') }">원장</c:if>
 										<c:if test="${list.desnUse.equals('2') }">수석디자이너</c:if>
@@ -77,7 +77,7 @@
 	<!-- foot -->
 	<footer> SoulMate's Forest 02.125.7979 Copyright &copy All
 		Rights reserved. </footer>
-	<script src="js/script.js"></script>
+	<script src="<c:url value='/static/js/salonMain.js'/>"></script>
 	<!-- foot 끝 -->
 </body>
 </html>

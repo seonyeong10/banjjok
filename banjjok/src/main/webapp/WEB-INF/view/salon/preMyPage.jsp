@@ -38,9 +38,9 @@
 			<a onclick="javascript:location.href='/salon/desn/schedule'" class="modify">조회</a>
 		</div>
 		<div class="myInterestInfo">
-			<h2>나의 관심</h2>
-			<p>내가 관심등록한 상품을 확인할 수 있습니다.</p>
-			<a href="#" class="modify">등록</a>
+			<h2>스타일북</h2>
+			<p>내가 등록한 스타일을 확인할 수 있습니다.</p>
+			<a href="<c:url value='/salon/style/addStyle'/>" class="modify">등록</a>
 			<a href="#">조회</a>
 		</div>
 		</div>

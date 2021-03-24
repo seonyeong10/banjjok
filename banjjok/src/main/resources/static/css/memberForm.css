@@ -35,8 +35,26 @@ form .element-value input[type="text"], #frm .element-value input[type="password
 }
 
 .element-value input[type='radio'] {
-  width: 30px;
+/*   width: 30px; */
   /* height: 10px; */
+  display:none;
+}
+
+.element-value input[type="radio"] + span{
+	display: inline-block;
+	cursor: pointer;
+	border: none;
+	border-radius: 43%;
+	width: 60px;
+	line-height: 30px;
+	text-align: center;
+	background: #e2e2e2;
+	padding: 1px;
+}
+
+.element-value input[type="radio"]:checked +span{
+	background: #333;
+	color: #fff;
 }
 
 .element-value input[type='checkbox'] {
