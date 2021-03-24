@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import banjjok.command.RoomCommand;
+import banjjok.service.hotel.ImgDeleteService;
 import banjjok.service.hotel.room.RoomAutoService;
 import banjjok.service.hotel.room.RoomDelService;
 import banjjok.service.hotel.room.RoomDetailService;
@@ -22,8 +23,6 @@ import banjjok.service.hotel.room.RoomListService;
 import banjjok.service.hotel.room.RoomModiService;
 import banjjok.service.hotel.room.RoomRegistService;
 import banjjok.service.hotel.room.RoomRegistService_mapVer;
-import banjjok.service.kinder.teacher.ImageDelService;
-import banjjok.service.salon.ImgDelService;
 
 @Controller
 @RequestMapping("hotel")
@@ -43,7 +42,7 @@ public class RoomController {
 	@Autowired
 	RoomDelService roomDelService;
 	@Autowired
-	ImgDelService imgDelService;
+	ImgDeleteService imgDeleteService;
 	
 	@ModelAttribute
 	public RoomCommand setRoomCommand() {
@@ -94,7 +93,7 @@ public class RoomController {
 	}
 	@RequestMapping(value="imgDel", method = RequestMethod.POST)
 	public String imgDel(@RequestParam(value="imgFile") String imgFile, Model model, HttpSession session) {
-		imgDelService.imgDel(imgFile, model, session);
+		imgDeleteService.imgDel(imgFile, model, session);
 		return "hotel/imgDel";
 	}
 

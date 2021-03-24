@@ -93,7 +93,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 			</c:forEach>
 			
 			    <div class="w3-display-container mySlides">
-			    <img src="/hotel/room/upload/${img }" alt="roomImg">
+			    <img src="/hotel/room/upload/${img }" alt="Room image 없음">
 			      <div class="w3-display-bottomleft w3-container w3-black">
 			        <p>${room.roomName}</p>
 			      </div>

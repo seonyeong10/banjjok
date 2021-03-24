@@ -49,19 +49,21 @@ public class RoomModiService {
 		dto = roomMapper.getRoomList(dto).get(0); //수정할 데이터 DB에서 가져오기
 		
 		// 파일삭제
-				List<String> list = (List<String>) session.getAttribute("imgList");
-				String filePath = session.getServletContext().getRealPath("/WEB-INF/view/hotel/room/upload");
-				if (list != null) {
-					for (int i = 0; i < list.size(); i++) {
-						String img = list.get(i);
-						dto.setRoomImg(dto.getRoomImg().replace(dto.getRoomImg(), ""));
-						File file = new File(filePath + "/" + img);
-						if (file.exists()) {
-							file.delete();
-						}
-						session.removeAttribute("imgList");
+			String path = "/WEB-INF/view/hotel/room/upload";
+			List<String> list = (List<String>) session.getAttribute("imgList");
+			String filePath = session.getServletContext().getRealPath(path);
+//			String filePath = session.getServletContext().getRealPath("/WEB-INF/view/hotel/room/upload");
+			if (list != null) {
+				for (int i = 0; i < list.size(); i++) {
+					String img = list.get(i);
+					dto.setRoomImg(dto.getRoomImg().replace(dto.getRoomImg(), ""));
+					File file = new File(filePath + "/" + img);
+					if (file.exists()) {
+						file.delete();
 					}
+					session.removeAttribute("imgList");
 				}
+			}
 		
 		if(!passwordEncoder.matches(roomCommand.getRoomPw(), dto.getRoomPw())) {
 			// 불일치한다면
@@ -70,30 +72,30 @@ public class RoomModiService {
 			location = "redirect:/hotel/sitterInfo/"+roomName;
 		} else {
 			//파일
-			String path = "WEB-INF/view/hotel/room/upload";
+//			String path = "/WEB-INF/view/hotel/room/upload";
 			String roomImg = "";
-			List<MultipartFile> fileList = mtfRequest.getFiles("roomImg");
+			// 추가하는 파일이 있으면
 			MultipartFile mf = roomCommand.getRoomImg();
 			String original = mf.getOriginalFilename();
-			if (!original.equals("")) { //파일이 있다면
+			if (!original.equals("")) {
 				String originalFileExtension = original.substring(original.lastIndexOf("."));
 				String store = UUID.randomUUID().toString().replace("-", "") + originalFileExtension;
 				roomImg = original + "`";
-//				String saveFile = path + System.currentTimeMillis() + original;
-				try {
-//					mf.transferTo(new File(saveFile));
-					mf.transferTo(new File(path + "/" + store));
-				} catch (IllegalStateException | IOException e) {
-					e.printStackTrace();
-				}
+				File file = new File(filePath + "/" + store);
+				mf.transferTo(file);
 			} else {
+				// 파일 추가 안하면 그대로
+//				dto.setDesnImg(desnImg);
+//				if(list == null) {
+//					System.out.println("실행");
+//					location = "redirect:/salon/myPage";
+//				}
 				roomImg = dto.getRoomImg();
-	//			if (roomImg.equals("")) {
-	//				location = "redirect:/hotel/sitterInfo/" + roomName;
-	//			}
+				if(roomImg.equals("")) {
+					location = "redirect:/salon/myPage";
+				}
 			}
 			dto.setRoomImg(roomImg);
-			
 			dto.setRoomCode(roomCommand.getRoomCode());
 			dto.setRoomPrice(roomCommand.getRoomPrice());
 			dto.setRoomDesc(roomCommand.getRoomDesc());

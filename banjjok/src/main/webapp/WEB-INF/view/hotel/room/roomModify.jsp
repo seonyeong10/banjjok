@@ -43,10 +43,11 @@ input{ text-align: center;	 }
 				<tr>
 					<td>사진</td>
 					<td>
-						<input type="file" name="roomImg" multiple="multiple"/>
+						<c:if test="${list.roomImg ==null }"><input type="file" name="roomImg" id="roomImg" /></c:if>
+						
 						<c:forTokens items="${list.roomImg }" delims="`" var="img" varStatus="status">
 <%-- 						<c:set value="${fn:split(list.roomImg,'`') }" var="i" /> --%>
-<!-- 						<input type="file" name="roomImg" style="display:none;" multiple="multiple" /> 파일 업로드창은 안보이게 -->
+						<input type="file" name="roomImg" id="roomImg" />
 						 <!-- 파일 업로드창은 안보이게 -->
 						<img src="/hotel/room/upload/${img }" alt="객실 사진" border="0" 
 							style="width: 100px; height: 100px" onclick="document.all.roomImg.click();"/>
@@ -88,7 +89,7 @@ input{ text-align: center;	 }
 					<td>객실 설명</td>
 					<td>	
 <%-- 						<form:input path="roomDesc" value="${list.roomDesc }"/> --%>
-						<textarea name="roomDesc" rows="20" cols="50">${list.roomDesc }>${list.roomDesc }</textarea>
+						<textarea name="roomDesc" rows="20" cols="50">${list.roomDesc }</textarea>
 					</td>
 				</tr>
 				<tr>
@@ -111,6 +112,7 @@ input{ text-align: center;	 }
 	<footer> SoulMate's Forest 02.125.7979 Copyright &copy All
 		Rights reserved. </footer>
 	<!-- foot 끝 -->
+	
 	<script src="/static/js/room.js"></script>
 	<script type="text/javascript">
 		function imgDelete(imgFile, btn){
@@ -127,7 +129,7 @@ input{ text-align: center;	 }
 							$('#roomImg').show();
 						}else{
 							$(btn).text('삭제');
-							$('roomImg').hide();
+							$('#roomImg').hide();
 						}
 					},
 					error : function(){
