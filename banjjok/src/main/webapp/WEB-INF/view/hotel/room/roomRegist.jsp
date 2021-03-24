@@ -36,7 +36,18 @@
           </div>
           <div class="mem-element">
             <p class="element-name"><label for="roomName">객실 이름</label></p>
-            <span class="element-value"><form:input path="roomName" placeholder="객실이름(ex.Delux)_옵션으로 만들까..?"/></span>
+            <span class="element-value">
+				<select id="roomName" name="roomName" class="sel"> 
+                   	<option>객실을 선택해주세요</option>
+                    <option value="D">DELUXE ROOM</option>
+                    <option value="DP">DELUXE PREMIUM ROOM</option>
+                    <option value="V">VIP ROOM</option>
+                    <option value="VV">VVIP ROOM</option>
+<!--                     <option value="Add">ADD ROOM</option> -->
+                  </select>
+            </span>
+            
+            
             <div class="element-errors"><form:errors path="roomName"/> </div>
           </div>
           <div class="mem-element">

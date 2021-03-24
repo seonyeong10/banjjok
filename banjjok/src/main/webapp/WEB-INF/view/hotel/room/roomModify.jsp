@@ -16,6 +16,7 @@
 table td {
 	text-align: center;
 }
+input{ text-align: center;	 }
 </style>
 </head>
 <body>
@@ -42,29 +43,33 @@ table td {
 				<tr>
 					<td>사진</td>
 					<td>
+						<input type="file" name="roomImg" multiple="multiple"/>
 						<c:forTokens items="${list.roomImg }" delims="`" var="img" varStatus="status">
 <%-- 						<c:set value="${fn:split(list.roomImg,'`') }" var="i" /> --%>
-						<input type="file" name="roomImg" style="display:none;" /> <!-- 파일 업로드창은 안보이게 -->
+<!-- 						<input type="file" name="roomImg" style="display:none;" multiple="multiple" /> 파일 업로드창은 안보이게 -->
+						 <!-- 파일 업로드창은 안보이게 -->
 						<img src="/hotel/room/upload/${img }" alt="객실 사진" border="0" 
 							style="width: 100px; height: 100px" onclick="document.all.roomImg.click();"/>
-<!-- 							사진 새로 등록시 새로 등록한 사진 보이게 하는거 아직 안 넣음 -->
-<%-- 						<button type="button" onclick="imgDel('${i[1]}', this);" --%>
-<!-- 							id="delBtn">삭제</button> -->
+						<button type="button" onclick="imgDelete('${i[1]}', this);"
+							id="delBtn">삭제</button>
 						</c:forTokens>
 					</td>
 				</tr>
 				<tr>
 					<td>객실 이름</td>
 					<td>
-						${list.roomName }
+						<c:if test="${list.roomName == 'D'}"> DELUXE ROOM </c:if>
+						<c:if test="${list.roomName == 'DP'}"> DELUXE PREMIUM ROOM </c:if>
+						<c:if test="${list.roomName == 'V'}"> VIP ROOM </c:if>
+						<c:if test="${list.roomName == 'VV'}"> VVIP ROOM </c:if>
 						 <input type="hidden" name="roomName" value="${list.roomName }" />
 					</td>
 				</tr>
 <!-- 				<tr> -->
 <!-- 					<td>객실타입</td> -->
-<!-- 					<td> -->
+<%-- 					<td><input type="hidden" name="roomType" value="EL{list.roomType }"/> --%>
 <!-- 						<select id="roomType" name="roomType" class="sel"> -->
-<%--                         	<option>{list.roomType }</option> --%>
+<%--                         	<option>${list.roomType }</option> --%>
 <!--                             <option value="DE">DELUX ROOM</option> -->
 <!--                             <option value="DE_Pre">DELUX PREMIUM ROOM"</option> -->
 <!--                             <option value="VIP">VIP ROOM</option> -->
@@ -82,11 +87,12 @@ table td {
 				<tr>
 					<td>객실 설명</td>
 					<td>	
-						<form:input path="roomDesc" value="${list.roomDesc }"/>
+<%-- 						<form:input path="roomDesc" value="${list.roomDesc }"/> --%>
+						<textarea name="roomDesc" rows="20" cols="50">${list.roomDesc }>${list.roomDesc }</textarea>
 					</td>
 				</tr>
 				<tr>
-					<td>객실 비밀번호</td>
+					<td>비밀번호</td>
 					<td>	
 						<form:password path="roomPw"/><br />
 						${PwErr}
@@ -106,6 +112,32 @@ table td {
 		Rights reserved. </footer>
 	<!-- foot 끝 -->
 	<script src="/static/js/room.js"></script>
+	<script type="text/javascript">
+		function imgDelete(imgFile, btn){
+				del = {
+					type : "post",
+					url : "imgDel",
+					data : {
+						"imgFile" : imgFile
+					},
+					success : function(result){
+						alert(result);
+						if(result.trim()=="1"){
+							$(btn).text('삭제취소');
+							$('#roomImg').show();
+						}else{
+							$(btn).text('삭제');
+							$('roomImg').hide();
+						}
+					},
+					error : function(){
+						alert('err');
+						return;	
+					}
+				};
+				$.ajax(del);
+		}
+	</script>
 
 </body>
 </html>

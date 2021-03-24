@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import banjjok.command.RoomCommand;
@@ -21,6 +22,8 @@ import banjjok.service.hotel.room.RoomListService;
 import banjjok.service.hotel.room.RoomModiService;
 import banjjok.service.hotel.room.RoomRegistService;
 import banjjok.service.hotel.room.RoomRegistService_mapVer;
+import banjjok.service.kinder.teacher.ImageDelService;
+import banjjok.service.salon.ImgDelService;
 
 @Controller
 @RequestMapping("hotel")
@@ -39,6 +42,8 @@ public class RoomController {
 	RoomModiService roomModiService;
 	@Autowired
 	RoomDelService roomDelService;
+	@Autowired
+	ImgDelService imgDelService;
 	
 	@ModelAttribute
 	public RoomCommand setRoomCommand() {
@@ -77,8 +82,8 @@ public class RoomController {
 		return "hotel/room/roomModify";
 	}
 	@RequestMapping(value="roomModifyPro", method=RequestMethod.POST)
-	public String roomModifyPro(@Validated RoomCommand roomCommand, BindingResult result ,Model model, MultipartHttpServletRequest mtfRequest) throws Exception {
-		String location =roomModiService.roomModifyPro(roomCommand, model, mtfRequest);
+	public String roomModifyPro(@Validated RoomCommand roomCommand, BindingResult result ,Model model, MultipartHttpServletRequest mtfRequest, HttpSession session) throws Exception {
+		String location =roomModiService.roomModifyPro(roomCommand, model, mtfRequest, session);
 //		return "redirect:roomDetail/{roomName}";
 		return location;
 	}
@@ -86,6 +91,11 @@ public class RoomController {
 	public String roomDel(RoomCommand roomCommand, Model model, HttpSession session) throws Exception {
 		roomDelService.roomDel(roomCommand, model, session);
 		return "redirect:roomList";
+	}
+	@RequestMapping(value="imgDel", method = RequestMethod.POST)
+	public String imgDel(@RequestParam(value="imgFile") String imgFile, Model model, HttpSession session) {
+		imgDelService.imgDel(imgFile, model, session);
+		return "hotel/imgDel";
 	}
 
 }

@@ -41,12 +41,27 @@ public class RoomModiService {
 	
 	@Autowired
 	PasswordEncoder passwordEncoder;
-	public String roomModifyPro(RoomCommand roomCommand, Model model, MultipartHttpServletRequest mtfRequest) throws Exception {
+	public String roomModifyPro(RoomCommand roomCommand, Model model, MultipartHttpServletRequest mtfRequest, HttpSession session) throws Exception {
 		String location = null;
 		RoomDTO dto = new RoomDTO();
+//		dto.setRoomName(roomCommand.getRoomName());
 		String roomName = dto.getRoomName();
 		dto = roomMapper.getRoomList(dto).get(0); //수정할 데이터 DB에서 가져오기
 		
+		// 파일삭제
+				List<String> list = (List<String>) session.getAttribute("imgList");
+				String filePath = session.getServletContext().getRealPath("/WEB-INF/view/hotel/room/upload");
+				if (list != null) {
+					for (int i = 0; i < list.size(); i++) {
+						String img = list.get(i);
+						dto.setRoomImg(dto.getRoomImg().replace(dto.getRoomImg(), ""));
+						File file = new File(filePath + "/" + img);
+						if (file.exists()) {
+							file.delete();
+						}
+						session.removeAttribute("imgList");
+					}
+				}
 		
 		if(!passwordEncoder.matches(roomCommand.getRoomPw(), dto.getRoomPw())) {
 			// 불일치한다면
@@ -64,9 +79,10 @@ public class RoomModiService {
 				String originalFileExtension = original.substring(original.lastIndexOf("."));
 				String store = UUID.randomUUID().toString().replace("-", "") + originalFileExtension;
 				roomImg = original + "`";
-				String saveFile = path + System.currentTimeMillis() + original;
+//				String saveFile = path + System.currentTimeMillis() + original;
 				try {
-					mf.transferTo(new File(saveFile));
+//					mf.transferTo(new File(saveFile));
+					mf.transferTo(new File(path + "/" + store));
 				} catch (IllegalStateException | IOException e) {
 					e.printStackTrace();
 				}
