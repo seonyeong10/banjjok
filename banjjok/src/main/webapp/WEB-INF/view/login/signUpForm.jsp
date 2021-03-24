@@ -51,6 +51,7 @@
         <span class="pennant-pet"><span class="fa fa-faw fa-2x"></span>&nbsp;펫 정보</span>
       </div>
       <form:form action="registMem" name="frm" id="frm" method="post" onsubmit="complete();" modelAttribute="signUpCommand">
+      	<input type="hidden" name="isMChecked" id="isMChecked"/>
         <!-- 보호자 정보 -->
         <div id="member-info">
           <div class="mem-element">
@@ -74,7 +75,7 @@
           </div>
           <div class="mem-element">
             <p class="element-name">휴대폰 번호</p>
-            <span class="element-value"><form:input path="memMobile" placeholder="휴대폰 번호"/></span>
+            <span class="element-value"><form:input path="memMobile" placeholder="-포함 휴대폰 번호"/></span>
             <span class="button"><input type="button" value="인증" onclick="chkMobile();"/></span>
             <div class="element-errors"><form:errors path="memMobile"/> </div>
           </div>
@@ -83,7 +84,7 @@
 <!--             <p class="element-name">휴대폰 번호</p> -->
             <span class="element-value"><input type="text" name="ctfNum" placeholder="인증번호를 입력하세요."/></span>
             <span class="button"><input type="button" value="확인" onclick="chkNum();"/></span>
-            <div class="element-errors"></div>
+            <div class="element-errors" id="mobile-err"></div>
           </div>
           </div>
           <div class="mem-element">

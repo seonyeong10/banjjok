@@ -1,5 +1,7 @@
 package banjjok.contoller.main;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import banjjok.command.SignUpCommand;
 import banjjok.service.CheckIdService;
+import banjjok.service.ChkNumService;
+import banjjok.service.SendSMSService;
 import banjjok.service.mem.RegistService;
 
 @Controller
@@ -24,6 +28,10 @@ public class SignUpController {
 	RegistService registService; 
 	@Autowired
 	CheckIdService checkIdService;
+	@Autowired
+	SendSMSService sendSMSService;
+	@Autowired
+	ChkNumService chkNumService;
 	
 	@RequestMapping(value = "signUp", method = RequestMethod.GET)
 	public String signUp() {
@@ -52,6 +60,17 @@ public class SignUpController {
 		}
 		String path = registService.regist(signUpCommand, model);
 		return path;
+	}
+	@RequestMapping(value = "chkSMS", method = RequestMethod.POST)
+	public String checkSMS(@RequestParam(value = "mobile") String mobile, HttpSession session, Model model) {
+		// 랜덤번호 만들어서 넘김 -> 세션에 저장해서 값 비교 -> 일치하면 세션 삭제
+		sendSMSService.send(mobile, session, model);
+		return "salon/imgDel";
+	}
+	@RequestMapping(value = "checkNum", method = RequestMethod.POST)
+	public String checkNum(@RequestParam(value = "number") String number, Model model, HttpSession session) {
+		chkNumService.isEqual(number, model, session);
+		return "salon/imgDel";
 	}
 	
 }
