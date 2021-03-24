@@ -12,6 +12,6 @@ import banjjok.domain.TeacherDTO;
 public interface TeacherMapper {
 	public Integer teacherInsert(TeacherDTO dto) throws Exception;
 	public List<TeacherDTO> enrollListup(TeacherDTO dto) throws Exception;
-	public Integer enrollModify(TeacherDTO dto) throws Exception;
+	public void enrollModify(TeacherDTO dto) throws Exception;
 	public void enrollDel(TeacherDTO dto) throws Exception;
 }

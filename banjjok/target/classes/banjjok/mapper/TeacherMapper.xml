@@ -35,11 +35,13 @@
 		
 	))
 </select>
+
 <update id="enrollModify" parameterType="banjjok.domain.TeacherDTO">
     update teacher
-    set t_ph = #{tPh}, t_email = #{tEmail}, t_duty = #{tDuty}, t_state = #{tState}
+    set t_ph = #{tPh}, t_email = #{tEmail}, t_duty = #{tDuty}, t_state = #{tState}, t_Photo = #{tPhoto}
     where t_id = #{tId}
 </update>
+
 <delete id="enrollDel" parameterType="banjjok.domain.TeacherDTO">
 	delete from teacher
 	where t_id = #{tId}

@@ -94,11 +94,12 @@
 						</c:forEach>
 						<!-- 이번달 -->
 						<c:forEach items="${cur }" var="cur" varStatus="status">
-							<c:if test="${status.count % 7 eq 0 }">
+							<c:set value="${status.count + pre.size() }" var="line"/>
+							<c:if test="${line % 7 eq 0 }">
 								<br />
 							</c:if>
 							<c:if test="${cur lt date }">
-								<a class="date none-current">${cur }</a>
+								<li ><a class="date none-current">${cur }</a></li>
 							</c:if>
 							<c:if test="${cur ge date }">
 								<li >

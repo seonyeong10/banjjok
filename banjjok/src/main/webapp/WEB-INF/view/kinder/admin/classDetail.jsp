@@ -129,7 +129,7 @@
 				<tr>
 					<td colspan="3">
 						<input type="button" value="DELETE" onclick="return Del();" />
-						<input type="button" value="BACK" onclick="javascript:location.href='../classList'" />
+						<input type="button" value="BACK" onclick="javascript:location.href='classList'" />
 					</td>
 				</tr>
 		</table>

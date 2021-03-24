@@ -2,6 +2,10 @@
 /* body {
   font-family: Tahoma;
 } */
+.content {
+/* 	width: 620px; */
+	margin : 0 auto;
+}
 #calendar-wrap header {
 	text-align: center;
 	padding: 0;
@@ -16,6 +20,7 @@
 #calendar-wrap {
 	width: 100%;
 	margin-bottom: 100px;
+/* 	margin: 20px 20px 100px; */
 }
 
 #calendar {
@@ -43,6 +48,7 @@
 	border: 1px solid #ccc;
 	margin-right: -1px;
 	margin-bottom: -1px;
+	position: relative;
 }
 
 #calendar ul.weekdays {
@@ -61,7 +67,7 @@
 }
 
 #calendar .days li {
-	height: 180px;
+	height: 200px;
 }
 
 #calendar .days li:hover {
@@ -85,7 +91,8 @@
 	font-size: 13px;
 	border-radius: 4px;
 	padding: 5px;
-	margin-top: 40px;
+/* 	margin-top: 40px; */
+	margin-top: 10px;
 	margin-bottom: 5px;
 	line-height: 14px;
 	background: #eadfcd;
@@ -94,10 +101,20 @@
 	text-decoration: none;
 }
 
+#calendar .event:first-child {
+	margin-top: 40px;
+}
+
 #calendar .event-desc {
 	color: #666;
 	margin: 3px 0 7px 0;
 	text-decoration: none;
+}
+
+#calendar .plus {
+	position : absolute;
+	bottom: 5px;
+	left: 10px;
 }
 
 #calendar .other-month {

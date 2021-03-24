@@ -33,19 +33,26 @@ public class ModifyInfoService {
 		
 		// 달력
 		CalendarMaker maker = new CalendarMaker();
-		if(salonReserveCommand.getDate() == null) {
-			String month = "";
-			String date = "";
-			SimpleDateFormat sdf = new SimpleDateFormat("MM");
-			month = sdf.format(dto.getReservDate());
-			sdf = new SimpleDateFormat("dd");
-			date = sdf.format(dto.getReservDate());
-			
-			salonReserveCommand.setMonth(month);
-			salonReserveCommand.setDate(date);
-		}
+//		if(salonReserveCommand.getDate() == null) {
+//			String month = "";
+//			String date = "";
+//			SimpleDateFormat sdf = new SimpleDateFormat("MM");
+//			month = sdf.format(dto.getReservDate());
+//			sdf = new SimpleDateFormat("dd");
+//			date = sdf.format(dto.getReservDate());
+//			
+//			salonReserveCommand.setMonth(month);
+//			salonReserveCommand.setDate(date);
+//		}
 		
-		maker.create(salonReserveCommand ,model);
+		SimpleDateFormat sdf = new SimpleDateFormat("MM");
+		String month = sdf.format(dto.getReservDate());
+		sdf = new SimpleDateFormat("dd");
+		String date = sdf.format(dto.getReservDate());
+		
+		maker.create(month, date, model);
+		
+//		maker.create(salonReserveCommand ,model);
 		
 		DesnDTO desnDTO = new DesnDTO();
 		desnDTO.setDesnId(dto.getDesnId());

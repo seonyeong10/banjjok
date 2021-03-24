@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ include file="../../include/include.jsp" %>
+	pageEncoding="UTF-8"
+%>
+<%@ include file="../../include/include.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,195 +10,99 @@
 <link href="<c:url value='/static/css/baseCSS.css' />" rel="stylesheet" type="text/css" />
 <link href="<c:url value='/static/css/footer.css' />" rel="stylesheet" type="text/css" />
 <link href="<c:url value='/static/css/desnSchedule.css' />" rel="stylesheet" type="text/css" />
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="<c:url value='/js/jquery.form.js'/>"></script>
 </head>
 <body>
-<div id="calendar-wrap">
-<%@ include file="../../include/top.jsp"%>
-  <header>
-    <!-- 월, 연도 -->
-    <h1>< March 2021 ></h1>
-  </header>
-  <div id="calendar">
-    <!-- 월 화 수 목 금 토 일 -->
-    <ul class="weekdays">
-      <li>Sunday</li>
-      <li>Monday</li>
-      <li>Thursday</li>
-      <li>Wednesday</li>
-      <li>Thursday</li>
-      <li>Friday</li>
-      <li>Saturday</li>
-    </ul>
-    <!-- 전월 날짜 -->
-    <ul class="days">
-      <li class='day other-month'>
-        <div class="date">28</div>
-        <!-- 예약이 있다면 출력 -->
-        <div class="event">
-          <div class="event-desc">
-            스타일컷, 고객이름, 반려견이름 
-          </div>
-          <div class="event-time">
-            10:30am to 11:30am
-          </div>
-        </div>
-      </li>
-    <!-- 현월 날짜 -->
-      <li class="day">
-        <div class="date">1</div>
-      </li>
-      <li class="day">
-        <div class="date">2</div>
-        <div class="event">
-          <div class="event-desc">
-            스타일컷, 고객이름, 반려견이름 
-          </div>
-          <div class="event-time">
-            15:00pm to 16:00pm
-           </div>
-        </div>
-      </li>
-      <li class="day">
-        <div class="date">3</div>
-      </li>
-      <li class="day">
-        <div class="date">4</div>
-      </li>
-      <li class="day">
-        <div class="date">5</div>
-      </li>
-      <li class="day">
-        <div class="date">6</div>
-      </li>
-    </ul>
-    <!-- 두번째 줄 -->
-  <ul class="days">
-    <li class="day">
-      <div class="date">7</div>
-    </li>
-    <li class="day">
-      <div class="date">8</div>
-    </li>
-    <li class="day">
-      <div class="date">9</div>
-      <div class="event">
-         <div class="event-desc">
-           스타일컷, 고객이름, 반려견이름 
-         </div>
-         <div class="event-time">
-           15:00pm to 16:00pm
-          </div>
-      </div>
-    </li>
-    <li class="day">
-      <div class="date">10</div>
-    </li>
-    <li class="day">
-      <div class="date">11</div>
-    </li>
-    <li class="day">
-      <div class="date">12</div>
-    </li>
-    <li class="day">
-      <div class="date">13</div>
-    </li>
-  </ul>
-  <!-- 3번째 주 -->
-  <ul class="days">
-    <li class="day">
-      <div class="date">14</div>
-    </li>
-    <li class="day">
-      <div class="date">15</div>
-    </li>
-    <li class="day">
-      <div class="date">16</div>
-    </li>
-    <li class="day">
-      <div class="date">17</div>
-    </li>
-    <li class="day">
-      <div class="date">18</div>
-    </li>
-    <li class="day">
-      <div class="date">19</div>
-    </li>
-    <li class="day">
-      <div class="date">20</div>
-    </li>
-  </ul>
-  <!-- 4번째 주 -->
-  <ul class="days">
-    <li class="day">
-      <div class="date">21</div>
-    </li>
-    <li class="day">
-      <div class="date">22</div>
-    </li>
-    <li class="day">
-      <div class="date">23</div>
-    </li>
-    <li class="day">
-      <div class="date">24</div>
-    </li>
-    <li class="day">
-      <div class="date">25</div>
-    </li>
-    <li class="day">
-      <div class="date">26</div>
-    </li>
-    <li class="day">
-      <div class="date">27</div>
-    </li>
-  </ul>
-  <!-- 5번째 주 -->
-  <ul class="days">
-    <li class="day">
-      <div class="date">28</div>
-    </li>
-    <li class="day">
-      <div class="date">29</div>
-    </li>
-    <li class="day">
-      <div class="date">30</div>
-    </li>
-    <li class="day">
-      <div class="date">31</div>
-    </li>
-    <!-- 다음달 -->
-    <li class="day other-month">
-      <div class="date">1</div>
-    </li>
-    <li class="day other-month">
-      <div class="date">2</div>
-    </li>
-    <li class="day other-month">
-      <div class="date">3</div>
-    </li>
-  </ul>
-  </div>
-</div>
-  <!-- 예약 리스트 테이블 -->
-  <div class="list-area">
-  <table class="table" width="80%">
-    <caption>3/23(화) 예약</caption>
-    <colgroup>
-      <col width="10%"/>
-      <col width="10%"/>
-      <col width="10%"/>
-      <col width="30%"/>
-      <col width="20%"/>
-      <col width="20%"/>
-    </colgroup>
-    <tr><th>No.</th><th>시간</th><th>고객명</th><th>메뉴</th><th>상태</th><th>비고</th></tr>
-    <tr><td>1</td><td>10:00</td><td>김선영</td><td>[소형견]브로콜리컷</td><td>결제완료</td><td><a onclick="" >시술완료</a><a onclick="">예약취소</a></td></tr>
-    <tr><td>1</td><td>10:00</td><td>김선영</td><td>[소형견]브로콜리컷</td><td>결제완료</td><td><a onclick="">시술완료</a><a onclick="">예약취소</a></td></tr>
-  </table>
-  </div>
-
-    <!-- foot -->
-    <footer>
-      SoulMate's Forest 02.125.7979 Copyright &copy All Rights reserved.
-    </footer>
+	<div id="calendar-wrap">
+		<%@ include file="../../include/top.jsp"%>
+		<div class="content">
+			<header>
+				<!-- 월, 연도 -->
+				<h1>
+					<c:choose>
+						<c:when test="${currMonth eq '1'}">January</c:when>
+						<c:when test="${currMonth eq '2'}">February</c:when>
+						<c:when test="${currMonth eq '3'}">March</c:when>
+						<c:when test="${currMonth eq '4'}">April</c:when>
+						<c:when test="${currMonth eq '5'}">May</c:when>
+						<c:when test="${currMonth eq '6'}">June</c:when>
+						<c:when test="${currMonth eq '7'}">July</c:when>
+						<c:when test="${currMonth eq '8'}">August</c:when>
+						<c:when test="${currMonth eq '9'}">September</c:when>
+						<c:when test="${currMonth eq '10'}">October</c:when>
+						<c:when test="${currMonth eq '11'}">November</c:when>
+						<c:when test="${currMonth eq '12'}">December</c:when>
+					</c:choose>
+					${year }
+				</h1>
+			</header>
+			<div id="calendar">
+				<!-- 월 화 수 목 금 토 일 -->
+				<ul class="weekdays">
+					<li>Sunday</li>
+					<li>Monday</li>
+					<li>Thursday</li>
+					<li>Wednesday</li>
+					<li>Thursday</li>
+					<li>Friday</li>
+					<li>Saturday</li>
+				</ul>
+				<!-- 전월 날짜 -->
+				<ul class="days">
+					<c:forEach items="${pre }" var="pre">
+						<li class='day other-month'>
+							<div class="date">${pre }</div> <!-- 예약이 있다면 출력 -->
+							<div class="event">
+								<div class="event-desc">스타일컷, 고객이름, 반려견이름</div>
+								<div class="event-time">10:30am to 11:30am</div>
+							</div>
+						</li>
+					</c:forEach>
+					<!-- 현월 날짜 -->
+					<c:forEach items="${cur }" var="cur" varStatus="status">
+						<c:set value="${status.count + pre.size() }" var="line"/>
+						<c:if test="${line % 7 == 0 }">
+							</ul>
+							<ul class="days">
+						</c:if>
+						<li class="day" onclick="getList('${year }','${currMonth}','${cur }');">
+							<div class="date">${cur }</div>
+							<c:set value="1" var="count"/>	<!-- 최대 출력 개수(3) 제한을 위한 변수 -->
+							<c:forEach items="${list }" var="list">
+								<c:set var="sch"><fmt:formatDate value="${list.reservDate }" pattern="dd"/></c:set>
+								<c:if test="${sch eq cur}">
+									<c:if test="${count <= 3 }">
+										<div class="event">
+											<div class="event-desc">
+												<fmt:formatDate value="${list.reservDate }" pattern="HH:mm"/>
+												${list.memName }, ${list.serviceName }
+											</div>
+										</div>
+										<c:set value="${count+1 }" var="count"/>
+									</c:if>
+								</c:if>
+							</c:forEach>
+							<c:if test="${count > 3 }">
+								<div class="plus">+${count }</div>
+							</c:if>
+						</li>
+					</c:forEach>
+					<c:forEach items="${next }" var="next">
+						<li class="day other-month">
+							<div class="date">${next }</div>
+						</li>
+					</c:forEach>
+					</ul>
+			</div>
+		</div>
+		<!-- 예약 리스트 테이블 -->
+		<div class="list-area" id="list-area">
+		</div>
+	</div>
+	<!-- foot -->
+	<footer> SoulMate's Forest 02.125.7979 Copyright &copy All
+		Rights reserved. </footer>
+	<script src="<c:url value='/static/js/desnSchedule.js' />"></script>
 </body>
 </html>
