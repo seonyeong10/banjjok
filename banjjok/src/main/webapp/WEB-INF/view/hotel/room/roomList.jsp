@@ -15,6 +15,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 	img{ width:200px; height:200px; }
+	.w3-col, .w3-half, .w3-third, .w3-twothird, .w3-threequarter, .w3-quarter {
+    float: left;
+    }
+    *, *:before, *:after {
+    box-sizing: inherit;
+}
 </style>
 
 </head>
@@ -57,29 +63,30 @@
   </div>
 
   <div class="w3-row-padding w3-padding-16">
+    	<c:forEach items="${lists }" var="room" >
    		<div class="w3-third w3-margin-bottom">
-    		<c:forEach items="${lists }" var="room" >
+    			
 				<c:forTokens items="${room.roomImg }" delims="`" var="img" varStatus="status" end="0">
-			<a href="roomDetail/${room.roomName }">	
-					<img src="/hotel/room/upload/${img }"/>
+					<a href="roomDetail/${room.roomName }">
+						<img src="/hotel/room/upload/${img }"/>
+					</a>
 				</c:forTokens>
-			
-		      <div class="w3-container w3-white">
-		        <h3>${room.roomName	 }
+   			<div class="w3-container w3-white">
+		        <h3>
 		        	<c:if test="${room.roomName == 'D'}"> DELUXE ROOM </c:if>
 					<c:if test="${room.roomName == 'DP'}"> DELUXE PREMIUM ROOM </c:if>
 					<c:if test="${room.roomName == 'V'}"> VIP ROOM </c:if>
 					<c:if test="${room.roomName == 'VV'}"> VVIP ROOM </c:if>
 					<input type="hidden" name="roomName" value="${room.roomName }" />
 		        </h3>
-		   </a>
 		        <h6 class="w3-opacity"><fmt:formatNumber value="${room.roomPrice }" pattern="#,###" />원</h6>
 <!-- 		        <p>Single bed</p> -->
 <!-- 		        <p>15m<sup>2</sup></p> -->
 		        <p class="w3-large"><i class="fa fa-bath"></i> <i class="fa fa-phone"></i> <i class="fa fa-wifi"></i></p>
-		        <button class="w3-button w3-block w3-black w3-margin-bottom">Choose Room</button>
-       		</c:forEach>
-      </div>
+		        <button class="w3-button w3-block w3-black w3-margin-bottom" onclick="javascript:location.href='/hotel/book';">Choose Room</button>
+       		</div>
+      	</div>
+       	</c:forEach>
     </div>
    
 <!--     <div class="w3-third w3-margin-bottom"> -->

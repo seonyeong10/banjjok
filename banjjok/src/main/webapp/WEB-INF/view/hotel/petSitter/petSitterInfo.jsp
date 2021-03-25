@@ -79,7 +79,7 @@ table td {
 				<tr>
 					<td>휴무일</td>
 					<td>
-						<c:if test="${list.sitterOff == '월' }">
+								<c:if test="${list.sitterOff == '월' }">
 									매주 월요일
 								</c:if>
 									<c:if test="${list.sitterOff == '화' }">
@@ -101,7 +101,7 @@ table td {
 									매주 일요일
 								</c:if> <hr />
 						<select id="sitterOff" name="sitterOff" class="sel">
-                        	<option>수정할 휴무일</option>
+                        	<option value="${list.sitterOff }">수정할 휴무일</option>
                             <option value="월">매주 월요일</option>
                             <option value="화">매주 화요일</option>
                             <option value="수">매주 수요일</option>
@@ -117,8 +117,7 @@ table td {
 					<td>입사일</td>
 					<td>	
 						<form:input path="sitterEnter" value="${list.sitterEnter }"/>
-<%-- 						<fmt:formatDate value="${list.sitterEnter }" type="date" --%>
-<%-- 							pattern="yyyy - MM - dd" /> --%>
+<%-- 						<fmt:formatDate value="EL{list.sitterEnter }" type="date" pattern="yyyy - MM - dd" /> --%>
 					</td>
 				</tr>
 			</table>

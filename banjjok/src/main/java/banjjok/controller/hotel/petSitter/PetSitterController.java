@@ -65,6 +65,7 @@ public class PetSitterController {
 	public String sitterModify(@Validated PetSitterCommand sitterCommand, BindingResult result, Model model, HttpSession session) throws Exception {
 		String location = petSitterModifyService.sitterModify(sitterCommand, model, session);
 //		return "redirect:sitterList";
+		System.out.println("location :" + location);
 		return location;
 	}
 	@RequestMapping(value = "sitterDel", method = RequestMethod.POST)

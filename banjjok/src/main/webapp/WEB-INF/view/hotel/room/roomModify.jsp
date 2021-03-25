@@ -43,17 +43,27 @@ input{ text-align: center;	 }
 				<tr>
 					<td>사진</td>
 					<td>
-						<c:if test="${list.roomImg ==null }"><input type="file" name="roomImg" id="roomImg" /></c:if>
-						
-						<c:forTokens items="${list.roomImg }" delims="`" var="img" varStatus="status">
-<%-- 						<c:set value="${fn:split(list.roomImg,'`') }" var="i" /> --%>
-						<input type="file" name="roomImg" id="roomImg" />
-						 <!-- 파일 업로드창은 안보이게 -->
-						<img src="/hotel/room/upload/${img }" alt="객실 사진" border="0" 
-							style="width: 100px; height: 100px" onclick="document.all.roomImg.click();"/>
-						<button type="button" onclick="imgDelete('${i[1]}', this);"
-							id="delBtn">삭제</button>
-						</c:forTokens>
+						<c:if test="${list.roomImg ==null }">
+							객실 사진 없음
+						</c:if>
+						<c:if test="${list.roomImg !=null }">
+
+							<c:forTokens items="${list.roomImg }" delims="`" var="img" varStatus="idx">
+								<%-- 						<c:set value="${fn:split(list.roomImg,'`') }" var="i" /> --%>
+<!-- 								<input type="file" name="roomImg" id="roomImg" /> -->
+								<!-- 파일 업로드창은 안보이게 -->
+								<img src="/hotel/room/upload/${img }" class="img${idx.index}" alt="객실 사진" border="0"
+									style="width: 100px; height: 100px"
+									onclick="document.all.roomImg.click();" />
+								<button type="button" onclick="imgDelete('${img }', this, '.img${idx.index}');" id="delBtn">삭제</button>
+							</c:forTokens>
+						</c:if>
+					</td>
+				</tr>
+				<tr>
+					<td>사진 추가</td>
+					<td>
+						<input type="file" name="roomImg" id="roomImg" multiple="multiple" />
 					</td>
 				</tr>
 				<tr>
@@ -115,10 +125,11 @@ input{ text-align: center;	 }
 	
 	<script src="/static/js/room.js"></script>
 	<script type="text/javascript">
-		function imgDelete(imgFile, btn){
-				del = {
+		function imgDelete(imgFile, btn, rImg){
+				imgDel = {
 					type : "post",
 					url : "imgDel",
+					dataType:"text",
 					data : {
 						"imgFile" : imgFile
 					},
@@ -126,10 +137,10 @@ input{ text-align: center;	 }
 						alert(result);
 						if(result.trim()=="1"){
 							$(btn).text('삭제취소');
-							$('#roomImg').show();
+							$(rImg).hide();
 						}else{
+							$(rImg).show();
 							$(btn).text('삭제');
-							$('#roomImg').hide();
 						}
 					},
 					error : function(){
@@ -137,7 +148,7 @@ input{ text-align: center;	 }
 						return;	
 					}
 				};
-				$.ajax(del);
+				$.ajax(imgDel);
 		}
 	</script>
 

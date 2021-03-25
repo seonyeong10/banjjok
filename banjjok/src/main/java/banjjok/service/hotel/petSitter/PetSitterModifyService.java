@@ -26,7 +26,6 @@ public class PetSitterModifyService {
 	@Autowired
 	PasswordEncoder passwordEncoder;
 
-	//주소 안먹음 *********************************************
 	public String sitterModify(PetSitterCommand sitterCommand, Model model, HttpSession session) throws Exception {
 		String location = null;
 		PetSitterDTO dto = new PetSitterDTO();
@@ -56,7 +55,7 @@ public class PetSitterModifyService {
 			if (!original.equals("")) {
 				String originalFileExtension = original.substring(original.lastIndexOf("."));
 				String store = UUID.randomUUID().toString().replace("-", "") + originalFileExtension;
-				sitterImg = original + "`" + store;
+				sitterImg = original + "`";
 				File file = new File(filePath + "/" + store);
 				mf.transferTo(file);
 			} else {
@@ -70,13 +69,17 @@ public class PetSitterModifyService {
 			
 			dto.setSitterPh(sitterCommand.getSitterPh());
 			dto.setSitterOff(sitterCommand.getSitterOff());
+			dto.setSitterEnter(sitterCommand.getSitterEnter());
 			
 			Integer result = sitterMapper.updateSitter(dto);
+			System.out.println(result + "개 수정");
 			if(result > 0) {
 				location = "redirect:/hotel/sitterList";
 			}
 			
 		}
+		System.out.println("dto : " +dto.getSitterOff());
+		System.out.println("command : " +sitterCommand.getSitterOff());
 		return location;
 	}
 	

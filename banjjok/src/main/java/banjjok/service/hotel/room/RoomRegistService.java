@@ -44,7 +44,7 @@ public class RoomRegistService {
 		
 		
 		// 이미지 파일 저장
-				String path = "/WEB-INF/view/hotel/room/upload/";
+				String path = "WEB-INF/view/hotel/room/upload";
 				// "WEB-INF/view/hotel/room/upload"까지의 절대 경로 
 				String filePath = session.getServletContext().getRealPath(path);
 //				System.out.println(filePath);
@@ -76,7 +76,7 @@ public class RoomRegistService {
 						
 						try {
 //							mf.transferTo(new File(saveFile));
-							mf.transferTo(new File(filePath + "/" + store));
+							mf.transferTo(new File(filePath + "/" + original));
 						} catch (IllegalStateException | IOException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();

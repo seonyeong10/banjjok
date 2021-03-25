@@ -1,6 +1,5 @@
 package banjjok.domain;
 
-import org.springframework.web.multipart.MultipartFile;
 
 public class RoomDTO {
 	String roomCode;

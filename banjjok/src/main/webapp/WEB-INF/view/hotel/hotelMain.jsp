@@ -14,23 +14,6 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <style type="text/css">
-/* 	.w-display-container{position:relative} */
-/* 	.w-display-container:hover  */
-/* 	.w-display-hover{display:block} */
-/* 	.w-display-container:hover span.w-display-hover{display:inline-block} */
-/* 	.w-content,.w-auto{margin-left:auto;margin-right:auto}.w-content{max-width:980px}.w-auto{max-width:1140px} */
-/* 	.w-wide{letter-spacing:4px} */
-/* 	.w-image{max-width:100%;height:auto}img{vertical-align:middle} */
-/* 	.w-display-middle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%)} */
-/* 	.w-margin-top{margin-top:16px!important} */
-/* 	.w-padding-32{padding-top:32px!important;padding-bottom:32px!important} */
-/* 	.w-padding-16{padding-top:16px!important;padding-bottom:16px!important} */
-/* 	.w-centered tr th,.w-centered tr td{text-align:center} */
-/* 	.w-container:after,.w-container:before {content:"";display:table;clear:both} */
-/* 	.w-container,.w3-panel{padding:0.01em 16px} */
-/* *, *:before, *:after { */
-/*     box-sizing: inherit; */
-/* } */
 .w3-img{
 	max-width: 100%;
     height: auto;
@@ -46,8 +29,8 @@
 	</div>
 	<!-- top 끝 -->
 	<!-- Header -->
-	<header class="w3-display-container w3-content w3-wide" style="max-width:1500;" id="home">
-	  <img class="w3-image" src="/static/images/banjjog1.jpg" alt="hotel" width="1500" height="800"  >
+	<header class="w3-display-container w3-content w3-wide" style="max-width:1564px" id="home">
+	  <img class="w3-image" src="/static/images/banjjog1.jpg" alt="hotel" width="1564px" height="800"  >
 	  <div class="w3-display-middle w-margin-top w-center">
 	    <h1 class="w3-xxlarge w3-text-white">
 <!-- 	    	<span class="w3-padding w3-black w3-opacity-min"><b>SM</b></span> -->

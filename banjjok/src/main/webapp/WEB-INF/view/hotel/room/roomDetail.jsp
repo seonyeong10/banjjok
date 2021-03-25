@@ -53,7 +53,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 	
 	<!-- Top menu on small screens -->
 	<header class="w3-bar w3-top w3-hide-large  w3-xlarge">
-	  <span class="w3-bar-item">Booking </span>
+<!-- 	  <span class="w3-bar-item">Booking </span> -->
 	  <a href="javascript:void(0)" class="w3-right w3-bar-item w3-button" onclick="w3_open()"><i class="fa fa-bars"></i></a>
 	</header>
 	
@@ -67,7 +67,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 	  <div class="w3-hide-large" style="margin-top:80px"></div>
 	
 	  <!-- Slideshow Header -->
-	  <div class="w3-container" id="apartment">
+	  <div class="w3-container" id="hotel">
 	    <h2 class="w3-text-green">The Forest of BANJJOK Hotel</h2>
 			<c:forEach items="${list }" var="room">
 				<div class="w3-row w3-large">
@@ -77,7 +77,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 			
 				<c:forTokens items="${room.roomImg }" delims="`" var="img"> 
 			    <div class="w3-display-container mySlides">
-			    <img src="/hotel/room/upload/${img }" alt="roomImg" style="width:600px;height:400px;margin-bottom:-6px;"/>
+			    <img src="/hotel/room/upload/${img }" alt="roomImg" style="width:100%;height:800px;margin-bottom:-6px;"/>
 <!-- 			    <img src="/w3images/livingroom.jpg" style="width:100%;margin-bottom:-6px"> -->
 			      <div class="w3-display-bottomleft w3-container w3-black">
 			        <p>
@@ -101,13 +101,13 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 			        
 			  </div>
 			  <c:forEach items="${list }" var="room">
-				<c:forTokens items="${room.roomImg }" delims="`" var="img" end="3" varStatus="status"> 
 			  <div class="w3-row-padding w3-section">
+				<c:forTokens items="${room.roomImg }" delims="`" var="img" end="3" varStatus="status"> 
 			    <div class="w3-col s3">
-			      <img class="demo w3-opacity w3-hover-opacity-off" src="/hotel/room/upload/${img }" style="width:300px;height:100px;cursor:pointer;display:inline-block;" onclick="currentDiv(${status.count})" title="${room.roomName}">
+			      <img class="demo w3-opacity w3-hover-opacity-off" src="/hotel/room/upload/${img }" style="width:100%; height:300px; cursor:pointer;display:inline-block;" onclick="currentDiv(${status.count})" title="${room.roomName}">
 			    </div>
-			  </div>
 			  </c:forTokens>
+			  </div>
 			</c:forEach>	
 		<hr />
 	  <div class="w3-container">

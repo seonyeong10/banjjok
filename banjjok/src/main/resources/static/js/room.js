@@ -24,6 +24,7 @@ function roomDelete(){
 	}
 }
 
+
 // Script to open and close sidebar when on tablets and phones
 function w3_open() {
   document.getElementById("mySidebar").style.display = "block";

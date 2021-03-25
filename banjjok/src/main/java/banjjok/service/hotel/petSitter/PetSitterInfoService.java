@@ -23,8 +23,8 @@ public class PetSitterInfoService {
 	public void sitterInfo(String sitterId, Model model, PetSitterCommand petSitterCommand) throws Exception {
 		PetSitterDTO dto = new PetSitterDTO();
 		dto.setSitterId(sitterId);
-		dto.setSitterUse(petSitterCommand.getSitterUse());
-		System.out.println(petSitterCommand.getSitterUse());
+//		dto.setSitterUse(petSitterCommand.getSitterUse());
+//		System.out.println(petSitterCommand.getSitterUse());
 		List<PetSitterDTO> list = petSitterMapper.getSitterList(dto);
 		model.addAttribute("list", list.get(0));
 	}
