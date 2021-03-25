@@ -33,7 +33,7 @@ public class ReserveService {
 		dto.setPetId(salonReserveCommand.getPetId());
 		String month = "";
 		if(salonReserveCommand.getMonth().length() != 2) {
-			month = "0" + salonReserveCommand.getMonth();
+			month = "0" + (Integer.parseInt(salonReserveCommand.getMonth()) + 1);
 		} else {
 			month = salonReserveCommand.getMonth();
 		}

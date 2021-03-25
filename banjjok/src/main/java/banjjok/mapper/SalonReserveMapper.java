@@ -19,4 +19,6 @@ public interface SalonReserveMapper {
 	public Integer updateRes2(SalonReserveDTO reserveDTO) throws Exception;
 	public Integer cancle(SalonReserveDTO dto) throws Exception;
 	public Integer updateStatus(SalonReserveDTO dto) throws Exception;
+	
+	public Integer isReserve(MemSalReserveDTO dto) throws Exception;
 }

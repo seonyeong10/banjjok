@@ -14,8 +14,8 @@ public class DesnReloadService {
 	@Autowired
 	LoadDesnService loadDesnService;
 	@RequestMapping(value = "menu/loadDesn")
-	public String loadDesn(@RequestParam(value = "month") String month, @RequestParam(value = "date") String date, Model model) throws Exception {
-		loadDesnService.load(month, date, model);
+	public String loadDesn(@RequestParam(value = "year") String year, @RequestParam(value = "month") String month, @RequestParam(value = "date") String date, Model model) throws Exception {
+		loadDesnService.load(year, month, date, model);
 		return "salon/reserve/changeStatus";
 	}
 }

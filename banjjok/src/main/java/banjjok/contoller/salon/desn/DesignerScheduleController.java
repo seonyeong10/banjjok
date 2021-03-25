@@ -49,4 +49,9 @@ public class DesignerScheduleController {
 		changeStatusService.update(reservCode, status, model);
 		return "salon/imgDel";
 	}
+	@RequestMapping(value = "otherMon")
+	public String otherMon(@RequestParam(value = "year") String year, @RequestParam(value = "month") String month, HttpSession session, Model model) throws Exception {
+		scheduleService.otherMon(year, month, session, model);
+		return "/salon/designer/scheduleCal";
+	}
 }

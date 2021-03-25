@@ -47,10 +47,13 @@ public class ModifyInfoService {
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("MM");
 		String month = sdf.format(dto.getReservDate());
+		month = String.valueOf((Integer.parseInt(month) - 1));
 		sdf = new SimpleDateFormat("dd");
 		String date = sdf.format(dto.getReservDate());
+		sdf = new SimpleDateFormat("yyyy");
+		String year = sdf.format(dto.getReservDate());
 		
-		maker.create(month, date, model);
+		maker.create(year, month, date, model);
 		
 //		maker.create(salonReserveCommand ,model);
 		

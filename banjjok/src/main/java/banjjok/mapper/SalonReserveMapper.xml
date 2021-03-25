@@ -68,4 +68,9 @@
 	set reserv_use = '1', use_date = sysdate
 	where reserv_code = #{reservCode}
 </update>
+<!-- reserv_date  &gt;= #{reservDate} and reserv_date &lt; #{cancleDate} -->
+<select id="isReserve" parameterType="banjjok.domain.SalonReserveDTO" resultType="int">
+	select count(*) from reserve_salon
+	where reserv_date = #{reservDate}
+</select>
 </mapper>

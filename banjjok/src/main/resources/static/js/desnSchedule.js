@@ -1,6 +1,23 @@
 /**
  * 
  */
+
+function otherMonth(year, month) {
+	// 문자를 숫자로 변환
+	year *= 1;
+	month *= 1;
+	if(month == 12){
+		year = year + 1;
+		month = 0;
+	}
+	if(month == -1) {
+		year = year - 1;
+		month = 11;
+	}
+	$('#content-calendar').load('otherMon', {"year" : year, "month" : month});
+	console.log(year, month);
+}
+
 function change(code, status, year, month, date){
 	status = {
 			type : "post"

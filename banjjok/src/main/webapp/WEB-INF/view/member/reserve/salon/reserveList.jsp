@@ -18,7 +18,7 @@
 		<!-- 로고  -->
 		<div class="logoArea">
 			<a href="/" class="logoImage"
-				style="background-image: url('<c:url value="static/images/soulMate_logo.png" />');"
+				style="background-image: url('<c:url value="/static/images/soulMate_logo.png" />');"
 			></a>
 		</div>
 		<!-- 나비(메뉴선택 바)  -->
