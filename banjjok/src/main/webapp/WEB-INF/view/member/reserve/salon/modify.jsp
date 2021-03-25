@@ -73,7 +73,7 @@
 				<!-- 예약 서비스 -->
 				<div class="select-title">날짜선택</div>
 				<div class="calendar">
-					<div class="month">${currMonth }월</div>
+					<div class="month">${currMonth +1 }월</div>
 					<input type="hidden" name="year" value="${year }"/>
 					<input type="hidden" name="month" value="${currMonth }"/>
 					<ul class="calendar-month">
@@ -94,19 +94,18 @@
 						</c:forEach>
 						<!-- 이번달 -->
 						<c:forEach items="${cur }" var="cur" varStatus="status">
-							<c:set value="${status.count + pre.size() }" var="line"/>
+							<c:set value="${status.index + pre.size() }" var="line"/>
 							<c:if test="${line % 7 eq 0 }">
 								<br />
 							</c:if>
-							<c:if test="${cur lt date }">
+							<c:if test="${cur lt curDate }">
 								<li ><a class="date none-current">${cur }</a></li>
 							</c:if>
-							<c:if test="${cur ge date }">
+							<c:if test="${cur ge curDate }">
 								<li >
 									<label class="date-current">
 									<input type="radio" name="date" value="${cur }" <c:if test="${cur eq stDate }">checked</c:if> />
 									<span>${cur }</span>
-									<!-- 휴무인 디자이너 선택 불가능하게 하기 위한 변수(요일) -->
 									</label>
 								</li>
 							</c:if>

@@ -19,7 +19,14 @@ public class ResModifyService {
 
 	public void updateRes(SalonReserveCommand salonReserveCommand, HttpSession session) throws Exception {
 		SalonReserveDTO reserveDTO = new SalonReserveDTO();
-		String date = salonReserveCommand.getYear() + "-" + salonReserveCommand.getMonth() + "-" + salonReserveCommand.getDate() + " " + salonReserveCommand.getReservTime() + ":00";
+		String month = salonReserveCommand.getMonth();
+		if(salonReserveCommand.getMonth().length() < 2) {
+			month = "0" + ( Integer.parseInt(salonReserveCommand.getMonth()) +1 );
+		}
+		System.out.println(month);
+		System.out.println(salonReserveCommand.getDate());
+		String date = salonReserveCommand.getYear() + "-" + month + "-" + salonReserveCommand.getDate() + " " + salonReserveCommand.getReservTime() + ":00";
+		System.out.println(date);
 		Timestamp reservDate = Timestamp.valueOf(date);
 		reserveDTO.setReservDate(reservDate);
 //		reserveDTO.setReservTime(reservTime);

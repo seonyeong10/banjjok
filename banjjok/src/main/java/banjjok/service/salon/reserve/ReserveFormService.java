@@ -1,5 +1,6 @@
 package banjjok.service.salon.reserve;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -14,6 +15,7 @@ import org.springframework.ui.Model;
 import banjjok.command.SalonReserveCommand;
 import banjjok.domain.AuthInfo;
 import banjjok.domain.DesnDTO;
+import banjjok.domain.DesnResDTO;
 import banjjok.domain.MyPetDTO;
 import banjjok.domain.SalonServDTO;
 import banjjok.mapper.DesnMapper;
@@ -44,10 +46,11 @@ public class ReserveFormService {
 		model.addAttribute("petList", petList);
 
 		// 달력
+		String selectYear = salonReserveCommand.getYear();
 		String selectMonth = salonReserveCommand.getMonth();
 		String selectDate = salonReserveCommand.getDate();
 		CalendarMaker maker = new CalendarMaker();
-		maker.create(selectMonth, selectDate, model);
+		maker.create(selectYear, selectMonth, selectDate, model);
 //		Calendar cal = Calendar.getInstance();
 //		
 //		// 화면에 체크할 날짜, 디자이너 휴무 여부 확인
@@ -94,7 +97,7 @@ public class ReserveFormService {
 		DesnDTO desnDTO = new DesnDTO();
 		List<DesnDTO> desnList = desnMapper.getDesnList(desnDTO);
 		model.addAttribute("desn", desnList);
-
+		
 	}
 
 }

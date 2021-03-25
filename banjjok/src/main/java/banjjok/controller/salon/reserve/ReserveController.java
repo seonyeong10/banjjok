@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import banjjok.command.SalonPayCommand;
 import banjjok.command.SalonReserveCommand;
 import banjjok.service.salon.reserve.PayService;
+import banjjok.service.salon.reserve.ReserveChkService;
 import banjjok.service.salon.reserve.ReserveFormService;
 import banjjok.service.salon.reserve.ReserveService;
 
@@ -25,10 +26,13 @@ public class ReserveController {
 	ReserveService reserveService;
 	@Autowired
 	PayService payService;
+	@Autowired
+	ReserveChkService reserveChkService;
 	@ModelAttribute
 	SalonReserveCommand setsalonReserveCommand() {
 		return new SalonReserveCommand();
 	}
+	
 	@RequestMapping(value = "menu/reserve", method = RequestMethod.GET)
 	public String reserve(@RequestParam(value = "serviceCode") String serviceCode, SalonReserveCommand salonReserveCommand,
 			Model model, HttpSession session) throws Exception {
@@ -45,9 +49,12 @@ public class ReserveController {
 		payService.pay(salonPayCommand);
 		return "salon/reserve/orderFin";
 	}
-//	@RequestMapping(value = "menu/loadDesn")
-//	public String loadDesn() {
-//		return "salon/reserve/changeStatus";
-//	}
+	@RequestMapping(value = "menu/isReserve", method = RequestMethod.POST)
+	public String isReserve(@RequestParam(value = "year") int year, @RequestParam(value = "month") int month, 
+			@RequestParam(value = "date") int date, @RequestParam(value = "time") String time, Model model) throws Exception {
+		// 선택한 시간이 예약되었는지 확인
+		reserveChkService.isReserve(year, month, date, time, model);		
+		return "salon/imgDel";
+	}
 	
 }

@@ -41,22 +41,15 @@
 					</c:if>
 					<c:if test="${offDay[0] ne dayOfWeek && offDay[1] ne dayOfWeek }">
 						<div class="time-area">
-							<c:set value=":00" var="minute" />
-							<ul>
-								<!-- 									<li> -->
-								<!-- 										<label class="box-radio-input"> -->
-								<%-- 											<input type="radio" name="reservTime" value="10:00" onclick="getId('${desn.desnId}', '${desn.desnName}');" /><span >10:00</span> --%>
-								<!-- 										</label> -->
-								<!-- 									</li> -->
-								<c:forEach begin="10" end="17" var="hour">
-									<li><label class="box-radio-input"> <input
-												type="radio" name="reservTime" value="${hour }${minute}"
-												<c:if test="${resTime eq hour }">checked</c:if>
-												onclick="getId('${desn.desnId}', '${desn.desnName}');"
-											/><span>${hour }${minute}</span>
-									</label></li>
-								</c:forEach>
-							</ul>
+							<c:set value=":00" var="minute"/>
+								<ul>
+									<c:forEach begin="10" end="17" var="hour">
+										<li><label class="box-radio-input"> 
+											<input type="radio" name="reservTime" value="${hour }${minute}"
+											onclick="getId('${desn.desnId}', '${desn.desnName}', this);" /><span>${hour }${minute}</span>
+										</label></li>
+									</c:forEach>
+								</ul>
 						</div>
 					</c:if>
 				</div>

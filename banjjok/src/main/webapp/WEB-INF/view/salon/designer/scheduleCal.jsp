@@ -1,22 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"
-%>
+    pageEncoding="UTF-8"%>
 <%@ include file="../../include/include.jsp"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>디자이너 스케줄</title>
-<link href="<c:url value='/static/css/baseCSS.css' />" rel="stylesheet" type="text/css" />
-<link href="<c:url value='/static/css/footer.css' />" rel="stylesheet" type="text/css" />
-<link href="<c:url value='/static/css/desnSchedule.css' />" rel="stylesheet" type="text/css" />
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript" src="<c:url value='/js/jquery.form.js'/>"></script>
-</head>
-<body>
-	<div id="calendar-wrap">
-		<%@ include file="../../include/top.jsp"%>
-		<div class="content" id="content-calendar">
+<div class="content" id="content-calendar">
 			<header>
 				<!-- 월, 연도 -->
 				<h1>
@@ -55,7 +40,10 @@
 					<c:forEach items="${pre }" var="pre">
 						<li class='day other-month'>
 							<div class="date">${pre }</div> <!-- 예약이 있다면 출력 -->
-							<div class="event"></div>
+							<div class="event">
+<!-- 								<div class="event-desc">스타일컷, 고객이름, 반려견이름</div> -->
+<!-- 								<div class="event-time">10:30am to 11:30am</div> -->
+							</div>
 						</li>
 					</c:forEach>
 					<!-- 현월 날짜 -->
@@ -69,9 +57,8 @@
 							<div class="date">${cur }</div>
 							<c:set value="1" var="count"/>	<!-- 최대 출력 개수(3) 제한을 위한 변수 -->
 							<c:forEach items="${list }" var="list">
-								<c:set var="sch"><fmt:formatDate value="${list.reservDate }" pattern="yyyyMdd"/></c:set>
-								<c:set var="date" value="${year }${currMonth+1 }${cur }"/>
-								<c:if test="${sch eq date}">
+								<c:set var="sch"><fmt:formatDate value="${list.reservDate }" pattern="dd"/></c:set>
+								<c:if test="${sch eq cur}">
 									<c:if test="${count <= 3 }">
 										<div class="event">
 											<div class="event-desc">
@@ -96,13 +83,3 @@
 					</ul>
 			</div>
 		</div>
-		<!-- 예약 리스트 테이블 -->
-		<div class="list-area" id="list-area">
-		</div>
-	</div>
-	<!-- foot -->
-	<footer> SoulMate's Forest 02.125.7979 Copyright &copy All
-		Rights reserved. </footer>
-	<script src="<c:url value='/static/js/desnSchedule.js' />"></script>
-</body>
-</html>

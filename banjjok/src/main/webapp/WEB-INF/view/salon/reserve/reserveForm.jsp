@@ -54,13 +54,13 @@
 <!-- 				</ul> -->
 				<!-- 현재일로부터 14일간만 선택 가능 -->
 			</div> <!-- 펫 끝 -->
-			<div class="selectDateArea">
+			<div class="selectDateArea" id="select-date">
 				<!-- 예약 서비스 -->
 				<div class="select-title">날짜선택</div>
 				<div class="calendar">
-					<div class="month">${currMonth }월</div>
+					<div class="month"><span onclick="preMonth('${year }','${currMonth - 1 }');">< </span>${currMonth + 1 }월<span onclick="preMonth('${year }','${currMonth + 1 }');"> ></span></div>
 					<input type="hidden" name="year" value="${year }"/>
-					<input type="hidden" name="month" value="${currMonth }"/>
+					<input type="hidden" name="month" value="${currMonth + 1 }"/>
 					<ul class="calendar-month">
 						<!-- 요일 -->
 						<li>일</li>
@@ -78,7 +78,7 @@
 						</c:forEach>
 						<!-- 이번달 -->
 						<c:forEach items="${cur }" var="cur" varStatus="status">
-							<c:set value="${status.count + pre.size() }" var="line"/>
+							<c:set value="${status.index + pre.size() }" var="line"/>
 							<c:if test="${line % 7 eq 0 }">
 								<br />
 							</c:if>
@@ -88,12 +88,9 @@
 								</c:if>
 								<c:if test="${cur ge date }">
 									<label class="date-current">
-<%-- 									<input type="radio" name="date" value="${cur }" --%>
-<%-- 										<c:if test="${cur eq date }">checked</c:if>  --%>
-<%-- 										onclick="javajscript:location.href='/salon/menu/reserve?serviceCode=${menu.serviceCode }&month=${currMonth }&date=${cur }'"/> --%>
 									<input type="radio" name="date" value="${cur }"
 										<c:if test="${cur eq date }">checked</c:if> 
-										onclick="loadDesn('${menu.serviceCode }', '${currMonth }', '${cur }');"/>
+										onclick="loadDesn('${year }', '${currMonth }', '${cur }');"/>
 									<span>${cur }</span>
 									</label>
 								</c:if>
@@ -149,16 +146,11 @@
 							<div class="time-area">
 								<c:set value=":00" var="minute"/>
 								<ul>
-<!-- 									<li> -->
-<!-- 										<label class="box-radio-input"> -->
-<%-- 											<input type="radio" name="reservTime" value="10:00" onclick="getId('${desn.desnId}', '${desn.desnName}');" /><span >10:00</span> --%>
-<!-- 										</label> -->
-<!-- 									</li> -->
 									<c:forEach begin="10" end="17" var="hour">
-											<li><label class="box-radio-input"> 
-												<input type="radio" name="reservTime" value="${hour }${minute}" <c:if test="${resTime eq hour }">checked</c:if> 
-												onclick="getId('${desn.desnId}', '${desn.desnName}');" /><span>${hour }${minute}</span>
-											</label></li>
+										<li><label class="box-radio-input"> 
+											<input type="radio" name="reservTime" value="${hour }${minute}"
+											onclick="getId('${desn.desnId}', '${desn.desnName}', this);" /><span >${hour }${minute}</span> 
+										</label></li>
 									</c:forEach>
 								</ul>
 							</div>

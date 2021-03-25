@@ -38,4 +38,11 @@
 	delete from designer
 	where desn_id = #{desnId}
 </delete>
+<select id="getResDates" resultType="banjjok.domain.DesnResDTO" parameterType="banjjok.domain.MemSalReserveDTO">
+	select des.desn_id desnId, reserv_date reservDate
+	from designer des, reserve_salon res
+	where des.desn_id = res.desn_id
+	and reserv_date  &gt;= #{reservDate} and reserv_date &lt; #{cancleDate}
+	order by reserv_date
+</select>
 </mapper>

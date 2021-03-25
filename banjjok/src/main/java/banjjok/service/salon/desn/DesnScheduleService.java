@@ -25,9 +25,23 @@ public class DesnScheduleService {
 		 */
 		// 캘린더
 		CalendarMaker maker = new CalendarMaker();
+		String year = null;
 		String month = null;
 		String date = null;
-		maker.create(month, date, model);
+		maker.create(year, month, date, model);
+		
+		// 디자이너의 예약 스케줄
+		String desnId = ((AuthInfo) session.getAttribute("authInfo")).getUserId();
+		MemSalReserveDTO dto = new MemSalReserveDTO();
+		dto.setDesnId(desnId);
+		List<MemSalReserveDTO> list = reserveMapper.getList(dto);
+		model.addAttribute("list", list);
+	}
+
+	public void otherMon(String year, String month, HttpSession session, Model model) throws Exception {
+		CalendarMaker maker = new CalendarMaker();
+		String date = null;
+		maker.create(year, month, date, model);
 		
 		// 디자이너의 예약 스케줄
 		String desnId = ((AuthInfo) session.getAttribute("authInfo")).getUserId();
