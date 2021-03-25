@@ -4,7 +4,7 @@ public class LoginDTO {
 	String userId;
 	String userPw;
 	String userName;
-	String use;
+	String grade;
 
 	public String getUserId() {
 		return userId;
@@ -13,7 +13,7 @@ public class LoginDTO {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-
+	
 	public String getUserPw() {
 		return userPw;
 	}
@@ -30,13 +30,12 @@ public class LoginDTO {
 		this.userName = userName;
 	}
 
-	public String getUse() {
-		return use;
+	public String getGrade() {
+		return grade;
 	}
 
-	public void setUse(String use) {
-		this.use = use;
+	public void setGrade(String grade) {
+		this.grade = grade;
 	}
 	
-
 }

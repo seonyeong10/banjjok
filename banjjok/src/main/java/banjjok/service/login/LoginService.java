@@ -39,7 +39,7 @@ public class LoginService {
 			location =  "login/login";
 		} else if(passwordEncoder.matches(loginCommand.getUserPw(), list.get(0).getUserPw())) {
 			// 비밀번호가 일치하면
-			authInfo = new AuthInfo(list.get(0).getUserId(), list.get(0).getUserName());
+			authInfo = new AuthInfo(list.get(0).getUserId(), list.get(0).getUserName(), list.get(0).getGrade());
 			session.setAttribute("authInfo", authInfo);
 			location = "redirect:/";
 		} else {
