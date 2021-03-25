@@ -92,7 +92,7 @@
           	<c:if test="${list.serviceCateg == 'st' }">
           	<li>
 	            <a href="<c:url value='/salon/menu/menuInfo?serviceCode=${list.serviceCode }'/>">${list.serviceName }</a>
-	            <span>${list.serviceFee }</span>
+	            <span><fmt:formatNumber value="${list.serviceFee }" pattern="#,### 원"/> </span>
           	</li> 
           	</c:if>         
           </c:forEach>

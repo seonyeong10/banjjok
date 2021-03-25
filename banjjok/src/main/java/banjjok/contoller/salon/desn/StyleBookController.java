@@ -10,9 +10,11 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import banjjok.command.StyleCommand;
 import banjjok.service.salon.style.StyleAddService;
+import banjjok.service.salon.style.StyleInfoService;
 
 @Controller
 @RequestMapping(value = "/salon/style")
@@ -23,6 +25,8 @@ public class StyleBookController {
 	}
 	@Autowired
 	StyleAddService styleAddService;
+	@Autowired
+	StyleInfoService styleInfoService;
 	
 	@RequestMapping(value = "addStyle", method = RequestMethod.GET)
 	public String addStyle() {
@@ -35,5 +39,10 @@ public class StyleBookController {
 		}
 		String path = styleAddService.add(styleCommand, session, model);
 		return path;
+	}
+	@RequestMapping(value = "desnStyle", method = RequestMethod.GET)
+	public String styleInfo(@RequestParam(value = "styleCode") String styleCode, Model model) throws Exception {
+		styleInfoService.getInfo(styleCode, model);
+		return "salon/designer/styleBook/styleInfo";
 	}
 }

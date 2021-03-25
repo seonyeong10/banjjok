@@ -19,7 +19,21 @@
 <select id="getStyle" parameterType="banjjok.domain.StyleDTO" resultType="banjjok.domain.StyleDTO">
 	select <include refid="select" />
 	from stylebook
-	where desn_id = #{desnId}
+	<trim prefix="where" prefixOverrides="AND | OR">
+		<if test="desnId != null">
+			and desn_id = #{desnId}
+		</if>
+		<if test="styleCode != null">
+			and style_code = #{styleCode}
+		</if>
+	</trim>
 	order by reg_date desc
+</select>
+<select id="getStyleInfo" parameterType="banjjok.domain.StyleInfoDTO" resultType="banjjok.domain.StyleInfoDTO">
+	select style_code styleCode, st.desn_id desnId, desn_name desnName, desn_use desnUse, desn_img desnimg, style_name styleName, style_Length stylelength, style_curly stylecurly, style_desc styledesc, style_img styleimg
+	from stylebook st, designer des
+	where st.desn_id = des.desn_id
+	<if test="desnId != null"> and st.desn_id = #{desnId}</if>
+	<if test="styleCode != null"> and st.style_code = #{styleCode}</if>
 </select>
 </mapper>

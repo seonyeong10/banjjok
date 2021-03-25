@@ -104,18 +104,15 @@
 				<ul class="styleBook">
 					<c:forEach items="${styleList }" var="style">
 						<li>
-							<a href="#"><img src="/salon/designer/styleBook/upload/${style.styleImg }" alt="styleImg" class="styleImg" /></a>
+							<a href="<c:url value='/salon/style/desnStyle?styleCode=${style.styleCode }'/>"><img src="/salon/designer/styleBook/upload/${style.styleImg }" alt="styleImg" class="styleImg" /></a>
 <!-- 							<img src="#" alt="heart" class="heart" /> -->
 <!-- 							<a class="heart"><i class="far fa-heart fa-2x"></i></a> -->
-							<a class="heart"><i class="fas fa-heart fa-2x" style="color: red"></i></a>
+							<a class="heart"><i class="fas fa-heart fa-2x" style="color: #fff;"></i></a>
 						</li>
 					</c:forEach>
-					<li><img src="#" alt="styleImg" class="styleImg" /> <img
-						src="#" alt="heart" class="heart"
-					/></li>
-					<li><img src="#" alt="styleImg" class="styleImg" /> <img
-						src="#" alt="heart" class="heart"
-					/></li>
+<!-- 					<li><img src="#" alt="styleImg" class="styleImg" /> <img -->
+<!-- 						src="#" alt="heart" class="heart" -->
+<!-- 					/></li> -->
 				</ul>
 			</div>
 		</div>

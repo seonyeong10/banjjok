@@ -40,7 +40,7 @@ public class DesnInfoService {
 		// 스타일
 		StyleDTO styleDTO = new StyleDTO();
 		styleDTO.setDesnId(desnId);
-		List<StyleDTO> styleList = styleMapper.getStyle(desnId);
+		List<StyleDTO> styleList = styleMapper.getStyle(styleDTO);
 		model.addAttribute("styleList", styleList);
 	}
 	

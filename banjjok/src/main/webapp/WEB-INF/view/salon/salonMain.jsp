@@ -27,7 +27,7 @@
 				</div>
 			</div>
 			<div class="mainImageWrap">
-				<img src="#" alt="salonImg1" "/> <img src="#" alt="salonImg2" "/>
+				<img src="<c:url value='/static/images/petSalon_loby.jpg'/>" alt="salonImg1" "/> <img src="<c:url value='/static/images/petSalon_workspace.jpg'/>" alt="salonImg2" "/>
 			</div>
 			<div class="desinerWrap">
 				<div class="title">
@@ -48,24 +48,16 @@
 									</p>
 								</li>
 							</c:forEach>
-							<li><a href="designerInfo.html">
-									<img src="/static/salon/designer/upload/0fedce04b2f447c58ed07fc5ef97aa62.jpg" alt="face" />
-								</a>
-								<p>aaaa 원장</p></li>
-							<li><img src="#" alt="face" />
-								<p>bbbb 원장</p></li>
-							<li><img src="#" alt="face" />
-								<p>cccc 원장</p></li>
-							<li><img src="#" alt="face" />
-								<p>dddd 원장</p></li>
-							<li><img src="#" alt="face" />
-								<p>eeee 원장</p></li>
-							<li><img src="#" alt="face" />
-								<p>ffff 원장</p></li>
-							<li class="add-designer-button">
-								<!-- 디자이너 등록버튼 -->
-								<a href="/salon/regist"><span class="fa fa-user-plus fa-3x"></span></a>
-							</li>
+<!-- 							<li><a href="designerInfo.html"> -->
+<!-- 									<img src="#" alt="face" /> -->
+<!-- 								</a> -->
+<!-- 								<p>aaaa 원장</p></li> -->
+							<c:if test="${authInfo.grade eq '1' }">
+								<li class="add-designer-button">
+									<!-- 디자이너 등록버튼 -->
+									<a href="/salon/regist"><span class="fa fa-user-plus fa-3x"></span></a>
+								</li>
+							</c:if>
 						</ul>
 					</div>
 				</div>
