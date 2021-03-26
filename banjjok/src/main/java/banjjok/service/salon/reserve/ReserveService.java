@@ -40,6 +40,7 @@ public class ReserveService {
 		String date = salonReserveCommand.getYear() + "-" + month + "-" + salonReserveCommand.getDate() + " " + salonReserveCommand.getReservTime() + ":00";
 //		java.sql.Date reservDate = java.sql.Date.valueOf(date);
 		Timestamp reservDate = Timestamp.valueOf(date);
+		System.out.println(reservDate);
 		dto.setReservDate(reservDate);
 		dto.setReservDesc(salonReserveCommand.getReservDesc());
 		dto.setReservTime(salonReserveCommand.getReservTime());

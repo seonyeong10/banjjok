@@ -159,7 +159,9 @@
 									<c:set var="resTime"><fmt:formatDate value="${dto.reservDate }" pattern="HH"/></c:set>
 									<c:forEach begin="10" end="17" var="hour">
 											<li><label class="box-radio-input"> 
-												<input type="radio" name="reservTime" value="${hour }${minute}" <c:if test="${resTime eq hour }">checked</c:if> /><span>${hour }${minute}</span>
+												<input type="radio" name="reservTime" value="${hour }${minute}" 
+												<c:if test="${resTime eq hour }">checked</c:if> onclick="getId('${desn.desnId}',this)" />
+												<span>${hour }${minute}</span>
 											</label></li>
 									</c:forEach>
 <!-- 									<li> -->
@@ -202,5 +204,38 @@
 	<footer> SoulMate's Forest 02.125.7979 Copyright &copy All
 		Rights reserved. </footer>
 	<!-- foot 끝 -->
+	<script type="text/javascript">
+	function getId(desnId, btn){
+		var year = $('input:hidden[name="year"]').val();
+		var month = $('input:hidden[name="month"]').val();
+		var date = $('input:radio[name="date"]:checked').val();
+		var time = $(btn).val();
+		var data = {
+				"desnId" : desnId
+				,"year" : year
+				,"month" : month
+				,"date" : date
+				,"time" : time
+			};
+		console.log(data);
+		isReserved = {
+				type : "post"
+				,url : "/salon/menu/isReserve"
+				,data : data
+				,dataType : "text"
+				,success : function(result){
+					if(result != 0) {
+						alert('이미 예약된 시간입니다.\n다른 시간을 선택해주세요.');
+						$(btn).attr('checked', false);
+					} else {
+// 						document.getElementsByName('desnId')[0].value = desnId;
+// 						document.getElementsByName('desnName')[0].value = desnName;
+					}
+				}
+				,error : function() {}
+		};
+		$.ajax(isReserved);
+	}
+	</script>
 </body>
 </html>

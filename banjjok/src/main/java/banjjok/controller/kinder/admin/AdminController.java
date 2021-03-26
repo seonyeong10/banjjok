@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import banjjok.command.ClassCommand;
+import banjjok.command.ProgramCommand;
 import banjjok.command.TeacherCommand;
 import banjjok.service.kinder.teacher.ClassDelService;
 import banjjok.service.kinder.teacher.ClassDetailService;
@@ -25,6 +26,11 @@ import banjjok.service.kinder.teacher.EnrollListService;
 import banjjok.service.kinder.teacher.EnrollModifyOkService;
 import banjjok.service.kinder.teacher.EnrollModifyService;
 import banjjok.service.kinder.teacher.ImageDelService;
+import banjjok.service.kinder.teacher.ProgramDetailService;
+import banjjok.service.kinder.teacher.ProgramErollService;
+import banjjok.service.kinder.teacher.ProgramListService;
+import banjjok.service.kinder.teacher.ProgramModifyOkService;
+import banjjok.service.kinder.teacher.ProgramModifyService;
 import banjjok.service.kinder.teacher.TeacherEnrollService;
 
 @Controller 
@@ -38,6 +44,10 @@ public class AdminController {
 	@ModelAttribute
 	ClassCommand setClassCommand() {
 		return new ClassCommand();
+	}
+	@ModelAttribute
+	ProgramCommand setProgramCommand() {
+		return new ProgramCommand();
 	}
 	
 	@Autowired
@@ -65,6 +75,17 @@ public class AdminController {
 	@Autowired
 	ClassDelService classDelService;
 	
+	
+	@Autowired
+	ProgramErollService programErollService;
+	@Autowired
+	ProgramListService programListService;
+	@Autowired
+	ProgramDetailService programDetailService;
+	@Autowired
+	ProgramModifyService programModifyService;
+	@Autowired
+	ProgramModifyOkService programModifyOkService;
 	
 	
 	@RequestMapping(value = "administration", method = RequestMethod.GET)
@@ -200,6 +221,48 @@ public class AdminController {
 	
 	// program
 	
-//	@RequestMapping(value = "programList", method = RequestMethod.GET)
-//	public String 
+	@RequestMapping(value = "programList", method = RequestMethod.GET)
+	public String programList(Model model) throws Exception {
+		programListService.programList(model);
+		return "kinder/admin/programList";
+	}
+	
+	@RequestMapping(value = "programEnroll", method = RequestMethod.GET)
+	public String programEnroll(ProgramCommand programCommand) {
+		return "kinder/admin/programEnroll";
+	}
+	
+	@RequestMapping(value="programErollOk", method=RequestMethod.POST)
+	public String programErollOk(@Validated ProgramCommand programCommand, BindingResult result,
+	HttpSession session) throws Exception{
+		programErollService.programEroll(programCommand, session);
+		if(result.hasErrors()) {
+			return "kinder/admin/programEnroll";
+		}
+		return "redirect:/kinder/programList";
+	}
+	
+	@RequestMapping(value="programDetail", method = RequestMethod.GET)
+	public String programDetail(
+			@RequestParam(value="pCode") String pCode, Model model) throws Exception {
+		programDetailService.programDetail(pCode, model);
+		return "kinder/admin/programDetail";
+	}
+	
+	@RequestMapping(value="programModify", method = RequestMethod.GET)
+	public String programModify(ProgramCommand programCommand, Model model) throws Exception {
+		programModifyService.programModify(programCommand, model);
+		return "kinder/admin/programModify";
+	}
+	
+	@RequestMapping(value="programModifyOk", method=RequestMethod.POST)
+	public String programModifyOk(@Validated ProgramCommand programCommand, BindingResult result,
+			HttpSession session) throws Exception {
+		System.out.println("여기서 실행되냐 ");
+		programModifyOkService.programModifyOk(programCommand, session);
+		if(result.hasErrors()) {
+			return "kinder/admin/programModify";
+		}
+		return "redirect:/kinder/programDetail?pCode="+programCommand.getpCode();
+	}
 }

@@ -8,8 +8,34 @@
 <title></title>
 </head>
 <body>
+	<c:if test="${res.size() == 0 }">
+		<table class="table" width="80%">
+				<colgroup>
+					<col width="10%" />
+					<col width="10%" />
+					<col width="10%" />
+					<col width="30%" />
+					<col width="20%" />
+					<col width="20%" />
+				</colgroup>
+				<tr>
+					<th >No.</th>
+					<th>시간</th>
+					<th>고객명</th>
+					<th>메뉴</th>
+					<th>상태</th>
+					<th>비고</th>
+				</tr>
+				<tr>
+					<td colspan="6" style="color: red;">등록된 예약이 없습니다.</td>
+				</tr>
+			</table>
+	</c:if>
+	<c:if test="${res.size() != 0 }" >
 	<table class="table" width="80%">
-				<caption>3/23(화) 예약</caption>
+				<caption>
+					<fmt:formatDate value="${res.get(0).reservDate }" pattern="M/dd(E)"/> 예약
+				</caption>
 				<colgroup>
 					<col width="10%" />
 					<col width="10%" />
@@ -54,6 +80,7 @@
 				</tr>
 				</c:forEach>
 			</table>
+			</c:if>
 		<script src="<c:url value='/static/js/desnSchedule.js' />"></script>
 		<script type="text/javascript">
 			function getInfo(reservCode){

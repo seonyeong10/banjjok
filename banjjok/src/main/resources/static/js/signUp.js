@@ -44,7 +44,7 @@ function chkMobile() {
 		dataType : "text",
 		data : message,
 		success : function(result) {
-//			console.log(result);
+			console.log(result);
 			alert('문자가 전송되었습니다.\n 인증번호를 입력해주세요.');
 		},
 		errors : function() {

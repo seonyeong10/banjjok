@@ -13,5 +13,6 @@ public interface StyleMapper {
 	public Integer insert(StyleDTO dto) throws Exception;
 	public List<StyleDTO> getStyle(StyleDTO styleDTO) throws Exception;
 	public StyleInfoDTO getStyleInfo(StyleInfoDTO dto) throws Exception;
+	public Integer update(StyleDTO dto)  throws Exception;
 
 }

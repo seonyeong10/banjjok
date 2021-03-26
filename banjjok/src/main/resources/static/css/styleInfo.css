@@ -89,7 +89,7 @@
 }
 
 .styleListWrap {
-  margin: 30px 0 100px;
+  margin: 30px 0;
   padding-left: 20px;
   overflow: hidden;
 }
@@ -107,4 +107,23 @@
   height: 300px;
   background: #eadfcd;
   margin-right: 10px;
+}
+
+
+.btn-area {
+	display: block;
+	margin-bottom: 100px;
+	text-align: center;
+}
+
+.btn-area a {
+	display: inline-block;
+	border-radius: 10px;
+	border: 1px solid #333;
+	padding: 10px 15px;
+}
+
+.btn-area a:first-child {
+	background: #333;
+	color: #fff;
 }

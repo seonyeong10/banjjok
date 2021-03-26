@@ -33,6 +33,7 @@ function change(code, status, year, month, date){
 	$.ajax(status);
 }
 function getList(year, month, date) {
+	console.log(year, month, date);
 	$('#list-area').load('dateReserve', {"year" : year, "month" : month, "date" : date});
 //	showList = {
 //			type : "post"

@@ -30,8 +30,15 @@
 			<span class="d-day">
 				<c:choose>
 					<c:when test="${dto.reservUse eq '2' }"><i class="far fa-frown"></i></c:when>
+					<c:when test="${dto.reservUse eq '1' }"><i class="far fa-smile"></i></c:when>
 					<c:otherwise>
-						<i class="far fa-calendar-alt"></i>D-12
+						<i class="far fa-calendar-alt"></i>
+						<c:set value="<%=new java.util.Date()%>" var="now" />
+							<fmt:parseNumber value="${now.time / (1000*60*60*24)}" integerOnly="true" var="nowDate"></fmt:parseNumber>
+							<c:set var="resDate"><fmt:formatDate value="${dto.reservDate }" pattern="yyyy-MM-dd"/></c:set>
+							<fmt:parseNumber value="${dto.reservDate.time / (1000*60*60*24)}" integerOnly="true" var="strDate"></fmt:parseNumber>
+							<c:if test="${(strDate - nowDate) <= 0}"></c:if>
+							<c:if test="${(strDate - nowDate) > 0}">D-${strDate - nowDate }</c:if>
 					</c:otherwise>
 				</c:choose>
 			</span>

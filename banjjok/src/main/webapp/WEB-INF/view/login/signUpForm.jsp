@@ -116,7 +116,9 @@
           <div class="mem-element">
             <p class="element-name">품종</p>
             <span class="element-value">
-            	<input type="radio" name="kind" value="D" checked="checked"/> 개
+            	<label  class="element-value">
+            	<input type="radio" name="kind" value="D" checked="checked"/><span>개</span>
+            	</label>
 <%--             	<form:radiobutton path="cat" value="F"/> 여아 --%>
             </span>
           </div>
@@ -133,16 +135,24 @@
           <div class="mem-element">
             <p class="element-name">성별</p>
             <span class="element-value">
-              <form:radiobutton path="gender" value="M"  /> 남아
-              <form:radiobutton path="gender" value="F"/> 여아
+				<label  class="element-value">
+              	<form:radiobutton path="gender" value="M"  /><span>남아</span>
+              	</label >
+              	<label  class="element-value">
+             	<form:radiobutton path="gender" value="F"/><span>여아</span>
+             	</label>
             </span>
             <div class="element-errors"><form:errors path="gender"/> </div>
           </div>
           <div class="mem-element">
             <p class="element-name">중성화 여부</p>
             <span class="element-value">
-            	<form:radiobutton path="isNeutral" value="Y"/> Y
-                <form:radiobutton path="isNeutral" value="N" onclick="block();" id="noNeutral"/> N
+            	<label  class="element-value">
+            	<form:radiobutton path="isNeutral" value="Y"/><span>Y</span>
+            	</label>
+            	<label  class="element-value">
+                <form:radiobutton path="isNeutral" value="N" onclick="block();" id="noNeutral"/><span>N</span>
+                </label>
              </span>
              <div class="element-errors"><form:errors path="isNeutral"/> </div>
           </div>
@@ -167,7 +177,7 @@
     </div>
 	<!-- foot -->
 		<footer> SoulMate's Forest 02.125.7979 Copyright & copy All Rights reserved. </footer>
-	<script src="static/js/signUp.js"></script>
+	<script src="<c:url value='/static/js/signUp.js' />"></script>
 	<!-- foot 끝 -->
 	<script type="text/javascript">
 	

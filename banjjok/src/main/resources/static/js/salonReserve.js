@@ -75,10 +75,11 @@ function init(nowYear, nowMonth){
 //	console.log(now.getMonth()+1);
 //	document.getElementsByName('petId')[0].checked = 'checked';
 //	preMonth();
-	console.log(nowYear, nowMonth);
 }
 
 function loadDesn(year, month, date) {
+//	month *= 1;
+//	month = month + 1;
 	$('#reload-area').load('loadDesn', {"year" : year, "month" : month, "date" : date});
 }
 

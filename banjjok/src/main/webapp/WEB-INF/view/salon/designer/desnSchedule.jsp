@@ -12,6 +12,7 @@
 <link href="<c:url value='/static/css/desnSchedule.css' />" rel="stylesheet" type="text/css" />
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="<c:url value='/js/jquery.form.js'/>"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
 </head>
 <body>
 	<div id="calendar-wrap">
@@ -20,7 +21,7 @@
 			<header>
 				<!-- 월, 연도 -->
 				<h1>
-					<a onclick="otherMonth('${year}', '${currMonth - 1 }')"><</a>
+					<a onclick="otherMonth('${year}', '${currMonth - 1 }')"><i class="fas fa-angle-left fa-2x"></i></a>
 					<c:choose>
 						<c:when test="${currMonth eq '0'}">January</c:when>
 						<c:when test="${currMonth eq '1'}">February</c:when>
@@ -36,7 +37,7 @@
 						<c:when test="${currMonth eq '11'}">December</c:when>
 					</c:choose>
 					${year }
-					<a onclick="otherMonth('${year}', '${currMonth + 1 }')">></a>
+					<a onclick="otherMonth('${year}', '${currMonth + 1 }')"><i class="fas fa-angle-right fa-2x"></i></a>
 				</h1>
 			</header>
 			<div id="calendar">
@@ -55,7 +56,6 @@
 					<c:forEach items="${pre }" var="pre">
 						<li class='day other-month'>
 							<div class="date">${pre }</div> <!-- 예약이 있다면 출력 -->
-							<div class="event"></div>
 						</li>
 					</c:forEach>
 					<!-- 현월 날짜 -->
@@ -71,7 +71,7 @@
 							<c:forEach items="${list }" var="list">
 								<c:set var="sch"><fmt:formatDate value="${list.reservDate }" pattern="yyyyMdd"/></c:set>
 								<c:set var="date" value="${year }${currMonth+1 }${cur }"/>
-								<c:if test="${sch eq date}">
+								<c:if test="${sch eq date && list.reservUse ne '2'}">
 									<c:if test="${count <= 3 }">
 										<div class="event">
 											<div class="event-desc">
@@ -84,7 +84,7 @@
 								</c:if>
 							</c:forEach>
 							<c:if test="${count > 3 }">
-								<div class="plus">+${count }</div>
+								<div class="plus">+${count - 3 }</div>
 							</c:if>
 						</li>
 					</c:forEach>

@@ -15,6 +15,18 @@ public class StyleDTO {
 	
 	public StyleDTO() {}
 	
+//	public StyleDTO(String styleCode, String styleCateg, String styleName, String styleLength, String styleCurly, String styleDesc,
+//			String styleImg) {
+//		super();
+//		this.styleCode = styleCode;
+//		this.styleCateg = styleCateg;
+//		this.styleName = styleName;
+//		this.styleLength = styleLength;
+//		this.styleCurly = styleCurly;
+//		this.styleDesc = styleDesc;
+//		this.styleImg = styleImg;
+//	}
+
 	public StyleDTO(String desnId, String styleCateg, String styleName, String styleLength, String styleCurly,
 			String styleDesc, String styleImg) {
 		super();

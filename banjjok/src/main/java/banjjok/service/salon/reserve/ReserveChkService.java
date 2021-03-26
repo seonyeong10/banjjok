@@ -15,7 +15,7 @@ public class ReserveChkService {
 	SalonReserveMapper reserveMapper;
 
 	public void isReserve(int year, int month, int date, String time, Model model) throws Exception {
-		String start = year + "-" + month + "-" + date + " " + time + ":00.0";
+		String start = year + "-" + (month+1) + "-" + date + " " + time + ":00.0";
 		MemSalReserveDTO dto = new MemSalReserveDTO();
 		dto.setReservDate(Timestamp.valueOf(start));
 		Integer count = reserveMapper.isReserve(dto);
