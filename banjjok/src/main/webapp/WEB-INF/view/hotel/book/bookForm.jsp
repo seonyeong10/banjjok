@@ -7,6 +7,9 @@
 <title>호텔 예약 폼</title>
 </head>
 <body>
-123
+<!-- top -->
+	<div id="header">
+		<%@include file="../../include/hotelTop.jsp" %>
+	</div>
 </body>
 </html>
