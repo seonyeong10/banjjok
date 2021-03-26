@@ -17,6 +17,15 @@ public class StyleCommand {
 	@NotEmpty(message = "설명을 입력해주세요.")
 	String styleDesc;
 	MultipartFile styleImg;
+	String styleCode;
+	
+	public String getStyleCode() {
+		return styleCode;
+	}
+
+	public void setStyleCode(String styleCode) {
+		this.styleCode = styleCode;
+	}
 
 	public String getStyleCateg() {
 		return styleCateg;

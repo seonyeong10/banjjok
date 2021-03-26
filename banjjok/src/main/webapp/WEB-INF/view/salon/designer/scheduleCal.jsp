@@ -5,7 +5,7 @@
 			<header>
 				<!-- 월, 연도 -->
 				<h1>
-					<a onclick="otherMonth('${year}', '${currMonth - 1 }')"><</a>
+					<a onclick="otherMonth('${year}', '${currMonth - 1 }')"><i class="fas fa-angle-left fa-2x"></i></a>
 					<c:choose>
 						<c:when test="${currMonth eq '0'}">January</c:when>
 						<c:when test="${currMonth eq '1'}">February</c:when>
@@ -21,7 +21,7 @@
 						<c:when test="${currMonth eq '11'}">December</c:when>
 					</c:choose>
 					${year }
-					<a onclick="otherMonth('${year}', '${currMonth + 1 }')">></a>
+					<a onclick="otherMonth('${year}', '${currMonth + 1 }')"><i class="fas fa-angle-right fa-2x"></i></a>
 				</h1>
 			</header>
 			<div id="calendar">
@@ -40,10 +40,6 @@
 					<c:forEach items="${pre }" var="pre">
 						<li class='day other-month'>
 							<div class="date">${pre }</div> <!-- 예약이 있다면 출력 -->
-							<div class="event">
-<!-- 								<div class="event-desc">스타일컷, 고객이름, 반려견이름</div> -->
-<!-- 								<div class="event-time">10:30am to 11:30am</div> -->
-							</div>
 						</li>
 					</c:forEach>
 					<!-- 현월 날짜 -->
@@ -58,7 +54,7 @@
 							<c:set value="1" var="count"/>	<!-- 최대 출력 개수(3) 제한을 위한 변수 -->
 							<c:forEach items="${list }" var="list">
 								<c:set var="sch"><fmt:formatDate value="${list.reservDate }" pattern="dd"/></c:set>
-								<c:if test="${sch eq cur}">
+								<c:if test="${sch eq cur && list.reservUse ne '2'}">
 									<c:if test="${count <= 3 }">
 										<div class="event">
 											<div class="event-desc">

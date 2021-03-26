@@ -46,7 +46,7 @@
 		<if test="reservDate != null">
 			and res.reserv_date &gt;= #{reservDate} and res.reserv_date &lt; #{cancleDate}
 		</if>
-	order by res.reserv_date
+	order by lis.reserv_use, res.reserv_date
 </select>
 <update id="updateRes" parameterType="banjjok.domain.SalonReserveDTO">
 	update reserve_salon

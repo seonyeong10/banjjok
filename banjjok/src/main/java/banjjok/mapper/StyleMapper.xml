@@ -36,4 +36,9 @@
 	<if test="desnId != null"> and st.desn_id = #{desnId}</if>
 	<if test="styleCode != null"> and st.style_code = #{styleCode}</if>
 </select>
+<update id="update" parameterType="banjjok.domain.StyleInfoDTO" >
+	update stylebook
+	set STYLE_CATEG = #{styleCateg}, STYLE_NAME = #{styleName}, STYLE_LENGTH = #{styleLength}, STYLE_CURLY = #{styleCurly}, STYLE_DESC = #{styleDesc}, STYLE_IMG = #{styleImg}
+	where style_code = #{styleCode}
+</update>
 </mapper>

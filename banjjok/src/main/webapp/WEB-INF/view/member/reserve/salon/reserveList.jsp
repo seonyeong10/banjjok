@@ -80,16 +80,22 @@
 										<c:when test="${list.desnUse eq '3' }">디자이너</c:when>
 									</c:choose> ${list.desnName }
 								</span>
-								<div class="d-day">D-
+								<div class="d-day">
 									<c:set value="<%=new java.util.Date()%>" var="now" />
 									<fmt:parseNumber value="${now.time / (1000*60*60*24)}" integerOnly="true" var="nowDate"></fmt:parseNumber>
 									<c:set var="resDate"><fmt:formatDate value="${list.reservDate }" pattern="yyyy-MM-dd"/></c:set>
 									<fmt:parseNumber value="${list.reservDate.time / (1000*60*60*24)}" integerOnly="true" var="strDate"></fmt:parseNumber>
-									${strDate - nowDate }
+									<c:if test="${(strDate - nowDate) <= 0}"></c:if>
+									<c:if test="${(strDate - nowDate) > 0}">D-${strDate - nowDate }</c:if>
 								</div>
 							</div>
 							<div class="btn-area">
+							<c:if test="${list.reservUse eq '1' }">
+								<a href="#" onclick="changeRes('${list.reservCode }');">상세보기</a>
+							</c:if>
+							<c:if test="${list.reservUse eq '0' }">
 								<a onclick="changeRes('${list.reservCode }');">예약변경</a> <a onclick="cancle('${list.reservCode }')">예약취소</a>
+							</c:if>
 							</div>
 						</li>
 					</c:otherwise>

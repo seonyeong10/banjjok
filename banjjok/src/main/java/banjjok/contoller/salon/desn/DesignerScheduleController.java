@@ -34,8 +34,8 @@ public class DesignerScheduleController {
 	@RequestMapping(value = "dateReserve", method = RequestMethod.POST)
 	public String dateReserve(@RequestParam(value = "year") String year, 
 			@RequestParam(value = "month") String month, 
-			@RequestParam(value = "date") String date, Model model) throws Exception {
-		resListService.getList(year, month, date, model);
+			@RequestParam(value = "date") String date, HttpSession session, Model model) throws Exception {
+		resListService.getList(year, month, date, session, model);
 		return "/salon/designer/desnResList";
 	}
 	@RequestMapping(value = "reserveInfo", method = RequestMethod.GET)

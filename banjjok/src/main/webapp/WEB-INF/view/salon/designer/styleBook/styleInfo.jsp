@@ -24,7 +24,7 @@
 					<h2>Style Book</h2>
 				</div>
 				<div class="fieldDesc">
-					<!-- <p>서비스 메뉴 등록</p> -->
+<!-- 					<p>서비스 메뉴 등록</p> -->
 				</div>
 			</div>
 			<div class="styleInfoWrap">
@@ -86,6 +86,10 @@
 <!-- 					<li><img src="#" alt="styleImg" class="styleImg" /></li> -->
 <!-- 					<li><img src="#" alt="styleImg" class="styleImg" /></li> -->
 				</ul>
+			</div>
+			<div class="btn-area">
+				<a href="<c:url value='/salon/style/modifyStyle/${style.styleCode }'/>">수정하기</a>
+				<a href="#">삭제하기</a>
 			</div>
 		</div>
 		<!-- Content 끝 -->

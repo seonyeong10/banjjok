@@ -78,6 +78,8 @@ function init(nowYear, nowMonth){
 }
 
 function loadDesn(year, month, date) {
+//	month *= 1;
+//	month = month + 1;
 	$('#reload-area').load('loadDesn', {"year" : year, "month" : month, "date" : date});
 }
 

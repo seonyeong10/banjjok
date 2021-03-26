@@ -1,5 +1,6 @@
 package banjjok.service.salon.desn;
 
+import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.List;
 
@@ -42,11 +43,16 @@ public class DesnScheduleService {
 		CalendarMaker maker = new CalendarMaker();
 		String date = null;
 		maker.create(year, month, date, model);
+		System.out.println(month);
 		
 		// 디자이너의 예약 스케줄
 		String desnId = ((AuthInfo) session.getAttribute("authInfo")).getUserId();
 		MemSalReserveDTO dto = new MemSalReserveDTO();
 		dto.setDesnId(desnId);
+		String str = year + "-" + (Integer.parseInt(month) + 1) + "-" + "01 00:00:00.0"; 
+		String end = year + "-" + (Integer.parseInt(month) + 2) + "-" + "01 00:00:00.0"; 
+		dto.setReservDate(Timestamp.valueOf(str));
+		dto.setCancleDate(Timestamp.valueOf(end));
 		List<MemSalReserveDTO> list = reserveMapper.getList(dto);
 		model.addAttribute("list", list);
 	}

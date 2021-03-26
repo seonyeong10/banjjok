@@ -58,9 +58,12 @@
 				<!-- 예약 서비스 -->
 				<div class="select-title">날짜선택</div>
 				<div class="calendar">
-					<div class="month"><span onclick="preMonth('${year }','${currMonth - 1 }');">< </span>${currMonth + 1 }월<span onclick="preMonth('${year }','${currMonth + 1 }');"> ></span></div>
+					<div class="month">
+						<span onclick="preMonth('${year }','${currMonth - 1 }');"><i class="fas fa-angle-left"></i> </span>
+						${currMonth + 1 }월
+						<span onclick="preMonth('${year }','${currMonth + 1 }');"> <i class="fas fa-angle-right"></i></span></div>
 					<input type="hidden" name="year" value="${year }"/>
-					<input type="hidden" name="month" value="${currMonth + 1 }"/>
+					<input type="hidden" name="month" value="${currMonth }"/>
 					<ul class="calendar-month">
 						<!-- 요일 -->
 						<li>일</li>
