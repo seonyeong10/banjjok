@@ -27,7 +27,7 @@
 			<trim prefix="where" prefixOverrides="AND | OR">
 				<if test="roomCode != null">
 					ROOM_CODE = #{roomCode}
-				</if>
+				</if> 
 				<if test="roomName != null">
 					and ROOM_NAME = #{roomName}
 				</if>

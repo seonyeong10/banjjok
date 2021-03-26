@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>객실 리스트</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="/static/css/baseCSS.css" rel="stylesheet" type="text/css" />
+<!-- <link href="/static/css/baseCSS.css" rel="stylesheet" type="text/css" /> -->
 <link href="/static/css/footer.css" rel="stylesheet" type="text/css" />
 <link href="/static/css/memberForm.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -83,7 +83,7 @@
 <!-- 		        <p>Single bed</p> -->
 <!-- 		        <p>15m<sup>2</sup></p> -->
 		        <p class="w3-large"><i class="fa fa-bath"></i> <i class="fa fa-phone"></i> <i class="fa fa-wifi"></i></p>
-		        <button class="w3-button w3-block w3-black w3-margin-bottom" onclick="javascript:location.href='/hotel/book';">Choose Room</button>
+		        <button class="w3-button w3-block w3-black w3-margin-bottom" onclick="javascript:location.href='/hotel/book/${room.roomCode}';">Choose Room</button>
        		</div>
       	</div>
        	</c:forEach>
@@ -114,7 +114,7 @@
   
   </div>
 
-  <div class="w3-row-padding" id="about">
+  <div class="w3-row-padding" id="about" style="MARGIN-BOTTOM: 100PX;">
     <div class="w3-col l4 12">
       <h3>About</h3>
       <h6>Our hotel is one of a kind. It is truely amazing. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</h6>
@@ -127,11 +127,13 @@
 
 <hr />
 	  <!-- 관리자 모드 -->
+	  <c:if test="${authInfo.grade eq 'sitter'}">
 	  	<div class="button-wrap">
 <!-- 			<input type="button" value="취소" onclick="cancle();" /> -->
 			<input type="button" value="객실 등록" onclick="javascript:location.href='./roomRegist'";/>
 		</div>
 	  <hr /><br />
+	</c:if>
 	 <!-- 관리자 모드 끝 -->
 	 
 	<!-- foot -->

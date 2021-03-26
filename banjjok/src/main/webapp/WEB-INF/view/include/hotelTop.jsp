@@ -45,7 +45,7 @@
 		<!-- Navigation Bar -->
 		<div class="w-bar w3-white w-large navigationWrap">
 			<ul class="navigationArea">
-			  <li><a href="/hotel/book" class="w3-bar-item w3-button w3-green w3-mobile"><i class="fa fa-bed w3-margin-right"></i>Booking</a></li>
+			  <li><a href="/hotel/roomList" class="w3-bar-item w3-button w3-green w3-mobile"><i class="fa fa-bed w3-margin-right"></i>Booking</a></li>
 			  <li><a href="/hotel/roomList" class="w3-bar-item w3-button w3-mobile">Rooms</a></li>
 			  <li><a href="/hotel/sitterList" class="w3-bar-item w3-button w3-mobile">Pet Sitter</a></li>
 			  <li><a href="/hotel/reviewList" class="w3-bar-item w3-button w3-mobile">Review</a></li>
