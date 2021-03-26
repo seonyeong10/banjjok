@@ -200,6 +200,10 @@ public class AdminController {
 	
 	// program
 	
-//	@RequestMapping(value = "programList", method = RequestMethod.GET)
-//	public String 
+	@RequestMapping(value = "programList", method = RequestMethod.GET)
+	public String programList() {
+		return "kinder/admin/programList";
+	}
+	
+//	@RequestMapping
 }
