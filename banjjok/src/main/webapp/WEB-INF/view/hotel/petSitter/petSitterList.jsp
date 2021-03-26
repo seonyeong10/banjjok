@@ -17,10 +17,10 @@
 		<%@ include file="../../include/hotelTop.jsp" %>
 	</div>
 	<a href="/hotel/registSitter">돌보미 등록</a><hr />
-    <c:forEach items="${lists }" var="list" varStatus="cnt">
-    <a href="sitterInfo/${list.sitterId}">
 	  <!-- The Grid -->
 	  <div class="w3-row-padding">
+    <c:forEach items="${lists }" var="list" varStatus="cnt">
+    <a href="sitterInfo/${list.sitterId}">
 	    <div class="w3-third">
 	    
 	      <div class="w3-white w3-text-grey w3-card-4">
@@ -40,15 +40,17 @@
 		          <hr>	
 		        <!-- End Left Column -->
 		    </div>
+		    </div>
 		  </div>
+		  
+	</a>
+	</c:forEach>
 	    
 		<!-- End Grid -->
 		</div>
 		  
 	  <!-- End Page Container -->
 	  </div>
-	</a>
-	</c:forEach>
 	
 	<!-- foot -->
 		<footer> SoulMate's Forest 02.125.7979 Copyright &copy All Rights reserved. </footer>

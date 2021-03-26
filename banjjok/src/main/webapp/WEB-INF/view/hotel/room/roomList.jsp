@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-	img{ width:200px; height:200px; }
+	img{ width:100%; height:200px; }
 	.w3-col, .w3-half, .w3-third, .w3-twothird, .w3-threequarter, .w3-quarter {
     float: left;
     }
