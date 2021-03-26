@@ -14,7 +14,12 @@
 		<%@ include file="../../include/kinder_topmenu.jsp"%>
 		<div class="content">
 			<div>
-				<table class="programList">
+				<table class="programList" style="width:800px;">
+				<colgroup>
+					<col width="20%"/>
+					<col width="30%"/>
+					<col width="50%"/>
+				</colgroup>
 					<tr>
 						<th colspan="3"><h2>PROGRAM LIST</h2></th>
 					</tr>
@@ -24,13 +29,13 @@
 						<th>PROGRAM NAME</th>
 					</tr>
 					
-<%-- 					<c:forEach items="" var=""> --%>
-<!-- 						<tr> -->
-<!-- 							<td></td> -->
-<!-- 							<td></td> -->
-<!-- 							<td></td> -->
-<!-- 						</tr> -->
-<%-- 					</c:forEach> --%>
+					<c:forEach items="${lists }" var="dto" varStatus="status">
+						<tr>
+							<td>${status.count }</td>
+							<td><a href="programDetail?pCode=${dto.pCode }">${dto.pCode }</a></td>
+							<td><a href="programDetail?pCode=${dto.pCode }">${dto.pName }</a></td>
+						</tr>
+					</c:forEach>
 					<tr>
 						<td colspan="3">
 							<input type="button" value="ENROLL" onclick="javascript:location.href='programEnroll'" />

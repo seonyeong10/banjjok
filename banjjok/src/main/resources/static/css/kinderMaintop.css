@@ -114,17 +114,16 @@ div.aboutphoto2{
 	margin:30px;
 	padding:0px;
 }
-table{
+.mainProgram{
 	margin:auto;
 	table-layout:fixed;
 	text-align:center;
 	width:60%;
 	border-top:3px solid #FAEBD7;
 	border-collapse:collapse;
-}
-.table{
 	background-color:#FFFAFA;
 }
+
 th, td{
 	border-bottom:3px solid #FAEBD7;
 	padding:10px;

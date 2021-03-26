@@ -71,7 +71,7 @@
 <!-- 						<div class="socialization">SOCIALIZATION TESTING</div> -->
 <!-- 					</div> -->
 
-										<table class="table">
+										<table class="mainProgram">
 											<tr class="program list top">
 												<th colspan="3" style="width:80%;">CLASSIFY</th>
 												<th style="width:20%;">PRICE</th>

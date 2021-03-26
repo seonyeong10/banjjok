@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="banjjok.mapper.ProgramMapper" >
+
+<sql id="base">
+	P_CODE, P_NAME, P_PRICE, P_CONTENT, P_TIME
+</sql>
+<sql id="base1">
+	P_CODE PCODE, P_NAME PNAME, P_PRICE PPRICE, P_CONTENT PCONTENT, P_TIME PTIME
+</sql>
+
+<insert id="programInsert" parameterType="banjjok.domain.ProgramDTO">
+	insert into program (<include refid="base" />) 
+	values(#{pCode}, #{pName}, #{pPrice}, #{pContent}, #{pTime})
+</insert>
+<select id="programListup" parameterType="banjjok.domain.ProgramDTO" 
+		resultType="banjjok.domain.ProgramDTO">
+	select *
+	from(
+		select rownum rn, <include refid="base1" />
+		from (
+			select <include refid="base" />
+			from program
+			<trim prefix="where" prefixOverrides="AND | OR">
+				<if test="pCode != null">
+					p_code = #{pCode}
+				</if>
+			</trim>
+			))
+	
+</select>
+<update id="programModify" parameterType="banjjok.domain.ProgramDTO">
+	update program
+	set P_NAME = #{pName}, P_PRICE = #{pPrice}, P_CONTENT = #{pContent}
+	where P_CODE = #{pCode}
+</update>
+
+
+</mapper>
