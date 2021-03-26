@@ -16,7 +16,7 @@
 				<tr><td><h2 class="table title">ADMINISTRAION MENU</h2></td></tr>
 				<tr><th><a href="enrollList">EMPLOYEE ENROLLMENT</a></th></tr>	
 				<tr><th><a href="classList">CLASS MANAGEMENT</a></th></tr>			
-				<tr><th><a href="program">PROGRAM MANAGEMENT</a></th></tr>			
+				<tr><th><a href="programList">PROGRAM MANAGEMENT</a></th></tr>			
 				<tr><th><a href="review">REVIEW MANAGEMENT</a></th></tr>			
 			</table>
 		</div>
