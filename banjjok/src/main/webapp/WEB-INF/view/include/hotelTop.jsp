@@ -49,7 +49,7 @@
 			  <li><a href="/hotel/roomList" class="w3-bar-item w3-button w3-mobile">Rooms</a></li>
 			  <li><a href="/hotel/sitterList" class="w3-bar-item w3-button w3-mobile">Pet Sitter</a></li>
 			  <li><a href="/hotel/reviewList" class="w3-bar-item w3-button w3-mobile">Review</a></li>
-			  <li><a href="#logout" class="w3-bar-item w3-button w3-right w3-light-grey w3-mobile">Log out</a></li>
+			  <li><a href="/main/logout" class="w3-bar-item w3-button w3-right w3-light-grey w3-mobile">Log out</a></li>
 		  </ul>
 		</div>
 	 </div>

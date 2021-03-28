@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>호텔 예약 폼</title>
-<link href="<c:url value='/static/css/reserveForm.css'/>"
-	rel="stylesheet" type="text/css" />
+<link href="<c:url value='/static/css/reserveForm.css'/>" rel="stylesheet" type="text/css" />
+<%-- <link href="<c:url value='/static/css/footer.css'/>" rel="stylesheet" type="text/css" /> --%>
 <style type="text/css">
 	.selectDateArea .calendar-month{ box-sizing:initial; }
 	.select-title .calendar-chk{
@@ -44,6 +44,7 @@
 					<!-- <p>서비스 메뉴 등록</p> -->
 				</div>
 			</div>
+		<form action="bookAct" method="post" name="frm" onsubmit="return send();">
 			<div class="selectedServiceArea">
 				<!-- 예약 서비스 -->
 				<ul>
@@ -90,11 +91,11 @@
 <!-- 					</table> -->
 					<ul class="calendar-chk chkIn">
 						<li>입실 날짜</li>
-						<li><input type="text" name="chkInDate" placeholder="YYYYMMDD"/></li>
+						<li><input type="text" name="chkInDate" placeholder="YYYY-MM-DD"/></li>
 					</ul>
 					<ul class="calendar-chk chkOut">
 						<li>퇴실 날짜</li>
-						<li><input type="text" name="chkOutDate" placeholder="YYYYMMDD"/></li>
+						<li><input type="text" name="chkOutDate" placeholder="YYYY-MM-DD"/></li>
 					</ul>
 				</div>
 				<div class="calendar">
@@ -105,6 +106,7 @@
 					</div>
 					<input type="hidden" name="year" value="${year }" />
 					<input type="hidden" name="month" value="${currMonth + 1 }" />
+					<input type="hidden" name="date" value="${date }" />
 					<ul class="calendar-month">
 						<!-- 요일 -->
 						<li>일</li>
@@ -183,10 +185,24 @@
 				</div>
 			</div>
 		</div>
-
+			<div class="btn-wrap">
+				<!-- 예약하기 -->
+				<div class="price-area">
+					<span>총 결제금액</span>
+					<span class="price">
+						<fmt:formatNumber value="${room.roomPrice }" pattern="#,###" />원
+						<input type="hidden" name="roomPrice" value="${room.roomPrice }"/>
+					</span>
+				</div>
+				<div class="btn-area">
+					<input type="submit" value="예약하기" />
+				</div>
+			</div>		
+		</form>
 	<!-- foot -->
 	<footer> SoulMate's Forest 02.125.7979 Copyright & copy All sRights reserved. </footer>
 	<script src="/static/js/hotelBook.js"></script>
+	<!-- foot 끝 -->
 	<script>
 		// function select(date){
 		//   var dateArr = document.querySelectorAll('.date');
@@ -198,7 +214,6 @@
 		//   date.classList.add('select-date');
 		// }
 	</script>
-	<!-- foot 끝 -->
 	<script src="/static/js/room.js"></script>
 	<script type="text/javascript">
 		function checkIn(year, month, date){
@@ -212,15 +227,6 @@
 				document.getElementsByName('chkOutDate')[0].value = "";
 				document.getElementsByName('chkInDate')[0].value = year + "-" + month + "-" + date;
 			}
-// 				chkIn = {
-// 						var values = {};
-// 						var formdata = new FormData();
-// 						$('form :input').each(function()
-// 						{
-// 						    formdata.append(this.name, $(this).val());
-// 						}
-// 				};
-// 				$.ajax(chkIn);
 		}
 	</script>
 

@@ -3,26 +3,23 @@ package banjjok.controller.hotel;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import banjjok.command.LoginCommand;
+import banjjok.domain.AuthInfo;
 
 @Controller
-
 public class HotelController {
+	
 	@RequestMapping(value = "hotel", method = RequestMethod.GET)
-	public String hotel(@Validated LoginCommand loginCommand, BindingResult result, HttpSession session, Model model) throws Exception {
-//		//로그인 안 했다면 로그인 페이지로
-//		if(result.hasErrors()) {
-//			return "redirect:login";
-//		}else {
-		//로그인 했다면 호텔메인으로
-		return "/hotel/hotelMain";
-//		}
+	public String hotel(HttpSession session) throws Exception {
+//		// 로그인 안 했으면 로그인페이지로
+		if(((AuthInfo) session.getAttribute("authInfo")) == null ) {
+			return "redirect:/login";
+		} else {
+			return "/hotel/hotelMain";
+			
+		}
 	}
 }
 
