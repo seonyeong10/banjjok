@@ -23,7 +23,7 @@
       <div class="navigationWrap">
         <ul class="navigationArea">
           <li><a href="#" >Log In</a></li>
-          <li><a href="memberForm.html" >Sign In</a></li>
+          <li><a href="#" >Sign In</a></li>
         </ul>
       </div>
     </header>  
@@ -35,10 +35,10 @@
 <!--       <img src="#"/> -->
       <span class="img"><i class="fas fa-user-circle fa-7x"></i></span>
       <span>${authInfo.userId }</span>
-      <ul class="mem-pet-list">
-        <li><a href="#">펫1</a></li>
-        <li><a href="#">펫2</a></li>
-      </ul>
+<!--       <ul class="mem-pet-list"> -->
+<!--         <li><a href="#">펫1</a></li> -->
+<!--         <li><a href="#">펫2</a></li> -->
+<!--       </ul> -->
     </div>
     <!-- 메인 펫 정보 -->
     <form action="petRegist" method="post" name="frm">

@@ -3,18 +3,18 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="banjjok.mapper.StyleMapper">
 <sql id="column">
-	STYLE_CODE ,DESN_ID, STYLE_CATEG, STYLE_NAME, STYLE_LENGTH, STYLE_CURLY, STYLE_DESC, STYLE_IMG, reg_date
+	STYLE_CODE ,DESN_ID, STYLE_CATEG, STYLE_NAME, STYLE_LENGTH, STYLE_CURLY, STYLE_DESC, STYLE_IMG, reg_date, style_use
 </sql>
 <sql id="select">
 	STYLE_CODE STYLECODE ,DESN_ID DESNID, STYLE_CATEG STYLECATEG, STYLE_NAME STYLENAME, STYLE_LENGTH STYLELENGTH, 
-	STYLE_CURLY STYLECURLY, STYLE_DESC STYLEDESC, STYLE_IMG STYLEIMG, reg_date regdate
+	STYLE_CURLY STYLECURLY, STYLE_DESC STYLEDESC, STYLE_IMG STYLEIMG, reg_date regdate, style_use styleuse
 </sql>
 <select id="getCode" resultType="string">
 	select to_char(sysdate, 'YYMMDD') || lpad(styleBook_seq.NEXTVAL,3,0) from dual
 </select>
 <insert id="insert" parameterType="banjjok.domain.StyleDTO">
 	insert into stylebook (<include refid="column" />)
-	values(#{styleCode}, #{desnId}, #{styleCateg}, #{styleName}, #{styleLength}, #{styleCurly}, #{styleDesc}, #{styleImg}, sysdate)
+	values(#{styleCode}, #{desnId}, #{styleCateg}, #{styleName}, #{styleLength}, #{styleCurly}, #{styleDesc}, #{styleImg}, sysdate, '0')
 </insert>
 <select id="getStyle" parameterType="banjjok.domain.StyleDTO" resultType="banjjok.domain.StyleDTO">
 	select <include refid="select" />
@@ -40,5 +40,10 @@
 	update stylebook
 	set STYLE_CATEG = #{styleCateg}, STYLE_NAME = #{styleName}, STYLE_LENGTH = #{styleLength}, STYLE_CURLY = #{styleCurly}, STYLE_DESC = #{styleDesc}, STYLE_IMG = #{styleImg}
 	where style_code = #{styleCode}
+</update>
+<update id="delete" parameterType="banjjok.domain.StyleInfoDTO" >
+	update stylebook
+	set style_use = '1'
+	where style_code = #{styleCode} and desn_id = #{desnId}
 </update>
 </mapper>

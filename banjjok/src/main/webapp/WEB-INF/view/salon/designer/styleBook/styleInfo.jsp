@@ -79,17 +79,21 @@
 				<br />
 				<ul class="styleListArea">
 					<c:forEach items="${list }" var="list">
-					<li><a href="<c:url value='/salon/style/desnStyle?styleCode=${list.styleCode }'/>">
-							<img src="<c:url value='/salon/designer/styleBook/upload/${list.styleImg }' />" alt="styleImg" class="styleImg" />
-						</a></li>
+					<c:if test="${list.styleUse ne 1 }">
+						<li><a href="<c:url value='/salon/style/desnStyle?styleCode=${list.styleCode }'/>">
+								<img src="<c:url value='/salon/designer/styleBook/upload/${list.styleImg }' />" alt="styleImg" class="styleImg" />
+							</a></li>
+					</c:if>
 					</c:forEach>
 <!-- 					<li><img src="#" alt="styleImg" class="styleImg" /></li> -->
 <!-- 					<li><img src="#" alt="styleImg" class="styleImg" /></li> -->
 				</ul>
 			</div>
 			<div class="btn-area">
+			<c:if test="${authInfo.userId eq style.desnId }">
 				<a href="<c:url value='/salon/style/modifyStyle/${style.styleCode }'/>">수정하기</a>
-				<a href="#">삭제하기</a>
+				<a onclick="styleDel('${style.styleCode }', '${authInfo.userId }');">삭제하기</a>
+			</c:if>
 			</div>
 		</div>
 		<!-- Content 끝 -->
@@ -97,7 +101,31 @@
 	<!-- foot -->
 	<footer> SoulMate's Forest 02.125.7979 Copyright &copy All
 		Rights reserved. </footer>
-	<script src="js/script.js"></script>
 	<!-- foot 끝 -->
+	<script type="text/javascript">
+		function styleDel(code, id){
+			del = {
+					type : "post"
+					,url : "styleDel"
+					,data : {
+						"styleCode" : code
+						,"desnId" : id
+					}
+					,dataType : "text"
+					,success : function(result) {
+						if(result != 0) {
+							alert('삭제되었습니다.');
+							location.href="/salon/desn/" + id;
+						} else {
+							alert('다시 시도해주세요.');
+						}
+					}
+					,errors : function(){
+						alert('에러');
+					}
+			};
+			$.ajax(del);
+		}
+	</script>
 </body>
 </html>
