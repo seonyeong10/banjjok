@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import banjjok.command.StyleCommand;
 import banjjok.service.salon.style.StyleAddService;
+import banjjok.service.salon.style.StyleDelService;
 import banjjok.service.salon.style.StyleInfoService;
 import banjjok.service.salon.style.StyleModifyService;
 import banjjok.service.salon.style.StyleUpdateService;
@@ -34,6 +35,8 @@ public class StyleBookController {
 	StyleModifyService styleModifyService;	// 수정폼 여는 서비스
 	@Autowired	
 	StyleUpdateService styleUpdateService;	// 수정하는 서비스
+	@Autowired
+	StyleDelService styleDelService;
 	
 	@RequestMapping(value = "addStyle", method = RequestMethod.GET)
 	public String addStyle() {
@@ -61,5 +64,11 @@ public class StyleBookController {
 	public String updateStyle(StyleCommand styleCommand, HttpSession session) throws Exception {
 		styleUpdateService.update(styleCommand, session);
 		return "redirect:/salon/style/desnStyle?styleCode=" + styleCommand.getStyleCode();
+	}
+	@RequestMapping(value = "styleDel", method = RequestMethod.POST)
+	public String styleDel(@RequestParam(value = "styleCode") String styleCode, @RequestParam(value = "desnId") String desnId
+			, Model model) throws Exception {
+		styleDelService.delete(styleCode, desnId, model);
+		return "salon/imgDel";
 	}
 }

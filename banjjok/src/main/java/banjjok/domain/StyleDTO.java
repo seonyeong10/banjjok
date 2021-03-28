@@ -12,9 +12,11 @@ public class StyleDTO {
 	String styleDesc;
 	String styleImg;
 	Timestamp regDate;
-	
-	public StyleDTO() {}
-	
+	String styleUse;	// 0 사용, 1 사용안함
+
+	public StyleDTO() {
+	}
+
 //	public StyleDTO(String styleCode, String styleCateg, String styleName, String styleLength, String styleCurly, String styleDesc,
 //			String styleImg) {
 //		super();
@@ -122,6 +124,14 @@ public class StyleDTO {
 
 	public void setRegDate(Timestamp regDate) {
 		this.regDate = regDate;
+	}
+
+	public String getStyleUse() {
+		return styleUse;
+	}
+
+	public void setStyleUse(String styleUse) {
+		this.styleUse = styleUse;
 	}
 
 }
