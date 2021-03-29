@@ -42,17 +42,14 @@
 				<!-- 펫 선택 -->
 				<div class="select-title">펫 선택</div>
 				<input type="hidden" name="petName"/>
-<!-- 				<ul> -->
-<!-- 						<li> -->
 					<c:forEach items="${petList }" var="pet">
 							<label class="box-radio-input">
-								<input type="radio" name="petId" value="${pet.petId }" onclick="getPetName('${pet.petName}');"/>
+								<input type="radio" name="petId" value="${pet.petId }" onclick="getPetName('${pet.petName}', '${pet.weight }', ${menu.serviceOpt });"/>
 								<span>${pet.petName }</span>
 							</label>
 					</c:forEach>
-<!-- 						</li> -->
-<!-- 				</ul> -->
-				<!-- 현재일로부터 14일간만 선택 가능 -->
+				<div class="select-title-price" >추가금액</div>
+				<input type="text" name="optFee" value="0"/>원
 			</div> <!-- 펫 끝 -->
 			<div class="selectDateArea" id="select-date">
 				<!-- 예약 서비스 -->
@@ -175,7 +172,7 @@
 			<div class="btn-wrap">
 				<!-- 예약하기 -->
 				<div class="price-area">
-					<span>총 결제금액</span>
+					<span>결제 예정금액</span>
 					<span class="price">
 						<fmt:formatNumber value="${menu.serviceFee }" pattern="#,###" />원
 						<input type="hidden" name="serviceFee" value="${menu.serviceFee }"/>

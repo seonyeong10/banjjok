@@ -28,7 +28,7 @@
 					<li><a href="signUp">Sign Up</a></li>
 				</c:if>
 				<c:if test="${!empty authInfo }">
-					<li>${authInfo.userId }님환영합니다.</li>
+					<li>${authInfo.userName }님환영합니다.</li>
 					<li><a href="/main/myPage">마이페이지</a></li>
 					<li><a href="/main/logout">Log Out</a></li>
 				</c:if>

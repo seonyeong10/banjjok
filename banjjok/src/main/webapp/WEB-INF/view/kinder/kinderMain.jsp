@@ -26,7 +26,7 @@
 				<a href="#teacher">INTRODUCTION TEACHER</a>
 			</div>
 			<div class="mm">
-				<a href="#reservation">RESERVATION</a>
+				<a href="../kinderReserv/reservationForm">RESERVATION</a>
 			</div>
 		</div>
 
@@ -62,82 +62,82 @@
 				</div>
 				<hr class="programline">
 				<div class="program">
-<!-- 					<div class="division"> -->
-<!-- 						<div class="classify">CLASSIFY</div> -->
-<!-- 						<div class="price">PRICE</div> -->
-<!-- 					</div> -->
-<!-- 					<div class="div"> -->
-<!-- 						<div class="kin1"></div> -->
-<!-- 						<div class="socialization">SOCIALIZATION TESTING</div> -->
-<!-- 					</div> -->
+					<!-- 					<div class="division"> -->
+					<!-- 						<div class="classify">CLASSIFY</div> -->
+					<!-- 						<div class="price">PRICE</div> -->
+					<!-- 					</div> -->
+					<!-- 					<div class="div"> -->
+					<!-- 						<div class="kin1"></div> -->
+					<!-- 						<div class="socialization">SOCIALIZATION TESTING</div> -->
+					<!-- 					</div> -->
 
-										<table class="mainProgram">
-											<tr class="program list top">
-												<th colspan="3" style="width:80%;">CLASSIFY</th>
-												<th style="width:20%;">PRICE</th>
-											</tr>
-											<tr>
-												<th rowspan="4" class="kinder name">KINDERGARTEN</th>
-												<th rowspan="2" class="classify">ONE DAY</th>
-												<th>BASIC
-													<div>(AM 09 - PM 18)</div>
-												</th>
-												<td>200,000 WON</td>
-											</tr>
-											<tr>
-												<th>ALL DAY
-													<div>(AM 07 - PM 20)</div>
-												</th>
-												<td>400,000 WON</td>
-											</tr>
-											<tr>
-												<th rowspan="2" class="classify">ONE MONTH</th>
-												<th>BASIC
-													<div>(AM 09 - PM 18)</div>
-												</th>
-												<td>6,000,000 WON</td>
-											</tr>
-											<tr class="program list mid">
-												<th>ALL DAY
-													<div>(AM 07 - PM 20)</div>
-												</th>
-												<td>12,000,000 WON</td>
-											</tr>
-											<tr>
-												<th rowspan="2" colspan="2" class="test name">
-												SOCIALIZATIONTESTING</th>
-												<th>FIRST TIME</th>
-												<td>500,000 WON</td>
-											</tr>
-											<tr class="program list bottom">
-												<th>RETRY</th>
-												<td>600,000 WON</td>
-											</tr>
-										</table>
-									</div>
-								</div>
-
+					<table class="mainProgram">
+						<tr class="program list top">
+							<th colspan="3" style="width: 80%;">CLASSIFY</th>
+							<th style="width: 20%;">PRICE</th>
+						</tr>
+						<tr>
+							<th rowspan="4" class="kinder name">KINDERGARTEN</th>
+							<th rowspan="2" class="classify">ONE DAY</th>
+							<th>BASIC
+								<div>(AM 09 - PM 18)</div>
+							</th>
+							<td>200,000 WON</td>
+						</tr>
+						<tr>
+							<th>ALL DAY
+								<div>(AM 07 - PM 20)</div>
+							</th>
+							<td>400,000 WON</td>
+						</tr>
+						<tr>
+							<th rowspan="2" class="classify">ONE MONTH</th>
+							<th>BASIC
+								<div>(AM 09 - PM 18)</div>
+							</th>
+							<td>6,000,000 WON</td>
+						</tr>
+						<tr class="program list mid">
+							<th>ALL DAY
+								<div>(AM 07 - PM 20)</div>
+							</th>
+							<td>12,000,000 WON</td>
+						</tr>
+						<tr>
+							<th rowspan="2" colspan="2" class="test name">
+								SOCIALIZATIONTESTING</th>
+							<th>FIRST TIME</th>
+							<td>500,000 WON</td>
+						</tr>
+						<tr class="program list bottom">
+							<th>RETRY</th>
+							<td>600,000 WON</td>
+						</tr>
+					</table>
 				</div>
 			</div>
-			<div class="ct" id="teacher">
-				<div class="teacher title">
-					<h2 class="title">Introduction Teacher</h2>
-				</div>
-				<hr>
-				<div class="teacher content">
-					<ul>
-						<li class="t1"></li>
-						<li class="t2"></li>
-						<li class="t3"></li>
-					</ul>
-				</div>
-			</div>
-			<!-- footer -->
-
-			<footer> SoulMate's Forest 02.125.7979 Copyright & copy All
-				Rights reserved. </footer>
 
 		</div>
+
+		<div class="ct" id="teacher">
+			<div class="teacher title">
+				<h2 class="title">Introduction Teacher</h2>
+			</div>
+			<hr>
+			<div class="teacher content">
+				<ul>
+					<li class="t1"></li>
+					<li class="t2"></li>
+					<li class="t3"></li>
+				</ul>
+			</div>
+		</div>
+		<!-- footer -->
+
+		<footer> SoulMate's Forest 02.125.7979 Copyright & copy All
+			Rights reserved. </footer>
+
+
 	</div>
 </body>
 </html>

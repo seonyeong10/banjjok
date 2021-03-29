@@ -39,7 +39,7 @@
 					<tr>
 						<td colspan="3">
 							<input type="button" value="ENROLL" onclick="javascript:location.href='programEnroll'" />
-							<input type="button" value="BACK" onclick="javascript:location.href='programList'" />
+							<input type="button" value="BACK" onclick="javascript:location.href='administration'" />
 						</td>
 					</tr>
 				</table>

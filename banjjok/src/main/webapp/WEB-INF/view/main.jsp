@@ -31,7 +31,25 @@
 				</c:if>
 				<c:if test="${!empty authInfo }">
 					<li>안녕하세요! ${authInfo.userName }님</li>
-					<li><a href="/main/myPage">마이페이지</a></li>
+					<c:choose>
+						<c:when test="${authInfo.grade eq 'mem' }">
+							<!-- 회원이 로그인 했을 때 -->
+							<li><a href="/main/myPage">마이페이지</a></li>
+						</c:when>
+						<c:when test="${authInfo.grade eq 'sitter' }">
+							<!-- 돌보미가 로그인 했을 때 -->
+							<li><a href="/main/myPage">마이페이지</a></li>
+						</c:when>
+							<c:when test="${authInfo.grade eq 'teach' }">
+						<!-- 선생님이 로그인 했을 때 -->
+							<li><a href="/main/myPage">마이페이지</a></li>
+						</c:when>
+						<c:otherwise >
+							<!-- 디자이너가 로그인 했을 때 -->
+							<li><a href="/salon/preMyPage">마이페이지</a></li>
+						</c:otherwise>
+					</c:choose>
+					
 					<li><a href="/main/logout">Log Out</a></li>
 				</c:if>
 			</ul>

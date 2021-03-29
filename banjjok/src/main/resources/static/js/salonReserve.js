@@ -23,7 +23,16 @@ function preMonth(year, month) {
 	console.log(year, month);
 }
 
-function getPetName(petName) {
+function getPetName(petName, weight, optFee) {
+	if(4 < weight && weight < 6) {
+		document.getElementsByName('optFee')[0].value = optFee;
+	} else if(weight < 8) {
+		document.getElementsByName('optFee')[0].value = optFee * 2;
+	} else if(weight < 10) {
+		document.getElementsByName('optFee')[0].value = optFee * 3;
+	} else if(weight < 12) {
+		document.getElementsByName('optFee')[0].value = optFee * 4;
+	}
 	document.getElementsByName('petName')[0].value = petName;
 }
 

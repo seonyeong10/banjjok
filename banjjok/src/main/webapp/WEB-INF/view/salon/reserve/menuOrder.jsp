@@ -37,7 +37,7 @@
 				<input type="hidden" name="reservDate" value="${info.reservDate }"/>
 				<input type="hidden" name="reservTime" value="${info.reservTime }"/>
 				<input type="hidden" name="reservDesc" value="${info.reservDesc }"/>
-				<input type="hidden" name="totalFee" value="${info.serviceFee }"/>
+				<input type="hidden" name="totalFee" value="${info.serviceFee + info.optFee }"/>
 			<div class="selectedServiceArea">
 				<!-- 예약 서비스 -->
 				<div class="select-title">예약정보</div>
@@ -54,7 +54,9 @@
 				<div class="select-title">결제정보</div>
 				<ul>
 					<li><span class="select-menu-price">메뉴가격</span><fmt:formatNumber value="${info.serviceFee }" pattern="#,### 원" /> </li>
-					<li><span >총 결제금액</span><fmt:formatNumber value="${info.serviceFee }" pattern="#,### 원" /></li> 
+					<li><span class="select-menu-price">추가금액</span><fmt:formatNumber value="${info.optFee }" pattern="#,### 원" />
+					</li>
+					<li><span >총 결제금액</span><fmt:formatNumber value="${info.serviceFee + info.optFee }" pattern="#,### 원" /></li> 
 					<li><span >결제방법</span><input type="radio" name="payMethod" checked="checked" value='card'/>카드</li>
 				</ul>
 			</div>
@@ -63,11 +65,12 @@
 				<div class="price-area">
 					<span>총 결제금액</span>
 					<span class="price">
-						<fmt:formatNumber value="${info.serviceFee }" pattern="#,###" />원
+						<fmt:formatNumber value="${info.serviceFee + info.optFee }" pattern="#,###" />원
 					</span>
 				</div>
 				<div class="btn-area">
 					<input type="submit" value="결제하기"/>
+					<input type="button" value="취소하기" onclick="cancle('${info.reservCode}');"/>
 				</div>
 			</div>
 		</form>

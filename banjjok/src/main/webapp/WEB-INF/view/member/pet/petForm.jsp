@@ -22,8 +22,15 @@
       <!-- 나비(메뉴선택 바)  -->
       <div class="navigationWrap">
         <ul class="navigationArea">
-          <li><a href="#" >Log In</a></li>
-          <li><a href="#" >Sign In</a></li>
+          <c:if test="${empty authInfo }">
+					<li><a href="<c:url value='/login'/>">Log In</a></li>
+					<li><a href="<c:url value='/signUp'/>">Sign Up</a></li>
+				</c:if>
+				<c:if test="${!empty authInfo }">
+					<li>${authInfo.userName }님 환영합니다.</li>
+					<li><a href="<c:url value='/main/myPage' />">마이페이지</a></li>
+					<li><a href="<c:url value='/main/logout' />">Log Out</a></li>
+				</c:if>
         </ul>
       </div>
     </header>  
