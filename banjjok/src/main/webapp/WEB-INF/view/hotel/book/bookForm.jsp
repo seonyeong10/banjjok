@@ -149,9 +149,11 @@
 						<div class=chk-area>
 							<ul>
 								<li><label class="box-radio-input"> 
+									<c:if test="${dayOfWeek != off }">
 										<input type="radio" name="sitterId" value="${sitter.sitterId}" />
 <%-- 										onclick="getId('${sitter.sitterId}', '${sitter.sitterName}', this);" /> --%>
 										<span >선택</span> 
+									</c:if>
 									</label></li>
 							</ul>
 						</div>

@@ -30,7 +30,7 @@
 					<!-- <p>서비스 메뉴 등록</p> -->
 				</div>
 			</div>
-			<form action="payment" method="post" name="frm" >
+			<form action="../payment" method="post" name="frm" >
 				<input type="hidden" name="roomCode" value="${room.roomCode }"/>
 				<input type="hidden" name="bookCode" value="${bookInfo.reservCode }"/>
 <%-- 				<input type="hidden" name="reservDate" value="${bookInfo.reservDate }"/> --%>
@@ -57,9 +57,9 @@
 				<!-- 결제정보 입력 -->
 				<div class="select-title">결제정보</div>
 				<ul>
-<%-- 					<li><span class="select-menu-price">메뉴가격</span><fmt:formatNumber value="${info.serviceFee }" pattern="#,### 원" /> </li> --%>
-<%-- 					<li><span >총 결제금액</span><fmt:formatNumber value="${info.serviceFee }" pattern="#,### 원" /></li>  --%>
-<!-- 					<li><span >결제방법</span><input type="radio" name="payMethod" checked="checked" value='card'/>카드</li> -->
+					<li><span class="select-menu-price">메뉴가격</span><fmt:formatNumber value="${room.roomPrice }" pattern="#,### 원" /> </li>
+					<li><span >총 결제금액</span><fmt:formatNumber value="${room.roomPrice }" pattern="#,### 원" /></li> 
+					<li><span >결제방법</span><input type="radio" name="payMethod" checked="checked" value='card'/>카드</li>
 				</ul>
 			</div>
 			<div class="btn-wrap">
@@ -67,7 +67,7 @@
 				<div class="price-area">
 					<span>총 결제금액</span>
 					<span class="price">
-<%-- 						<fmt:formatNumber value="${info.serviceFee }" pattern="#,###" />원 --%>
+						<fmt:formatNumber value="${room.roomPrice }" pattern="#,###" />원
 					</span>
 				</div>
 				<div class="btn-area">
@@ -82,7 +82,6 @@
 		<!-- foot -->
 		<footer> SoulMate's Forest 02.125.7979 Copyright &copy All
 			Rights reserved. </footer>
-<!-- 		<script src="../../static/js/salonReserve.js"></script> -->
 		<!-- foot 끝 -->
 </body>
 </html>

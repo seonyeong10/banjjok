@@ -41,7 +41,7 @@ public class BookActService {
 		dto.setSitterId(command.getSitterId());
 		
 		Integer result = hotelBookMapper.insertBook(dto); //예약
-		hotelBookMapper.insertBookList(dto); //예약리스트
+		hotelBookMapper.insertBookList(dto); //예약리스트 >> 이거 추후에 결제 완료 되면 insert 시킬까..?
 		System.out.println(result + "개가 예약되었습니다.");
 		
 		

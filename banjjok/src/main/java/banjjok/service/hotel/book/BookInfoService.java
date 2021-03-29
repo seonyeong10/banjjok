@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import banjjok.domain.AuthInfo;
+import banjjok.domain.HotelPayDTO;
 import banjjok.domain.MemHotelBookDTO;
 import banjjok.domain.RoomDTO;
 import banjjok.mapper.HotelBookMapper;
@@ -39,6 +40,7 @@ public class BookInfoService {
 		rDto = roomMapper.getRoomList(rDto).get(0);
 		model.addAttribute("room", rDto);
 		
+	
 		
 	}
 	
