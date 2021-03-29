@@ -26,8 +26,6 @@ public class LoginService {
 		String location = "";
 		LoginDTO dto = new LoginDTO();
 		dto.setUserId(loginCommand.getUserId());
-		System.out.println(loginCommand.getUserId());
-		System.out.println(dto.getUserId());
 		List<LoginDTO> list = null;
 		try {
 			list = loginMapper.getUsers(dto);

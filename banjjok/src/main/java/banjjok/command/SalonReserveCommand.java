@@ -18,6 +18,7 @@ public class SalonReserveCommand {
 	String desnName;
 	String petName;
 	String memName;
+	String optFee;
 
 	public String getPetId() {
 		return petId;
@@ -146,5 +147,14 @@ public class SalonReserveCommand {
 	public void setReservDate(String reservDate) {
 		this.reservDate = reservDate;
 	}
+
+	public String getOptFee() {
+		return optFee;
+	}
+
+	public void setOptFee(String optFee) {
+		this.optFee = optFee;
+	}
+	
 
 }

@@ -70,13 +70,13 @@ table td {
 				<tr>
 					<td>직급</td>
 					<td>
-						<c:if test="${list.desnUse == 1 }">
+					<c:if test="${list.desnUse == 1 }">
 						원장
 					</c:if>
-						<c:if test="${list.desnUse == 2 }">
+					<c:if test="${list.desnUse == 2 }">
 						수석디자이너
 					</c:if>
-						<c:if test="${list.desnUse == 3 }">
+					<c:if test="${list.desnUse == 3 }">
 						디자이너
 					</c:if>
 					</td>

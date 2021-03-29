@@ -50,10 +50,10 @@ public class ReserveController {
 		return "salon/reserve/orderFin";
 	}
 	@RequestMapping(value = "menu/isReserve", method = RequestMethod.POST)
-	public String isReserve(@RequestParam(value = "year") int year, @RequestParam(value = "month") int month, 
+	public String isReserve(@RequestParam(value = "desnId") String desnId, @RequestParam(value = "year") int year, @RequestParam(value = "month") int month, 
 			@RequestParam(value = "date") int date, @RequestParam(value = "time") String time, Model model) throws Exception {
 		// 선택한 시간이 예약되었는지 확인
-		reserveChkService.isReserve(year, month, date, time, model);		
+		reserveChkService.isReserve(desnId, year, month, date, time, model);		
 		return "salon/imgDel";
 	}
 	

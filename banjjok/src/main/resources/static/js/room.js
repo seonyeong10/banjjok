@@ -1,6 +1,68 @@
 /**
  * 
  */
+function preMonth(year, month) {
+	// 문자를 숫자로 변환
+	year *= 1;
+	month *= 1;
+	if(month == 12){
+		year = year + 1;
+		month = 0;
+	}
+	if(month == -1) {
+		year = year - 1;
+		month = 11;
+	}
+	$('#select-date').load('changeMonth', {"year" : year, "month" : month});
+	console.log(year, month);
+}
+
+function getPetName(petId) {
+	document.getElementsByName('petId')[0].value = petId;
+}
+
+//function getId(sitterId, sitterName, btn){
+//	var year = $('input:hidden[name="year"]').val();
+//	var month = $('input:hidden[name="month"]').val();
+//	var date = $('input:radio[name="date"]:checked').val();
+//	var time = $(btn).val();
+//	var data = {
+//			"desnId" : desnId
+//			,"year" : year
+//			,"month" : month
+//			,"date" : date
+//			,"time" : time
+//		};
+//	isReserved = {
+//			type : "post"
+//			,url : "isReserve"
+//			,data : data
+//			,dataType : "text"
+//			,success : function(result){
+//				if(result != 0) {
+//					alert('이미 예약된 시간입니다.\n다른 시간을 선택해주세요.');
+//					$(btn).attr('checked', false);
+//				} else {
+//					document.getElementsByName('desnId')[0].value = desnId;
+//					document.getElementsByName('desnName')[0].value = desnName;
+//				}
+//			}
+//			,error : function() {}
+//	};
+//	$.ajax(isReserved);
+//}
+
+function send(){
+	if(document.getElementsByName('petName')[0].value.trim() == "") {
+		alert('펫을 선택해주세요.');
+		return false;
+	} 
+	if(document.getElementsByName('desnId')[0].value.trim() == "") {
+		alert('시간을 선택해주세요.');
+		return false;
+	} 
+}
+
 function frmSend(){
 	if(document.getElementById('roomPw').value.trim() =="" ){
 		alert('비밀번호를 입력하세요');

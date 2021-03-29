@@ -1,19 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
 %>
-<%@ include file="../include/include.jsp" %>
+<%@ include file="../../include/include.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>salonMain</title>
-<link href="static/css/baseCSS.css" rel="stylesheet" type="text/css" />
-<link href="static/css/footer.css" rel="stylesheet" type="text/css" />
-<link href="static/css/salonInfo.css" rel="stylesheet" type="text/css" />
+<link href="<c:url value="/static/css/baseCSS.css"/>" rel="stylesheet" type="text/css" />
+<link href="<c:url value="/static/css/footer.css"/>" rel="stylesheet" type="text/css" />
+<link href="<c:url value="/static/css/salonInfo.css"/>" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
 </head>
 <body>
-	<%@ include file="../include/top.jsp" %>
+	<%@ include file="../../include/top.jsp" %>
 	<div class="contentWrap">
 		<!-- Content -->
 		<div class="content">
@@ -21,18 +21,18 @@
 				<div class="title">
 					<h2>Salon</h2>
 				</div>
-				<div class="fieldDesc">
-					<p>서울특별시 서초구</p>
-					<p>예약문의 : 02-125-7979</p>
-				</div>
+<!-- 				<div class="fieldDesc"> -->
+<!-- 					<p>서울특별시 서초구</p> -->
+<!-- 					<p>예약문의 : 02-125-7979</p> -->
+<!-- 				</div> -->
 			</div>
-			<div class="mainImageWrap">
-				<img src="<c:url value='/static/images/petSalon_loby.jpg'/>" alt="salonImg1"/>
-				<img src="<c:url value='/static/images/petSalon_workspace.jpg'/>" alt="salonImg2"/>
-			</div>
+<!-- 			<div class="mainImageWrap"> -->
+<%-- 				<img src="<c:url value='/static/images/petSalon_loby.jpg'/>" alt="salonImg1"/> --%>
+<%-- 				<img src="<c:url value='/static/images/petSalon_workspace.jpg'/>" alt="salonImg2"/> --%>
+<!-- 			</div> -->
 			<div class="desinerWrap">
 				<div class="title">
-					<h2>Designer</h2>
+					<h2>Our Designers</h2>
 				</div>
 				<div class="desinerInfoArea">
 					<!-- 4명 1줄, 원장부터 직급순 나열 -->

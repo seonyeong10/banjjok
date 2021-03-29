@@ -29,7 +29,14 @@ public class DesnModifyService {
 		DesnDTO dto = new DesnDTO();
 		dto.setDesnId(desnCommand.getDesnId());
 		dto = (DesnDTO) desnMapper.getDesnList(dto).get(0);
-
+		
+		String[] offArr = desnCommand.getDesnOff().split(",");
+		if(offArr.length > 2) {
+			model.addAttribute("lengthErr", "휴무일은 최대 2개만 선택 가능합니다.");
+			model.addAttribute("list", dto);
+			return "salon/myPage2";
+		}
+		
 		// 파일삭제
 		List<String> list = (List<String>) session.getAttribute("imgList");
 		String filePath = session.getServletContext().getRealPath("/WEB-INF/view/salon/designer/upload");
@@ -48,7 +55,10 @@ public class DesnModifyService {
 		// 비밀번호 확인
 		if (!passwordEncoder.matches(desnCommand.getDesnPw(), dto.getDesnPw())) {
 			// 불일치
-			location = "redirect:/salon/myPage";
+//			location = "redirect:/salon/myPage";
+			model.addAttribute("pwErr", "비밀번호가 일치하지 않습니다.");
+			model.addAttribute("list", dto);
+			return "salon/myPage2";
 		} else {
 			String desnImg = "";
 			// 일치
@@ -75,7 +85,11 @@ public class DesnModifyService {
 				}
 			}
 			dto.setDesnImg(desnImg);
-			System.out.println(desnImg);
+			
+			// 이름, 휴대폰, 휴무일 변경
+			dto.setDesnName(desnCommand.getDesnName());
+			dto.setDesnPh(desnCommand.getDesnPh());
+			dto.setDesnOff(desnCommand.getDesnOff());
 			Integer result = desnMapper.updateDesn(dto);
 			if(result > 0) {
 				location = "redirect:/salon";
