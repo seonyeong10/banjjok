@@ -258,11 +258,12 @@ public class AdminController {
 	@RequestMapping(value="programModifyOk", method=RequestMethod.POST)
 	public String programModifyOk(@Validated ProgramCommand programCommand, BindingResult result,
 			HttpSession session) throws Exception {
-		System.out.println("여기서 실행되냐 ");
 		programModifyOkService.programModifyOk(programCommand, session);
 		if(result.hasErrors()) {
 			return "kinder/admin/programModify";
 		}
 		return "redirect:/kinder/programDetail?pCode="+programCommand.getpCode();
 	}
+	
+	
 }
