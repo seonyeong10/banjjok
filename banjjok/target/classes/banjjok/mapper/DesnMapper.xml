@@ -31,7 +31,7 @@
 </select>
 <update id="updateDesn" parameterType="banjjok.domain.DesnDTO" >
 	update designer
-	set desn_name = #{desnName}, desn_img = #{desnImg}
+	set desn_name = #{desnName}, desn_img = #{desnImg}, desn_ph = #{desnPh}, desn_off = #{desnOff}
 	where desn_id = #{desnId}
 </update>
 <delete id="deleteDesn" parameterType="banjjok.domain.DesnDTO" >

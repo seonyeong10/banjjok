@@ -40,12 +40,16 @@ public class ReserveService {
 		String date = salonReserveCommand.getYear() + "-" + month + "-" + salonReserveCommand.getDate() + " " + salonReserveCommand.getReservTime() + ":00";
 //		java.sql.Date reservDate = java.sql.Date.valueOf(date);
 		Timestamp reservDate = Timestamp.valueOf(date);
-		System.out.println(reservDate);
 		dto.setReservDate(reservDate);
-		dto.setReservDesc(salonReserveCommand.getReservDesc());
+		if(salonReserveCommand.getReservDesc() != "") {
+			dto.setReservDesc(salonReserveCommand.getReservDesc());
+		} else {
+			dto.setReservDesc("없음");
+		}
 		dto.setReservTime(salonReserveCommand.getReservTime());
 		dto.setServiceCode(salonReserveCommand.getServiceCode());
 		dto.setPetId(salonReserveCommand.getPetId());
+		dto.setOptFee(salonReserveCommand.getOptFee());	// 추가금액
 		dto.setReservCode(reservCode);
 		dto.setDesnName(salonReserveCommand.getDesnName());
 		dto.setMemName(authInfo.getUserName());

@@ -29,9 +29,9 @@
 <!-- 			<a href="#" onclick="nextPage();">  -->
 <!-- 				<span class="pennant-pet"><span class="fa fa-ruler fa-2x"></span>&nbsp;스타일 등록</span> -->
 <!-- 			</a> -->
-			<a href="#" > 
-				<span class="pennant-pet"><span class="fa fa-ruler fa-2x"></span>&nbsp;스타일 등록</span>
-			</a>
+<!-- 			<a href="#" >  -->
+<!-- 				<span class="pennant-pet"><span class="fa fa-ruler fa-2x"></span>&nbsp;스타일 등록</span> -->
+<!-- 			</a> -->
 		</div>
 		<form:form action="menuRegist" name="frm" id="frm" method="post" modelAttribute="salonServCommand">
 			<!-- 보호자 정보 -->
@@ -51,8 +51,8 @@
 							<form:option value="sp">스포팅</form:option>
 							<form:option value="st">스타일컷</form:option>
 					</form:select>
-					<div class="element-errors"><form:errors path="serviceCateg" /> </div>
 					</span>
+					<div class="element-errors"><form:errors path="serviceCateg" /> </div>
 				</div>
 				<div class="mem-element">
 					<p class="element-name">서비스 이름</p>
@@ -75,9 +75,15 @@
 				<div class="mem-element">
 					<p class="element-name">시술대상</p>
 					<span class="element-value"> 
-						<form:radiobutton path="serviceTarget" value="small" checked="checked"/> 소형견
-						<form:radiobutton path="serviceTarget" value="middle"/> 중형견
-						<form:radiobutton path="serviceTarget" value="big"/> 대형견
+						<label class="element-value">
+							<form:radiobutton path="serviceTarget" value="small" checked="checked"/><span>소형견</span>
+						</label>
+						<label class="element-value">
+							<form:radiobutton path="serviceTarget" value="middle"/><span>중형견</span>
+						</label>
+						<label class="element-value">
+							<form:radiobutton path="serviceTarget" value="big"/><span>대형견</span>
+						</label>
 					</span>
 					<div class="element-errors"><form:errors path="serviceTarget" /> </div>
 				</div>

@@ -67,10 +67,15 @@
 				<div class="mem-element">
 					<p class="element-name">시술대상</p>
 					<span class="element-value"> 
-					
-						<input type="radio" name="serviceTarget" value="small" <c:if test="${dto.serviceTarget == 'small' }">checked</c:if> /> 소형견
-						<input type="radio" name="serviceTarget" value="middle" <c:if test="${dto.serviceTarget == 'middle' }">checked</c:if> /> 중형견
-						<input type="radio" name="serviceTarget" value="big" <c:if test="${dto.serviceTarget == 'big' }">checked</c:if> /> 대형견
+						<label class="element-value">
+							<input type="radio" name="serviceTarget" value="small" <c:if test="${dto.serviceTarget == 'small' }">checked</c:if> /><span>소형견</span>
+						</label>
+						<label class="element-value">
+						<input type="radio" name="serviceTarget" value="middle" <c:if test="${dto.serviceTarget == 'middle' }">checked</c:if> /><span>중형견</span>
+						</label>
+						<label class="element-value">
+						<input type="radio" name="serviceTarget" value="big" <c:if test="${dto.serviceTarget == 'big' }">checked</c:if> /><span>대형견</span>
+						</label>
 					</span>
 				</div>
 				<div class="mem-element">

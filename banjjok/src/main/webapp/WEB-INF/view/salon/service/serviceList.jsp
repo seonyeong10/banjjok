@@ -32,7 +32,7 @@
           	<c:if test="${list.serviceCateg == 'ba' }">
           	<li>
 	            <a href="<c:url value='/salon/menu/menuInfo?serviceCode=${list.serviceCode }'/>">${list.serviceName }</a>
-	            <span>${list.serviceFee }</span>
+	            <span><fmt:formatNumber value="${list.serviceFee }" pattern="#,### 원"/></span>
           	</li> 
           	</c:if>         
           </c:forEach>
@@ -50,7 +50,7 @@
           	<c:if test="${list.serviceCateg == 'pa' }">
           	<li>
 	            <a href="<c:url value='/salon/menu/menuInfo?serviceCode=${list.serviceCode }'/>">${list.serviceName }</a>
-	            <span>${list.serviceFee }</span>
+	            <span><fmt:formatNumber value="${list.serviceFee }" pattern="#,### 원"/></span>
           	</li> 
           	</c:if>         
           </c:forEach>
@@ -63,8 +63,10 @@
           <c:forEach items="${list }" var="list" varStatus="i">
           	<c:if test="${list.serviceCateg == 'al' }">
           	<li>
-	            <a href="<c:url value='/salon/menu/menuInfo?serviceCode=${list.serviceCode }'/>">${list.serviceName }</a>
-	            <span>${list.serviceFee }</span>
+	            <a href="<c:url value='/salon/menu/menuInfo?serviceCode=${list.serviceCode }'/>">
+	            [<c:if test="${list.serviceTarget eq 'small' }">소형견</c:if><c:if test="${list.serviceTarget eq 'middle' }">중형견</c:if><c:if test="${list.serviceTarget eq 'big' }">대형견</c:if>]
+	            ${list.serviceName }</a>
+	            <span><fmt:formatNumber value="${list.serviceFee }" pattern="#,### 원"/></span>
           	</li> 
           	</c:if>         
           </c:forEach>
@@ -77,8 +79,10 @@
           <c:forEach items="${list }" var="list" varStatus="i">
           	<c:if test="${list.serviceCateg == 'sp' }">
           	<li>
-	            <a href="<c:url value='/salon/menu/menuInfo?serviceCode=${list.serviceCode }'/>">${list.serviceName }</a>
-	            <span>${list.serviceFee }</span>
+	            <a href="<c:url value='/salon/menu/menuInfo?serviceCode=${list.serviceCode }'/>">
+	            [<c:if test="${list.serviceTarget eq 'small' }">소형견</c:if><c:if test="${list.serviceTarget eq 'middle' }">중형견</c:if><c:if test="${list.serviceTarget eq 'big' }">대형견</c:if>]
+	            ${list.serviceName }</a>
+	            <span><fmt:formatNumber value="${list.serviceFee }" pattern="#,### 원"/></span>
           	</li> 
           	</c:if>         
           </c:forEach>
@@ -91,7 +95,9 @@
           <c:forEach items="${list }" var="list" varStatus="i">
           	<c:if test="${list.serviceCateg == 'st' }">
           	<li>
-	            <a href="<c:url value='/salon/menu/menuInfo?serviceCode=${list.serviceCode }'/>">${list.serviceName }</a>
+	            <a href="<c:url value='/salon/menu/menuInfo?serviceCode=${list.serviceCode }'/>">
+	            [<c:if test="${list.serviceTarget eq 'small' }">소형견</c:if><c:if test="${list.serviceTarget eq 'middle' }">중형견</c:if><c:if test="${list.serviceTarget eq 'big' }">대형견</c:if>]
+	            ${list.serviceName }</a>
 	            <span><fmt:formatNumber value="${list.serviceFee }" pattern="#,### 원"/> </span>
           	</li> 
           	</c:if>         

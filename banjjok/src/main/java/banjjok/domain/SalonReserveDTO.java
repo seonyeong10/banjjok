@@ -16,6 +16,7 @@ public class SalonReserveDTO {
 	String desnName;
 	String petName;
 	String memName;
+	String optFee;
 
 	public String getReservCode() {
 		return reservCode;
@@ -120,6 +121,13 @@ public class SalonReserveDTO {
 	public void setMemName(String memName) {
 		this.memName = memName;
 	}
-	
+
+	public String getOptFee() {
+		return optFee;
+	}
+
+	public void setOptFee(String optFee) {
+		this.optFee = optFee;
+	}
 
 }

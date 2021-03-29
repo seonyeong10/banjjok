@@ -61,8 +61,10 @@
       <!-- 예약 -->
       <div class="reserve-button-area">
         <a href="<c:url value='/salon/menu/reserve?serviceCode=${dto.serviceCode }'/>" class="reserve-button">예약하기</a>
-        <a href="<c:url value='/salon/menu/menuModify?serviceCode=${dto.serviceCode }'/>" class="modify-button">수정하기</a>
-        <a href="" class="modify-button" onclick="menuDel();">삭제하기</a>
+        <c:if test="${authInfo.grade eq '0' }">
+	        <a href="<c:url value='/salon/menu/menuModify?serviceCode=${dto.serviceCode }'/>" class="modify-button">수정하기</a>
+	        <a href="" class="modify-button" onclick="menuDel();">삭제하기</a>
+        </c:if>
       </div>
     </div>
     <!-- foot -->

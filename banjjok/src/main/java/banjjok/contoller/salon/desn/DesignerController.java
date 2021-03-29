@@ -58,7 +58,8 @@ public class DesignerController {
 	@RequestMapping(value = "myPage", method = RequestMethod.GET)  
 	public String myPage(Model model, HttpSession session) throws Exception {
 		desnInfoService.getInfo(model, session);
-		return "salon/myPage";
+//		return "salon/myPage";
+		return "salon/myPage2";
 	}
 	@RequestMapping(value = "desnModify", method = RequestMethod.POST)
 	public String modifyForm(@Validated DesnCommand desnCommand, BindingResult result, Model model, HttpSession session) throws Exception {
