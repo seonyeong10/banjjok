@@ -7,25 +7,8 @@
 <meta charset="UTF-8">
 <title>호텔 예약 폼</title>
 <link href="<c:url value='/static/css/reserveForm.css'/>" rel="stylesheet" type="text/css" />
-<%-- <link href="<c:url value='/static/css/footer.css'/>" rel="stylesheet" type="text/css" /> --%>
-<style type="text/css">
-	.selectDateArea .calendar-month{ box-sizing:initial; }
-	.select-title .calendar-chk{
-		position : middle;
-	}
-	
-	.calendar-chk {
-		text-align:center;
-		display:inline-block;
-		list-style: none;
-		
-	}
-	.calendar-chk input {
-		text-align : center;
-	}
-  	 
-	}
-</style>
+<link href="<c:url value='/static/css/bookForm.css'/>" rel="stylesheet" type="text/css" />
+<link href="<c:url value='/static/css/footer.css'/>" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<!-- top -->
@@ -34,6 +17,7 @@
 	</div>
 	<!-- top 끝 -->
 	<div class="contentWrap" style="width: 620px; margin: 0 auto;">
+	<form action="../bookAct" method="post" name="frm" onsubmit="return send();">
 		<!-- Content -->
 		<div class="content">
 			<div class="titleWrap">
@@ -44,7 +28,6 @@
 					<!-- <p>서비스 메뉴 등록</p> -->
 				</div>
 			</div>
-		<form action="bookAct" method="post" name="frm" onsubmit="return send();">
 			<div class="selectedServiceArea">
 				<!-- 예약 서비스 -->
 				<ul>
@@ -65,10 +48,10 @@
 			<div class="selectedServiceArea">
 				<!-- 펫 선택 -->
 				<div class="select-title">펫 선택</div>
-				<input type="hidden" name="petName" />
+				<input type="text" name="petId" value="${pet.petId }"/>
 				<c:forEach items="${petList }" var="pet">
 					<label class="box-radio-input"> <input type="radio"
-						name="petId" value="" onclick="getPetName('${pet.petName }');" /> <span>${pet.petName }</span>
+						name="petName" value="${pet.petName }" onclick="getPetName('${pet.petId }');" /> <span>${pet.petName }</span>
 					</label>
 				</c:forEach>
 			</div>
@@ -104,9 +87,9 @@
 						${currMonth + 1 }월
 						<span onclick="preMonth('${year }','${currMonth + 1 }');"></span>
 					</div>
-					<input type="hidden" name="year" value="${year }" />
-					<input type="hidden" name="month" value="${currMonth + 1 }" />
-					<input type="hidden" name="date" value="${date }" />
+<%-- 					<input type="hidden" name="year" value="${year }" /> --%>
+<%-- 					<input type="hidden" name="month" value="${currMonth + 1 }" /> --%>
+<%-- 					<input type="hidden" name="date" value="${date }" /> --%>
 					<ul class="calendar-month">
 						<!-- 요일 -->
 						<li>일</li>
@@ -163,6 +146,15 @@
 						<c:if test="${sitter.sitterOff eq '일' }" ><c:set value="7" var="off"/></c:if>
 							<c:set value="${fn:split(sitter.sitterImg,'`') }" var="img" />
 							<img class="designer-img" src="<c:url value='/hotel/petSitter/upload/${img[1] }' />" />
+						<div class=chk-area>
+							<ul>
+								<li><label class="box-radio-input"> 
+										<input type="radio" name="sitterId" value="${sitter.sitterId}" />
+<%-- 										onclick="getId('${sitter.sitterId}', '${sitter.sitterName}', this);" /> --%>
+										<span >선택</span> 
+									</label></li>
+							</ul>
+						</div>
 						<div class="designer-Area">
 						<c:if test="${dayOfWeek != off }">
 							<span class="designer-name">${sitter.sitterName }</span>
@@ -183,22 +175,32 @@
 					</c:forEach>
 					</div>
 				</div>
+				<!-- 요청사항 -->
+				<div class="selectedServiceArea">
+					<div class="select-title">요청사항</div>
+					<!-- 예약 서비스 -->
+					<div>
+						<textarea name="bookDesc"></textarea>
+					</div>
+					<!-- 현재일로부터 14일간만 선택 가능 -->
+				</div> <!-- 요청사항 끝 -->
 			</div>
+				<div class="btn-wrap">
+					<!-- 예약하기 -->
+					<div class="price-area">
+						<span>총 결제금액</span>
+						<span class="price">
+							<fmt:formatNumber value="${room.roomPrice }" pattern="#,###" />원
+							<input type="hidden" name="roomPrice" value="${room.roomPrice }"/>
+						</span>
+					</div>
+					<div class="btn-area">
+						<input type="submit" value="예약하기" />
+					</div>
+				</div>
+			</form>
 		</div>
-			<div class="btn-wrap">
-				<!-- 예약하기 -->
-				<div class="price-area">
-					<span>총 결제금액</span>
-					<span class="price">
-						<fmt:formatNumber value="${room.roomPrice }" pattern="#,###" />원
-						<input type="hidden" name="roomPrice" value="${room.roomPrice }"/>
-					</span>
-				</div>
-				<div class="btn-area">
-					<input type="submit" value="예약하기" />
-				</div>
-			</div>		
-		</form>
+		<!-- Content 끝 -->
 	<!-- foot -->
 	<footer> SoulMate's Forest 02.125.7979 Copyright & copy All sRights reserved. </footer>
 	<script src="/static/js/hotelBook.js"></script>
