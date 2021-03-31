@@ -46,4 +46,31 @@
 	set style_use = '1'
 	where style_code = #{styleCode} and desn_id = #{desnId}
 </update>
+<select id="getCount" parameterType="banjjok.domain.StyleDTO" resultType="int">
+	select count(*)
+	from styleBook
+	where desn_id = #{desnId} and style_use = '0'
+</select>
+<select id="getHeart" parameterType="banjjok.domain.SalHeartDTO" resultType="banjjok.domain.SalHeartDTO">
+	select style_code styleCode, desn_id desnid, mem_id memid, heart heart
+	from heart_salon
+	where desn_id = #{desnId}
+	<if test="memId != null"> and mem_id = #{memId}</if>
+</select>
+<insert id="insertHeart" parameterType="banjjok.domain.SalHeartDTO">
+	insert into heart_salon (style_code, desn_id, mem_id, heart)
+	values(#{styleCode}, #{desnId}, #{memId}, #{heart})
+</insert>
+<update id="updateHt" parameterType="banjjok.domain.SalHeartDTO">
+	update heart_salon
+	set heart = #{heart}
+	where style_code = #{styleCode} and mem_id = #{memId}
+</update>
+<select id="getHtCount" parameterType="banjjok.domain.SalHeartDTO" resultType="int">
+	select count(*)
+	from heart_salon
+	where heart = '1'
+	<if test="desnId != null">and desn_id = #{desnId}</if>
+	<if test="styleCode != null">and style_code = #{styleCode}</if>
+</select>
 </mapper>

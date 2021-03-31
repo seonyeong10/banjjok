@@ -71,7 +71,7 @@
 			<p class="textArea">SoulMate's Forest</p>
 			<p class="textArea-field">Kinder Garden</p>
 		</a>
-		<a href="#" class="imgSlide"
+		<a href="/salon" class="imgSlide"
 			style="background-image: url('static/images/banjjog3.jpg');"
 		>
 			<p class="textArea">SoulMate's Forest</p>

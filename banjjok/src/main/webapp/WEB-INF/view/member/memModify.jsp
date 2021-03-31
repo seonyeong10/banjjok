@@ -75,7 +75,7 @@
           </div>
           <div class="mem-element">
             <p class="element-name">닉네임</p>
-            <span class="element-value"><input type="text" name="nickName" value="<c:if test="${mem.nicName != null }">${mem.nicName }</c:if>"/></span>
+            <span class="element-value"><input type="text" name="nicName" value="<c:if test="${mem.nicName != null }">${mem.nicName }</c:if>"/></span>
           </div>
           <div class="button-wrap">
             <input type="submit" value="수정"/>

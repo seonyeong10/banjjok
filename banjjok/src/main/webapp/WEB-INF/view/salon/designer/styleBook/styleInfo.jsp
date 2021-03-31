@@ -33,7 +33,7 @@
 				</div>
 				<div class="heartArea">
 <!-- 					<img src="#" alt="heart" /> -->
-					<span><i class="fas fa-heart" style="color: red;"></i></span><span>1</span>
+					<span><i class="fas fa-heart" style="color: red;"></i></span><span>${htCount }</span>
 				</div>
 				<div class="descArea">
 					<span class="name">${style.styleName }</span><br /> <br /> <span>${style.styleDesc }</span>

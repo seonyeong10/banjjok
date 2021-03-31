@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import banjjok.domain.DesnDTO;
+import banjjok.domain.SalHeartDTO;
 import banjjok.domain.StyleDTO;
 import banjjok.domain.StyleInfoDTO;
 import banjjok.mapper.StyleMapper;
@@ -27,6 +28,11 @@ public class StyleInfoService {
 		styleDTO.setDesnId(desnId);
 		List<StyleDTO> list = styleMapper.getStyle(styleDTO);
 		model.addAttribute("list", list);
+		
+		SalHeartDTO heartDTO = new SalHeartDTO();
+		heartDTO.setStyleCode(styleCode);
+		Integer htCount = styleMapper.getHtCount(heartDTO);
+		model.addAttribute("htCount", htCount);
 	}
 
 }

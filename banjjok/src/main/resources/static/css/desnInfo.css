@@ -115,3 +115,14 @@
   height: 30px;
 /*   background: #fff; */
 }
+
+/* .fa-heart { */
+/* 	text-indent: -9999px; */
+/* } */
+
+.fa-heart::before{
+   content:"\f004"; 
+   font-family: "Font Awesome 5 Free";
+   font-weight: 900;
+   padding-right: 10px;
+}
