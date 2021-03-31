@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import banjjok.domain.AuthInfo;
+import banjjok.domain.HotelPayDTO;
 import banjjok.domain.MemHotelBookDTO;
 import banjjok.domain.PetSitterDTO;
 import banjjok.domain.RoomDTO;
@@ -48,6 +49,7 @@ public class BookInfoService {
 		pDto.setSitterId(dto.getSitterId());
 		pDto = sitterMapper.getSitterList(pDto).get(0);
 		model.addAttribute("sitter", pDto);
+	
 		
 	}
 	

@@ -8,16 +8,22 @@ import javax.validation.constraints.Size;
 public class HotelBookCommand {
 	String bookCode;
 	
-	String memId;
-	String memName;
 	
 	@NotEmpty(message = "객실코드를 입력하세요.")
+	String roomCode;
+	
+	@NotEmpty(message = "펫 아이디를 입력하세요.")
 	String petId;
 	
 	@NotNull(message = "펫 이름을 입력해주세요.")
 	String petName;
 	
-	String roomCode;
+	@NotEmpty(message = "회원 아이디를 입력하세요.")
+	String memId;
+	
+	@NotNull(message = "회원 이름을 입력해주세요.")
+	String memName;
+	
 	
 	@NotEmpty(message = "객실이름를 입력하세요.")
 	String roomName;
@@ -50,6 +56,22 @@ public class HotelBookCommand {
 	public void setBookCode(String bookCode) {
 		this.bookCode = bookCode;
 	}
+	public String getPetId() {
+		return petId;
+	}
+
+	public void setPetId(String petId) {
+		this.petId = petId;
+	}
+
+	public String getPetName() {
+		return petName;
+	}
+
+	public void setPetName(String petName) {
+		this.petName = petName;
+	}
+	
 	public String getMemId() {
 		return memId;
 	}
@@ -66,21 +88,6 @@ public class HotelBookCommand {
 		this.memName = memName;
 	}
 
-	public String getPetId() {
-		return petId;
-	}
-
-	public void setPetId(String petId) {
-		this.petId = petId;
-	}
-
-	public String getPetName() {
-		return petName;
-	}
-
-	public void setPetName(String petName) {
-		this.petName = petName;
-	}
 	public String getRoomCode() {
 		return roomCode;
 	}

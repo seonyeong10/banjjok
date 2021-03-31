@@ -150,9 +150,17 @@
 						<div class=chk-area>
 							<ul>
 								<li><label class="box-radio-input"> 
+<<<<<<< HEAD
 										<input type="radio" name="sitterId" value="${sitter.sitterId}" 
 										onclick="getId('${sitter.sitterId}');" />
 										<span>선택</span> 
+=======
+									<c:if test="${dayOfWeek != off }">
+										<input type="radio" name="sitterId" value="${sitter.sitterId}" />
+<%-- 										onclick="getId('${sitter.sitterId}', '${sitter.sitterName}', this);" /> --%>
+										<span >선택</span> 
+									</c:if>
+>>>>>>> branch 'main' of https://github.com/seonyeong10/banjjok.git
 									</label></li>
 							</ul>
 						</div>

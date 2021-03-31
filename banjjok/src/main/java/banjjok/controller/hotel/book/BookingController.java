@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import banjjok.command.HotelBookCommand;
+import banjjok.domain.AuthInfo;
 import banjjok.service.hotel.book.BookActService;
 import banjjok.service.hotel.book.BookFormService;
 import banjjok.service.hotel.book.BookInfoService;
@@ -37,14 +38,19 @@ public class BookingController {
 	@RequestMapping("bookAct")
 	public String bookAct(HotelBookCommand hotelBookCommand, HttpSession session, Model model) throws Exception {
 		bookActService.bookAct(hotelBookCommand, session, model);
-//		return "hotel/book/bookInfo"; // 예약정보
-		return "redirect:/hotel/bookInfo/"+hotelBookCommand.getMemId(); // 예약정보
+		AuthInfo authInfo = (AuthInfo)session.getAttribute("authInfo");
+		String memId = authInfo.getUserId();
+		return "redirect:/hotel/bookInfo/"+memId; // 예약정보
 
 	}
-		@RequestMapping("bookInfo/{userId}")
-		public String bookInfo(@PathVariable(value="userId")String userId ,Model model, HttpSession session) throws Exception {
-			bookInfoService.bookInfo(userId, model, session);
-			return "hotel/book/bookInfo"; //예약정보
-			
-		}
+	@RequestMapping("bookInfo/{userId}")
+	public String bookInfo(@PathVariable(value="userId")String userId ,Model model, HttpSession session) throws Exception {
+		bookInfoService.bookInfo(userId, model, session);
+		return "hotel/book/bookInfo"; //예약정보
+	}
+	
+	@RequestMapping("payment")
+	public String hotelPayment() {
+		return "hotel/book/completePayment";
+	}
 }
