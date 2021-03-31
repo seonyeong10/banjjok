@@ -48,7 +48,7 @@
 			<div class="selectedServiceArea">
 				<!-- 펫 선택 -->
 				<div class="select-title">펫 선택</div>
-				<input type="text" name="petId" value="${pet.petId }"/>
+				<input type="hidden" name="petId" value="${pet.petId }"/>
 				<c:forEach items="${petList }" var="pet">
 					<label class="box-radio-input"> <input type="radio"
 						name="petName" value="${pet.petName }" onclick="getPetName('${pet.petId }');" /> <span>${pet.petName }</span>
@@ -74,11 +74,11 @@
 <!-- 					</table> -->
 					<ul class="calendar-chk chkIn">
 						<li>입실 날짜</li>
-						<li><input type="text" name="chkInDate" placeholder="YYYY-MM-DD"/></li>
+						<li><input type="text" name="chkInDate" placeholder="YYYY-MM-DD"  style="width:100%" /></li>
 					</ul>
 					<ul class="calendar-chk chkOut">
 						<li>퇴실 날짜</li>
-						<li><input type="text" name="chkOutDate" placeholder="YYYY-MM-DD"/></li>
+						<li><input type="text" name="chkOutDate" placeholder="YYYY-MM-DD"  style="width:100%" /></li>
 					</ul>
 				</div>
 				<div class="calendar">
@@ -137,31 +137,33 @@
 				<div class="designer-list">
 					<c:forEach items="${sitterList }" var="sitter">
 					<div class="select-designer">
-						<c:if test="${sitter.sitterOff eq '월' }" ><c:set value="1" var="off"/></c:if>
-						<c:if test="${sitter.sitterOff eq '화' }" ><c:set value="2" var="off"/></c:if>
-						<c:if test="${sitter.sitterOff eq '수' }" ><c:set value="3" var="off"/></c:if>
-						<c:if test="${sitter.sitterOff eq '목' }" ><c:set value="4" var="off"/></c:if>
-						<c:if test="${sitter.sitterOff eq '금' }" ><c:set value="5" var="off"/></c:if>
-						<c:if test="${sitter.sitterOff eq '토' }" ><c:set value="6" var="off"/></c:if>
-						<c:if test="${sitter.sitterOff eq '일' }" ><c:set value="7" var="off"/></c:if>
+						<c:if test="${sitter.sitterOff eq '월' }" ><c:set value="2" var="off"/></c:if>
+						<c:if test="${sitter.sitterOff eq '화' }" ><c:set value="3" var="off"/></c:if>
+						<c:if test="${sitter.sitterOff eq '수' }" ><c:set value="4" var="off"/></c:if>
+						<c:if test="${sitter.sitterOff eq '목' }" ><c:set value="5" var="off"/></c:if>
+						<c:if test="${sitter.sitterOff eq '금' }" ><c:set value="6" var="off"/></c:if>
+						<c:if test="${sitter.sitterOff eq '토' }" ><c:set value="7" var="off"/></c:if>
+						<c:if test="${sitter.sitterOff eq '일' }" ><c:set value="1" var="off"/></c:if>
 							<c:set value="${fn:split(sitter.sitterImg,'`') }" var="img" />
 							<img class="designer-img" src="<c:url value='/hotel/petSitter/upload/${img[1] }' />" />
+						<c:if test="${dayOfWeek != off }">
 						<div class=chk-area>
 							<ul>
 								<li><label class="box-radio-input"> 
-										<input type="radio" name="sitterId" value="${sitter.sitterId}" />
-<%-- 										onclick="getId('${sitter.sitterId}', '${sitter.sitterName}', this);" /> --%>
-										<span >선택</span> 
+										<input type="radio" name="sitterId" value="${sitter.sitterId}" 
+										onclick="getId('${sitter.sitterId}');" />
+										<span>선택</span> 
 									</label></li>
 							</ul>
 						</div>
+						</c:if>
 						<div class="designer-Area">
 						<c:if test="${dayOfWeek != off }">
 							<span class="designer-name">${sitter.sitterName }</span>
 <!-- 							<span class="designer-desc">취향저격 스타일전문가(1년)</span> -->
 						</c:if>
 						<c:if test="${dayOfWeek == off }">
-							<span style="color:red; background: #e1e1e1; padding: 10px; border-radius: 40px;">펫시터 정기휴일</span>
+							<span style="color:red; background: #e1e1e1; padding: 10px; border-radius: 40px">펫시터 정기휴일</span>
 						</c:if>
 						</div>
 <%-- 						<c:if test="${dayOfWeek != off }"> --%>

@@ -8,6 +8,9 @@ import javax.validation.constraints.Size;
 public class HotelBookCommand {
 	String bookCode;
 	
+	String memId;
+	String memName;
+	
 	@NotEmpty(message = "객실코드를 입력하세요.")
 	String petId;
 	
@@ -46,6 +49,21 @@ public class HotelBookCommand {
 
 	public void setBookCode(String bookCode) {
 		this.bookCode = bookCode;
+	}
+	public String getMemId() {
+		return memId;
+	}
+
+	public void setMemId(String memId) {
+		this.memId = memId;
+	}
+
+	public String getMemName() {
+		return memName;
+	}
+
+	public void setMemName(String memName) {
+		this.memName = memName;
 	}
 
 	public String getPetId() {

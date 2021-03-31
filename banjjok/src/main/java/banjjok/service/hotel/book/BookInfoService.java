@@ -11,8 +11,10 @@ import org.springframework.ui.Model;
 
 import banjjok.domain.AuthInfo;
 import banjjok.domain.MemHotelBookDTO;
+import banjjok.domain.PetSitterDTO;
 import banjjok.domain.RoomDTO;
 import banjjok.mapper.HotelBookMapper;
+import banjjok.mapper.PetSitterMapper;
 import banjjok.mapper.RoomMapper;
 
 @Service
@@ -22,6 +24,8 @@ public class BookInfoService {
 	HotelBookMapper hotelBookMapper;
 	@Autowired
 	RoomMapper roomMapper;
+	@Autowired
+	PetSitterMapper sitterMapper;
 	
 	public void bookInfo(String userId, Model model, HttpSession session) throws Exception {
 		MemHotelBookDTO dto = new MemHotelBookDTO();
@@ -39,6 +43,11 @@ public class BookInfoService {
 		rDto = roomMapper.getRoomList(rDto).get(0);
 		model.addAttribute("room", rDto);
 		
+		// 펫시터
+		PetSitterDTO pDto = new PetSitterDTO();
+		pDto.setSitterId(dto.getSitterId());
+		pDto = sitterMapper.getSitterList(pDto).get(0);
+		model.addAttribute("sitter", pDto);
 		
 	}
 	

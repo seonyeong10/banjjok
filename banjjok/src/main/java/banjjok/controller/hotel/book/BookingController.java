@@ -38,7 +38,7 @@ public class BookingController {
 	public String bookAct(HotelBookCommand hotelBookCommand, HttpSession session, Model model) throws Exception {
 		bookActService.bookAct(hotelBookCommand, session, model);
 //		return "hotel/book/bookInfo"; // 예약정보
-		return "redirect:/hotel/bookInfo"; // 예약정보
+		return "redirect:/hotel/bookInfo/"+hotelBookCommand.getMemId(); // 예약정보
 
 	}
 		@RequestMapping("bookInfo/{userId}")

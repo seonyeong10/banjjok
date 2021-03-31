@@ -55,8 +55,10 @@ public class BookFormService {
 		PetSitterDTO dto = new PetSitterDTO();
 		List<PetSitterDTO> sList = petSitterMapper.getSitterList(dto);
 		model.addAttribute("sitterList", sList);
-		System.out.println("펫시터:" + sList.get(0).getSitterId());
-		System.out.println("펫시터:" + sList.get(1).getSitterId());
+		
+		for (int i = 0; i < sList.size(); i++) {
+			System.out.println("펫시터:" + sList.get(i).getSitterId());
+		}
 	}
 	
 }

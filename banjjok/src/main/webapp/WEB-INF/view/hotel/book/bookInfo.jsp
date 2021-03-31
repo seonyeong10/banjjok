@@ -46,11 +46,12 @@
 						<c:if test="${room.roomName == 'V'}">VIP ROOM </c:if>
 						<c:if test="${room.roomName == 'VV'}">VVIP ROOM </c:if>
 					</li>
-					<li><span >담당</span>${bookInfo.sitterId }</li>
+					<li><span >담당</span>${sitter.sitterName }</li>
 					<li><span >회원이름</span>${bookInfo.memName }</li>
 					<li><span >펫 이름</span>${bookInfo.petName }</li>
 					<li><span >체크인</span>${fn:substring(bookInfo.chkInDate,0,10) }</li>
 					<li><span >체크아웃</span>${fn:substring(bookInfo.chkOutDate,0,10) }</li>
+					<li><span >요청사항</span>${bookInfo.reservDesc }</li>
 				</ul>
 			</div>
 			<div class="selectedServiceArea">

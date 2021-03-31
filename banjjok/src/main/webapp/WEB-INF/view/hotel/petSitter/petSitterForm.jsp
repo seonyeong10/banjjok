@@ -103,7 +103,7 @@
                <div>
                    <h3 class="join_title"><label for="sitterEnter">입사일</label></h3>
                    <span class="box int_Enter">
-                       <input type="datetime-local" id="sitterEnter" name="sitterEnter" class="int" maxlength="20" placeholder="YYYY/MM/DD">
+                       <input type="date" id="sitterEnter" name="sitterEnter" class="int" maxlength="20" placeholder="YYYY/MM/DD">
                    </span>
                    <span class="error_next_box"><form:errors path="sitterEnter"/></span>
                </div>

@@ -21,6 +21,11 @@ function getPetName(petId) {
 	document.getElementsByName('petId')[0].value = petId;
 }
 
+function getId(sitterId){
+	
+	document.getElementsByName('sitterId')[0].value = sitterId;
+}
+
 //function getId(sitterId, sitterName, btn){
 //	var year = $('input:hidden[name="year"]').val();
 //	var month = $('input:hidden[name="month"]').val();
@@ -53,12 +58,20 @@ function getPetName(petId) {
 //}
 
 function send(){
-	if(document.getElementsByName('petName')[0].value.trim() == "") {
+	if(document.getElementsByName('petId')[0].value.trim() == "") {
 		alert('펫을 선택해주세요.');
 		return false;
 	} 
-	if(document.getElementsByName('desnId')[0].value.trim() == "") {
-		alert('시간을 선택해주세요.');
+	if(document.getElementsByName('sitterId')[0].value.trim() == "") {
+		alert('펫시터를 선택해주세요.');
+		return false;
+	} 
+	if(document.getElementsByName('chkInDate')[0].value.trim() == "") {
+		alert('체크인 날짜를 선택해주세요.');
+		return false;
+	} 
+	if(document.getElementsByName('chkOutDate')[0].value.trim() == "") {
+		alert('체크아웃 날짜를 선택해주세요.');
 		return false;
 	} 
 }
