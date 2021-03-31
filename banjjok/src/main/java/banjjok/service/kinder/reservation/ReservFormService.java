@@ -42,11 +42,11 @@ public class ReservFormService {
 		model.addAttribute("petList", petList);
 		
 		// calendar
-		String selectedYear = reservCommand.getYear();
-		String selectedMonth = reservCommand.getMonth();
-		String selectedDate = reservCommand.getBlDate();
-		CalendarMaker maker = new CalendarMaker();
-		maker.create(selectedYear, selectedMonth, selectedDate, model);
+//		String selectedYear = reservCommand.getYear();
+//		String selectedMonth = reservCommand.getMonth();
+//		String selectedDate = reservCommand.getBlDate();
+//		CalendarMaker maker = new CalendarMaker();
+//		maker.create(selectedYear, selectedMonth, selectedDate, model);
 		
 	}
 

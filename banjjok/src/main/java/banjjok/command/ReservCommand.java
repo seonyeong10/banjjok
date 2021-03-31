@@ -11,17 +11,34 @@ public class ReservCommand {
 	String memId;
 	String bRequest;
 
+	// payment
+	String payWay;
+	String payUse;
+	String payAmount;
 	
 	String pPrice;
 	String petId;
 	String petName;
-	String payAmount;
 	
 	// cal
 	String year;
 	String month;
 	String day;
 	
+	
+	
+	public String getPayWay() {
+		return payWay;
+	}
+	public void setPayWay(String payWay) {
+		this.payWay = payWay;
+	}
+	public String getPayUse() {
+		return payUse;
+	}
+	public void setPayUse(String payUse) {
+		this.payUse = payUse;
+	}
 	public String getPayAmount() {
 		return payAmount;
 	}
