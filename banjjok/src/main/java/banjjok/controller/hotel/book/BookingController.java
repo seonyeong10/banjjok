@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import banjjok.command.HotelBookCommand;
+import banjjok.command.HotelPaymentCommand;
 import banjjok.domain.AuthInfo;
 import banjjok.service.hotel.book.BookActService;
 import banjjok.service.hotel.book.BookFormService;
 import banjjok.service.hotel.book.BookInfoService;
+import banjjok.service.hotel.book.HotelpaymentService;
 
 @Controller
 @RequestMapping("hotel")
@@ -23,6 +25,8 @@ public class BookingController {
 	BookActService bookActService;
 	@Autowired
 	BookInfoService bookInfoService;
+	@Autowired
+	HotelpaymentService hotelpaymentService;
 	
 	@RequestMapping("book/{roomCode}")
 	public String hotelBooking(@PathVariable(value = "roomCode") String roomCode, Model model, HttpSession session) throws Exception {
@@ -50,7 +54,8 @@ public class BookingController {
 	}
 	
 	@RequestMapping("payment")
-	public String hotelPayment() {
+	public String hotelPayment(HotelPaymentCommand hotelPaymentCommand) {
+		hotelpaymentService.payment(hotelPaymentCommand);
 		return "hotel/book/completePayment";
 	}
 }

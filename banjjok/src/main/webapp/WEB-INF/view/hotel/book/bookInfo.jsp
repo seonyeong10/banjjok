@@ -57,6 +57,7 @@
 			<div class="selectedServiceArea">
 				<!-- 결제정보 입력 -->
 				<div class="select-title">결제정보</div>
+					<input type="hidden" name="roomPrice" value="${room.roomPrice }" >
 				<ul>
 					<li><span class="select-menu-price">메뉴가격</span><fmt:formatNumber value="${room.roomPrice }" pattern="#,### 원" /> </li>
 					<li><span >총 결제금액</span><fmt:formatNumber value="${room.roomPrice }" pattern="#,### 원" /></li> 

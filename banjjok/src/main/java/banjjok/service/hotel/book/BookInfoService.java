@@ -9,8 +9,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import banjjok.domain.AuthInfo;
-import banjjok.domain.HotelPayDTO;
 import banjjok.domain.MemHotelBookDTO;
 import banjjok.domain.PetSitterDTO;
 import banjjok.domain.RoomDTO;
