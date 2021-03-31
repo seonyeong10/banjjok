@@ -57,6 +57,7 @@ public class DesnInfoService {
 		heartDTO.setMemId(memId);
 		heartDTO.setDesnId(desnId);
 		List<SalHeartDTO> heartList = styleMapper.getHeart(heartDTO);
+		System.out.println(heartList.size());
 		model.addAttribute("isHeart", heartList);
 		
 		// 하트 총 개수

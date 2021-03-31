@@ -19,7 +19,7 @@ public interface StyleMapper {
 	public Integer getCount(StyleDTO styleDTO) throws Exception;
 	public List<SalHeartDTO> getHeart(SalHeartDTO heartDTO) throws Exception;
 	public Integer insertHeart(SalHeartDTO heartDTO) throws Exception;
-	public Integer updateHt(SalHeartDTO heartDTO) throws Exception;
+	public Integer deleteHt(SalHeartDTO heartDTO) throws Exception;
 	public Integer getHtCount(SalHeartDTO heartDTO) throws Exception;
 
 }

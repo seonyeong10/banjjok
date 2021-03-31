@@ -25,10 +25,8 @@ public class SalHeartService {
 			SalHeartDTO heartDTO = new SalHeartDTO(heartCommand.getStyleCode(), heartCommand.getDesnId(), heartCommand.getMemId(), heart);
 			styleMapper.insertHeart(heartDTO);
 		} else {
-			if(heartCommand.getHeart().equals("1")) heart = "0";
-			else if(heartCommand.getHeart().equals("0")) heart = "1";
 			SalHeartDTO heartDTO = new SalHeartDTO(heartCommand.getStyleCode(), heartCommand.getDesnId(), heartCommand.getMemId(), heart);
-			styleMapper.updateHt(heartDTO);
+			styleMapper.deleteHt(heartDTO);
 		}
 		
 //		model.addAttribute("val", heart);

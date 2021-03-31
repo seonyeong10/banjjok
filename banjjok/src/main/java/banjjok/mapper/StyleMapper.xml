@@ -27,7 +27,7 @@
 			and style_code = #{styleCode}
 		</if>
 	</trim>
-	order by reg_date desc
+	order by style_code desc
 </select>
 <select id="getStyleInfo" parameterType="banjjok.domain.StyleInfoDTO" resultType="banjjok.domain.StyleInfoDTO">
 	select style_code styleCode, st.desn_id desnId, desn_name desnName, desn_use desnUse, desn_img desnimg, style_name styleName, style_Length stylelength, style_curly stylecurly, style_desc styledesc, style_img styleimg
@@ -56,14 +56,14 @@
 	from heart_salon
 	where desn_id = #{desnId}
 	<if test="memId != null"> and mem_id = #{memId}</if>
+	order by style_code desc
 </select>
 <insert id="insertHeart" parameterType="banjjok.domain.SalHeartDTO">
 	insert into heart_salon (style_code, desn_id, mem_id, heart)
 	values(#{styleCode}, #{desnId}, #{memId}, #{heart})
 </insert>
-<update id="updateHt" parameterType="banjjok.domain.SalHeartDTO">
-	update heart_salon
-	set heart = #{heart}
+<update id="deleteHt" parameterType="banjjok.domain.SalHeartDTO">
+	delete from heart_salon
 	where style_code = #{styleCode} and mem_id = #{memId}
 </update>
 <select id="getHtCount" parameterType="banjjok.domain.SalHeartDTO" resultType="int">
