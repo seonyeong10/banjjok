@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>객실 리스트</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- <link href="/static/css/baseCSS.css" rel="stylesheet" type="text/css" /> -->
+<link href="/static/css/baseCSS.css" rel="stylesheet" type="text/css" />
 <link href="/static/css/footer.css" rel="stylesheet" type="text/css" />
 <link href="/static/css/memberForm.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -35,10 +35,10 @@ img {
 <body>
 
 	<!-- Navigation Bar -->
-
-	<%@include file="../../include/hotelTop.jsp"%>
-
-
+<div id="hotel-header">
+		<%@ include file="../../include/hotelTop.jsp"%>
+	</div>
+<div class="hotel-content" style="height:900px; margin-top:20px;">
 	<!-- Page content -->
 	<div class="w3-content" style="max-width: 100%;">
 
@@ -147,6 +147,7 @@ img {
 	</c:if>
 	<!-- 관리자 모드 끝 -->
 
+</div>
 	<!-- foot -->
 	<footer> SoulMate's Forest 02.125.7979 Copyright &copy All
 		Rights reserved. </footer>

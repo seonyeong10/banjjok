@@ -18,7 +18,9 @@
 </style>
 </head>
 <body>
-<%@ include file="../../include/top.jsp"%>
+<div id="header">
+		<%@ include file="../../include/hotelTop.jsp"%>
+	</div>
 	<div class="contentWrap">
 		<!-- Content -->
 		<div class="content">

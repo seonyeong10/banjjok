@@ -6,18 +6,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <title>reviewList.jsp</title>
+<link href="/static/css/baseCSS.css" rel="stylesheet" type="text/css" />
 <link href="../static/css/footer.css" rel="stylesheet" type="text/css" />
 <link href="../static/css/boardStyle.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-	<div id="header">
-		<%@ include file="../../include/hotelTop.jsp" %>
+<div id="hotel-header">
+		<%@ include file="../../include/hotelTop.jsp"%>
 	</div>
+<div class="hotel-content" style="height:900px; margin-top:20px;">
 	<!-- content -->
 	  <div class="title">
 		<ul>
 			<li>
-				<h1>REVIEW</h1> <span>후기 목록</span>
+				<h1 style="width:83%;">REVIEW</h1> <span>후기 목록</span>
 			</li>
 		</ul>
 	</div>
@@ -92,6 +94,7 @@
 			</div>
 	</div>
 	<!-- content 끝-->
+</div>
 	<!-- foot -->
 	<footer> SoulMate's Forest 02.125.7979 Copyright &copy All
 		Rights reserved. </footer>

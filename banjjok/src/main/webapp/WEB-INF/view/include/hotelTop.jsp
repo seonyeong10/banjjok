@@ -24,7 +24,7 @@
 </head>
 <body>
 <!-- top -->
-	<header class=nvH>
+	<header class=nvH style="margin:20px;">
 	 <div>
 		<!-- 로고  -->
 		<div class="logoAreaH">
