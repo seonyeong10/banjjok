@@ -16,6 +16,6 @@ public interface HotelBookMapper {
 	public Integer insertBook(HotelBookDTO dto) throws Exception;
 	public void insertBookList(HotelBookDTO dto) throws Exception;
 	public List<MemHotelBookDTO> getBookInfoList(MemHotelBookDTO dto) throws Exception;
-	public Integer insertPayment(HotelPaymentDTO dto);
+	public Integer insertPayment(HotelPaymentDTO dto) throws Exception;
 	
 }

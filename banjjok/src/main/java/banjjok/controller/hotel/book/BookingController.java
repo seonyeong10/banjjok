@@ -54,8 +54,8 @@ public class BookingController {
 	}
 	
 	@RequestMapping("payment")
-	public String hotelPayment(HotelPaymentCommand hotelPaymentCommand) {
-		hotelpaymentService.payment(hotelPaymentCommand);
+	public String hotelPayment(HotelPaymentCommand hotelPaymentCommand, HttpSession session) throws Exception {
+		hotelpaymentService.payment(hotelPaymentCommand, session);
 		return "hotel/book/completePayment";
 	}
 }

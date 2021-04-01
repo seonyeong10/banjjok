@@ -51,8 +51,10 @@
 					<li><span >펫 이름</span>${bookInfo.petName }</li>
 					<li><span >체크인</span>${fn:substring(bookInfo.chkInDate,0,10) }</li>
 					<li><span >체크아웃</span>${fn:substring(bookInfo.chkOutDate,0,10) }</li>
+					<li><span >투숙일</span>${(fn:substring(bookInfo.chkOutDate,8,10)) - (fn:substring(bookInfo.chkInDate,8,10) ) }일</li>
 					<li><span >요청사항</span>${bookInfo.reservDesc }</li>
 				</ul>
+<%-- 						<input type="hidden" value="${(fn:substring(bookInfo.chkOutDate,8,10)) - (fn:substring(bookInfo.chkInDate,8,10) ) }" name="period" /> --%>
 			</div>
 			<div class="selectedServiceArea">
 				<!-- 결제정보 입력 -->
@@ -60,7 +62,7 @@
 					<input type="hidden" name="roomPrice" value="${room.roomPrice }" >
 				<ul>
 					<li><span class="select-menu-price">메뉴가격</span><fmt:formatNumber value="${room.roomPrice }" pattern="#,### 원" /> </li>
-					<li><span >총 결제금액</span><fmt:formatNumber value="${room.roomPrice }" pattern="#,### 원" /></li> 
+					<li><span >총 결제금액</span><fmt:formatNumber value="${room.roomPrice *( (fn:substring(bookInfo.chkOutDate,8,10)) - (fn:substring(bookInfo.chkInDate,8,10) ) ) }" pattern="#,### 원" /></li> 
 					<li><span >결제방법</span><input type="radio" name="payMethod" checked="checked" value='card'/>카드</li>
 				</ul>
 			</div>
@@ -69,8 +71,10 @@
 				<div class="price-area">
 					<span>총 결제금액</span>
 					<span class="price">
-						<fmt:formatNumber value="${room.roomPrice }" pattern="#,###" />원
+						<fmt:formatNumber value="${room.roomPrice *( (fn:substring(bookInfo.chkOutDate,8,10)) - (fn:substring(bookInfo.chkInDate,8,10) ) ) }" pattern="#,###" />원
 					</span>
+						<input type="hidden" name="totalPrice" value="${room.roomPrice *( (fn:substring(bookInfo.chkOutDate,8,10)) - (fn:substring(bookInfo.chkInDate,8,10) ) ) }" />
+						
 				</div>
 				<div class="btn-area">
 					<input type="submit" value="결제하기"/>
