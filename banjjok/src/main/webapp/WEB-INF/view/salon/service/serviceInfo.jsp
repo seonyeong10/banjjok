@@ -22,7 +22,7 @@
         </div>
       <!-- 가격 -->
         <div class="menu-price">
-          <span><fmt:formatNumber value="${dto.serviceFee }" pattern="#,###"/> </span>
+          <span><fmt:formatNumber value="${dto.serviceFee }" pattern="#,###"/>원</span>
         </div>
         <div class="store-name-area">
           <span>(주)반쪽의 숲 살롱</span>
@@ -31,7 +31,7 @@
       <div class="select-area">
         <ul>
           <li>정보</li>
-          <li>리뷰 6</li>
+<!--           <li>리뷰 6</li> -->
         </ul>
       </div>
       <!-- 정보 -->
@@ -60,7 +60,9 @@
       <!-- 리뷰 -->
       <!-- 예약 -->
       <div class="reserve-button-area">
-        <a href="<c:url value='/salon/menu/reserve?serviceCode=${dto.serviceCode }'/>" class="reserve-button">예약하기</a>
+      	<c:if test="${authInfo.userId != null }">
+        	<a href="<c:url value='/salon/menu/reserve?serviceCode=${dto.serviceCode }'/>" class="reserve-button">예약하기</a>
+        </c:if>
         <c:if test="${authInfo.grade eq '0' }">
 	        <a href="<c:url value='/salon/menu/menuModify?serviceCode=${dto.serviceCode }'/>" class="modify-button">수정하기</a>
 	        <a href="" class="modify-button" onclick="menuDel();">삭제하기</a>
