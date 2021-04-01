@@ -35,12 +35,12 @@ public class DesnInfoController {
 		desnInfoService.show(desnId, session, model);
 		return "salon/designer/desnInfo";
 	}
-	@RequestMapping(value = "desn/unlock")
-	public String unlock(SalHeartCommand heartCommand, HttpSession session, Model model) throws Exception {
-		salHeartService.unlock(heartCommand, model);
-//		desnInfoService.show(heartCommand.getDesnId(), session, model);
-		return "salon/imgDel";
-//		return "salon/designer/styleBook/styleHeart";
-	}
+//	@RequestMapping(value = "desn/unlock")
+//	public String unlock(SalHeartCommand heartCommand, HttpSession session, Model model) throws Exception {
+//		salHeartService.unlock(heartCommand, model);
+////		desnInfoService.show(heartCommand.getDesnId(), session, model);
+//		return "salon/imgDel";
+////		return "salon/designer/styleBook/styleHeart";
+//	}
 
 }
