@@ -8,6 +8,9 @@
 <sql id="bookListCol">
 	RESERV_CODE, CHK_IN_DATE, CHK_OUT_DATE, RESERV_DATE, RESERV_DESC, RESERV_USE
 </sql>
+<sql id="paymentH">
+	RESERV_CODE, ROOM_PRICE, ADD_PRICE, TOTAL_PRICE, PAY_METHOD
+</sql>
 
 
 <select id="createCode" resultType="string">
@@ -36,4 +39,9 @@
 		m.mem_id = #{memId}
 	</trim>
 </select>
+
+<insert id="insertPayment" parameterType="banjjok.domain.HotelPaymentDTO">
+	insert into PAYMENT_HOTEL ( <include refid="paymentH" /> )
+	values ( #{reservCode}, #{roomPrice}, null, #{totalPrice}, #{payMethod} )
+</insert>
 </mapper>

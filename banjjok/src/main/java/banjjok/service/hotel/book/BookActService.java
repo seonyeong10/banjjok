@@ -46,7 +46,6 @@ public class BookActService {
 		
 		
 		Integer result = hotelBookMapper.insertBook(dto); //예약
-//		hotelBookMapper.insertBookList(dto); //예약리스트(결제완료되면)
 		System.out.println(result + "개가 예약되었습니다. 결제 완료시 최종 예약 완료 됩니다.");
 		
 		

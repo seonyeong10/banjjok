@@ -1,10 +1,10 @@
 package banjjok.domain;
 
-public class HotelPayDTO {
+public class HotelPaymentDTO {
 	String reservCode;
-	Integer roomPrice;
-	Integer addPrice;
-	Integer totalPrice;
+	String roomPrice;
+	String addPrice;
+	String totalPrice;
 	String payMethod;
 	public String getReservCode() {
 		return reservCode;
@@ -12,22 +12,22 @@ public class HotelPayDTO {
 	public void setReservCode(String reservCode) {
 		this.reservCode = reservCode;
 	}
-	public Integer getRoomPrice() {
+	public String getRoomPrice() {
 		return roomPrice;
 	}
-	public void setRoomPrice(Integer roomPrice) {
+	public void setRoomPrice(String roomPrice) {
 		this.roomPrice = roomPrice;
 	}
-	public Integer getAddPrice() {
+	public String getAddPrice() {
 		return addPrice;
 	}
-	public void setAddPrice(Integer addPrice) {
+	public void setAddPrice(String addPrice) {
 		this.addPrice = addPrice;
 	}
-	public Integer getTotalPrice() {
+	public String getTotalPrice() {
 		return totalPrice;
 	}
-	public void setTotalPrice(Integer totalPrice) {
+	public void setTotalPrice(String totalPrice) {
 		this.totalPrice = totalPrice;
 	}
 	public String getPayMethod() {
