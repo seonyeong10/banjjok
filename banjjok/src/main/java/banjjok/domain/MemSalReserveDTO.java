@@ -21,6 +21,7 @@ public class MemSalReserveDTO {
 	String desnUse;	// 1 원장 2 수석디자이너 3 디자이너 4 퇴사자
 	String desnId;
 	String reservDesc;
+	String optFee;
 	
 	public String getReservCode() {
 		return reservCode;
@@ -157,5 +158,15 @@ public class MemSalReserveDTO {
 	public void setReservDesc(String reservDesc) {
 		this.reservDesc = reservDesc;
 	}
+
+	public String getOptFee() {
+		return optFee;
+	}
+
+	public void setOptFee(String optFee) {
+		this.optFee = optFee;
+	}
+	
+	
 	
 }

@@ -44,12 +44,15 @@
 		<ul>
 			<c:forEach items="${list }" var="list">
 				<c:choose>
-					<c:when test="${list.reservUse eq '2' }">
+					<c:when test="${list.reservUse eq '1' || list.reservUse eq '2' }">
 						<li class="reserve-menu-area">
 							<div class="date-area">
 								<i class="fas fa-times-circle"></i> <span><fmt:formatDate
 										value="${list.reservDate }" pattern="M/dd (E) a HH:mm" /></span><span
-									class="cancle">· 취소완료</span>
+									class="cancle">·
+									<c:if test="${list.reservUse eq '1'}">시술완료</c:if>
+									<c:if test="${list.reservUse eq '2'}">취소완료</c:if>
+									</span>
 							</div>
 							<div class="menu-area cancle">
 								<span class="menu-name">${list.serviceName }</span> <span>

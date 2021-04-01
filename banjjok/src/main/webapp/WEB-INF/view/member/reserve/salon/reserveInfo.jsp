@@ -84,12 +84,14 @@
 				<li><span class="title">예약자</span>${authInfo.userName }</li>
 				<li><span class="title">펫 이름</span>${dto.petName }</li>
 				<li><span class="title">연락처</span>${dto.memMobile }</li>
+				<li><span class="title">요청사항</span>${dto.reservDesc }</li>
 			</ul>
 		</div>
 		<div class="payment-area">
 			<h2>결제정보</h2>
 			<ul>
 				<li><span class="title">메뉴가격</span><fmt:formatNumber value="${dto.serviceFee }" pattern="#,###"/> </li>
+				<li><span class="title">추가금액</span><fmt:formatNumber value="${dto.totalFee - dto.serviceFee }" pattern="#,###"/> </li>
 				<li><span class="title">총 결제금액</span>
 				<span class="pay-method"><c:choose>
 					<c:when test="${dto.payMethod eq 'card' }">카드</c:when>
@@ -115,7 +117,7 @@
 		</c:if>
 		<div class="btn-area">
 			<c:choose>
-				<c:when test="${dto.reservUse eq '2' }"></c:when>
+				<c:when test="${dto.reservUse eq '1' || dto.reservUse eq '2' }"></c:when>
 				<c:otherwise>
 					<a class="modify" onclick="modify();">예약변경</a> <a onclick="cancle('${list.reservCode }')">예약취소</a>
 				</c:otherwise>

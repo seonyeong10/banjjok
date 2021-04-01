@@ -27,6 +27,7 @@ function change(code, status, year, month, date){
 			,success : function(result){
 				if(result == 1) alert('처리가 완료되었습니다.');
 				getList(year, month, date);
+				location.href='/salon/desn/reserveInfo?reservCode=' + code;
 			}
 			,errors : function(){alert('다시 시도해주세요.');}
 	};

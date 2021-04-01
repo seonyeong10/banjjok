@@ -50,7 +50,7 @@ public class StyleAddService {
 		StyleDTO dto = new StyleDTO(styleCode, desnId, styleCommand.getStyleCateg(), styleCommand.getStyleName(), 
 				styleCommand.getStyleLength(), styleCommand.getStyleCurly(), styleCommand.getStyleDesc(), styleImg);
 		Integer result = styleMapper.insert(dto);
-		location = result > 0 ? "redirect:/" : "salon/designer/styleBook/styleForm";
+		location = result > 0 ? "redirect:/salon/desn/" + desnId : "salon/designer/styleBook/styleForm";
 		return location;
 	}
 

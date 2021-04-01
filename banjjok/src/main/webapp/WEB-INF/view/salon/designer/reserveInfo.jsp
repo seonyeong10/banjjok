@@ -10,6 +10,7 @@
 <link href="<c:url value='/static/css/topMenu.css' />" rel="stylesheet" type="text/css" />
 <link href="<c:url value='/static/css/footer.css' />" rel="stylesheet" type="text/css" />
 <link href="<c:url value='/static/css/salResInfo.css' />" rel="stylesheet" type="text/css" />
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
 </head>
 <body>
@@ -64,12 +65,14 @@
 				<li><span class="title">예약자</span>${dto.memName }</li>
 				<li><span class="title">펫 이름</span>${dto.petName }</li>
 				<li><span class="title">연락처</span>${dto.memMobile }</li>
+				<li><span class="title">요청사항</span>${dto.reservDesc }</li>
 			</ul>
 		</div>
 		<div class="payment-area">
 			<h2>결제정보</h2>
 			<ul>
 				<li><span class="title">메뉴가격</span><fmt:formatNumber value="${dto.serviceFee }" pattern="#,###"/> </li>
+				<li style="font-weight: 400;"><span class="title">추가금액</span><fmt:formatNumber value="${dto.totalFee - dto.serviceFee }" pattern="#,###"/> </li>
 				<li><span class="title">총 결제금액</span>
 				<span class="pay-method"><c:choose>
 					<c:when test="${dto.payMethod eq 'card' }">카드</c:when>
