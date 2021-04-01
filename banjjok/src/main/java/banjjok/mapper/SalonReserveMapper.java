@@ -21,4 +21,5 @@ public interface SalonReserveMapper {
 	public Integer updateStatus(SalonReserveDTO dto) throws Exception;
 	
 	public Integer isReserve(MemSalReserveDTO dto) throws Exception;
+	public void canclePay(SalonReserveDTO reserveDTO) throws Exception;	// 결제 취소
 }

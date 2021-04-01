@@ -102,7 +102,7 @@
     <div class="btn-area">
       <input type="submit" value="저장하기"/>
       <input type="button" value="추가하기" onclick="javascript:location.href='<c:url value="/main/addPet"/>'"/>
-      <input type="button" value="삭제하기"/>
+      <input type="button" value="삭제하기" onclick="javascript:location.href='<c:url value="/main/delPet/${pet.petId }"/>'"/>
     </div>
     </form>
     </c:forEach>
