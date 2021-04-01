@@ -48,7 +48,7 @@
 									<c:set var="now"><fmt:formatDate value="${today }" pattern="yyyy"/></c:set>
 									<c:set var="enter"><fmt:formatDate value="${list.desnEnter }" pattern="yyyy"/></c:set>
 									<c:if test="${(now - enter) ne 0 }">
-										(<c:out value="${now - enter }"></c:out>)
+										(<c:out value="${now - enter }"></c:out>년)
 									</c:if>
 								</span>
 							</td>
