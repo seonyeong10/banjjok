@@ -129,9 +129,9 @@
 									<c:when test="${desn.desnUse eq '2' }">수석디자이너</c:when>
 									<c:when test="${desn.desnUse eq '3' }">디자이너</c:when>
 								</c:choose>
-								${desn.desnName }입니다. (
+								${desn.desnName }입니다.
 								<c:set var="regYear"><fmt:formatDate value="${desn.desnEnter }" pattern="yyyy"/></c:set>
-								<c:out value="${year - regYear }"/>년 )
+								<c:if test="${(year - regYear) > 0 }">( ${year - regYear}년 )</c:if>
 							</span>
 						</div>
 						<c:set var="offDay" value="${fn:split(desn.desnOff,',') }"/>

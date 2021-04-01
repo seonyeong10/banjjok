@@ -76,4 +76,8 @@
 	and res.reserv_date = #{reservDate} and res.desn_id = #{desnId}
 	and lis.reserv_use = '0'
 </select>
+<delete id="canclePay" parameterType="banjjok.domain.SalonReserveDTO">
+	delete from reserve_salon
+	where reserv_code = #{reservCode}
+</delete>
 </mapper>

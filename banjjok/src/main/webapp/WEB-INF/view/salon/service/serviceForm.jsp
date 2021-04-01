@@ -39,7 +39,6 @@
 				<div class="mem-element">
 					<p class="element-name">서비스 코드</p>
 					<span class="element-value"><input type="text" name="serviceCode" placeholder="서비스 코드(자동생성)" readonly="readonly" value="${serviceCode }"/></span>
-					<span class="button"><input type="button" value="중복확인"/></span>
 				</div>
 				<div class="mem-element">
 					<p class="element-name">카테고리</p>
@@ -121,7 +120,7 @@
 
 		function cancle() {
 			if (confirm('입력한 데이터는 저장되지 않습니다. \n 취소하시겠습니까?')) {
-				location.href = '/';
+				location.href = '/salon';
 			}
 		}
 

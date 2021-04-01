@@ -24,4 +24,8 @@
 	set age = #{age}, gender = #{gender}, weight = #{weight}, micro_num = #{microNum}, pet_desc = #{petDesc}, pet_name = #{petName}
 	where mem_id = #{memId} and pet_id = #{petId}
 </update>
+<delete id="delete" parameterType="banjjok.domain.MyPetDTO">
+	delete from my_pet
+	where pet_id = #{petId} and mem_id = #{memId}
+</delete>
 </mapper>

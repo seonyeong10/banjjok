@@ -51,6 +51,12 @@ public class ReserveFormService {
 		String selectDate = salonReserveCommand.getDate();
 		CalendarMaker maker = new CalendarMaker();
 		maker.create(selectYear, selectMonth, selectDate, model);
+		
+		// 디자이너
+		DesnDTO desnDTO = new DesnDTO();
+		List<DesnDTO> desnList = desnMapper.getDesnList(desnDTO);
+		model.addAttribute("desn", desnList);
+		
 //		Calendar cal = Calendar.getInstance();
 //		
 //		// 화면에 체크할 날짜, 디자이너 휴무 여부 확인
@@ -93,10 +99,6 @@ public class ReserveFormService {
 //		model.addAttribute("cur", current);
 //		model.addAttribute("next", nextMonth);
 
-		// 디자이너
-		DesnDTO desnDTO = new DesnDTO();
-		List<DesnDTO> desnList = desnMapper.getDesnList(desnDTO);
-		model.addAttribute("desn", desnList);
 		
 	}
 

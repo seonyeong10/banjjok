@@ -92,46 +92,15 @@ function block() {
 function prevPage() {
 	document.getElementById('member-info').style.display = 'block';
 	document.getElementById('pet-info').style.display = 'none';
-	document.getElementsByClassName('pennant-pet')[0].style.color = '#333';
-	document.getElementsByClassName('pennant')[0].style.color = '#e1e1e1';
+	document.getElementsByClassName('pennant-pet')[0].style.color = '#e1e1e1';
+	document.getElementsByClassName('pennant')[0].style.color = '#333';
 }
 
 function nextPage() {
-	// frm.action="checkMem";
-	// frm.submit();
-	// var memData = {
-	// "memId" : $("input[name='memId']").val()
-	// ,"memPwCon" : $("input[name='memPwCon']").val()
-	// ,"memMobile" : $("input[name='memMobile']").val()
-	// ,"memMobile" : $("input[name='memMobile']").val()
-	// ,"memEmail" : $("input[name='memEmail']").val()
-	// ,"nicName" : $("input[name='nicName']").val()
-	// }
-	// checkMem = {
-	// type : "post"
-	// ,url : "checkMem"
-	// ,dataType : "text"
-	// ,data : memData
-	// ,success : function(isErr){
-	// console.log(isErr);
-	// if(!isErr){
-	// $('#member-info').hide();
-	// $('#pet-info').show();
-	// $('.pennant-pet').css('color', '#333');
-	// $('.pennant').css('color','#e1e1e1');
-	// }
-	// }
-	// ,error : function(){
-	// alert('에러');
-	// return;
-	// }
-
-	// };
-	// $.ajax(checkMem);
 	document.getElementById('member-info').style.display = 'none';
 	document.getElementById('pet-info').style.display = 'block';
-	document.getElementsByClassName('pennant-pet')[0].style.color = '#e1e1e1';
-	document.getElementsByClassName('pennant')[0].style.color = '#333';
+	document.getElementsByClassName('pennant-pet')[0].style.color = '#333';
+	document.getElementsByClassName('pennant')[0].style.color = '#e1e1e1';
 }
 
 function cancle() {

@@ -48,7 +48,7 @@
 									<c:set var="now"><fmt:formatDate value="${today }" pattern="yyyy"/></c:set>
 									<c:set var="enter"><fmt:formatDate value="${list.desnEnter }" pattern="yyyy"/></c:set>
 									<c:if test="${(now - enter) ne 0 }">
-										(<c:out value="${now - enter }"></c:out>)
+										(<c:out value="${now - enter }"></c:out>년)
 									</c:if>
 								</span>
 							</td>
@@ -106,23 +106,23 @@
 						<c:if test="${style.styleUse eq '0' }">
 							<li>
 								<a href="<c:url value='/salon/style/desnStyle?styleCode=${style.styleCode }'/>"><img src="/salon/designer/styleBook/upload/${style.styleImg }" alt="styleImg" class="styleImg" /></a>
-									<c:if test="${authInfo.userId != null }">
-										<c:choose>
-											<c:when test="${isHeart.get(i.index).styleCode == style.styleCode && isHeart.get(i.index).heart == 1 }">
-												<a class="heart" style="color:red;" onclick="unlock('${style.styleCode}','${list.desnId }','${authInfo.userId }','${isHeart.get(i.index).heart }');">
-												<i class="fas fa-heart fa-2x" ></i></a>
-											</c:when>
-											<c:otherwise>
-												<a class="heart" style="color:#fff;" onclick="unlock('${style.styleCode}','${list.desnId }','${authInfo.userId }','${isHeart.get(i.index).heart }');">
-												<i class="fas fa-heart fa-2x" ></i></a>
-											</c:otherwise>
-										</c:choose>
-									</c:if>
-									<c:if test="${authInfo.userId == null }">
-										<a class="heart" style="color: #fff;" onclick="login();" ><i class="fas fa-heart fa-2x" ></i></a>
-									</c:if>
-									<div id="reload-area">
-									</div>
+<%-- 									<c:if test="${authInfo.userId != null }"> --%>
+<%-- 										<c:choose> --%>
+<%-- 											<c:when test="${isHeart.get(i.index).styleCode == style.styleCode && isHeart.get(i.index).heart == 1 }"> --%>
+<%-- 												<a class="heart" style="color:red;" onclick="unlock('${style.styleCode}','${list.desnId }','${authInfo.userId }','${isHeart.get(i.index).heart }');"> --%>
+<!-- 												<i class="fas fa-heart fa-2x" ></i></a> -->
+<%-- 											</c:when> --%>
+<%-- 											<c:otherwise> --%>
+<%-- 												<a class="heart" style="color:#fff;" onclick="unlock('${style.styleCode}','${list.desnId }','${authInfo.userId }','${isHeart.get(i.index).heart }');"> --%>
+<!-- 												<i class="fas fa-heart fa-2x" ></i></a> -->
+<%-- 											</c:otherwise> --%>
+<%-- 										</c:choose> --%>
+<%-- 									</c:if> --%>
+<%-- 									<c:if test="${authInfo.userId == null }"> --%>
+<!-- 										<a class="heart" style="color: #fff;" onclick="login();" ><i class="fas fa-heart fa-2x" ></i></a> -->
+<%-- 									</c:if> --%>
+<!-- 									<div id="reload-area"> -->
+<!-- 									</div> -->
 							</li>
 						</c:if>
 					</c:forEach>

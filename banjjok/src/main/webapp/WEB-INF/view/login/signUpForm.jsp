@@ -177,7 +177,8 @@
     </div>
 	<!-- foot -->
 		<footer> SoulMate's Forest 02.125.7979 Copyright & copy All Rights reserved. </footer>
-	<script src="<c:url value='/static/js/signUp.js' />"></script>
+<%-- 	<script src="<c:url value='/static/js/signUp.js' />"></script> --%>
+	<script src="../static/js/signUp.js"></script>
 	<!-- foot 끝 -->
 	<script type="text/javascript">
 	

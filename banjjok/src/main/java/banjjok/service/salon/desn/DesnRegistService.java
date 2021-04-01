@@ -70,7 +70,7 @@ public class DesnRegistService {
 //			
 //		}
 		
-//		Integer cnt = desnMapper.insertEmp(dto);
+		Integer cnt = desnMapper.insertEmp(dto);
 		return "redirect:/salon";
 	}
 

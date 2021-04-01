@@ -16,6 +16,7 @@ import banjjok.service.salon.reserve.PayService;
 import banjjok.service.salon.reserve.ReserveChkService;
 import banjjok.service.salon.reserve.ReserveFormService;
 import banjjok.service.salon.reserve.ReserveService;
+import banjjok.service.salon.reserve.SalResCancleService;
 
 @Controller
 @RequestMapping("/salon")
@@ -28,6 +29,8 @@ public class ReserveController {
 	PayService payService;
 	@Autowired
 	ReserveChkService reserveChkService;
+	@Autowired
+	SalResCancleService salResCancleService;
 	@ModelAttribute
 	SalonReserveCommand setsalonReserveCommand() {
 		return new SalonReserveCommand();
@@ -56,5 +59,10 @@ public class ReserveController {
 		reserveChkService.isReserve(desnId, year, month, date, time, model);		
 		return "salon/imgDel";
 	}
-	
+	// 결제취소
+	@RequestMapping(value = "menu/cancle", method = RequestMethod.GET)
+	public String cancle(@RequestParam(value = "reservCode") String reservCode) throws Exception {
+		salResCancleService.cancle(reservCode);
+		return "redirect:/salon";
+	}
 }

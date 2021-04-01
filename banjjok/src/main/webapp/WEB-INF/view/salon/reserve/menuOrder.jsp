@@ -82,6 +82,11 @@
 		<footer> SoulMate's Forest 02.125.7979 Copyright &copy All
 			Rights reserved. </footer>
 <!-- 		<script src="../../static/js/salonReserve.js"></script> -->
+		<script type="text/javascript">
+			function cancle(reservCode){
+				location.href='/salon/menu/cancle?reservCode=' + reservCode;
+			}
+		</script>
 		<!-- foot 끝 -->
 </body>
 </html>
