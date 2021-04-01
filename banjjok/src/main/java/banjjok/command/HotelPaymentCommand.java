@@ -6,6 +6,7 @@ public class HotelPaymentCommand {
 	String addPrice;
 	String totalPrice;
 	String payMethod;
+	String period;
 	
 	public String getBookCode() {
 		return bookCode;
@@ -36,6 +37,12 @@ public class HotelPaymentCommand {
 	}
 	public void setPayMethod(String payMethod) {
 		this.payMethod = payMethod;
+	}
+	public String getPeriod() {
+		return period;
+	}
+	public void setPeriod(String period) {
+		this.period = period;
 	}
 	
 	

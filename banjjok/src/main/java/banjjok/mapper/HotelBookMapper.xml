@@ -42,7 +42,6 @@
 
 <insert id="insertPayment" parameterType="banjjok.domain.HotelPaymentDTO">
 	insert into PAYMENT_HOTEL ( <include refid="paymentH" /> )
-	values ( #{reservCode}, #{roomPrice}, null, #{roomPrice}, #{payMethod} )
-	where RESERV_CODE = #{reservCode}
+	values ( #{reservCode}, #{roomPrice}, null, #{totalPrice}, #{payMethod} )
 </insert>
 </mapper>
