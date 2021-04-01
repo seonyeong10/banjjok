@@ -17,7 +17,8 @@ public class HotelController {
 		if(((AuthInfo) session.getAttribute("authInfo")) == null ) {
 			return "redirect:/login";
 		} else {
-			return "/hotel/hotelMain";
+//			return "/hotel/hotelMain";
+			return "redirect:/hotel/roomList";
 			
 		}
 	}
