@@ -121,7 +121,7 @@
 
 		function cancle() {
 			if (confirm('입력한 데이터는 저장되지 않습니다. \n 취소하시겠습니까?')) {
-				location.href = 'index.html';
+				location.href = '/';
 			}
 		}
 
