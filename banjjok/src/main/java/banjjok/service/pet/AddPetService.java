@@ -28,6 +28,8 @@ public class AddPetService {
 		petDTO.setWeight(petCommand.getWeight());
 		petDTO.setMemId(memId);
 		petDTO.setPetRep("0");
+		petDTO.setPetSize(petCommand.getPetSize());
+		petDTO.setBreed(petCommand.getBreed());
 		petMapper.insertMyPet(petDTO);
 	}
 

@@ -13,5 +13,7 @@ public interface MyPetMapper {
 	public List<MyPetDTO> getMyPet(MyPetDTO myPetDTO) throws Exception;
 	public Integer updatePet(MyPetDTO petDTO) throws Exception;
 	public Integer delete(MyPetDTO dto) throws Exception;
+	public Integer changeRep(MyPetDTO dto) throws Exception;
+	public Integer dropRep(MyPetDTO dto) throws Exception;
 
 }

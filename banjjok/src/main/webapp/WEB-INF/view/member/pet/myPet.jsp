@@ -66,28 +66,48 @@
           <label class="pet-info-input"><input type="text" name="petName" placeholder="펫이름" value="${pet.petName }"/></label>
         </li>
         <li>
-          <span class="pet-info-title">품종</span>
-          <label class="pet-info-input"><input type="text" name="kind" placeholder="펫품종" value="<c:if test="${pet.kind eq 'D' }">개</c:if>"/></label>
+          <span class="pet-info-title">구분</span>
+          <label class="pet-info-input"><input type="text" name="kind" placeholder="펫품종" value="<c:if test="${pet.kind eq 'D' }">개</c:if>" readonly="readonly"/></label>
         </li>
         <li>
-          <span class="pet-info-title">몸무게</span>
+          <span class="pet-info-title">크기</span>
+          <label class="pet-info-input">
+          	<input type="radio" name="petSize" value="small" <c:if test="${pet.petSize eq 'small' }">checked</c:if>/><span>소형</span>
+          </label>
+          <label class="pet-info-input">
+          	<input type="radio" name="petSize" value="middium" <c:if test="${pet.petSize eq 'middium' }">checked</c:if>/><span>중형</span>
+          </label>
+          <label class="pet-info-input">
+          	<input type="radio" name="petSize" value="big" <c:if test="${pet.petSize eq 'big' }">checked</c:if>/><span>대형</span>
+          </label>
+        </li>
+        <li>
+        <li>
+          <span class="pet-info-title">품종</span>
+          <label class="pet-info-input">
+          	<input type="text" name="breed" value="${pet.breed }"/>
+          </label>
+        </li>
+        <li>
+          <span class="pet-info-title">몸무게(kg)</span>
           <label class="pet-info-input"><input type="text" name="weight" placeholder="몸무게" value="${pet.weight }"/></label>
         </li>
         <li>
-          <span class="pet-info-title">나이</span>
+          <span class="pet-info-title">나이(세)</span>
           <label class="pet-info-input"><input type="text" name="age" placeholder="나이" value="${pet.age }"/></label>
         </li>
         <li>
           <span class="pet-info-title">성별</span>
           <label class="pet-info-input">
-	          <input type="radio" name="gender" <c:if test="${pet.gender eq 'M' }">checked</c:if> value="M"/> 남아
-	          &nbsp;&nbsp;&nbsp;&nbsp;
-	          <input type="radio" name="gender" <c:if test="${pet.gender eq 'F' }">checked</c:if> value="F"/> 여아
+	          <input type="radio" name="gender" <c:if test="${pet.gender eq 'M' }">checked</c:if> value="M"/><span>남아</span>
           </label>
+          <label class="pet-info-input">
+	          <input type="radio" name="gender" <c:if test="${pet.gender eq 'F' }">checked</c:if> value="F"/><span>여아</span>
+	      </label>
         </li>
         <li>
           <span class="pet-info-title">중성화</span>
-          <label class="pet-info-input"><input type="text" name="isNeutral" placeholder="중성화" value="${pet.isNeutral }" readonly="readonly"/></label>
+          <label class="pet-info-input">${pet.isNeutral }</label>
         </li>
         <li>
           <span class="pet-info-title">전자칩</span>
@@ -101,8 +121,11 @@
     </div>
     <div class="btn-area">
       <input type="submit" value="저장하기"/>
+      <c:if test="${pet.petRep eq '0' }">
+      	<input type="button" value="대표펫 등록" onclick="changeRep('${pet.petId}')"/>
+      </c:if>
       <input type="button" value="추가하기" onclick="javascript:location.href='<c:url value="/main/addPet"/>'"/>
-      <input type="button" value="삭제하기" onclick="javascript:location.href='<c:url value="/main/delPet/${pet.petId }"/>'"/>
+      <input type="button" value="삭제하기" onclick="return delPet('${pet.petId}', '${pet.petRep }');"/>
     </div>
     </form>
     </c:forEach>
@@ -114,6 +137,22 @@
     <!-- foot 끝 -->
     <script type="text/javascript">
     	var petList = document.getElementsByClassName('frm');
+    	
+    	function changeRep(petId) {
+    		if(confirm('대표 펫을 변경하시겠습니까?')) {
+    			location.href = '/main/changeRep/' + petId;
+    		}
+    	}
+    	
+    	function delPet(petId, petRep){
+    		if(petRep == '1') {
+    			alert('대표 펫은 삭제할 수 없습니다.');
+    			return false;
+    		} else {
+    			if(confirm('정말 삭제하시겠습니까?')) location.href="/main/delPet/" + petId;
+    			else return false;
+    		}
+    	}
     	
     	function showPet(num){
     		for(var i=0 ; i < petList.length ; i++) {

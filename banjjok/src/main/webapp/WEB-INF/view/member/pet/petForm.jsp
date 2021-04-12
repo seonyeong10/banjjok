@@ -58,8 +58,27 @@
           <label class="pet-info-input"><input type="text" name="petName" placeholder="펫이름을 입력해주세요." /></label>
         </li>
         <li>
+          <span class="pet-info-title">구분</span>
+          <label class="pet-info-input"><input type="radio" name="kind" value="D" checked="checked"/><span>개</span></label>
+        </li>
+        <li>
+          <span class="pet-info-title">크기</span>
+          <label class="pet-info-input">
+          	<input type="radio" name="petSize" value="small" /><span>소형</span>
+          </label>
+          <label class="pet-info-input">
+          	<input type="radio" name="petSize" value="middium" /><span>중형</span>
+          </label>
+          <label class="pet-info-input">
+          	<input type="radio" name="petSize" value="big" /><span>대형</span>
+          </label>
+        </li>
+        <li>
+        <li>
           <span class="pet-info-title">품종</span>
-          <label class="pet-info-input"><input type="radio" name="kind" value="D" checked="checked"/>개</label>
+          <label class="pet-info-input">
+          	<input type="text" name="breed" />
+          </label>
         </li>
         <li>
           <span class="pet-info-title">몸무게</span>
@@ -72,17 +91,20 @@
         <li>
           <span class="pet-info-title">성별</span>
           <label class="pet-info-input">
-	          <input type="radio" name="gender" value="M"/> 남아
-	          &nbsp;&nbsp;&nbsp;&nbsp;
-	          <input type="radio" name="gender" value="F"/> 여아
+	          <input type="radio" name="gender" value="M"/><span>남아</span>
+	      </label>
+	      <label class="pet-info-input">
+	          <input type="radio" name="gender" value="F"/><span>여아</span>
           </label>
         </li>
         <li>
           <span class="pet-info-title">중성화 여부</span>
           <label class="pet-info-input">
-	          <input type="radio" name="isNeutral" value="Y" checked="checked"/>Y
-	          <input type="radio" name="isNeutral" value="N" onclick="noCheck();"/>N
+	          <input type="radio" name="isNeutral" value="Y" checked="checked"/><span>Y</span>
           </label>
+          <label class="pet-info-input">
+	          <input type="radio" name="isNeutral" value="N" onclick="noCheck();"/><span>N</span>
+	      </label>
         </li>
         <li>
           <span class="pet-info-title">전자칩</span>

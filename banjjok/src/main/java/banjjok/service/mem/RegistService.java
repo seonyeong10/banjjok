@@ -60,6 +60,8 @@ public class RegistService {
 		myPetDTO.setWeight(signUpCommand.getWeight());
 		myPetDTO.setMemId(signUpCommand.getMemId());
 		myPetDTO.setPetRep("1");	// 회원가입 시 등록하는 펫은 무조건 대표펫
+		myPetDTO.setPetSize(signUpCommand.getPetSize());
+		myPetDTO.setBreed(signUpCommand.getBreed());
 		Integer pet = myPetMapper.insertMyPet(myPetDTO);
 				
 		path = (member > 0 && pet > 0) ? "redirect:/" : "login/signUpForm";

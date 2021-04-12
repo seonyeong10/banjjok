@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import banjjok.command.PetCommand;
 import banjjok.service.pet.AddPetService;
+import banjjok.service.pet.ChangeRepService;
 import banjjok.service.pet.DeletePetService;
 import banjjok.service.pet.MyPetService;
 import banjjok.service.pet.PetModifyService;
@@ -27,6 +28,8 @@ public class MyPetController {
 	AddPetService addPetService;
 	@Autowired
 	DeletePetService deletePetService;
+	@Autowired
+	ChangeRepService changeRepService;
 	
 	@RequestMapping(value = "myPet", method = RequestMethod.GET)
 	public String myPet(HttpSession session, Model model) throws Exception {
@@ -50,6 +53,11 @@ public class MyPetController {
 	@RequestMapping(value = "delPet/{petId}", method = RequestMethod.GET)
 	public String petDelete(@PathVariable(value = "petId") String petId, HttpSession session) throws Exception {
 		deletePetService.delete(petId, session);
+		return "redirect:/main/myPet";
+	}
+	@RequestMapping(value = "changeRep/{petId}", method = RequestMethod.GET)
+	public String changeRep(@PathVariable(value = "petId") String petId, HttpSession session) throws Exception {
+		changeRepService.change(petId, session);
 		return "redirect:/main/myPet";
 	}
 }
