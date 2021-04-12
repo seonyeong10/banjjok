@@ -2,7 +2,7 @@
 .content {
   width: 620px;
   margin: 0 auto 100px;
-  background: #ed820e;
+  background: #afb8aa;
   font-size: 16px;
 }
 
@@ -40,7 +40,7 @@
 
 .content ul li {
   padding: 20px 0;
-  border-bottom: 1px solid #e1e1e1;
+  border-bottom: 1px solid #dbd7ce;
 }
 
 ul li:last-child {
@@ -59,7 +59,7 @@ ul li:last-child {
 }
 
 .mem-info ul {
-  background: #eee;
+  background: #f2f2ef;
   padding: 10px 20px;
   border-radius: 3px;
 }
@@ -78,7 +78,7 @@ ul li:last-child {
 }
 
 .payment-area h2 {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #dbd7ce;
   font-size: 18px;
   padding-left: 6px;
 }
@@ -121,9 +121,9 @@ ul li:last-child {
 .btn-area a {
   /* text-align: center; */
   padding: 10px 50px;
-  border: 1px solid #333;
-  color: #fff;
-  background: #333;
+  border: 1px solid #b0aaa0;
+  color: #333;
+  background: #b0aaa0;
   font-weight: 700;
   font-size: 18px;
   border-radius: 5px;
@@ -131,7 +131,14 @@ ul li:last-child {
 }
 
 .btn-area .modify {
-  background: #fff;
+  background: none;
   color: #333;
   margin-right: 10px;
+}
+
+.btn-area a:hover {
+	background: #535e53;
+	color: #f2f2ef;
+	border: #535e53;
+	text-decoration: none;
 }

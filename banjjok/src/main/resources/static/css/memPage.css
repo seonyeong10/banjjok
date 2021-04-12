@@ -20,7 +20,7 @@ input:focus {
 	width: 450px;
 	height: 300px;
 	/*display : inline-flex;*/
-	border: 1px solid #e1e1e1;
+	border: 1px solid #dbd7ce;
 	margin: 10px;
 	padding: 30px 24px;
 	float: left;
@@ -44,17 +44,24 @@ div p {
 	display: inline-block;
 	width: 115px;
 	line-height: 35px;
-	border: 1px solid #e1e1e1;
+	border: 1px solid #b0aaa0;
 	border-radius: 3px;
 	text-align: center;
 	margin: 150px 0 0;
 }
 
+.contentSelectWrap div a:hover {
+	background: #535e53;
+	color: #f2f2ef;
+	border-color: #535e53;
+	text-decoration: none;
+}
+
 .modify {
-	background-color: #80BA8E;
-	border: #80BA8E;
-	border-color: #80BA8E;
-	color: #fff;
+	background-color: #b0aaa0;
+	border: #b0aaa0;
+	border-color: #b0aaa0;
+	color: #f2f2ef;
 	font-weight: 700;
 }
 

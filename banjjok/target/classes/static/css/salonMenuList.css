@@ -34,7 +34,7 @@ header {
 }
 
 .categori li a {
-  color: #808080;
+  color: #B0AAA0;
 }
 
 .menu-area {
@@ -44,15 +44,16 @@ header {
 
 .menu-area .categori-name{
   font-weight: 900;
+  background: #f2f2ef;
 }
 
 .menu-area li {
   padding: 30px 10px;
-  border-top: 1px solid #808080;
+  border-top: 1px solid #AFB8AA;
 }
 
 .menu-area li:first-child {
-  border-top: 7px solid #808080;
+  border-top: 7px solid #AFB8AA;
 }
 
 .menu-area li a{

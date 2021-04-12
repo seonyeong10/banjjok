@@ -56,20 +56,20 @@
 				<div class="select-title">날짜선택</div>
 				<div class="calendar">
 					<div class="month">
-						<span onclick="preMonth('${year }','${currMonth - 1 }');"><i class="fas fa-angle-left"></i> </span>
-						${currMonth + 1 }월
-						<span onclick="preMonth('${year }','${currMonth + 1 }');"> <i class="fas fa-angle-right"></i></span></div>
+						<span onclick="preMonth('${year }','${currMonth - 1 }');"><i class="fas fa-angle-left fa-2x"></i> </span>
+						${currMonth + 1 }월 ${year }
+						<span onclick="preMonth('${year }','${currMonth + 1 }');"> <i class="fas fa-angle-right fa-2x"></i></span></div>
 					<input type="hidden" name="year" value="${year }"/>
 					<input type="hidden" name="month" value="${currMonth }"/>
-					<ul class="calendar-month">
+					<ul class="calendar-month" style="background: #ede9e4;">
 						<!-- 요일 -->
-						<li>일</li>
-						<li>월</li>
-						<li>화</li>
-						<li>수</li>
-						<li>목</li>
-						<li>금</li>
-						<li>토</li>
+						<li >일</li>
+						<li >월</li>
+						<li >화</li>
+						<li >수</li>
+						<li >목</li>
+						<li >금</li>
+						<li >토</li>
 					</ul>
 					<ul class="calendar-month">
 						<!-- 지난달 -->
