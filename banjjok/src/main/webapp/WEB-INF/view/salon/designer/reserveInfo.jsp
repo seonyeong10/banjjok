@@ -46,26 +46,36 @@
 		</h2>
 		<div class="reservation-area">
 			<ul>
-				<li><span class="title">예약번호</span>${dto.reservCode }</li>
+				<li><span class="title">예약번호</span> ${dto.reservCode }</li>
 				<li><span class="title">날짜/시간</span>
 				<fmt:formatDate value="${dto.reservDate }"
 						pattern="M월 d일 (E) a HH:mm" /></li>
-				<li><span class="title">선택메뉴</span>${dto.serviceName }</li>
+				<li><span class="title">선택메뉴</span> ${dto.serviceName }</li>
+				<li><span class="title">시술대상</span>
+					<c:if test="${dto.petSize eq 'small' }">소형견</c:if>
+					<c:if test="${dto.petSize eq 'middium' }">중형견</c:if>
+					<c:if test="${dto.petSize eq 'big' }">대형견</c:if>
+				</li>
 				<li><span class="title">담당</span>
 				<c:choose>
 						<c:when test="${dto.desnUse eq '1' }">원장</c:when>
 						<c:when test="${dto.desnUse eq '2' }">수석디자이너</c:when>
 						<c:when test="${dto.desnUse eq '3' }">디자이너</c:when>
 				</c:choose>${dto.desnName }</li>
-				<li><span class="title">요청사항</span>${dto.reservDesc }</li>
 			</ul>
 		</div>
 		<div class="mem-info">
 			<ul>
-				<li><span class="title">예약자</span>${dto.memName }</li>
-				<li><span class="title">펫 이름</span>${dto.petName }</li>
-				<li><span class="title">연락처</span>${dto.memMobile }</li>
-				<li><span class="title">요청사항</span>${dto.reservDesc }</li>
+				<li><span class="title">예약자</span> ${dto.memName }</li>
+				<li><span class="title">펫 이름</span> ${dto.petName }</li>
+				<li><span class="title">펫 체급</span>
+					<c:if test="${dto.petSize eq 'small' }">소형견</c:if>
+					<c:if test="${dto.petSize eq 'middium' }">중형견</c:if>
+					<c:if test="${dto.petSize eq 'big' }">대형견</c:if>
+				</li>
+				<li><span class="title">펫 품종</span> ${dto.breed }</li>
+				<li><span class="title">연락처</span> ${dto.memMobile }</li>
+				<li><span class="title">요청사항</span> ${dto.reservDesc }</li>
 			</ul>
 		</div>
 		<div class="payment-area">
@@ -103,7 +113,7 @@
 			<c:choose>
 				<c:when test="${dto.reservUse eq '2' || dto.reservUse eq '1' }"></c:when>
 				<c:otherwise>
-					<a onclick="change('${dto.reservCode}', '1', '${year }', '${month }', '${date }');">시술완료</a>
+					<a class="modify" onclick="change('${dto.reservCode}', '1', '${year }', '${month }', '${date }');">시술완료</a>
 					<a onclick="change('${list.reservCode}', '2', '${year }', '${month }', '${date }');">예약취소</a>
 				</c:otherwise>
 			</c:choose>

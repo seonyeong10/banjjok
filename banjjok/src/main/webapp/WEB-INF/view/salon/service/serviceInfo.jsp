@@ -44,7 +44,7 @@
               <li class="option-area"><span>시술대상</span>
               	<c:choose>
               		<c:when test="${dto.serviceTarget == 'small' }">소형견</c:when>
-              		<c:when test="${dto.serviceTarget == 'middle' }">중형견</c:when>
+              		<c:when test="${dto.serviceTarget == 'middium' }">중형견</c:when>
               		<c:when test="${dto.serviceTarget == 'big' }">대형견</c:when>
               	</c:choose>
               </li>

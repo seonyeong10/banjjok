@@ -39,6 +39,11 @@
 	margin-top: 25px;
 }
 
+.select-title-price span {
+	font-size: 14px;
+	color: #b0aaa0;
+}
+
 input[type="text"]:focus {
 	outline: none;
 }

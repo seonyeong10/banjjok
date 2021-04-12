@@ -121,9 +121,9 @@ ul li:last-child {
 .btn-area a {
   /* text-align: center; */
   padding: 10px 50px;
-  border: 1px solid #b0aaa0;
+  border: 1px solid #afb8aa;
   color: #333;
-  background: #b0aaa0;
+  background: none;
   font-weight: 700;
   font-size: 18px;
   border-radius: 5px;
@@ -131,7 +131,7 @@ ul li:last-child {
 }
 
 .btn-area .modify {
-  background: none;
+  background: #afb8aa;
   color: #333;
   margin-right: 10px;
 }
