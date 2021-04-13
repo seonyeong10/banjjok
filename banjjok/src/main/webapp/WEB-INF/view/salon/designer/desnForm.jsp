@@ -18,7 +18,6 @@
 		</div>
 		<form:form action="empRegistAct" name="frm" id="frm" enctype="multipart/form-data" modelAttribute="desnCommand" 
 		method="post" onsubmit="return offCheck();">
-			<!-- 보호자 정보 -->
 			<div id="member-info">
 				<div class="mem-element">
 					<p class="element-name">구분</p>
@@ -32,9 +31,9 @@
 				</div>
 				<div class="mem-element">
 					<p class="element-name">직원사진</p>
-					<span class="image"><img src="#" alt="emp face" /></span> <span
+					<span class="image"><img src="#" alt="emp face" id="emp-img"/></span> <span
 						class="element-value"
-					><input type="file" name="desnImg" /></span>
+					><input type="file" name="desnImg" id="desn-img"/></span>
 					<p class="element-errors">${noImg }</p>
 				</div>
 				<div class="mem-element">
@@ -49,12 +48,12 @@
 					</span>
 				</div>
 				<div class="mem-element">
-					<p class="element-name">아이디</p>
+					<p class="element-name">아이디(사원번호, 자동생성)</p>
 					<span class="element-value">
-						<form:input path="desnId" placeholder="아이디"/>
+						<input type="text" name="desnId" placeholder="사원번호 자동생성" value="${empNumber }" readonly="readonly"/>
 					</span> 
-					<span class="button"><input type="button" value="중복확인" /></span>
-					<p class="element-errors"><form:errors path="desnId"/></p>
+<!-- 					<span class="button"><input type="button" value="중복확인" /></span> -->
+<%-- 					<p class="element-errors"><form:errors path="desnId"/></p> --%>
 				</div>
 				<div class="mem-element">
 					<p class="element-name">비밀번호</p>
@@ -84,9 +83,8 @@
 <!-- 				</div> -->
 				<div class="mem-element">
 					<p class="element-name">휴대폰 번호</p>
-					<span class="element-value"><form:input path="desnPh"
-							placeholder="휴대폰 번호"
-						/></span> <span class="button"><input type="button" value="인증" /></span>
+					<span class="element-value"><form:input path="desnPh" placeholder="휴대폰 번호" /></span>
+<!-- 					<span class="button"><input type="button" value="인증" /></span> -->
 					<p class="element-errors"><form:errors path="desnPh"/></p>
 				</div>
 				<div class="mem-element">
@@ -142,6 +140,28 @@
 				return false;
 			}
 		}
+		
+		function readImage(input) {
+		    // 인풋 태그에 파일이 있는 경우
+		    if(input.files && input.files[0]) {
+		        // 이미지 파일인지 검사 (생략)
+		        // FileReader 인스턴스 생성
+		        const reader = new FileReader();
+		        // 이미지가 로드가 된 경우
+		        reader.onload = e => {
+		            const previewImage = document.getElementById("emp-img");
+		            previewImage.src = e.target.result;
+		        }
+		        // reader가 이미지 읽도록 하기
+		        reader.readAsDataURL(input.files[0]);
+		    }
+		}
+		
+		// input file에 change 이벤트 부여
+		const inputImage = document.getElementById("desn-img");
+		inputImage.addEventListener("change", e => {
+		    readImage(e.target)
+		})
 	</script>
 </body>
 </html>
