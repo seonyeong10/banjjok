@@ -95,7 +95,7 @@
 				<a href="#">
 <!--  					<img src="#" alt="heart" /> -->
 					<i class="fas fa-heart" style="color: red;"></i>
-<%-- 					<div class="heartCount">${htCount }</div> --%>
+					<div class="heartCount">${htCount }</div>
 				</a>
 			</div>
 			<div class="styleBookArea">
@@ -106,29 +106,19 @@
 						<c:if test="${style.styleUse eq '0' }">
 							<li>
 								<a href="<c:url value='/salon/style/desnStyle?styleCode=${style.styleCode }'/>"><img src="/salon/designer/styleBook/upload/${style.styleImg }" alt="styleImg" class="styleImg" /></a>
-<%-- 									<c:if test="${authInfo.userId != null }"> --%>
-<%-- 										<c:choose> --%>
-<%-- 											<c:when test="${isHeart.get(i.index).styleCode == style.styleCode && isHeart.get(i.index).heart == 1 }"> --%>
-<%-- 												<a class="heart" style="color:red;" onclick="unlock('${style.styleCode}','${list.desnId }','${authInfo.userId }','${isHeart.get(i.index).heart }');"> --%>
-<!-- 												<i class="fas fa-heart fa-2x" ></i></a> -->
-<%-- 											</c:when> --%>
-<%-- 											<c:otherwise> --%>
-<%-- 												<a class="heart" style="color:#fff;" onclick="unlock('${style.styleCode}','${list.desnId }','${authInfo.userId }','${isHeart.get(i.index).heart }');"> --%>
-<!-- 												<i class="fas fa-heart fa-2x" ></i></a> -->
-<%-- 											</c:otherwise> --%>
-<%-- 										</c:choose> --%>
-<%-- 									</c:if> --%>
-<%-- 									<c:if test="${authInfo.userId == null }"> --%>
-<!-- 										<a class="heart" style="color: #fff;" onclick="login();" ><i class="fas fa-heart fa-2x" ></i></a> -->
-<%-- 									</c:if> --%>
-<!-- 									<div id="reload-area"> -->
-<!-- 									</div> -->
+								<a class="heart" onclick="return unlock('${style.styleCode }','${list.desnId }', this, '${authInfo.userId }');" 
+									<c:forEach items="${isHeart }" var="ht">
+										<c:if test="${ht.styleCode eq style.styleCode && ht.heart eq '1' }">style="color:red;"</c:if>
+										<c:if test="${ht.styleCode eq style.styleCode && ht.heart eq '0' }">style="color:white;"</c:if>
+										<c:if test="${authInfo.userId == null}">style="color:white;"</c:if>
+									</c:forEach>
+									<c:if test="${isHeart.size() == 0}">style="color:white;"</c:if>
+								>
+									<i class="fas fa-heart fa-2x" ></i>
+								</a>
 							</li>
 						</c:if>
 					</c:forEach>
-<!-- 					<li><img src="#" alt="styleImg" class="styleImg" /> <img -->
-<!-- 						src="#" alt="heart" class="heart" -->
-<!-- 					/></li> -->
 				</ul>
 			</div>
 		</div>
@@ -137,29 +127,34 @@
 		<!-- foot -->
 		<footer> SoulMate's Forest 02.125.7979 Copyright &copy All Rights reserved. </footer>
 		<script type="text/javascript">
-			function login(){
-				alert('로그인 후 이용가능합니다.');
-			}
-			function unlock(styleCode, desnId, memId, heart, btn){
+			function unlock(styleCode, desnId, btn, userId) {
+				if(userId == "") {
+					login();
+					return false;
+				}
 				var data = {
 						"styleCode" : styleCode
 						,"desnId" : desnId
-						,"memId" : memId
-						,"heart" : heart
+				}
+				islock = {
+						type : "post"
+						,url : "unlock"
+						,data : data
+						,dataType : "text"
+						,success : function(){
+							if(btn.style.color == 'white') {
+								btn.style.color = 'red';
+							} else {
+								btn.style.color = 'white';
+							}
+						}
+						,errors : function(){}
 				};
-				console.log(data);
-				unlock = {
-					type : "post"
-					,url : "unlock"
-					,data : data
-					,dataType : "text"
-					,success : function(){
-// 						location.href="/salon/desn/" + desnId;
-					}
-					,errors : function(){alert('에러');}
-				};
-				$.ajax(unlock);
-// 				$('#reload-area').load('unlock', data);
+				$.ajax(islock);
+				
+			}
+			function login(){
+				alert('로그인 후 이용가능합니다.');
 			}
 		</script>
 </body>

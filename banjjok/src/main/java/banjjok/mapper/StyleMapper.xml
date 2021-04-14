@@ -58,13 +58,19 @@
 	<if test="memId != null"> and mem_id = #{memId}</if>
 	order by style_code desc
 </select>
+
+<select id="isHeart" parameterType="banjjok.domain.SalHeartDTO" resultType="string">
+	select heart from heart_salon
+	where style_code = #{styleCode} and desn_id = #{desnId} and mem_id = #{memId}
+</select>
 <insert id="insertHeart" parameterType="banjjok.domain.SalHeartDTO">
 	insert into heart_salon (style_code, desn_id, mem_id, heart)
-	values(#{styleCode}, #{desnId}, #{memId}, #{heart})
+	values(#{styleCode}, #{desnId}, #{memId}, '1')
 </insert>
-<update id="deleteHt" parameterType="banjjok.domain.SalHeartDTO">
-	delete from heart_salon
-	where style_code = #{styleCode} and mem_id = #{memId}
+<update id="updateHt" parameterType="banjjok.domain.SalHeartDTO">
+	update heart_salon
+	set heart = #{heart}
+	where style_code = #{styleCode} and desn_id = #{desnId} and mem_id = #{memId}
 </update>
 <select id="getHtCount" parameterType="banjjok.domain.SalHeartDTO" resultType="int">
 	select count(*)

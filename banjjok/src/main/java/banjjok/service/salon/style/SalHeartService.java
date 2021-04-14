@@ -2,11 +2,14 @@ package banjjok.service.salon.style;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import banjjok.command.SalHeartCommand;
+import banjjok.domain.AuthInfo;
 import banjjok.domain.SalHeartDTO;
 import banjjok.mapper.StyleMapper;
 
@@ -15,18 +18,20 @@ public class SalHeartService {
 	@Autowired
 	StyleMapper styleMapper;
 
-	public void unlock(SalHeartCommand heartCommand, Model model) throws Exception {
-		String heart = "";
-		System.out.println(heartCommand.getHeart());
-		System.out.println(heartCommand.getHeart().equals(""));
-		if(heartCommand.getHeart().equals("")) {
-			heart = "1";
+	public void unlock(SalHeartCommand heartCommand, HttpSession session, Model model) throws Exception {
+		String memId = ((AuthInfo) session.getAttribute("authInfo")).getUserId();
+		// 데이터베이스에 관심등록이 되어있는지 확인
+		SalHeartDTO heartDTO = new SalHeartDTO(heartCommand.getStyleCode(), heartCommand.getDesnId(), memId);
+		String heart = styleMapper.isHeart(heartDTO);
+		System.out.println(heart);
+		System.out.println("isLocked? " + (heart == null));
+		if(heart == null) {
 			// 없으면 인서트
-			SalHeartDTO heartDTO = new SalHeartDTO(heartCommand.getStyleCode(), heartCommand.getDesnId(), heartCommand.getMemId(), heart);
 			styleMapper.insertHeart(heartDTO);
 		} else {
-			SalHeartDTO heartDTO = new SalHeartDTO(heartCommand.getStyleCode(), heartCommand.getDesnId(), heartCommand.getMemId(), heart);
-			styleMapper.deleteHt(heartDTO);
+			heart = heart.equals("1") ? "0" : "1";
+			heartDTO = new SalHeartDTO(heartCommand.getStyleCode(), heartCommand.getDesnId(), memId, heart);
+			styleMapper.updateHt(heartDTO);
 		}
 		
 //		model.addAttribute("val", heart);
