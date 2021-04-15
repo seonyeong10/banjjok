@@ -96,6 +96,7 @@
             <span class="element-value"><form:input path="memEmail" placeholder="이메일"/></span>
             <div class="element-errors"><form:errors path="memEmail"/> </div>
           </div>
+          
           <div class="mem-element">
             <p class="element-name">닉네임</p>
             <span class="element-value"><form:input path="nicName" placeholder="닉네임"/></span>

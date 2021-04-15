@@ -71,7 +71,7 @@
 }
 
 #calendar .days li:hover {
-	background: #b0aaa0;
+	background: #f2cc8e;
 }
 
 #calendar .date {
@@ -95,9 +95,9 @@
 	margin-top: 10px;
 	margin-bottom: 5px;
 	line-height: 14px;
-	background: #afb8aa;
-	border: 1px solid #afb8aa;
-	color: #f2f2ef;
+	background: #81b39a;
+	border: 1px solid #81b39a;
+	color: #fff;
 	text-decoration: none;
 }
 
@@ -106,7 +106,7 @@
 }
 
 #calendar .event-desc {
-	color: #666;
+	color: #fff;
 	margin: 3px 0 7px 0;
 	text-decoration: none;
 }
@@ -143,7 +143,7 @@
 
 .table th {
 	color: #333;
-	background: #ede9e4;
+	background: #f2cc8e;
 	text-align: center;
 }
 
@@ -184,8 +184,8 @@
 
 .table a:first-child {
 	margin-left: 0;
-	background: #b0aaa0;
-	color: #333;
+	background: #81b39a;
+	color: #fff;
 }
 
 .table a:hover {

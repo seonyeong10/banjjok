@@ -26,7 +26,8 @@
 }
 
 .selectedServiceArea, .selectDateArea {
-  border-bottom: 7px solid #afb8aa;
+/*   border-bottom: 7px solid #afb8aa; */
+  border-bottom: 7px solid #f2cc8e;
 }
 
 .select-title, .select-title-price {
@@ -67,7 +68,8 @@ input[type="text"]{
 }
 
 .calendar {
-	background: #f2f2ef;
+/* 	background: #f2f2ef; */
+	background: #f4f1de;
 	border-radius: 10px 10px 0 0 ;
 	width: 80%;
 	margin: 0 auto;
@@ -128,7 +130,8 @@ input[type="text"]{
   display: inline-block;
   width: 100%;
   line-height: 30px;
-  background: #ede9e4;
+/*   background: #ede9e4; */
+  background: #81b39a;
   border-radius: 50%;
   color: #fff;
 }
@@ -150,8 +153,8 @@ input[type="text"]{
 }
 
 .date-current input[type="radio"]:checked +span{
-	background: #dbd7ce;
-	color: #535e53;
+	background: #81b39a;
+	color: #fff;
 }
 
 .select-designer {
@@ -211,7 +214,7 @@ input[type="text"]{
 	color : red;
 	font-size : 14px;
 	border-radius: 15px;
-	background: #ede9e4;
+	background: #f2f2ef;
 	padding: 5px 15px;
 	width: 120px;
 }
@@ -230,7 +233,7 @@ input[type="text"]{
 }
 
 .box-radio-input input[type="radio"]:checked +span{
-	background: #b0aaa0;
+	background: #81b39a;
 	color: #fff;
 }
 
@@ -267,13 +270,17 @@ input[type="text"]{
 	border-radius:5px;
 	font-size: 18px;
 	font-weight: 900;
-	color: #535e53;
-	background: #dbd7ce;
+	color: #333;
+	background: #81b39a;
+}
+
+.btn-area input[type="submit"] {
+	color: #fff;
 }
 
 .btn-area input:hover {
 	background: #535e53;
-	color: #f2f2ef;
+	color: #fff;
 }
 
 .btn-area .cancle {

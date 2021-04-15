@@ -44,7 +44,7 @@ form .element-value input[type="text"], #frm .element-value input[type="password
 	display: inline-block;
 	cursor: pointer;
 	border: none;
-	border-radius: 50%;
+	border-radius: 45%;
 	width: 60px;
 	line-height: 30px;
 	text-align: center;
@@ -53,8 +53,8 @@ form .element-value input[type="text"], #frm .element-value input[type="password
 }
 
 .element-value input[type="radio"]:checked +span{
-	background: #b0aaa0;
-	color: #f2f2ef;
+	background: #81b39a;
+	color: #fff;
 }
 
 .element-value input[type='checkbox'] {
@@ -72,9 +72,9 @@ form .element-value input[type="text"], #frm .element-value input[type="password
   width: 100px;
   height: 40px;
   border-radius: 40px;
-  border: 1px solid #afb8aa;
+  border: 1px solid #81b39a;
   background: none;
-  color: #535e53;
+  color: #333;
   font-weight: 600;
 }
 
@@ -87,8 +87,8 @@ form .element-value input[type="text"], #frm .element-value input[type="password
   width: 100px;
   height: 40px;
   border-radius: 10px;
-  border: 1px solid #ede9e4;
-  background: #ede9e4;
+  border: 1px solid #b0aaa0;
+  background: none;
   color: #333;
   font-weight: 600;
 }
@@ -100,9 +100,9 @@ form .element-value input[type="text"], #frm .element-value input[type="password
 }
 
 .button-wrap input[type=submit]{
-  border: 1px solid #afb8aa;
-  background: #afb8aa;
-  color: #f2f2ef;
+  border: 1px solid #81b39a;
+  background: #81b39a;
+  color: #fff;
 }
 
 .fa-user::before{

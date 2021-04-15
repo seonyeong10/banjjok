@@ -42,9 +42,9 @@
 }
 
 .menu-area {
-  background: #afb8aa;
-/*   background: #d16002; */
-  color: #fff;
+/*   background: #afb8aa; */
+  background: #f2cc8e;
+  color: #333;
   padding: 20px;
   border-radius: 3px;
   position: relative;

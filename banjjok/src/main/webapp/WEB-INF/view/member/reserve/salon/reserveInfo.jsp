@@ -37,7 +37,9 @@
 	</header>
 	<!-- top 끝 -->
 	<!-- 내용 -->
-	<div class="content">
+	<div class="content"
+		<c:if test="${dto.reservUse eq '2' }">style="background: #df7a5e;"</c:if>
+	>
 		<!-- 예약리스트 -->
 		<h2>
 			<span>

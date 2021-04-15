@@ -48,12 +48,12 @@
 	padding-left: 2px;
 }
 .fa-circle {
-	color : #535e53;
+	color : #df7a5e;
 	font-size: 2px;
 }
 
 .fa-user-circle {
-	color: #afb8aa;
+	color: #3c405b;
 }
 
 .mem-pet-list li:first-child {
@@ -111,8 +111,8 @@
 }
 
 .pet-info-input input[type="radio"]:checked +span{
-	background: #afb8aa;
-	color: #f2f2ef;
+	background: #81b39a;
+	color: #fff;
 }
 
 .pet-info-input textarea {
@@ -145,7 +145,8 @@ input:focus {
 
 .btn-area input[type='submit'] {
   margin: 0;
-  background: #afb8aa;
+  background: #81b39a;
+  color: #fff;
   /* color: #333; */
 }
 

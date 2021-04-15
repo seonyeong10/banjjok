@@ -52,16 +52,16 @@ div p {
 
 .contentSelectWrap div a:hover {
 	background: #535e53;
-	color: #f2f2ef;
+	color: #fff;
 	border-color: #535e53;
 	text-decoration: none;
 }
 
 .modify {
-	background-color: #b0aaa0;
-	border: #b0aaa0;
-	border-color: #b0aaa0;
-	color: #f2f2ef;
+	background-color: #81b39a;
+	border: #81b39a;
+	border-color: #81b39a;
+	color: #fff;
 	font-weight: 700;
 }
 

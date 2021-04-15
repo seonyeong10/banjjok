@@ -44,7 +44,8 @@ header {
 
 .menu-area .categori-name{
   font-weight: 900;
-  background: #f2f2ef;
+/*   background: #f2f2ef; */
+  background: #f4f1de;
 }
 
 .menu-area li {
@@ -53,7 +54,7 @@ header {
 }
 
 .menu-area li:first-child {
-  border-top: 7px solid #AFB8AA;
+  border-top: 7px solid #f2cc8e;
 }
 
 .menu-area li a{
