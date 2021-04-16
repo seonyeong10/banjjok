@@ -80,4 +80,25 @@
 	delete from reserve_salon
 	where reserv_code = #{reservCode}
 </delete>
+
+<select id="getResList" parameterType="banjjok.domain.SalonRSDTO" resultType="banjjok.domain.SalonRSDTO">
+select nvl(r.flag, 'false') as flag
+from 
+	(select *
+	from(select to_char(lis.reserv_date, 'hh24:mi') time, count(lis.reserv_date) count, 'true' flag
+		 from reserve_salon res join reserve_list_salon lis
+		 on res.reserv_code = lis.reserv_code
+		 where reserv_use = '0' and res.desn_id = #{desnId}
+		 <if test="reservDate == null">
+		 	and res.reserv_date between to_char(sysdate, 'yy-MM-dd') and (sysdate+1)
+		 </if>
+		 <if test="reservDate != null">
+			and res.reserv_date between to_date(#{reservDate}, 'yyyy-MM-dd') and (to_date(#{reservDate},'yyyy-mm-dd')+(interval '1' day)) 
+		 </if>
+		 group by res.reserv_date, to_char(lis.reserv_date, 'hh24:mi'), lis.reserv_date, 'true')
+	where count <![CDATA[ >= ]]> 3) r
+right join (select level+9||':00' as time from dual connect by level <![CDATA[ <= ]]> 8) o
+on r.time = o.time
+order by o.time
+</select>
 </mapper>

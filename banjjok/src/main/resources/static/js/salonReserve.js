@@ -65,7 +65,7 @@ function getId(desnId, desnName, btn){
 			,data : data
 			,dataType : "text"
 			,success : function(result){
-				if(result != 0) {
+				if(result >= 3) {
 					alert('이미 예약된 시간입니다.\n다른 시간을 선택해주세요.');
 					$(btn).attr('checked', false);
 				} else {
@@ -87,8 +87,8 @@ function init(nowYear, nowMonth){
 }
 
 function loadDesn(year, month, date) {
-//	month *= 1;
-//	month = month + 1;
+	month *= 1;
+	month = month + 1;
 	$('#reload-area').load('loadDesn', {"year" : year, "month" : month, "date" : date});
 }
 

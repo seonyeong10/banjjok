@@ -156,11 +156,17 @@
 							<div class="time-area">
 								<c:set value=":00" var="minute"/>
 								<ul>
-									<c:forEach begin="10" end="17" var="hour">
-										<li><label class="box-radio-input"> 
-											<input type="radio" name="reservTime" value="${hour }${minute}"
-											onclick="getId('${desn.desnId}', '${desn.desnName}', this);" /><span >${hour }${minute}</span> 
-										</label></li>
+									<c:forEach begin="10" end="17" var="hour" varStatus="idx">
+									<c:set var="timeSet" value="${hour }${minute}" />
+										<li>
+											<c:if test="${rsMap.get(desn.desnId).get(idx.count-1).flag }"></c:if>
+											<c:if test="${!rsMap.get(desn.desnId).get(idx.count-1).flag }">
+												<label class="box-radio-input"> 
+													<input type="radio" name="reservTime" value="${timeSet }"
+													onclick="getId('${desn.desnId}', '${desn.desnName}', this);" /><span >${hour }${minute}</span> 
+												</label>
+											</c:if>
+										</li>
 									</c:forEach>
 								</ul>
 							</div>
