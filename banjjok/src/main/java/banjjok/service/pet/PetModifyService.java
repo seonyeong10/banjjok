@@ -26,6 +26,8 @@ public class PetModifyService {
 		petDTO.setPetDesc(petCommand.getPetDesc());
 		petDTO.setMicroNum(petCommand.getMicroNum());
 		petDTO.setPetName(petCommand.getPetName());
+		petDTO.setPetSize(petCommand.getPetSize());
+		petDTO.setBreed(petCommand.getBreed());
 		petMapper.updatePet(petDTO);
 	}
 	

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import banjjok.domain.MemSalReserveDTO;
 import banjjok.domain.SalonPayDTO;
+import banjjok.domain.SalonRSDTO;
 import banjjok.domain.SalonReserveDTO;
 
 @Repository
@@ -22,4 +23,7 @@ public interface SalonReserveMapper {
 	
 	public Integer isReserve(MemSalReserveDTO dto) throws Exception;
 	public void canclePay(SalonReserveDTO reserveDTO) throws Exception;	// 결제 취소
+	
+	// 디자이너 예약 현황
+	public List<SalonRSDTO> getResList(SalonRSDTO rsDTO);
 }

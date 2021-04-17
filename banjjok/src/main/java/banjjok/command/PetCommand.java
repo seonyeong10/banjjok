@@ -13,6 +13,8 @@ public class PetCommand {
 	String petDesc;
 	String kind;
 	String isNeutral;
+	String petSize;
+	String breed;
 	
 	public String getPetId() {
 		return petId;
@@ -85,7 +87,21 @@ public class PetCommand {
 	public void setIsNeutral(String isNeutral) {
 		this.isNeutral = isNeutral;
 	}
-	
-	
 
+	public String getPetSize() {
+		return petSize;
+	}
+
+	public void setPetSize(String petSize) {
+		this.petSize = petSize;
+	}
+
+	public String getBreed() {
+		return breed;
+	}
+
+	public void setBreed(String breed) {
+		this.breed = breed;
+	}
+	
 }

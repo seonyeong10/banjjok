@@ -10,6 +10,13 @@ public class SalHeartDTO {
 		super();
 	}
 
+	public SalHeartDTO(String styleCode, String desnId, String memId) {
+		super();
+		this.styleCode = styleCode;
+		this.desnId = desnId;
+		this.memId = memId;
+	}
+	
 	public SalHeartDTO(String styleCode, String desnId, String memId, String heart) {
 		super();
 		this.styleCode = styleCode;

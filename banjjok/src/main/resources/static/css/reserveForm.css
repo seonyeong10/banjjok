@@ -2,6 +2,7 @@
 .content {
   width: 620px;
   margin: 0 auto 100px;
+  
 }
 
 .titleWrap {
@@ -25,17 +26,23 @@
 }
 
 .selectedServiceArea, .selectDateArea {
-  border-bottom: 7px solid #eee;
+/*   border-bottom: 7px solid #afb8aa; */
+  border-bottom: 7px solid #f2cc8e;
 }
 
 .select-title, .select-title-price {
   padding-bottom: 15px;
   margin-bottom:  15px;
-  border-bottom:  1px solid #eee; 
+  border-bottom:  1px solid #afb8aa; 
 }
 
 .select-title-price {
 	margin-top: 25px;
+}
+
+.select-title-price span {
+	font-size: 14px;
+	color: #b0aaa0;
 }
 
 input[type="text"]:focus {
@@ -57,27 +64,53 @@ input[type="text"]{
   /* margin-right: 20px; */
   width: 100px;
   display: inline-block;
-  color: #808080;
+  color: #535e53;
 }
 
 .calendar {
+/* 	background: #f2f2ef; */
+	background: #f4f1de;
+	border-radius: 10px 10px 0 0 ;
+	width: 80%;
+	margin: 0 auto;
+}
 
+.selectDateArea .select-title {
+	margin: 0;
 }
 
 .calendar .month {
   text-align: center;
-  margin: 0 auto 10px;
+/*   font-weight: 700; */
+  font-size: 24px;
+  margin: 0 auto 20px;
+  padding-top: 15px;
+  position: relative;
+  
+}
+
+.month span {
+	position: absolute;
+	right: 0;
+	top : 100%;
+	transform : translateY(-100%);
+}
+
+.month span:first-child {
+	left: -97%;
+/* 	font-size: 24px; */
 }
 
 .calendar .calendar-month {
   /* margin: 0 auto; */
   text-align: center;
+  background: #fff;
 }
 
 .calendar .calendar-month::before {
   content: "";
   display: block;
-  border-bottom: 1px solid #333;
+/*   border-bottom: 1px solid #333; */
 }
 
 .calendar .calendar-month li {
@@ -90,14 +123,15 @@ input[type="text"]{
 }
 
 .none-current {
-  color: #e1e1e1;
+  color: #b0aaa0;
 }
 
 .select-date {
   display: inline-block;
   width: 100%;
   line-height: 30px;
-  background: #808080;
+/*   background: #ede9e4; */
+  background: #81b39a;
   border-radius: 50%;
   color: #fff;
 }
@@ -119,13 +153,13 @@ input[type="text"]{
 }
 
 .date-current input[type="radio"]:checked +span{
-	background: #333;
+	background: #81b39a;
 	color: #fff;
 }
 
 .select-designer {
 	padding-bottom: 10px;
-	border-bottom: 1px solid #e1e1e1;
+	border-bottom: 1px solid #afb8aa;
 	margin-bottom: 10px;
 }
 
@@ -180,7 +214,7 @@ input[type="text"]{
 	color : red;
 	font-size : 14px;
 	border-radius: 15px;
-	background: #eee;
+	background: #f2f2ef;
 	padding: 5px 15px;
 	width: 120px;
 }
@@ -194,12 +228,12 @@ input[type="text"]{
 	cursor: pointer;
 	border: none;
 	border-radius: 15px;
-	background: #eee;
+	background: #f2f2ef;
 	padding: 5px 15px;
 }
 
 .box-radio-input input[type="radio"]:checked +span{
-	background: #333;
+	background: #81b39a;
 	color: #fff;
 }
 
@@ -236,8 +270,22 @@ input[type="text"]{
 	border-radius:5px;
 	font-size: 18px;
 	font-weight: 900;
+	color: #333;
+	background: #81b39a;
+}
+
+.btn-area input[type="submit"] {
 	color: #fff;
-	background: #333;
+}
+
+.btn-area input:hover {
+	background: #535e53;
+	color: #fff;
+}
+
+.btn-area .cancle {
+	background: none;
+	border: 1px solid #dbd7ce;
 }
 
 textarea  {

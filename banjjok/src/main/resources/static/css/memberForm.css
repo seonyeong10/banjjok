@@ -9,7 +9,7 @@ input:focus {outline:none;}
 
 .member-regist-wrap .title {
   padding: 25px 0;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid #afb8aa;
 }
 
 .member-regist-wrap .title h2{
@@ -30,7 +30,7 @@ form .mem-element {
 form .element-value input[type="text"], #frm .element-value input[type="password"], #frm .element-value select{
   border: none;
   width: 80%;
-  border-bottom: 1px solid #e1e1e1;
+  border-bottom: 1px solid #dbd7ce;
   height: 40px;
 }
 
@@ -44,16 +44,16 @@ form .element-value input[type="text"], #frm .element-value input[type="password
 	display: inline-block;
 	cursor: pointer;
 	border: none;
-	border-radius: 43%;
+	border-radius: 45%;
 	width: 60px;
 	line-height: 30px;
 	text-align: center;
-	background: #e2e2e2;
+	background: #f2f2ef;
 	padding: 1px;
 }
 
 .element-value input[type="radio"]:checked +span{
-	background: #333;
+	background: #81b39a;
 	color: #fff;
 }
 
@@ -72,9 +72,9 @@ form .element-value input[type="text"], #frm .element-value input[type="password
   width: 100px;
   height: 40px;
   border-radius: 40px;
-  border: 1px solid #80BA8E;
+  border: 1px solid #81b39a;
   background: none;
-  color: #80BA8E;
+  color: #333;
   font-weight: 600;
 }
 
@@ -87,16 +87,22 @@ form .element-value input[type="text"], #frm .element-value input[type="password
   width: 100px;
   height: 40px;
   border-radius: 10px;
-  border: 1px solid #e1e1e1;
-  background: #e1e1e1;
-  color: #808080;
+  border: 1px solid #b0aaa0;
+  background: none;
+  color: #333;
   font-weight: 600;
 }
 
+.button-wrap input:hover, .button-wrap input[type=submit]:hover {
+	background: #535e53;
+	color: #f2f2ef;
+	border: #535e53;
+}
+
 .button-wrap input[type=submit]{
-  border: 1px solid #80BA8E;
-  background: #80BA8E;
-  color: #f2f2f2;
+  border: 1px solid #81b39a;
+  background: #81b39a;
+  color: #fff;
 }
 
 .fa-user::before{

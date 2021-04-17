@@ -47,6 +47,8 @@ public class SignUpCommand {
 	String microNum;
 	String petDesc;
 	String petRep;
+	String petSize;	// 펫 종류
+	String breed;	// 펫 품종
 	
 	String isMChecked;	// 문자인증 여부
 	
@@ -197,6 +199,21 @@ public class SignUpCommand {
 	public void setIsMChecked(String isMChecked) {
 		this.isMChecked = isMChecked;
 	}
-	
 
+	public String getPetSize() {
+		return petSize;
+	}
+
+	public void setPetSize(String petSize) {
+		this.petSize = petSize;
+	}
+
+	public String getBreed() {
+		return breed;
+	}
+
+	public void setBreed(String breed) {
+		this.breed = breed;
+	}
+	
 }

@@ -7,7 +7,6 @@
 <meta charset="UTF-8">
 <title>회원가입 폼</title>
 <link href="static/css/baseCSS.css" rel="stylesheet" type="text/css" />
-<!-- <link href="static/css/signUpForm.css" rel="stylesheet" type="text/css" /> -->
 <link href="static/css/topMenu.css" rel="stylesheet" type="text/css" />
 <link href="static/css/footer.css" rel="stylesheet" type="text/css" />
 <link href="static/css/memberForm.css" rel="stylesheet" type="text/css" />
@@ -97,6 +96,7 @@
             <span class="element-value"><form:input path="memEmail" placeholder="이메일"/></span>
             <div class="element-errors"><form:errors path="memEmail"/> </div>
           </div>
+          
           <div class="mem-element">
             <p class="element-name">닉네임</p>
             <span class="element-value"><form:input path="nicName" placeholder="닉네임"/></span>
@@ -109,27 +109,46 @@
         <!-- 펫 정보 -->
         <div id="pet-info">
           <div class="mem-element">
+            <p class="element-name">구분</p>
+            <span class="element-value">
+            	<label  class="element-value">
+            		<input type="radio" name="kind" value="D" checked="checked"/><span>개</span>
+            	</label>
+            </span>
+          </div>
+          <div class="mem-element">
             <p class="element-name">펫 이름</p>
             <span class="element-value"><form:input path="petName" placeholder="펫 이름"/></span>
             <div class="element-errors"><form:errors path="petName"/> </div>
           </div>
           <div class="mem-element">
-            <p class="element-name">품종</p>
+            <p class="element-name">크기</p>
             <span class="element-value">
-            	<label  class="element-value">
-            	<input type="radio" name="kind" value="D" checked="checked"/><span>개</span>
-            	</label>
-<%--             	<form:radiobutton path="cat" value="F"/> 여아 --%>
+				<label  class="element-value">
+              		<form:radiobutton path="petSize" value="small"  /><span>소형</span>
+              	</label >
+              	<label  class="element-value">
+             		<form:radiobutton path="petSize" value="middium"/><span>중형</span>
+             	</label>
+              	<label  class="element-value">
+             		<form:radiobutton path="petSize" value="big"/><span>대형</span>
+             	</label>
             </span>
+            <div class="element-errors"><form:errors path="petSize"/> </div>
           </div>
           <div class="mem-element">
-            <p class="element-name">몸무게</p>
+            <p class="element-name">품종</p>
+            <span class="element-value"><form:input path="breed" placeholder="ex)말티즈"/></span>
+            <div class="element-errors"><form:errors path="breed"/> </div>
+          </div>
+          <div class="mem-element">
+            <p class="element-name">몸무게(kg)</p>
             <span class="element-value"><form:input path="weight" placeholder="몸무게"/></span>
             <div class="element-errors"><form:errors path="weight"/> </div>
           </div>
           <div class="mem-element">
-            <p class="element-name">나이</p>
-            <span class="element-value"><form:input path="age" placeholder="나이"/></span>
+            <p class="element-name">나이(세)</p>
+            <span class="element-value"><form:input path="age" placeholder="연수로 계산해주세요."/></span>
             <div class="element-errors"><form:errors path="age"/> </div>
           </div>
           <div class="mem-element">
@@ -164,7 +183,7 @@
           <div class="mem-element">
             <p class="element-name">성격이나 버릇</p>
             <span class="element-value">
-              <form:textarea path="petDesc" placeholder="성격이나 버릇"></form:textarea>
+              <form:textarea path="petDesc" placeholder="ex)노령견입니다. 주의를 기울여주세요."></form:textarea>
               </span>
           </div>
           <div class="button-wrap">

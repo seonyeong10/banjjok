@@ -13,6 +13,8 @@ public class MyPetDTO {
 	String microNum;
 	String petDesc;
 	String petRep;	// 대표펫 여부(0: 일반 펫, 1: 대표펫)
+	String petSize;	// 소형, 중형, 대형
+	String breed;	// 품종
 
 	public String getPetId() {
 		return petId;
@@ -101,6 +103,23 @@ public class MyPetDTO {
 	public void setPetRep(String petRep) {
 		this.petRep = petRep;
 	}
+
+	public String getPetSize() {
+		return petSize;
+	}
+
+	public void setPetSize(String petSize) {
+		this.petSize = petSize;
+	}
+
+	public String getBreed() {
+		return breed;
+	}
+
+	public void setBreed(String breed) {
+		this.breed = breed;
+	}
+	
 	
 
 }

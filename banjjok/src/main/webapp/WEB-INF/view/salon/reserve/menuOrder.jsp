@@ -70,7 +70,7 @@
 				</div>
 				<div class="btn-area">
 					<input type="submit" value="결제하기"/>
-					<input type="button" value="취소하기" onclick="cancle('${info.reservCode}');"/>
+					<input type="button" value="취소하기" onclick="cancle('${info.reservCode}');" class="cancle"/>
 				</div>
 			</div>
 		</form>

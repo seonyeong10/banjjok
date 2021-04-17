@@ -19,7 +19,10 @@ public interface StyleMapper {
 	public Integer getCount(StyleDTO styleDTO) throws Exception;
 	public List<SalHeartDTO> getHeart(SalHeartDTO heartDTO) throws Exception;
 	public Integer insertHeart(SalHeartDTO heartDTO) throws Exception;
-	public Integer deleteHt(SalHeartDTO heartDTO) throws Exception;
 	public Integer getHtCount(SalHeartDTO heartDTO) throws Exception;
+	// 하트 여부 검사
+	public String isHeart(SalHeartDTO heartDTO);
+	// 하트 업데이트, 1:하트 0:취소
+	public void updateHt(SalHeartDTO heartDTO);
 
 }

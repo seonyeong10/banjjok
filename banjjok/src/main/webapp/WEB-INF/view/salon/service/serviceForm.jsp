@@ -78,7 +78,7 @@
 							<form:radiobutton path="serviceTarget" value="small" checked="checked"/><span>소형견</span>
 						</label>
 						<label class="element-value">
-							<form:radiobutton path="serviceTarget" value="middle"/><span>중형견</span>
+							<form:radiobutton path="serviceTarget" value="middium"/><span>중형견</span>
 						</label>
 						<label class="element-value">
 							<form:radiobutton path="serviceTarget" value="big"/><span>대형견</span>

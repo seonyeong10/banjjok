@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import banjjok.command.SignUpCommand;
+import banjjok.contoller.MailService;
 import banjjok.service.CheckIdService;
 import banjjok.service.ChkNumService;
 import banjjok.service.SendSMSService;
@@ -32,21 +33,13 @@ public class SignUpController {
 	SendSMSService sendSMSService;
 	@Autowired
 	ChkNumService chkNumService;
+//	@Autowired
+//	MailService mailService;
 	
 	@RequestMapping(value = "signUp", method = RequestMethod.GET)
 	public String signUp() {
 		return "login/signUpForm";
 	}
-//	@RequestMapping(value = "checkMem", method = RequestMethod.POST)
-//	public String chcekMem(@Validated SignUpCommand signUpCommand, BindingResult result, Model model) {
-//		System.out.println(result.hasErrors());
-//		if(result.hasErrors()) {
-//			model.addAttribute("isErr", true);
-////			return "login/signUpForm";
-//			return "login/checkMem";
-//		}
-//		return "redirect:/signUp";
-//	}
 	@RequestMapping(value = "checkId", method = RequestMethod.POST)
 	public String checkId(@RequestParam(value = "userId") String userId, Model model) throws Exception {
 		// 아이디 중복검사
@@ -72,5 +65,12 @@ public class SignUpController {
 		chkNumService.isEqual(number, model, session);
 		return "salon/imgDel";
 	}
+	
+	// 이메일 인증
+//	@RequestMapping(value = "chkEmail", method = RequestMethod.POST)
+//	public String checkEmail(@RequestParam(value = "email") String receiver, Model model, HttpSession session) {
+//		mailService.
+//		return "salon/imgDel";
+//	}
 	
 }

@@ -3,7 +3,9 @@
 footer {
   margin: 0 auto;
   /* background: #eee; */
-  background: #eadfcd;
+/*   background: #535e53; */
+  background: #f4f1de;
+  color : #333;
   text-align: center;
   position: fixed;
   bottom: 0;

@@ -33,7 +33,8 @@
 				<input type="hidden" name="serviceCode" value="${menu.serviceCode }"/>
 				<input type="hidden" name="serviceName" value="${menu.serviceName }"/>
 				<ul>
-					<li><span class="select-menu-name">메뉴</span>${menu.serviceName }</li>
+					<li><span class="select-menu-name">메뉴</span>
+					[<c:if test="${menu.serviceTarget eq 'small' }">소형견</c:if><c:if test="${menu.serviceTarget eq 'middium' }">중형견</c:if><c:if test="${menu.serviceTarget eq 'big' }">대형견</c:if>] ${menu.serviceName }</li>
 					<li><span class="select-menu-price">메뉴가격</span><fmt:formatNumber value="${menu.serviceFee }" pattern="#,###" /> </li>
 				</ul>
 				<!-- 현재일로부터 14일간만 선택 가능 -->
@@ -42,13 +43,22 @@
 				<!-- 펫 선택 -->
 				<div class="select-title">펫 선택</div>
 				<input type="hidden" name="petName"/>
+					<c:set var="isExist" value="false" />
 					<c:forEach items="${petList }" var="pet">
+						<c:if test="${pet.petSize eq menu.serviceTarget }">
 							<label class="box-radio-input">
 								<input type="radio" name="petId" value="${pet.petId }" onclick="getPetName('${pet.petName}', '${pet.weight }', ${menu.serviceOpt });"/>
 								<span>${pet.petName }</span>
 							</label>
+							<c:set var="isExist" value="true" />
+						</c:if>
 					</c:forEach>
-				<div class="select-title-price" >추가금액</div>
+					<c:if test="${isExist eq false }">
+						<label class="box-radio-input"> 
+							<span style="color: red;">선택할 수 있는 펫이 없습니다.</span>
+						</label>
+					</c:if>
+					<div class="select-title-price" >추가금액<span> 몸무게에 따라 추가금액이 붙을 수 있습니다.</span></div>
 				<input type="text" name="optFee" value="0"/>원
 			</div> <!-- 펫 끝 -->
 			<div class="selectDateArea" id="select-date">
@@ -56,20 +66,20 @@
 				<div class="select-title">날짜선택</div>
 				<div class="calendar">
 					<div class="month">
-						<span onclick="preMonth('${year }','${currMonth - 1 }');"><i class="fas fa-angle-left"></i> </span>
-						${currMonth + 1 }월
-						<span onclick="preMonth('${year }','${currMonth + 1 }');"> <i class="fas fa-angle-right"></i></span></div>
+						<span onclick="preMonth('${year }','${currMonth - 1 }');"><i class="fas fa-angle-left fa-2x"></i> </span>
+						${currMonth + 1 }월 ${year }
+						<span onclick="preMonth('${year }','${currMonth + 1 }');"> <i class="fas fa-angle-right fa-2x"></i></span></div>
 					<input type="hidden" name="year" value="${year }"/>
 					<input type="hidden" name="month" value="${currMonth }"/>
-					<ul class="calendar-month">
+					<ul class="calendar-month" style="background: #ede9e4;">
 						<!-- 요일 -->
-						<li>일</li>
-						<li>월</li>
-						<li>화</li>
-						<li>수</li>
-						<li>목</li>
-						<li>금</li>
-						<li>토</li>
+						<li >일</li>
+						<li >월</li>
+						<li >화</li>
+						<li >수</li>
+						<li >목</li>
+						<li >금</li>
+						<li >토</li>
 					</ul>
 					<ul class="calendar-month">
 						<!-- 지난달 -->
@@ -146,11 +156,17 @@
 							<div class="time-area">
 								<c:set value=":00" var="minute"/>
 								<ul>
-									<c:forEach begin="10" end="17" var="hour">
-										<li><label class="box-radio-input"> 
-											<input type="radio" name="reservTime" value="${hour }${minute}"
-											onclick="getId('${desn.desnId}', '${desn.desnName}', this);" /><span >${hour }${minute}</span> 
-										</label></li>
+									<c:forEach begin="10" end="17" var="hour" varStatus="idx">
+									<c:set var="timeSet" value="${hour }${minute}" />
+										<li>
+											<c:if test="${rsMap.get(desn.desnId).get(idx.count-1).flag }"></c:if>
+											<c:if test="${!rsMap.get(desn.desnId).get(idx.count-1).flag }">
+												<label class="box-radio-input"> 
+													<input type="radio" name="reservTime" value="${timeSet }"
+													onclick="getId('${desn.desnId}', '${desn.desnName}', this);" /><span >${hour }${minute}</span> 
+												</label>
+											</c:if>
+										</li>
 									</c:forEach>
 								</ul>
 							</div>

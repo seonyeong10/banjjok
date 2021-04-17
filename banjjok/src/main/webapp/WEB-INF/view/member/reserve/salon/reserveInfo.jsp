@@ -37,7 +37,9 @@
 	</header>
 	<!-- top 끝 -->
 	<!-- 내용 -->
-	<div class="content">
+	<div class="content"
+		<c:if test="${dto.reservUse eq '2' }">style="background: #df7a5e;"</c:if>
+	>
 		<!-- 예약리스트 -->
 		<h2>
 			<span>
@@ -66,11 +68,16 @@
 		</h2>
 		<div class="reservation-area">
 			<ul>
-				<li><span class="title">예약번호</span>${dto.reservCode }</li>
+				<li><span class="title">예약번호</span> ${dto.reservCode }</li>
 				<li><span class="title">날짜/시간</span>
 				<fmt:formatDate value="${dto.reservDate }"
 						pattern="M월 d일 (E) a HH:mm" /></li>
-				<li><span class="title">선택메뉴</span>${dto.serviceName }</li>
+				<li><span class="title">선택메뉴</span> ${dto.serviceName }</li>
+				<li><span class="title">시술대상</span>
+					<c:if test="${dto.petSize eq 'small' }">소형견</c:if>
+					<c:if test="${dto.petSize eq 'middium' }">중형견</c:if>
+					<c:if test="${dto.petSize eq 'big' }">대형견</c:if>
+				</li>
 				<li><span class="title">담당</span>
 				<c:choose>
 						<c:when test="${dto.desnUse eq '1' }">원장</c:when>
@@ -81,10 +88,16 @@
 		</div>
 		<div class="mem-info">
 			<ul>
-				<li><span class="title">예약자</span>${authInfo.userName }</li>
-				<li><span class="title">펫 이름</span>${dto.petName }</li>
-				<li><span class="title">연락처</span>${dto.memMobile }</li>
-				<li><span class="title">요청사항</span>${dto.reservDesc }</li>
+				<li><span class="title">예약자</span> ${authInfo.userName }</li>
+				<li><span class="title">펫 이름</span> ${dto.petName }</li>
+				<li><span class="title">펫 체급</span>
+					<c:if test="${dto.petSize eq 'small' }">소형견</c:if>
+					<c:if test="${dto.petSize eq 'middium' }">중형견</c:if>
+					<c:if test="${dto.petSize eq 'big' }">대형견</c:if>
+				</li>
+				<li><span class="title">펫 품종</span> ${dto.breed }</li>
+				<li><span class="title">연락처</span> ${dto.memMobile }</li>
+				<li><span class="title">요청사항</span> ${dto.reservDesc }</li>
 			</ul>
 		</div>
 		<div class="payment-area">

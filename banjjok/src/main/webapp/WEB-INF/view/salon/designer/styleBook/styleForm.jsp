@@ -48,9 +48,9 @@
 				</div>
 				<div class="mem-element">
 					<p class="element-name">스타일 사진</p>
-					<span class="image"><img src="#" alt="picture" /></span> <span
+					<span class="image"><img src="#" alt="picture" id="prev-img"/></span> <span
 						class="element-value"
-					><input type="file" name="styleImg" /></span>
+					><input type="file" name="styleImg" id="style-img"/></span>
 					<p class="element-errors">${noImg }</p>
 				</div>
 				<div class="mem-element">
@@ -104,5 +104,28 @@
 	<!-- foot -->
 	<footer> SoulMate's Forest 02.125.7979 Copyright &copy All
 		Rights reserved. </footer>
+	<script type="text/javascript">
+	function readImage(input) {
+	    // 인풋 태그에 파일이 있는 경우
+	    if(input.files && input.files[0]) {
+	        // 이미지 파일인지 검사 (생략)
+	        // FileReader 인스턴스 생성
+	        const reader = new FileReader();
+	        // 이미지가 로드가 된 경우
+	        reader.onload = e => {
+	            const previewImage = document.getElementById("prev-img");
+	            previewImage.src = e.target.result;
+	        }
+	        // reader가 이미지 읽도록 하기
+	        reader.readAsDataURL(input.files[0]);
+	    }
+	}
+	
+	// input file에 change 이벤트 부여
+	const inputImage = document.getElementById("style-img");
+	inputImage.addEventListener("change", e => {
+	    readImage(e.target)
+	})
+	</script>
 </body>
 </html>

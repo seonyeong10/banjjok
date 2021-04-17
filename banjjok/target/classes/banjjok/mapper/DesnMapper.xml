@@ -8,6 +8,18 @@
 <sql id="selectColumn">
 	DESN_ID desnId, DESN_PW desnpw, DESN_NAME desnname, DESN_IMG desnimg, DESN_PH desnph, DESN_OFF desnoff, DESN_ENTER desnenter, DESN_REG DESNREG, DESN_LEAVE DESNLEAVE, DESN_USE DESNUSE
 </sql>
+<select id="getDesnId" resultType="string">
+	select desn_id
+	from ( 
+		select rownum rn, desn_id
+		from ( 
+			select *
+			from designer
+			order by desn_reg desc
+		)
+	)
+	where rn = 1
+</select>
 <insert id="insertEmp" parameterType="banjjok.domain.DesnDTO">
 	insert into designer (<include refid="baseColumn" />)
 	values(#{desnId}, #{desnPw}, #{desnName}, #{desnImg}, #{desnPh}, #{desnOff}, #{desnEnter}, SYSDATE, null, #{desnUse})

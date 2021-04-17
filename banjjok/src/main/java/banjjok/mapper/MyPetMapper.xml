@@ -3,14 +3,15 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="banjjok.mapper.MyPetMapper">
 <sql id="petColumn">
-	PET_ID, MEM_ID, PET_NAME, KIND, WEIGHT, AGE, GENDER, IS_NEUTRAL, MICRO_NUM, PET_DESC, pet_rep
+	PET_ID, MEM_ID, PET_NAME, KIND, WEIGHT, AGE, GENDER, IS_NEUTRAL, MICRO_NUM, PET_DESC, pet_rep, pet_size, breed
 </sql>
 <sql id="selectColumn">
-	PET_ID PETID, MEM_ID MEMID, PET_NAME PETNAME, KIND KIND, WEIGHT WEIGHT, AGE AGE, GENDER GENDER, IS_NEUTRAL ISNEUTRAL, MICRO_NUM MICRONUM, PET_DESC PETDESC, pet_rep petrep
+	PET_ID PETID, MEM_ID MEMID, PET_NAME PETNAME, KIND KIND, WEIGHT WEIGHT, AGE AGE, GENDER GENDER, IS_NEUTRAL ISNEUTRAL, MICRO_NUM MICRONUM, PET_DESC PETDESC, pet_rep petrep,
+	pet_size petsize, breed breed
 </sql>
 <insert id="insertMyPet" parameterType="banjjok.domain.MyPetDTO">
 	insert into my_pet (<include refid="petColumn" />)
-	values(pet_seq.nextval, #{memId}, #{petName}, #{kind}, #{weight}, #{age}, #{gender}, #{isNeutral}, #{microNum}, #{petDesc}, #{petRep})
+	values(pet_seq.nextval, #{memId}, #{petName}, #{kind}, #{weight}, #{age}, #{gender}, #{isNeutral}, #{microNum}, #{petDesc}, #{petRep}, #{petSize}, #{breed})
 </insert>
 <select id="getMyPet" parameterType="banjjok.domain.MyPetDTO" resultType="banjjok.domain.MyPetDTO">
 	select <include refid="selectColumn" />
@@ -18,14 +19,26 @@
 	<trim prefix="where" prefixOverrides="AND | OR">
 		and mem_id = #{memId}
 	</trim>
+	order by pet_rep desc
 </select>
 <update id="updatePet" parameterType="banjjok.domain.MyPetDTO">
 	update my_pet
-	set age = #{age}, gender = #{gender}, weight = #{weight}, micro_num = #{microNum}, pet_desc = #{petDesc}, pet_name = #{petName}
+	set age = #{age}, gender = #{gender}, weight = #{weight}, micro_num = #{microNum}, pet_desc = #{petDesc}, pet_name = #{petName}, 
+		pet_size = #{petSize}, breed = #{breed}
 	where mem_id = #{memId} and pet_id = #{petId}
 </update>
 <delete id="delete" parameterType="banjjok.domain.MyPetDTO">
 	delete from my_pet
 	where pet_id = #{petId} and mem_id = #{memId}
 </delete>
+<update id="changeRep" parameterType="banjjok.domain.MyPetDTO">
+	update my_pet
+	set pet_rep = '1'
+	where mem_id = #{memId} and pet_id = #{petId}
+</update>
+<update id="dropRep" parameterType="banjjok.domain.MyPetDTO">
+	update my_pet
+	set pet_rep = '0'
+	where mem_id = #{memId} and pet_rep = '1'
+</update>
 </mapper>

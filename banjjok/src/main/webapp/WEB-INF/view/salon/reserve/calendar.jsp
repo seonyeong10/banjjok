@@ -4,13 +4,13 @@
 	<div class="select-title">날짜선택</div>
 	<div class="calendar">
 		<div class="month">
-			<span onclick="preMonth('${year }','${currMonth - 1 }');">< </span>
+			<span onclick="preMonth('${year }','${currMonth - 1 }');"><i class="fas fa-angle-left fa-2x"></i> </span>
 			${currMonth + 1 }월
-			<span onclick="preMonth('${year }','${currMonth + 1 }');"> ></span>
+			<span onclick="preMonth('${year }','${currMonth + 1 }');"><i class="fas fa-angle-right fa-2x"></i></span>
 		</div>
 		<input type="hidden" name="year" value="${year }" /> <input
 			type="hidden" name="month" value="${currMonth }" />
-		<ul class="calendar-month">
+		<ul class="calendar-month" style="background: #ede9e4;">
 			<!-- 요일 -->
 			<li>일</li>
 			<li>월</li>

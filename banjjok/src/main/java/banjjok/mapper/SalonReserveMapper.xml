@@ -28,12 +28,12 @@
 	values(#{reservCode},#{payMethod},#{totalFee})
 </insert>
 <select id="getList" parameterType="banjjok.domain.SalonReserveDTO" resultType="banjjok.domain.MemSalReserveDTO">
-	select res.reserv_code reservcode, res.reserv_date reservdate, service_name servicename, res.desn_id desnid, res.desn_name desnname, des.desn_use desnuse, pet_name petname
+	select res.reserv_code reservcode, res.reserv_date reservdate, service_name servicename, res.desn_id desnid, res.desn_name desnname, des.desn_use desnuse, res.pet_name petname
 		,mem.mem_id memId, mem.mem_name memname, mem_mobile memmobile, reserv_use reservuse, service_fee servicefee, pay_method paymethod, total_fee totalfee,
-		use_date usedate, cancle_date cancledate, res.reserv_desc reservDesc, res.opt_fee optFee
-	from reserve_salon res, member mem, payment_salon pay, reserve_list_salon lis, designer des
+		use_date usedate, cancle_date cancledate, res.reserv_desc reservDesc, res.opt_fee optFee, pet.pet_size petSize, pet.breed breed
+	from reserve_salon res, member mem, payment_salon pay, reserve_list_salon lis, designer des, my_pet pet
 	where res.mem_id = mem.mem_id and res.reserv_code = pay.reserv_code 
-		and res.reserv_code = lis.reserv_code and res.desn_id = des.desn_id
+		and res.reserv_code = lis.reserv_code and res.desn_id = des.desn_id and res.pet_id = pet.pet_id
 		<if test="memId != null">
 			and res.mem_id = #{memId}
 		</if>
@@ -80,4 +80,25 @@
 	delete from reserve_salon
 	where reserv_code = #{reservCode}
 </delete>
+
+<select id="getResList" parameterType="banjjok.domain.SalonRSDTO" resultType="banjjok.domain.SalonRSDTO">
+select nvl(r.flag, 'false') as flag
+from 
+	(select *
+	from(select to_char(lis.reserv_date, 'hh24:mi') time, count(lis.reserv_date) count, 'true' flag
+		 from reserve_salon res join reserve_list_salon lis
+		 on res.reserv_code = lis.reserv_code
+		 where reserv_use = '0' and res.desn_id = #{desnId}
+		 <if test="reservDate == null">
+		 	and res.reserv_date between to_char(sysdate, 'yy-MM-dd') and (sysdate+1)
+		 </if>
+		 <if test="reservDate != null">
+			and res.reserv_date between to_date(#{reservDate}, 'yyyy-MM-dd') and (to_date(#{reservDate},'yyyy-mm-dd')+(interval '1' day)) 
+		 </if>
+		 group by res.reserv_date, to_char(lis.reserv_date, 'hh24:mi'), lis.reserv_date, 'true')
+	where count <![CDATA[ >= ]]> 3) r
+right join (select level+9||':00' as time from dual connect by level <![CDATA[ <= ]]> 8) o
+on r.time = o.time
+order by o.time
+</select>
 </mapper>

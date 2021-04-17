@@ -17,4 +17,5 @@ public interface DesnMapper {
 	public Integer updateDesn(DesnDTO dto) throws Exception;
 	public Integer deleteDesn(DesnDTO dto) throws Exception;
 	public List<DesnResDTO> getResDates(MemSalReserveDTO reserveDTO) throws Exception;
+	public String getDesnId() throws Exception;
 }

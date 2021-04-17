@@ -32,9 +32,8 @@
 					<img src="<c:url value='/salon/designer/styleBook/upload/${style.styleImg }' />" alt="styleImg" />
 				</div>
 				<div class="heartArea">
-<!-- 					<img src="#" alt="heart" /> -->
 					<span><i class="fas fa-heart" style="color: red;"></i></span>
-<%-- 					<span>${htCount }</span> --%>
+					<span>${htCount }</span>
 				</div>
 				<div class="descArea">
 					<span class="name">${style.styleName }</span><br /> <br /> <span>${style.styleDesc }</span>
@@ -81,9 +80,11 @@
 				<ul class="styleListArea">
 					<c:forEach items="${list }" var="list">
 					<c:if test="${list.styleUse ne 1 }">
-						<li><a href="<c:url value='/salon/style/desnStyle?styleCode=${list.styleCode }'/>">
+						<li>
+							<a href="<c:url value='/salon/style/desnStyle?styleCode=${list.styleCode }'/>">
 								<img src="<c:url value='/salon/designer/styleBook/upload/${list.styleImg }' />" alt="styleImg" class="styleImg" />
-							</a></li>
+							</a>
+						</li>
 					</c:if>
 					</c:forEach>
 <!-- 					<li><img src="#" alt="styleImg" class="styleImg" /></li> -->

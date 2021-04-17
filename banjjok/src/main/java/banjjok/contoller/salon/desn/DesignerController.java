@@ -18,11 +18,14 @@ import banjjok.service.salon.ImgDelService;
 import banjjok.service.salon.desn.DesnDelService;
 import banjjok.service.salon.desn.DesnInfoService;
 import banjjok.service.salon.desn.DesnModifyService;
+import banjjok.service.salon.desn.DesnNumberService;
 import banjjok.service.salon.desn.DesnRegistService;
 
 @Controller
 @RequestMapping(value = "salon", method = RequestMethod.GET)
 public class DesignerController {
+	@Autowired
+	DesnNumberService desnNumberService;	// 사번 생성
 	@Autowired
 	DesnRegistService desnRegistService;
 	@Autowired
@@ -39,7 +42,8 @@ public class DesignerController {
 	}
 	
 	@RequestMapping(value = "regist", method = RequestMethod.GET)
-	public String desnRegist() {
+	public String desnRegist(Model model) throws Exception {
+		desnNumberService.getEmpNumber(model);
 		return "salon/designer/desnForm";
 	}
 	@RequestMapping(value = "empRegistAct", method = RequestMethod.POST)

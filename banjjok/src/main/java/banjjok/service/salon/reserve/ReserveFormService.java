@@ -4,7 +4,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -17,9 +19,12 @@ import banjjok.domain.AuthInfo;
 import banjjok.domain.DesnDTO;
 import banjjok.domain.DesnResDTO;
 import banjjok.domain.MyPetDTO;
+import banjjok.domain.SalonRSDTO;
+import banjjok.domain.SalonReserveDTO;
 import banjjok.domain.SalonServDTO;
 import banjjok.mapper.DesnMapper;
 import banjjok.mapper.MyPetMapper;
+import banjjok.mapper.SalonReserveMapper;
 import banjjok.mapper.SalonServMapper;
 import banjjok.service.CalendarMaker;
 
@@ -31,6 +36,8 @@ public class ReserveFormService {
 	DesnMapper desnMapper;
 	@Autowired
 	MyPetMapper petMapper;
+	@Autowired
+	SalonReserveMapper reserveMapper;
 
 	public void show(String serviceCode, SalonReserveCommand salonReserveCommand, Model model, HttpSession session) throws Exception {
 		// 서비스 메뉴
@@ -57,49 +64,17 @@ public class ReserveFormService {
 		List<DesnDTO> desnList = desnMapper.getDesnList(desnDTO);
 		model.addAttribute("desn", desnList);
 		
-//		Calendar cal = Calendar.getInstance();
-//		
-//		// 화면에 체크할 날짜, 디자이너 휴무 여부 확인
-//		String selectMonth = salonReserveCommand.getMonth();
-//		String selectDate = salonReserveCommand.getDate();
-//		if (selectDate != null) {
-//			cal.set(Calendar.DATE, Integer.parseInt(selectDate));
-//		}
-//		model.addAttribute("year", cal.get(Calendar.YEAR));
-//		model.addAttribute("date", cal.get(Calendar.DATE));
-//		model.addAttribute("dayOfWeek", cal.get(Calendar.DAY_OF_WEEK));
-//		
-//		ArrayList<Integer> preMonth = new ArrayList<Integer>();
-//		ArrayList<Integer> current = new ArrayList<Integer>();
-//		ArrayList<Integer> nextMonth = new ArrayList<Integer>();
-//		// 이번달
-//		model.addAttribute("currMonth", Calendar.MONTH + 1);
-//		cal.set(Calendar.DATE, 1);
-//		int fDayWeek = cal.get(Calendar.DAY_OF_WEEK); // 1일의 요일
-//		int preDistance = fDayWeek - 1; // 지난달 요일의 개수
-//		int maxDate = cal.getActualMaximum(Calendar.DATE); // 마지막일
-//		cal.set(Calendar.DATE, maxDate);
-//		int lDayWeek = cal.get(Calendar.DAY_OF_WEEK); // 마지막일의 요일
-//		// 지난달
-//		cal.add(Calendar.MONTH, -1);
-//		int preMaxDate = cal.getActualMaximum(Calendar.DATE); // 지난달 마지막일
-//		// 다음달
-//
-//		for (int i = 0; i < preDistance; i++) {
-//			preMonth.add(preMaxDate - preDistance + 1 + i);
-//		}
-//		for (int i = 0; i < maxDate; i++) {
-//			current.add(i + 1);
-//		}
-//		for (int i = 0; i < 7 - lDayWeek; i++) {
-//			nextMonth.add(i + 1);
-//		}
-//
-//		model.addAttribute("pre", preMonth);
-//		model.addAttribute("cur", current);
-//		model.addAttribute("next", nextMonth);
-
-		
+		// 디자이너 예약현황
+		SalonRSDTO rsDTO = new SalonRSDTO();
+//		rsDTO.setServiceCode(serviceCode);
+		Map<String, List<SalonRSDTO>> rsMap = new HashMap<>();
+		for (int i = 0; i < desnList.size(); i++) {
+			String desnId = desnList.get(i).getDesnId();
+			rsDTO.setDesnId(desnId);
+			rsMap.put(desnId, reserveMapper.getResList(rsDTO));
+		}
+//		List<SalonRSDTO> rsList =  reserveMapper.getResList(rsDTO);
+		model.addAttribute("rsMap", rsMap);
 	}
 
 }
