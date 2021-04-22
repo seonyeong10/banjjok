@@ -69,7 +69,7 @@ public class DesnRegistService {
 //			System.out.println("실행");
 //			
 //		}
-		
+//		System.out.println(dto.getDesnEnter());
 		Integer cnt = desnMapper.insertEmp(dto);
 		return "redirect:/salon";
 	}

@@ -8,6 +8,7 @@
 <sql id="listColumn">
 	SERVICE_CODE SERVICECODE, SERVICE_CATEG SERVICECATEG, SERVICE_NAME SERVICENAME, SERVICE_FEE SERVICEFEE, SERVICE_OPT SERVICEOPT, SERVICE_TIME SERVICETIME, SERVICE_DESC SERVICEDESC, SERVICE_TARGET SERVICETARGET 
 </sql>
+<!-- 	select lpad(nvl(max(service_code),0)+1,3,'0') from service_salon -->
 <select id="getCode" resultType="string">
 	select lpad(SUBSTR(nvl(max(service_code),1)+1,7),3,'0') from service_salon
 </select>

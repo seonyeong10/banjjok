@@ -21,11 +21,12 @@ public class DesnNumberService {
 		String month = sdf.format(dt);
 		String empNumber = "S" + month;
 		String latelyNum = desnMapper.getDesnId();
-		String compare = latelyNum.substring(0, 5);
-		if (compare.equals(empNumber)) {
-			int num = Integer.parseInt(latelyNum.substring(6, 8)) + 1;
-			int len = (int) (Math.log10(num) + 1);
-			switch (len) {
+		if (latelyNum != null) {
+			String compare = latelyNum.substring(0, 5);
+			if (compare.equals(empNumber)) {
+				int num = Integer.parseInt(latelyNum.substring(6, 8)) + 1;
+				int len = (int) (Math.log10(num) + 1);
+				switch (len) {
 				case 1:
 					empNumber = empNumber + "00" + num;
 					break;
@@ -35,9 +36,12 @@ public class DesnNumberService {
 				case 3:
 					empNumber = empNumber + num;
 					break;
+				}
+			} else {
+				empNumber = empNumber + "001";
 			}
 		} else {
-			empNumber = empNumber + "001";
+			empNumber += "001";
 		}
 		model.addAttribute("empNumber", empNumber);
 	}
