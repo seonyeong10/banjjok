@@ -118,7 +118,7 @@ ul li:last-child {
   text-align: center;
 }
 
-.btn-area a {
+.btn-area a, input[type="submit"] {
   /* text-align: center; */
   padding: 10px 50px;
   border: 1px solid #afb8aa;
@@ -142,3 +142,4 @@ ul li:last-child {
 	border: #535e53;
 	text-decoration: none;
 }
+

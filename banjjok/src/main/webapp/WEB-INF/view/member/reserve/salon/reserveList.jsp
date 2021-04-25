@@ -66,6 +66,9 @@
 							</div>
 							<div class="btn-area">
 								<a hreaf="#" onclick="changeRes('${list.reservCode }');">상세보기</a>
+								<c:if test="${list.reservUse eq '1'}">
+									<a hreaf="#" onclick="javascript:location.href='<c:url value="/main/reserve/salon/review/write/${list.reservCode }"/>'">리뷰작성</a>
+								</c:if>
 							</div>
 						</li>
 					</c:when>

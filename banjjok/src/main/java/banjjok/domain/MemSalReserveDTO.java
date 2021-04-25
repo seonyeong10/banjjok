@@ -26,6 +26,8 @@ public class MemSalReserveDTO {
 	String reservDesc;
 	String optFee;
 	
+	String serviceCode;
+	
 	public String getReservCode() {
 		return reservCode;
 	}
@@ -185,7 +187,13 @@ public class MemSalReserveDTO {
 	public void setBreed(String breed) {
 		this.breed = breed;
 	}
-	
-	
+
+	public String getServiceCode() {
+		return serviceCode;
+	}
+
+	public void setServiceCode(String serviceCode) {
+		this.serviceCode = serviceCode;
+	}
 	
 }

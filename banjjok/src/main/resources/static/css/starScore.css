@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+.star span {
+	color: #3c405b;
+/* 	color: #f2cc8e; */
+}
+
+.star span:before{
+   content:"\f005"; 
+   font-family: "Font Awesome 5 Free";
+   font-weight: 500;
+}
+
+.star .on::before{
+   content:"\f005"; 
+   font-family: "Font Awesome 5 Free";
+   font-weight: 900;
+   
+}
+
+.member-regist-wrap{
+  width: 620px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.member-regist-wrap .title {
+  padding: 25px 0;
+  border-bottom: 1px solid #afb8aa;
+}
+
+.member-regist-wrap .title h2{
+  font-size: 32px;
+  text-align: center;
+  
+}
+
+.current-section {
+  text-align: center;
+  padding: 20px 0;
+}
+
+textarea  {
+	width: 100%;
+	height: 100px;
+	resize: none;
+	padding: 10px 0;
+	margin: 10px 0;
+}
+
+input {
+	border : none;
+}
+
+input:focus {
+	outline: none;
+}
