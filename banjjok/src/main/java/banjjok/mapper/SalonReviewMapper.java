@@ -15,5 +15,6 @@ public interface SalonReviewMapper {
 	public Integer enroll(SalonReviewDTO dto) throws Exception;
 	public List<SalonReviewDTO> getList(SalonReviewDTO rDTO) throws Exception;
 	public Integer getCount(String serviceCode);
+	public List<MemSalReserveDTO> isWrited(SalonReviewDTO reviewDTO) throws Exception;
 
 }

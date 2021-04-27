@@ -30,7 +30,6 @@ public class SalonServInfoService {
 		
 		// 리뷰정보
 		rDTO.setServiceCode(serviceCode);
-//		List<MemSalReserveDTO> list = salonReviewMapper.getList(mDTO);
 		List<SalonReviewDTO> list = salonReviewMapper.getList(rDTO);
 		Integer count = salonReviewMapper.getCount(serviceCode);
 		model.addAttribute("list", list);

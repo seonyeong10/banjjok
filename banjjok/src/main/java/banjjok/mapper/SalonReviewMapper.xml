@@ -22,7 +22,7 @@
 	values(#{memId}, #{serviceCode}, #{star}, #{review}, sysdate, #{step}, #{reservCode})
 </insert>
 <select id="getList" parameterType="string" resultType="banjjok.domain.SalonReviewDTO">
-	select service_target servicetarget, service_name servicename, desn_name desnname, desn_use desnuse, star, review, mem_name memname, reg_date regdate
+	select service_target servicetarget, service_name servicename, desn_name desnname, desn_use desnuse, star, review, mem_id memid, mem_name memname, reg_date regdate
 	from salon_review
 	where service_code = #{serviceCode}
 </select>
@@ -30,5 +30,11 @@
 	select count(*)
 	from review_salon
 	where service_code = #{value}
+</select>
+<select id="isWrited" parameterType="banjjok.domain.SalonReviewDTO" resultType="banjjok.domain.MemSalReserveDTO">
+	select r.reserv_code reservcode, mem_id memid
+	from review_salon v right outer join reserve_list_salon r
+	on v.reserv_code = r.reserv_code
+	order by reserv_use, reserv_date
 </select>
 </mapper>

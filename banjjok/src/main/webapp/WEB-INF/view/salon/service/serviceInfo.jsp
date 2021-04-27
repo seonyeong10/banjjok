@@ -100,6 +100,10 @@
 	                <span>${list.memName }</span>
 	                <span><fmt:formatDate value="${list.regDate }" pattern="yyyy-MM-dd"/></span>
 <!-- 	                <span>재예약</span> -->
+					<c:if test="${authInfo.userId eq list.memId }">
+						<span><a onclick="modify('${authInfo.userId}','${dto.serviceCode }');">수정</a></span>
+						<span><a href="#">삭제</a></span>
+					</c:if>
 	              </div>
 	            </li>
           	</c:forEach>
@@ -149,12 +153,6 @@
     <footer>
       SoulMate's Forest 02.125.7979 Copyright &copy All Rights reserved.
     </footer>
-    <script type="text/javascript">
-    	function menuDel(){
-    		if(confirm('서비스를 삭제하시겠습니까?')) {
-    			location.href = "<c:url value='/salon/menu/menuDelete?serviceCode=${dto.serviceCode }'/>";
-    		}
-    	}
-    </script>
+    <script src="<c:url value='/static/js/menuInfo.js' />" ></script>
 </body>
 </html>

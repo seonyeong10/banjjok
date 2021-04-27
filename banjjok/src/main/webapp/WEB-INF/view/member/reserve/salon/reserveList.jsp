@@ -42,7 +42,7 @@
 		<!-- 예약리스트 -->
 		<h2>예약</h2>
 		<ul>
-			<c:forEach items="${list }" var="list">
+			<c:forEach items="${list }" var="list" varStatus="idx">
 				<c:choose>
 					<c:when test="${list.reservUse eq '1' || list.reservUse eq '2' }">
 						<li class="reserve-menu-area">
@@ -66,7 +66,7 @@
 							</div>
 							<div class="btn-area">
 								<a hreaf="#" onclick="changeRes('${list.reservCode }');">상세보기</a>
-								<c:if test="${list.reservUse eq '1'}">
+								<c:if test="${list.reservUse eq '1' && reviews.get(idx.index).memId == null}">
 									<a hreaf="#" onclick="javascript:location.href='<c:url value="/main/reserve/salon/review/write/${list.reservCode }"/>'">리뷰작성</a>
 								</c:if>
 							</div>
