@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="banjjok.mapper.SalonReviewMapper">
+<sql id="col">
+	reserv_code reservcode, service_code servicecode, reserv_date reservdate, service_name servicename, service_target servicetarget,
+	desn_name desnname, desn_use desnuse, pet_name petname, pet_size petsize, breed
+</sql>
+<sql id="rev">
+	mem_id, service_code, star, review, reg_date, step, reserv_code
+</sql>
+<sql id="rev2">
+	mem_id memid, service_code servicecode, star, review, reg_date regdate, step, reserv_code reservcode
+</sql>
+<select id="view" parameterType="banjjok.domain.MemSalReserveDTO" resultType="banjjok.domain.MemSalReserveDTO">
+	select <include refid="col" />
+	from review_view
+	where reserv_code = #{reservCode}
+</select>
+<insert id="enroll" parameterType="banjjok.domain.SalonReviewDTO">
+	insert into review_salon (<include refid="rev" />)
+	values(#{memId}, #{serviceCode}, #{star}, #{review}, sysdate, #{step}, #{reservCode})
+</insert>
+<select id="getList" parameterType="string" resultType="banjjok.domain.SalonReviewDTO">
+	select service_target servicetarget, service_name servicename, desn_name desnname, desn_use desnuse, star, review, mem_id memid, mem_name memname, reg_date regdate
+	from salon_review
+	where service_code = #{serviceCode}
+</select>
+<select id="getCount" parameterType="string" resultType="int">
+	select count(*)
+	from review_salon
+	where service_code = #{value}
+</select>
+<select id="isWrited" parameterType="banjjok.domain.SalonReviewDTO" resultType="banjjok.domain.MemSalReserveDTO">
+	select r.reserv_code reservcode, mem_id memid
+	from review_salon v right outer join reserve_list_salon r
+	on v.reserv_code = r.reserv_code
+	order by reserv_use, reserv_date
+</select>
+</mapper>

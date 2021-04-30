@@ -31,7 +31,7 @@
       <div class="select-area">
         <ul>
           <li>정보</li>
-<!--           <li>리뷰 6</li> -->
+          <li>리뷰 6</li>
         </ul>
       </div>
       <!-- 정보 -->
@@ -58,6 +58,86 @@
         </ul>
       </div>
       <!-- 리뷰 -->
+      <div class="review-area">
+<!--         <div class="photo-review-area"> -->
+<!--           <h2 class="section">포토리뷰</h2> -->
+<!--           <ul class="photo-area"> -->
+<!--             <li> -->
+<!--               <a class="photo"> -->
+<!--                 <img src="#" alt="pic" /> -->
+<!--               </a> -->
+<!--             </li> -->
+<!--           </ul> -->
+<!--         </div> -->
+        <div class="member-review-area">
+          <h2 class="section">예약고객 리뷰 ${count }</h2>
+          <ul class="member-review">
+          	<c:forEach items="${list }" var="list">
+          		<li>
+	              <div class="title-area">
+	                <span class="title">[소형견] ${list.serviceName }</span>
+	                <span class="designer">
+	                	 ${list.desnName }
+	                	 <c:if test="${list.desnUse eq '1' }">원장</c:if>
+	                	 <c:if test="${list.desnUse eq '2' }">수석디자이너</c:if>
+	                	 <c:if test="${list.desnUse eq '3' }">디자이너</c:if>
+	                </span>
+	              </div>
+	              <div class="star">
+	              	<c:forEach begin="1" end="${list.star }">
+	              		<i class="fas fa-star" style="color:#3c405b;"></i>
+	              	</c:forEach>
+	              	<c:forEach begin="1" end="${5-list.star }">
+	              		<i class="far fa-star" style="color:#3c405b;"></i>
+	              	</c:forEach>
+	              </div>
+	              <div class="review-content">
+	              	<c:set var="cn" value="\n" />
+	              	<c:set var="br" value="<br/>" />
+	              	${fn:replace(list.review, cn, br) }
+	              </div>
+	              <div class="writer">
+	                <span>${list.memName }</span>
+	                <span><fmt:formatDate value="${list.regDate }" pattern="yyyy-MM-dd"/></span>
+<!-- 	                <span>재예약</span> -->
+					<c:if test="${authInfo.userId eq list.memId }">
+						<span><a onclick="modify('${authInfo.userId}','${dto.serviceCode }');">수정</a></span>
+						<span><a href="#">삭제</a></span>
+					</c:if>
+	              </div>
+	            </li>
+          	</c:forEach>
+<!--             <li> -->
+<!--               <div class="title-area"> -->
+<!--                 <span class="title">[컬러패키지] 디자인탈색1회</span> -->
+<!--                 <span class="designer">수아 디자이너</span> -->
+<!--               </div> -->
+<!--               <div class="star">별점</div> -->
+<!--               <div class="review-content"> -->
+<!--                 처음으로 탈색한 후에 염색을 했는데 제가 원하는 자연스러운 색이 나왔어요. 상한 머리카락은 티가 잘 안나는데 뿌리쪽으로 가까울 수록 예쁘게 색이 나오더라구요. -->
+<!--               </div> -->
+<!--               <div class="writer"> -->
+<!--                 <span>고*명</span><span>1달 전</span><span>재예약</span> -->
+<!--               </div> -->
+<!--               디자이너 리댓 -->
+<!--               <div class="designer-review-area"> -->
+<!--                 <div class="title-area"> -->
+<!--                   <span class="designer-img"><img src="#" alt="#" /></span> -->
+<!--                   <span>Stylist 수아</span> -->
+<!--                 </div> -->
+<!--                 <div class="review-content"> -->
+<!--                   고객님 소중한 리뷰 감사합니다! -->
+<!--                 </div> -->
+<!--                 <div class="writer"> -->
+<!--                   <span>1달 전</span> -->
+<!--                 </div> -->
+<!--               </div> -->
+<!--             </li> -->
+          </ul>
+        </div>
+      </div>
+      <div>
+      </div>
       <!-- 예약 -->
       <div class="reserve-button-area">
       	<c:if test="${authInfo.userId != null }">
@@ -73,12 +153,6 @@
     <footer>
       SoulMate's Forest 02.125.7979 Copyright &copy All Rights reserved.
     </footer>
-    <script type="text/javascript">
-    	function menuDel(){
-    		if(confirm('서비스를 삭제하시겠습니까?')) {
-    			location.href = "<c:url value='/salon/menu/menuDelete?serviceCode=${dto.serviceCode }'/>";
-    		}
-    	}
-    </script>
+    <script src="<c:url value='/static/js/menuInfo.js' />" ></script>
 </body>
 </html>
