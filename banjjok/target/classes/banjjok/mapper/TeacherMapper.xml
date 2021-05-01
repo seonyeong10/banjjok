@@ -12,10 +12,20 @@
 	T_RESIGN TRESIGN, T_NIC TNIC, T_DUTY TDUTY
 </sql>
 
+<select id="getTchId" resultType="string">
+	select t_id
+	from (
+	    select rownum rn, t_id
+	    from teacher
+	    order by t_regist desc
+	)
+	where rn = 1
+</select>
+
 <insert id="teacherInsert" parameterType="banjjok.domain.TeacherDTO" >
 	insert into teacher (<include refid="base" />) 
 	values(#{tId}, #{cCode}, #{tName}, #{tPw}, #{tPhoto}, #{tPh}, 
-			#{tState}, #{tEmail}, #{shopCode}, #{tJoin}, sysdate, null, null, #{tDuty})
+			#{tState}, #{tEmail}, #{shopCode}, #{tJoin}, SYSDATE, null, null, #{tDuty})
 </insert>
 
 <select id="enrollListup" parameterType="banjjok.domain.TeacherDTO" 
@@ -32,8 +42,8 @@
 				</if>
 			</trim>
 			order by t_join desc
-		
-	))
+		)
+	)
 </select>
 
 <update id="enrollModify" parameterType="banjjok.domain.TeacherDTO">
@@ -46,6 +56,12 @@
 	delete from teacher
 	where t_id = #{tId}
 </delete>
+
+<update id="retire" parameterType="banjjok.domain.TeacherDTO">
+	update teacher
+	set t_state = '40'
+	where t_id = #{tId}
+</update>
 
 
 </mapper>

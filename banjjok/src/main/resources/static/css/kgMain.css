@@ -1,0 +1,104 @@
+@charset "UTF-8";
+.content-wrap {
+  margin: 0 auto ;
+}
+
+.content {
+  margin: 0 auto 100px;
+  width: 100%;
+}
+
+.banner-wrap {}
+
+.banner-wrap .img-area li a{
+  display: block;
+  width: 100%;
+  height: 380px;
+}
+
+.img-area {
+  width: 100%;
+}
+
+.img-area a img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #8a7fab;
+}
+
+.section-wrap {
+  margin: 30px auto;
+  width: 940px;
+}
+
+.section-wrap .section-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  border-bottom: 1px solid #333;
+  margin-top: 10px;
+}
+
+.program-area {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -20px;
+}
+
+.program-area .img-area a img {
+  border-radius: 10px;
+}
+
+.program-area li{
+  width: 300px;
+  margin-left: 20px; 
+  margin-bottom: 20px;
+}
+
+.program-area li a {
+  display: block;
+  /* width: 152px; */
+  width: 100%;
+  height: 300px;
+}
+
+.info-area {
+  padding: 10px 0 0 6px;
+}
+
+.info-area span {
+  display: block;
+  padding: 3px 0 0;
+  color: #808080;
+}
+
+.info-area span:first-child {
+  font-weight: 600;
+}
+
+.info-area .price {
+  font-weight: 900;
+  color: #333;
+}
+
+.small del, .small span {
+  font-size: 13px;
+}
+
+.info-area .sale span {
+  display: inline;
+  color:#df7a5e;
+}
+
+.more {
+  text-align: right;
+}
+
+.more a {
+  font-weight: 800;
+}

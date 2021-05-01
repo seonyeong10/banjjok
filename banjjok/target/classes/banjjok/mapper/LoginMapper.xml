@@ -15,7 +15,7 @@
 	from PET_SITTER
 	where sitter_id = #{userId}
 	union
-	select t_id, t_pw, t_name, t_nic
+	select t_id, t_pw, t_name, 'teacher'
 	from TEACHER
 	where t_id = #{userId}
 </select>

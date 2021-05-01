@@ -14,4 +14,7 @@ public interface TeacherMapper {
 	public List<TeacherDTO> enrollListup(TeacherDTO dto) throws Exception;
 	public void enrollModify(TeacherDTO dto) throws Exception;
 	public void enrollDel(TeacherDTO dto) throws Exception;
+	
+	public String getTchId();	// 사원번호 자동 생성
+	public void retire(TeacherDTO dto) throws Exception;
 }

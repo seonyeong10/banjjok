@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
 public class TeacherCommand {
@@ -24,8 +25,10 @@ public class TeacherCommand {
 	@Email
 	@NotEmpty(message = "Enter the Email Address")
 	String tEmail;
-	@NotEmpty(message = "Enter the Entrada")
-	String tJoin;
+//	@NotEmpty(message = "Enter the Entrada")
+//	String tJoin;
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+	LocalDateTime tJoin;
 	
 	MultipartFile tPhoto;
 	@NotEmpty(message = "Allocate the Teacher's position")
@@ -97,10 +100,10 @@ public class TeacherCommand {
 	public void settEmail(String tEmail) {
 		this.tEmail = tEmail;
 	}
-	public String gettJoin() {
+	public LocalDateTime gettJoin() {
 		return tJoin;
 	}
-	public void settJoin(String tJoin) {
+	public void settJoin(LocalDateTime tJoin) {
 		this.tJoin = tJoin;
 	}
 	public MultipartFile gettPhoto() {

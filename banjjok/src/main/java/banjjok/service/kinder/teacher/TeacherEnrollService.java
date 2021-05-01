@@ -26,30 +26,19 @@ public class TeacherEnrollService {
 	@Autowired
 	TeacherMapper teacherMapper;
 	
-	public Integer insertTeacher(TeacherCommand teacherCommand, Model model, HttpSession session) throws Exception{
-		
-//		System.out.println(teacherCommand.getShopCode());
-//		System.out.println(teacherCommand.gettId());
-//		System.out.println(teacherCommand.gettPw());
-//		System.out.println(teacherCommand.gettName());
-//		System.out.println(teacherCommand.gettPh());
-//		System.out.println(teacherCommand.gettState());
-//		System.out.println(teacherCommand.gettEmail());
-//		System.out.println(teacherCommand.gettJoin());
-//		System.out.println(teacherCommand.getcCode());
-//		System.out.println(teacherCommand.gettDuty());
-		
+	public String insertTeacher(TeacherCommand teacherCommand, Model model, HttpSession session) throws Exception{
 		//pwcon 
-		
 		if(!teacherCommand.isTPwEqualToTPwCon()) {
 			model.addAttribute("valid_tPwCon", "Not Correct the Password");
-			return -1 ;
+			return "kinder/teacher/tchForm";
+		}
+		if(teacherCommand.gettPhoto().isEmpty()) {
+			model.addAttribute("valid_tPhoto", "Please put Photo");
+			return "kinder/teacher/tchForm";
 		}
 		
 		//setting
-		
 		TeacherDTO dto = new TeacherDTO();
-		
 		dto.setShopCode(teacherCommand.getShopCode());
 		dto.settId(teacherCommand.gettId());
 		dto.settPw(passwordEncoder.encode(teacherCommand.gettPw()));
@@ -57,10 +46,10 @@ public class TeacherEnrollService {
 		dto.settPh(teacherCommand.gettPh());
 		dto.settState(teacherCommand.gettState());
 		dto.settEmail(teacherCommand.gettEmail());
-		dto.settJoin(teacherCommand.gettJoin());
+		Timestamp tJoin = Timestamp.valueOf(teacherCommand.gettJoin());
+		dto.settJoin(tJoin);
 		dto.setcCode(teacherCommand.getcCode());
 		dto.settDuty(teacherCommand.gettDuty());
-		
 		
 		// photo file
 		String teacherPhoto = "";
@@ -81,12 +70,11 @@ public class TeacherEnrollService {
 		
 		dto.settPhoto(teacherPhoto);
 		
-		
-		
-		
+		Integer result = teacherMapper.teacherInsert(dto);
+		return "redirect:/kinder/teacher";
 		// 리턴값 사용
 //		resultdata = teacherMapper.teacherInsert(dto);
 //		return resultdata;
-		return teacherMapper.teacherInsert(dto);
+//		return teacherMapper.teacherInsert(dto);
 	}
 }

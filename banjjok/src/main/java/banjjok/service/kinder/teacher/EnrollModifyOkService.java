@@ -18,7 +18,6 @@ import banjjok.mapper.TeacherMapper;
 @Service
 @Component
 public class EnrollModifyOkService {
-	
 	@Autowired
 	TeacherMapper teacherMapper;
 
@@ -29,12 +28,14 @@ public class EnrollModifyOkService {
 		
 		// img del
 		dto = (TeacherDTO)teacherMapper.enrollListup(dto).get(0);
-		String img = (String)session.getAttribute("imgList");
+//		String img = ((List<String>) session.getAttribute("imgList")).get(0);
 		String photopath = session.getServletContext().getRealPath("/WEB-INF/view/kinder/upload");
 		
 		// 리스트가 널이 아니면 세션에 저장된 이미지가 있다는 것
 		// 세션에 저장된 정보 삭제
-		if(img != null) {
+//		if(img != null) {
+		if(((List<String>) session.getAttribute("imgList")).size() != 0) {
+			String img = ((List<String>) session.getAttribute("imgList")).get(0);
 			File file = new File(photopath + "/" + img);
 			if(file.exists()) file.delete();
 			session.removeAttribute("imagefile");

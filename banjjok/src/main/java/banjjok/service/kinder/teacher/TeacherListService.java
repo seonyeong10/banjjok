@@ -1,28 +1,23 @@
 package banjjok.service.kinder.teacher;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import banjjok.domain.TeacherDTO;
 import banjjok.mapper.TeacherMapper;
 
-
 @Service
-@Component
-public class EnrollDelService {
+public class TeacherListService {
 	@Autowired
 	TeacherMapper teacherMapper;
 
-	public void enrollDel(String tId) throws Exception{
+	public void getList(Model model) throws Exception {
 		TeacherDTO dto = new TeacherDTO();
-		dto.settId(tId);
-		
-//		teacherMapper.enrollDel(dto);
-		
-		// tState = 40(퇴직)으로 업데이트
-		teacherMapper.retire(dto);
-		
+		List<TeacherDTO> list = teacherMapper.enrollListup(dto);
+		model.addAttribute("list", list);
 	}
 
 }

@@ -116,13 +116,13 @@ public class AdminController {
 	public String enrollmentOk(
 			@Validated TeacherCommand teacherCommand, BindingResult result, 
 				Model model, HttpSession session) throws Exception{
-			Integer resultdata = teacherEnrollService.insertTeacher(teacherCommand, model, session);
+//			Integer resultdata = teacherEnrollService.insertTeacher(teacherCommand, model, session);
 			if (result.hasErrors()) {
 				return "kinder/admin/enrollment";
 			}
 //			System.out.println(resultdata);
 			// 사망연산자
-			return resultdata < 0  ? "kinder/admin/enrollment" : "redirect:/kinder/enrollList" ;
+//			return resultdata < 0  ? "kinder/admin/enrollment" : "redirect:/kinder/enrollList" ;
 			
 //			if(resultdata > 0) {
 //				return "redirect:/enrollList";
@@ -135,7 +135,7 @@ public class AdminController {
 //			if(teacherCommand.gettState() == null) {
 //				return "/kinder/enrollment";
 //			}
-//			return "redirect:/enrollList";
+			return "redirect:/enrollList";
 	}
 	
 	@RequestMapping(value = "enrollDetail", method =RequestMethod.GET)

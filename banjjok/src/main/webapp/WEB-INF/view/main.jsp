@@ -40,9 +40,9 @@
 							<!-- 돌보미가 로그인 했을 때 -->
 							<li><a href="/main/myPage">마이페이지</a></li>
 						</c:when>
-							<c:when test="${authInfo.grade eq 'teach' }">
+							<c:when test="${authInfo.grade eq 'teacher' }">
 						<!-- 선생님이 로그인 했을 때 -->
-							<li><a href="/main/myPage">마이페이지</a></li>
+							<li><a href="/kinder/teacher/myPage">마이페이지</a></li>
 						</c:when>
 						<c:otherwise >
 							<!-- 디자이너가 로그인 했을 때 -->
@@ -65,7 +65,7 @@
 			<p class="textArea">SoulMate's Forest</p>
 			<p class="textArea-field">Hotel</p>
 		</a>
-		<a href="#" class="imgSlide"
+		<a href="/kinder" class="imgSlide"
 			style="background-image: url('static/images/banjjog2.jpg');"
 		>
 			<p class="textArea">SoulMate's Forest</p>
@@ -100,7 +100,8 @@
 				<h3>Kinder Garden</h3>
 				<p>Donec ornare neque ac sem. Mauris aliquet. Aliquam sem leo,
 					vulputate sed, convallis at, ultricies quis, justo. Donec magna.</p>
-				<a href="kinderMain/home" class="button button-style1">Go to KinderGarden</a>
+<!-- 				<a href="kinderMain/home" class="button button-style1">Go to KinderGarden</a> -->
+				<a href="/kinder" class="button button-style1">Go to KinderGarden</a>
 			</section>
 			<section class="4u">
 				<span class="pennant"><span class="fa fa-cut fa-2x"></span></span>

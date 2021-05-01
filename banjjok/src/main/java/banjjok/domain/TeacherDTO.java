@@ -12,7 +12,7 @@ public class TeacherDTO {
 	String tState;
 	String tEmail;
 	String shopCode;
-	String tJoin;
+	Timestamp tJoin;
 	Timestamp tRegist;
 	Timestamp tResign;
 	String tNic;
@@ -79,11 +79,11 @@ public class TeacherDTO {
 	public void setShopCode(String shopCode) {
 		this.shopCode = shopCode;
 	}
-	public String gettJoin() {
+	public Timestamp gettJoin() {
 		return tJoin;
 	}
-	public void settJoin(String tJoin) {
-		this.tJoin = tJoin;
+	public void settJoin(Timestamp tJoin2) {
+		this.tJoin = tJoin2;
 	}
 	public Timestamp gettRegist() {
 		return tRegist;
