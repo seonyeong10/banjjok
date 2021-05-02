@@ -5,7 +5,7 @@
 <select id="getUsers" parameterType="banjjok.domain.LoginDTO" resultType="banjjok.domain.LoginDTO">
 	select desn_id userId, desn_pw userPw, desn_name userName, desn_use grade
 	from designer
-	where desn_id = #{userId}
+	where desn_id = #{userId} and desn_use != '4'
 	union 
 	select mem_id, mem_pw, mem_name, 'mem'
 	from member
@@ -17,6 +17,42 @@
 	union
 	select t_id, t_pw, t_name, 'teacher'
 	from TEACHER
-	where t_id = #{userId}
+	where t_id = #{userId} and t_state != '40'
 </select>
+<select id="find" parameterType="string" resultType="banjjok.domain.LoginDTO">
+	select mem_id userid
+	from member
+	where mem_mobile = #{value} and mem_use = '1'
+	union
+	select desn_id
+	from designer
+	where desn_ph = #{value} and desn_use != '4'
+	union
+	select sitter_id
+	from pet_sitter
+	where sitter_ph = #{value}
+	union
+	select t_id
+	from teacher
+	where t_ph = #{value} and t_state != '40'
+</select>
+<update id="updatePw" parameterType="banjjok.domain.LoginDTO">
+	update
+	<if test='grade == "mem"'>
+		member
+		set mem_pw = #{userPw}	
+	</if>
+	<if test='grade == "sitter"'>
+		pet_sitter
+		set sitter_pw = #{userPw}
+	</if>
+	<if test='grade == "teacher"'>
+		teacher
+		set t_pw = #{userPw}
+	</if>
+	<if test='grade == "1" or grade == "2" or grade == "3"'>
+		designer
+		set desn_pw = #{userPw}
+	</if>
+</update>
 </mapper>

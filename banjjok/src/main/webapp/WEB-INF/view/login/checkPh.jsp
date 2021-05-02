@@ -24,36 +24,28 @@
 			Login
 		</h2>
 	</div>
-	<!-- 로그인 -->
 	<div id="LoginWrapper">
+		<div class="description">
+			<span class="title">아이디를 모르시나요?</span>
+			<span>입력한 연락처로 아이디를 찾을 수 있습니다.</span>
+		</div>
 		<div class="LoginDataWrap">
-			<!-- 화면 바뀌게 -->
-			<form:form action="loginAct" method="post" name="frm"
-				modelAttribute="loginCommand"
-			>
+			<form action="findId" method="post" name="frm"  >
 				<div class="idForm">
-					<form:input path="userId" id="userId" placeholder="ID" />
+					<input type="text" name="userPh" id="userPh" placeholder="010-1234-5678" />
 				</div>
-				<div class="passForm">
-					<input type="password" name="userPw" id="userPw" placeholder="PW" />
-				</div>
-
-				<!-- 에러 -->
-				<div>
-					<form:errors path="userId"/>&nbsp;
-					<form:errors path="userPw"/>&nbsp;
-					<span>${valid_userId }</span>&nbsp;
-					<span>${valid_userPw }</span>
-				</div>
-				<input type="submit" value="LOG IN" class="loginButton" />
-			</form:form>
+<!-- 				<div class="passForm"> -->
+<!-- 					<input type="text" name="checkNum" id="checkNum" placeholder="인증번호 입력" /> -->
+<!-- 				</div> -->
+				<input type="submit" value="아이디 찾기" class="loginButton" />
+			</form>
 		</div>
 		<!-- 하단 나비 -->
 		<div id="bottomWrapper">
 			<ul>
 				<li><a href="/banjjok/signUp">Sign Up</a></li>
 				<li><a href="/banjjok/checkPh">Find ID</a></li>
-				<li><a href="/banjjok/checkId">Find Password</a></li>
+				<li><a href="#">Find Password</a></li>
 			</ul>
 		</div>
 	</div>

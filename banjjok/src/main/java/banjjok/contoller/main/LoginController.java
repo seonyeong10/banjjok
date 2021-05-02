@@ -15,7 +15,7 @@ import banjjok.command.LoginCommand;
 import banjjok.service.login.LoginService;
 
 @Controller
-//@RequestMapping("/")
+@RequestMapping(value = "/banjjok")
 public class LoginController {
 	@ModelAttribute
 	public LoginCommand setLoginCommand() {
@@ -36,7 +36,7 @@ public class LoginController {
 		String location = loginService.login(loginCommand, session, model);
 		return location;
 	}
-	@RequestMapping(value = "/main/logout", method = RequestMethod.GET)
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "redirect:/";

@@ -18,7 +18,7 @@
 	<header>
 		<!-- 로고  -->
 		<div class="logoArea">
-			<a href="/" class="logoImage"
+			<a href="/banjjok" class="logoImage"
 				style="background-image: url('static/images/soulMate_logo.png');"
 			></a>
 		</div>
@@ -26,8 +26,8 @@
 		<div class="navigationWrap">
 			<ul class="navigationArea">
 				<c:if test="${empty authInfo }">
-					<li><a href="login">Log In</a></li>
-					<li><a href="signUp">Sign Up</a></li>
+					<li><a href="/banjjok/login">Log In</a></li>
+					<li><a href="/banjjok/signUp">Sign Up</a></li>
 				</c:if>
 				<c:if test="${!empty authInfo }">
 					<li>안녕하세요! ${authInfo.userName }님</li>
@@ -50,7 +50,7 @@
 						</c:otherwise>
 					</c:choose>
 					
-					<li><a href="/main/logout">Log Out</a></li>
+					<li><a href="/banjjok/logout">Log Out</a></li>
 				</c:if>
 			</ul>
 		</div>

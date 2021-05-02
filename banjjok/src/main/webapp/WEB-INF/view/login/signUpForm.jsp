@@ -6,10 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입 폼</title>
-<link href="static/css/baseCSS.css" rel="stylesheet" type="text/css" />
-<link href="static/css/topMenu.css" rel="stylesheet" type="text/css" />
-<link href="static/css/footer.css" rel="stylesheet" type="text/css" />
-<link href="static/css/memberForm.css" rel="stylesheet" type="text/css" />
+<link href="<c:url value='/static/css/baseCSS.css' />" rel="stylesheet" type="text/css" />
+<link href="<c:url value='/static/css/topMenu.css' />" rel="stylesheet" type="text/css" />
+<link href="<c:url value='/static/css/footer.css' />" rel="stylesheet" type="text/css" />
+<link href="<c:url value='/static/css/memberForm.css' />" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="<c:url value='/js/jquery.form.js'/>"></script>
@@ -20,8 +20,7 @@
 		<!-- 로고  -->
 		<div class="logoArea">
 			<a href="/" class="logoImage"
-				style="background-image: url('static/images/soulMate_logo.png');"
-			></a>
+				style="background-image: url('<c:url value="/static/images/soulMate_logo.png" />');"></a>
 		</div>
 		<!-- 나비(메뉴선택 바)  -->
       <div class="navigationWrap">

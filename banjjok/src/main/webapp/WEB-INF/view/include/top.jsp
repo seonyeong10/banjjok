@@ -31,10 +31,10 @@
 							<li><a href="<c:url value='/salon/menu/addMenu'/>">Add menu</a></li>
 						</c:if>
 						<c:if test="${empty authInfo }">
-						<li><a href="<c:url value='/login'/>">Log In</a></li>
+						<li><a href="<c:url value='/banjjok/login'/>">Log In</a></li>
 						</c:if>
 						<c:if test="${!empty authInfo }">
-						<li><a href="/main/logout">Log out</a></li>
+						<li><a href="/banjjok/logout">Log out</a></li>
 						</c:if>
 					</ul>
 				</c:when>
@@ -45,11 +45,11 @@
 						<li><a href="<c:url value='/salon/desn'/>">Designer</a></li>
 <!-- 						<li><a href="#">Review</a></li> -->
 						<c:if test="${empty authInfo }">
-						<li><a href="<c:url value='/login'/>">Log In</a></li>
+						<li><a href="<c:url value='/banjjok/login'/>">Log In</a></li>
 						</c:if>
 						<c:if test="${!empty authInfo }">
 						<li><a href="<c:url value='/main/myPage'/>">My Page</a></li>
-						<li><a href="/main/logout">Log out</a></li>
+						<li><a href="/banjjok/logout">Log out</a></li>
 						</c:if>
 					</ul>
 				</c:otherwise>

@@ -6,6 +6,11 @@
 	padding: 0;
 }
 
+a:hover {
+	text-decoration: none;
+	box-shadow: 0px -6px #81b39a inset;
+}
+
 body {
 /* 	width: 1140px; */
 	margin: 0 auto;
@@ -153,4 +158,34 @@ ul, li {
 
 #bottomWrapper ul li:first-child {
 	border: none;
+}
+
+/* 아이디/비밀번호 찾기 */
+.description {
+	text-align: left;
+	margin: 30px auto ;
+	width: 430px;
+}
+.description span{
+	display: block;
+}
+
+.description .title {
+	font-weight: 700;
+	padding-bottom: 10px;
+}
+
+/* 찾은 아이디/비밀번호 */
+.findId-wrap {
+	margin: 0 auto;
+	background: #f4f1de;
+	width: 430px;
+	padding: 20px 0;
+	border-radius: 10px;
+}
+
+.findId-area {
+	font-weight: 700;
+	font-size: 18px;
+	padding: 7px 0;
 }

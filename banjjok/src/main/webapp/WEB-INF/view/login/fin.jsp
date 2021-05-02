@@ -24,36 +24,18 @@
 			Login
 		</h2>
 	</div>
-	<!-- 로그인 -->
 	<div id="LoginWrapper">
-		<div class="LoginDataWrap">
-			<!-- 화면 바뀌게 -->
-			<form:form action="loginAct" method="post" name="frm"
-				modelAttribute="loginCommand"
-			>
-				<div class="idForm">
-					<form:input path="userId" id="userId" placeholder="ID" />
-				</div>
-				<div class="passForm">
-					<input type="password" name="userPw" id="userPw" placeholder="PW" />
-				</div>
-
-				<!-- 에러 -->
-				<div>
-					<form:errors path="userId"/>&nbsp;
-					<form:errors path="userPw"/>&nbsp;
-					<span>${valid_userId }</span>&nbsp;
-					<span>${valid_userPw }</span>
-				</div>
-				<input type="submit" value="LOG IN" class="loginButton" />
-			</form:form>
+		<div class="findId-wrap">
+			비밀번호 변경이 완료되었습니다.<br />
+			로그인 후 이용해주세요.
 		</div>
+		<br />
 		<!-- 하단 나비 -->
 		<div id="bottomWrapper">
 			<ul>
-				<li><a href="/banjjok/signUp">Sign Up</a></li>
-				<li><a href="/banjjok/checkPh">Find ID</a></li>
-				<li><a href="/banjjok/checkId">Find Password</a></li>
+				<li><a href="/banjjok">Home</a></li>
+				<li><a href="/banjjok/login">Log in</a></li>
+				<li><a href="#">Find Password</a></li>
 			</ul>
 		</div>
 	</div>

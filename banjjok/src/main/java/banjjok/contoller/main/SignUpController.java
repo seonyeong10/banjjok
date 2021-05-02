@@ -20,6 +20,7 @@ import banjjok.service.SendSMSService;
 import banjjok.service.mem.RegistService;
 
 @Controller
+@RequestMapping(value = "banjjok")
 public class SignUpController {
 	@ModelAttribute
 	SignUpCommand setSignUpCommand() {
