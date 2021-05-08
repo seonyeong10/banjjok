@@ -13,4 +13,9 @@ public interface ProgramMapper {
 	public void programInsert(ProgramDTO dto) throws Exception;
 	public List<ProgramDTO> programListup(ProgramDTO dto) throws Exception;
 	public Integer programModify(ProgramDTO dto) throws Exception;
+	
+	public String getCode() throws Exception;
+	public Integer regist(ProgramDTO dto) throws Exception;
+	public List<ProgramDTO> programs(ProgramDTO dto) throws Exception;
+	public ProgramDTO getProgram(ProgramDTO dto) throws Exception;
 }

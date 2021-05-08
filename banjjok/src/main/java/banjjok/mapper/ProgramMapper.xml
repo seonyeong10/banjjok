@@ -4,31 +4,35 @@
 <mapper namespace="banjjok.mapper.ProgramMapper" >
 
 <sql id="base">
-	P_CODE, P_NAME, P_PRICE, P_CONTENT, P_TIME
+	P_CODE, P_NAME, P_PRICE, P_CONTENT, P_TIME, p_teacher, p_target, p_img, p_categ, p_start, p_end, regist
 </sql>
 <sql id="base1">
-	P_CODE PCODE, P_NAME PNAME, P_PRICE PPRICE, P_CONTENT PCONTENT, P_TIME PTIME
+	P_CODE PCODE, P_NAME PNAME, P_PRICE PPRICE, P_CONTENT PCONTENT, p_teacher pteacher, p_target ptarget, p_img pimg, p_categ pcateg, p_start pstart, p_end pend, regist
 </sql>
 
-<insert id="programInsert" parameterType="banjjok.domain.ProgramDTO">
+<select id="getCode" resultType="string">
+	select lpad(program_kinder_seq.nextval,3,'0') from dual
+</select>
+<insert id="regist" parameterType="banjjok.domain.ProgramDTO">
 	insert into program (<include refid="base" />) 
-	values(#{pCode}, #{pName}, #{pPrice}, #{pContent}, #{pTime})
+	values(#{pCode}, #{pName}, #{pPrice}, #{pContent}, #{pTime}, #{pTeacher}, #{pTarget}, #{pImg}, #{pCateg}, #{pStart}, #{pEnd}, sysdate)
 </insert>
-<select id="programListup" parameterType="banjjok.domain.ProgramDTO" 
+<select id="programs" parameterType="banjjok.domain.ProgramDTO" 
 		resultType="banjjok.domain.ProgramDTO">
-	select *
-	from(
-		select rownum rn, <include refid="base1" />
-		from (
-			select <include refid="base" />
-			from program
-			<trim prefix="where" prefixOverrides="AND | OR">
-				<if test="pCode != null">
-					p_code = #{pCode}
-				</if>
-			</trim>
-			))
-	
+	select p_code pCode, p_name pName, p_price pPrice, p_content pcontent, p.p_teacher pteacher, t.t_name tname, t.t_photo tphoto, p_target ptarget, p_img pimg, p_categ pcateg, p_start pstart, p_end pend, regist
+	from program p join teacher t
+	on p.p_teacher = t.t_id
+	<where>
+		<if test="pCateg != null">p_categ = #{pCateg}</if>
+	</where>
+</select>
+<select id="getProgram" parameterType="banjjok.domain.ProgramDTO" 
+		resultType="banjjok.domain.ProgramDTO">
+	select <include refid="base1" />
+	from program
+	<trim prefix="where" prefixOverrides="AND | OR">
+		<if test="pCode != null">p_code = #{pCode}</if>
+	</trim>
 </select>
 <update id="programModify" parameterType="banjjok.domain.ProgramDTO">
 	update program

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import banjjok.service.kinder.teacher.EnrollDelService;
 
 @Controller
-@RequestMapping(value = "kinder/teacher")
+@RequestMapping(value = "/banjjok/kinder/teacher")
 public class KgTchDelController {
 	@Autowired
 	EnrollDelService enrollDelService;

@@ -16,7 +16,7 @@ import banjjok.service.kinder.teacher.TeacherEnrollService;
 import banjjok.service.kinder.teacher.TeacherIdService;
 
 @Controller
-@RequestMapping(value = "kinder/teacher")
+@RequestMapping(value = "/banjjok/kinder/teacher")
 public class KgTchEnrollController {
 	@ModelAttribute
 	TeacherCommand setTeacherCommand() {

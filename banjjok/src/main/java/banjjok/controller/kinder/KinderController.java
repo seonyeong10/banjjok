@@ -20,7 +20,7 @@ public class KinderController {
 //	public String kinder() throws Exception {
 //		return "kinder/kinderMain"; 
 //	}
-	@RequestMapping(value = "kinder", method = RequestMethod.GET)
+	@RequestMapping(value = "/banjjok/kinder", method = RequestMethod.GET)
 	public String main(Model model) throws Exception {
 		kgMainService.view(model);
 		return "/kinder/kgMain";

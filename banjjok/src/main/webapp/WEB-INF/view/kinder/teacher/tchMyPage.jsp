@@ -21,7 +21,7 @@
 			<!-- 회원정보 수정 -->
 			<h2>회원정보</h2>
 			<p>내 정보를 수정하거나 탈퇴할 수 있습니다.</p>
-			<a href="/kinder/teacher/myPage/modify" class="modify" >수정</a>
+			<a href="/banjjok/kinder/teacher/myPage/modify" class="modify" >수정</a>
 			<a href="#">비밀번호 변경</a>
 			<a onclick='del("${authInfo.userId}");'>회원 탈퇴</a>
 		</div>
@@ -46,7 +46,7 @@
 	<script type="text/javascript">
 		function del(userId){
 			if(confirm('정말 탈퇴하시겠습니까?')) {
-				location.href='/kinder/teacher/myPage/delete?tId=' + userId;
+				location.href='/banjjok/kinder/teacher/myPage/delete?tId=' + userId;
 			}
 			return false;
 		}

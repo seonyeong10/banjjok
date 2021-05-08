@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
 </head>
 <body>
-	<%@ include file="../../include/top.jsp" %>
+	<%@ include file="../../include/kgTop.jsp" %>
 	<div class="contentWrap">
 		<!-- Content -->
 		<div class="content">

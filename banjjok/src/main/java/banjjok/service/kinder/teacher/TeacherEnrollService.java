@@ -71,7 +71,7 @@ public class TeacherEnrollService {
 		dto.settPhoto(teacherPhoto);
 		
 		Integer result = teacherMapper.teacherInsert(dto);
-		return "redirect:/kinder/teacher";
+		return "redirect:/banjjok/kinder/teacher";
 		// 리턴값 사용
 //		resultdata = teacherMapper.teacherInsert(dto);
 //		return resultdata;

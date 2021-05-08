@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import banjjok.service.kinder.teacher.TeacherListService;
 
 @Controller
-@RequestMapping(value = "kinder")
+@RequestMapping(value = "/banjjok/kinder")
 public class KgTchController {
 	@Autowired
 	TeacherListService teacherListService;

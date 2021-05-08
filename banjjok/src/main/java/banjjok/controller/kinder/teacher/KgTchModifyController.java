@@ -15,7 +15,7 @@ import banjjok.service.kinder.teacher.EnrollModifyService;
 import banjjok.service.salon.ImgDelService;
 
 @Controller
-@RequestMapping(value = "kinder/teacher/myPage")
+@RequestMapping(value = "/banjjok/kinder/teacher/myPage")
 public class KgTchModifyController {
 	@Autowired
 	EnrollModifyService enrollModifyService;
