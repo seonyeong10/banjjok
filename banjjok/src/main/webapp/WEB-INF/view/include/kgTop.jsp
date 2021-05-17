@@ -37,7 +37,7 @@
 			</c:if>
 			<c:if test="${authInfo.grade eq 'teacher' }">
 				<ul class="navigationArea">
-					<li><a href="#">Program</a></li>
+					<li><a href="/banjjok/kinder/program">Program</a></li>
 					<li><a href="/banjjok/kinder/teacher">Teacher</a></li>
 					<li><a href="<c:url value='/banjjok/kinder/teacher/myPage'/>">My Page</a></li>
 					<c:if test="${authInfo.userId != null }">

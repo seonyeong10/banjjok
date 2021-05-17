@@ -25,7 +25,7 @@
 			<a href="#">
 				<span class="pennant">
 					<span class="fas fa-shapes fa-2x"></span>
-					&nbsp;&nbsp;프로그램 등록
+					&nbsp;&nbsp;프로그램 수정
 				</span>
 			</a>
 		</div>
@@ -54,7 +54,8 @@
 						<img src="/kinder/upload/${img[1] }" alt="emp face" id="emp-img"/>
 					</span>
 					<span class="element-value">
-						<input type="file" name="pImg" id="desn-img"/>
+						<input type="button" value="삭제" id="delBtn" onclick="imgDelete('${img[1]}',this);"/>
+						<input type="file" name="pImg" id="desn-img" style="display:none;"/>
 					</span>
 				</div>
 				<div class="mem-element">
@@ -65,7 +66,7 @@
 					<p class="element-name">담당자</p>
 					<span class="element-value">
 					<select name="pTeacher">
-							<option>담당자를 선택하세요.${dto.pTeacher }</option>
+							<option>담당자를 선택하세요.</option>
 							<c:forEach items="${list }" var="list">
 								<option value="${list.tId }" <c:if test="${dto.pTeacher eq list.tId }">selected</c:if> >${list.tName }</option>
 							</c:forEach>
@@ -105,7 +106,7 @@
 				</div>
 				<div class="mem-element">
 					<p class="element-name">교육 내용</p>
-					<span class="element-value"> <textarea path="pContent"
+					<span class="element-value"> <textarea name="pContent"
 							placeholder="서비스의 내용을 입력하세요.">${dto.pContent }</textarea>
 					</span>
 				</div>

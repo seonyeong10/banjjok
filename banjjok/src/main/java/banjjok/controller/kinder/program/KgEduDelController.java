@@ -11,27 +11,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import banjjok.command.ProgramCommand;
+import banjjok.service.kinder.Program.EduDelService;
 import banjjok.service.kinder.Program.EduListService;
 import banjjok.service.kinder.Program.EduModifyService;
 import banjjok.service.kinder.Program.EduUpdateService;
 
 @Controller
 @RequestMapping(value = "/banjjok/kinder/program")
-public class KgEduModifyController {
+public class KgEduDelController {
 	@Autowired
-	EduModifyService eduModifyService;
-	@Autowired
-	EduUpdateService eduUpdateService;
-
-	@RequestMapping(value = "modify/{pCode}", method = RequestMethod.GET)
-	public String program(@PathVariable(value = "pCode") String pCode, Model model) throws Exception {
-		eduModifyService.getProgram(pCode, model);
-		return "/kinder/program/eduModify";
-	}
-
-	@RequestMapping(value = "modifyAct", method = RequestMethod.POST)
-	public String modify(ProgramCommand programCommand, HttpSession session) throws Exception {
-		eduUpdateService.update(programCommand, session);
+	EduDelService eduDelService;
+	
+	@RequestMapping(value = "delete", method = RequestMethod.GET)
+	public String delete(@RequestParam(value = "pCode") String pCode, @RequestParam(value = "file") String file, HttpSession session) throws Exception {
+		eduDelService.delete(pCode, file, session);
 		return "/banjjok/kinder/program";
 	}
 }

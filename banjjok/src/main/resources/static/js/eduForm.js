@@ -47,3 +47,28 @@ function nextPage() {
 //			};
 //			$.ajax(teachers);
 		}
+		
+		function imgDelete(imgFile, btn){
+			del = {
+					type : "post",
+					url : "/salon/imgDel",
+					dataType : "text",
+					data : {
+						"imgFile" : imgFile
+					},
+					success : function(result) {
+						if (result.trim() == "1") {
+							$(btn).val('삭제취소');
+							$('#desn-img').show();
+						} else {
+							$(btn).val('삭제');
+							$('#desn-img').hide();
+						}
+					},
+					error : function() {
+						alert('에러');
+						return;
+					}
+				};
+				$.ajax(del);
+		}

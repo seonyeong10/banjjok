@@ -47,7 +47,7 @@
 							</span> 
 							<span class="part">
 								<span class="title">기간</span>
-								${fn:substring(list.pStart,0,11) }~${fn:substring(list.pEnd,0,11) }
+								${fn:substring(list.pStart,0,11) }~ ${fn:substring(list.pEnd,0,11) }
 							</span> 
 							<span class="part">
 								<span class="title">담당자</span>
@@ -63,69 +63,69 @@
 								${list.pContent }
 							</span>
 						</div>
+						<c:if test="${authInfo.grade eq 'teacher' && list.pTeacher eq authInfo.userId }">
+							<div class="modify-area">
+								<a href="/banjjok/kinder/program/modify/${list.pCode }">수정</a>
+								<a onclick="delete('${list.pCode }', '${img[1] })">삭제</a>
+							</div>
+						</c:if>
 					</li>
 				</c:forEach>
-				<li>
-					<div class="img-area">
-						<a href="#"> <img src="#" alt="program" />
-						</a>
-					</div>
-					<div class="info-area">
-						<span class="part"><span class="title">과목명</span>사회화 테스트</span> <span
-							class="part"><span class="title">대상</span>소형견</span> <span
-							class="part"><span class="title">기간</span>1일</span> <span
-							class="part"><span class="title">담당자</span><img src="#"
-							alt="i" class="t-img" />권미나</span> <span class="part"><span
-							class="title">금액</span>50,000</span> <span class="part"><span
-							class="title desc">설명</span>교육목표가 설정되었다면 훈련사 선생님과 반려견의 교감의 시간을
-							보내며, 보호자님들께 강아지 이론교육을 통하여 충분한 지식을 습들할 수 있도록 도와드립니다.</span>
-					</div>
-				</li>
-				<li>
-					<div class="img-area">
-						<a href="#"> <img src="#" alt="program" />
-						</a>
-					</div>
-					<div class="info-area">
-						<span class="part"><span class="title">과목명</span>사회화 테스트</span> <span
-							class="part"><span class="title">대상</span>중형견</span> <span
-							class="part"><span class="title">기간</span>1일</span> <span
-							class="part"><span class="title">담당자</span><img src="#"
-							alt="i" class="t-img" />권미나</span> <span class="part"><span
-							class="title">금액</span>50,000</span> <span class="part"><span
-							class="title desc">설명</span>반려견과 함께 학교에 방문하여 선생님과 깊은 상담을 통해 아이에게
-							맞는 최적의 교육목표를 설정합니다.</span>
-					</div>
-				</li>
-				<li>
-					<div class="img-area">
-						<a href="#"> <img src="#" alt="program" />
-						</a>
-					</div>
-					<div class="info-area">
-						<span class="part"><span class="title">과목명</span>사회화 테스트</span> <span
-							class="part"><span class="title">대상</span>대형견</span> <span
-							class="part"><span class="title">기간</span>1일</span> <span
-							class="part"><span class="title">담당자</span><img src="#"
-							alt="i" class="t-img" />권미나</span> <span class="part"><span
-							class="title">금액</span>50,000</span> <span class="part"><span
-							class="title desc">설명</span>이론습득이 충분하게 되었다면 보호자님들께서 직접 아이들과 교육을
-							진행하며 관계를 새롭게 만들어 나가도록 합니다.</span>
-					</div>
-				</li>
+<!-- 				<li> -->
+<!-- 					<div class="img-area"> -->
+<!-- 						<a href="#"> <img src="#" alt="program" /> -->
+<!-- 						</a> -->
+<!-- 					</div> -->
+<!-- 					<div class="info-area"> -->
+<!-- 						<span class="part"><span class="title">과목명</span>사회화 테스트</span> <span -->
+<!-- 							class="part"><span class="title">대상</span>소형견</span> <span -->
+<!-- 							class="part"><span class="title">기간</span>1일</span> <span -->
+<!-- 							class="part"><span class="title">담당자</span><img src="#" -->
+<!-- 							alt="i" class="t-img" />권미나</span> <span class="part"><span -->
+<!-- 							class="title">금액</span>50,000</span> <span class="part"><span -->
+<!-- 							class="title desc">설명</span>교육목표가 설정되었다면 훈련사 선생님과 반려견의 교감의 시간을 -->
+<!-- 							보내며, 보호자님들께 강아지 이론교육을 통하여 충분한 지식을 습들할 수 있도록 도와드립니다.</span> -->
+<!-- 					</div> -->
+<!-- 				</li> -->
+<!-- 				<li> -->
+<!-- 					<div class="img-area"> -->
+<!-- 						<a href="#"> <img src="#" alt="program" /> -->
+<!-- 						</a> -->
+<!-- 					</div> -->
+<!-- 					<div class="info-area"> -->
+<!-- 						<span class="part"><span class="title">과목명</span>사회화 테스트</span> <span -->
+<!-- 							class="part"><span class="title">대상</span>중형견</span> <span -->
+<!-- 							class="part"><span class="title">기간</span>1일</span> <span -->
+<!-- 							class="part"><span class="title">담당자</span><img src="#" -->
+<!-- 							alt="i" class="t-img" />권미나</span> <span class="part"><span -->
+<!-- 							class="title">금액</span>50,000</span> <span class="part"><span -->
+<!-- 							class="title desc">설명</span>반려견과 함께 학교에 방문하여 선생님과 깊은 상담을 통해 아이에게 -->
+<!-- 							맞는 최적의 교육목표를 설정합니다.</span> -->
+<!-- 					</div> -->
+<!-- 				</li> -->
+<!-- 				<li> -->
+<!-- 					<div class="img-area"> -->
+<!-- 						<a href="#"> <img src="#" alt="program" /> -->
+<!-- 						</a> -->
+<!-- 					</div> -->
+<!-- 					<div class="info-area"> -->
+<!-- 						<span class="part"><span class="title">과목명</span>사회화 테스트</span> <span -->
+<!-- 							class="part"><span class="title">대상</span>대형견</span> <span -->
+<!-- 							class="part"><span class="title">기간</span>1일</span> <span -->
+<!-- 							class="part"><span class="title">담당자</span><img src="#" -->
+<!-- 							alt="i" class="t-img" />권미나</span> <span class="part"><span -->
+<!-- 							class="title">금액</span>50,000</span> <span class="part"><span -->
+<!-- 							class="title desc">설명</span>이론습득이 충분하게 되었다면 보호자님들께서 직접 아이들과 교육을 -->
+<!-- 							진행하며 관계를 새롭게 만들어 나가도록 합니다.</span> -->
+<!-- 					</div> -->
+<!-- 				</li> -->
 			</ul>
 		</div>
-		<!-- 사회화 테스트 끝 -->
-		<!-- 1일권 -->
-		<!-- 1일권 끝 -->
-		<!-- 종일권 -->
-		<!-- 종일권 끝 -->
-		<!-- 프로그램 등록 버튼 -->
-<%-- 		<c:if test="${authInfo.grade eq 'teacher' }"> --%>
-		<div class="btn-area">
-			<a href="/banjjok/kinder/program/regist">프로그램 등록</a>
-		</div>
-<%-- 		</c:if> --%>
+		<c:if test="${authInfo.grade eq 'teacher' }">
+			<div class="btn-area">
+				<a href="/banjjok/kinder/program/regist">프로그램 등록</a>
+			</div>
+		</c:if>
 		<!-- 프로그램 등록 버튼 끝 -->
 	</div>
 	<!-- Content 끝 -->
@@ -141,6 +141,10 @@
 			} else {
 				location.href = '/banjjok/kinder/program/reserve/' + pCode;
 			}
+		}
+		
+		function delete(pCode, file){
+			location.href = '/banjjok/kinder/program/delete?pCode=' + pCode + '&file=' + file;
 		}
 	</script>
 </body>

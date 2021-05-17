@@ -1,5 +1,6 @@
 package banjjok.service.kinder.Program;
 
+import java.io.File;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +26,8 @@ public class EduModifyService {
 		TeacherDTO tDTO = new TeacherDTO();
 		List<TeacherDTO> list = teacherMapper.enrollListup(tDTO);
 		model.addAttribute("dto", dto);
-		System.out.println(dto.getpTeacher());
 		model.addAttribute("list", list);
+
 	}
 
 }

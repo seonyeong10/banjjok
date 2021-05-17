@@ -22,9 +22,10 @@
 	select p_code pCode, p_name pName, p_price pPrice, p_content pcontent, p.p_teacher pteacher, t.t_name tname, t.t_photo tphoto, p_target ptarget, p_img pimg, p_categ pcateg, p_start pstart, p_end pend, regist
 	from program p join teacher t
 	on p.p_teacher = t.t_id
-	<where>
+	<trim prefix="where" prefixOverrides="AND | OR">
 		<if test="pCateg != null">p_categ = #{pCateg}</if>
-	</where>
+		<if test="pCode != null">p_code = #{pCode}</if>
+	</trim>
 </select>
 <select id="getProgram" parameterType="banjjok.domain.ProgramDTO" 
 		resultType="banjjok.domain.ProgramDTO">
@@ -34,11 +35,14 @@
 		<if test="pCode != null">p_code = #{pCode}</if>
 	</trim>
 </select>
-<update id="programModify" parameterType="banjjok.domain.ProgramDTO">
+<update id="update" parameterType="banjjok.domain.ProgramDTO">
 	update program
-	set P_NAME = #{pName}, P_PRICE = #{pPrice}, P_CONTENT = #{pContent}
+	set P_NAME = #{pName}, P_PRICE = #{pPrice}, P_CONTENT = #{pContent}, p_teacher = #{pTeacher}, p_target = #{pTarget}, p_img = #{pImg}, p_categ = #{pCateg}, p_start = #{pStart}, p_end = #{pEnd}
 	where P_CODE = #{pCode}
 </update>
-
+<delete id="delete" parameterType="banjjok.domain.ProgramDTO">
+	delete from program
+	where P_CODE = #{pCode} and p_teacher = #{pTeacher}
+</delete>
 
 </mapper>

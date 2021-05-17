@@ -37,6 +37,8 @@
 .program-area ul li {
   position: relative;
   margin-top: 30px;
+  display: flex;
+  align-items: center;
 }
 
 .program-area ul li:first-child {
@@ -54,7 +56,7 @@
 
 .program-area .img-area {
   width: 300px;
-  height: 300px;
+  height: 310px;
 }
 
 .program-area .img-area a {
@@ -72,11 +74,12 @@
 }
 
 .program-area .info-area {
-  position: absolute;
-  top: 50%;
-  left: 340px;
-  transform: translateY(-50%);
-  padding: 8px 0;
+/*   position: absolute; */
+/*   top: 50%; */
+/*   left: 340px; */
+/*   transform: translateY(-50%); */
+  padding-left: 30px;
+  width: 70%;
 }
 
 .program-area .info-area .part {
@@ -127,3 +130,27 @@
   color: #fff;
   text-decoration: none;
 }
+
+.modify-area {
+/* 	position: absolute; */
+/* 	right: 0; */
+/* 	top: 50%; */
+/* 	transform: translateY(-50%); */
+}
+
+.modify-area a {
+	display: block;
+	background: #f4f1de;
+	width: 55px;
+	text-align: center;
+	line-height: 30px;
+	margin-top: 10px;
+	border-radius: 10px;
+	color: #333;
+}
+
+.modify-area a:first-child {
+	background: #3c405b;
+	color: #fff;
+}
+

@@ -18,4 +18,6 @@ public interface ProgramMapper {
 	public Integer regist(ProgramDTO dto) throws Exception;
 	public List<ProgramDTO> programs(ProgramDTO dto) throws Exception;
 	public ProgramDTO getProgram(ProgramDTO dto) throws Exception;
+	public Integer update(ProgramDTO dto) throws Exception;
+	public void delete(ProgramDTO dto) throws Exception;
 }
