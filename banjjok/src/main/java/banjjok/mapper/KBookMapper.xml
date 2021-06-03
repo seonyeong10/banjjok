@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="banjjok.mapper.KBookMapper" >
+
+<select id="getBCode" resultType="string">
+	select max(b_code) from booking_list
+</select>
+<insert id="insertList" parameterType="banjjok.domain.KBookDTO">
+	insert into Booking_list(b_code, bL_date, bL_time, p_code, bl_tester)
+	values(#{bCode}, #{bLDate}, #{bLTime}, #{pCode}, #{bLTester})
+</insert>
+<insert id="pay" parameterType="banjjok.domain.KPayDTO">
+	insert into PAYMENT	(b_code, pay_way, pay_use, pay_amount, pay_date)
+	values(#{bCode}, #{payWay}, #{payUse}, #{payAmount}, SYSDATE)
+</insert>
+<insert id="book" parameterType="banjjok.domain.KBookDTO">
+	insert into BOOKING(b_code, mem_id, b_request)
+	values(#{bCode}, #{memId}, #{bRequest})
+</insert>
+
+</mapper>

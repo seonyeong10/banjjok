@@ -28,9 +28,10 @@
 		<div class="program-area">
 			<ul>
 				<c:forEach items="${list }" var="list">
-					<li onclick="selectAddr('${authInfo.grade}','${list.pCode }')">
+<%-- 					<li onclick="selectAddr('${authInfo.grade}','${list.pCode }');"> --%>
+					<li>
 						<div class="img-area">
-							<a href="#">
+							<a onclick="javascript:location.href='program/reserve/${list.pCode}'">
 								<c:set value="${fn:split(list.pImg,'`') }" var="img" />
 								<img src="/kinder/upload/${img[1] }" alt="program" />
 							</a>
@@ -140,7 +141,7 @@
 				location.href = '/banjjok/kinder/program/modify/' + pCode;
 			} else {
 				location.href = '/banjjok/kinder/program/reserve/' + pCode;
-			}
+// 			}
 		}
 		
 		function delete(pCode, file){

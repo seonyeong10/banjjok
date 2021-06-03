@@ -9,7 +9,7 @@ public class TeacherDTO {
 	String tPw;
 	String tPhoto;
 	String tPh;
-	String tState;
+	String tState;	// 01(사회화) 02(단일) 03(종일)
 	String tEmail;
 	String shopCode;
 	Timestamp tJoin;

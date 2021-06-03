@@ -24,7 +24,7 @@
 	on p.p_teacher = t.t_id
 	<trim prefix="where" prefixOverrides="AND | OR">
 		<if test="pCateg != null">p_categ = #{pCateg}</if>
-		<if test="pCode != null">p_code = #{pCode}</if>
+		<if test="pCode != null">and p_code = #{pCode}</if>
 	</trim>
 </select>
 <select id="getProgram" parameterType="banjjok.domain.ProgramDTO" 
