@@ -12,6 +12,7 @@
 <sql id="rev2">
 	mem_id memid, service_code servicecode, star, review, reg_date regdate, step, reserv_code reservcode
 </sql>
+<!-- <select id="view" parameterType="banjjok.domain.MemSalReserveDTO" resultType="banjjok.domain.MemSalReserveDTO"> -->
 <select id="view" parameterType="banjjok.domain.MemSalReserveDTO" resultType="banjjok.domain.MemSalReserveDTO">
 	select <include refid="col" />
 	from review_view

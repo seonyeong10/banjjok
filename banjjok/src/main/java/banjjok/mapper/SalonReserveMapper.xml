@@ -96,7 +96,7 @@ from
 			and res.reserv_date between to_date(#{reservDate}, 'yyyy-MM-dd') and (to_date(#{reservDate},'yyyy-mm-dd')+(interval '1' day)) 
 		 </if>
 		 group by res.reserv_date, to_char(lis.reserv_date, 'hh24:mi'), lis.reserv_date, 'true')
-	where count <![CDATA[ >= ]]> 3) r
+	where count <![CDATA[ >= ]]> 1) r
 right join (select level+9||':00' as time from dual connect by level <![CDATA[ <= ]]> 8) o
 on r.time = o.time
 order by o.time

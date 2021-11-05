@@ -11,7 +11,8 @@ import banjjok.domain.SalonReviewDTO;
 @Repository
 public interface SalonReviewMapper {
 
-	public List<SalonReviewDTO> view(SalonReviewDTO rDTO) throws Exception;
+//	public List<SalonReviewDTO> view(SalonReviewDTO rDTO) throws Exception;
+	public List<MemSalReserveDTO> view(MemSalReserveDTO rDTO) throws Exception;
 	public Integer enroll(SalonReviewDTO dto) throws Exception;
 	public List<SalonReviewDTO> getList(SalonReviewDTO rDTO) throws Exception;
 	public Integer getCount(String serviceCode);
